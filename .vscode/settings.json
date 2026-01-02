@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.liquid": "liquid"
+  },
+  "[liquid]": {
+    "editor.defaultFormatter": "shopify.liquid",
+    "editor.formatOnSave": false
+  }
+}
+
