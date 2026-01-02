@@ -1,0 +1,287 @@
+{% capture bsscommerce_login_require_template %}{% include 'bsscommerce_login_require' %}{% endcapture %}{% unless bsscommerce_login_require_template contains "Liquid error" %}{{ bsscommerce_login_require_template }}{% endunless %}<!doctype html>
+<!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"{% if settings.layout_enable_rtl %} dir="rtl"{% endif %}> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"{% if settings.layout_enable_rtl %} dir="rtl"{% endif %}> <!--<![endif]-->
+<head>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MP54QNK7');</script>
+<!-- End Google Tag Manager -->
+  
+<meta name="facebook-domain-verification" content="cx12xo3fnlshwv2qmiz7pa8v1s7pdy" />
+
+{% include 'booster-seo' %}{% render 'pagefly-head' %}
+  <meta name="google-site-verification" content="zwoNQbX2j8OOCF3r_8Zy-yH2Xfwc41yrtqDhEUSz1dA" />
+  {% capture get_content_for_header %}{{ content_for_header }}{% endcapture %}
+  {% include 'head' %}
+{% render 'weglot_hreftags' %}
+{% render 'weglot_switcher' %}
+{% include 'yotpo-widgets-loader-script' %}
+  <script src="https://cdn.younet.network/main.js"></script>
+
+  {% render 'qikify-apps' %}
+
+  <!-- Hotjar Tracking Code for https://www.themorfose.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3484985,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+{% if content_for_header contains 'bss-b2b-cp' %}{% include 'bss-b2b-header' %}{% endif %}
+{%- if customer.metafields.sparklayer.authentication -%}
+<!-- Anything inside here only shows for logged in customers-->
+<!-- Start of SparkLayer core script-->
+<script>
+  window.sparkOptions = {
+    siteId: "themorfose",
+    platform: "shopify",
+    rootUrl: {{ routes.root_url | json }},
+    language: {{ request.locale.iso_code | json }},
+    accountRedirect: {
+      urlRegex: /\/account/g,
+      goTo: "/index", // page to redirect logged in users to
+    },
+    display: {
+      stock: {
+        show: false, // set to true to show stock level display
+        max: 50, // highest stock level to show
+        last: 5, // last remaining stock
+        low: 15, // low stock threshold
+        last: true, // set to false to hide last stock message
+      },
+    },
+    auth: {
+      user: {{ customer.email | json }},
+      token: {{ customer.metafields.sparklayer.authentication | json }},
+    },
+  };
+</script>
+<script async src="https://cdn.sparklayer.io/spark.1.0.58.js"></script>
+<!-- End of SparkLayer core script-->
+  <!-- SparkLayer Sample CSS Code -->
+<style type="text/css">
+  :root {
+    /* Set the brand styling */
+    --b2b-brand-color: #000; /* Main brand colour*/
+    --b2b-brand-color-hover: #333; /* Main brand colour hover */
+    --b2b-brand-font: "Basic Commercial", sans-serif; /* Main brand font */
+    --b2b-brand-font-heading: "Basic Commercial", sans-serif; /* Main brand heading font */
+
+    /* Update colours */
+    --spark-default-body-color: #555555; /* Main body colour*/
+    --spark-primary-color: #000000; /* Main title colour*/
+    --spark-secondary-color: var(--b2b-brand-color); /* Main highlight colour*/
+    --spark-link-color: var(--b2b-brand-color); /* Link colour*/
+
+    /* Typefaces */
+    --spark-font-default: var(--b2b-brand-font); /* Body typeface*/
+    --spark-font-highlight: var(--b2b-brand-font-heading); /* Highlight typeface*/
+    --spark-font-weight-default: 400; /* Default font weight*/
+    --spark-font-weight-medium: 500; /* Medium font weight*/
+    --spark-font-weight-heavy: 600; /* Bold font weight*/
+
+    /* General */
+    --spark-border-radius-default: 0; /* Default border radius*/
+    --spark-drawer-max-width: 700px; /* Width of overlay*/
+    --spark-drawer-max-width-wide: 1000px; /* Width of overlay in maximised view*/
+
+    /* Font sizes */
+    --spark-font-default-size: 14px; /* Default font size*/
+    --spark-font-default-size-small: 14px; /* Default font size - small screens*/
+    --spark-header-font: var(--b2b-brand-font-heading); /* Header typeface*/
+    --spark-header-font-weight: 500; /* Header font weight*/
+    --spark-h1-fontsize: 24px; /* Header 1 font size*/
+    --spark-h2-fontsize: 22px; /* Header 2 font size*/
+    --spark-h3-fontsize: 20px; /* Header 3 font size*/
+    --spark-h4-fontsize: 16px; /* Header 4 font size*/
+    --spark-h5-fontsize: 15px; /* Header 5 font size*/
+    --spark-h6-fontsize: 14px; /* Header 6 font size*/
+
+    --spark-pricing-fontsize: 20px; /* Font size of pricing*/
+    --spark-pricing-font-weight: 600; /* Font weight of pricing*/
+    --spark-pricing-fontsize-small: 14px; /* Font size of pricing on mobile*/
+
+    --spark-product-code-fontsize: 16px; /* Font size of product code*/
+    --spark-product-code-font-weight: 500; /* Font weight of product code*/
+    --spark-product-code-fontsize-small: 14px; /* Font size of product code on mobile*/
+    --spark-product-stockstatus-align: flex-start; /* Aligment of stock status for single variants*/
+
+    /* Buttons */
+    --spark-button-font-family: var(--b2b-brand-font-heading); /* Button typeface*/
+    --spark-button-color: var(--b2b-brand-color); /* Default sutton colour*/
+    --spark-button-color-highlight: var(--b2b-brand-color-hover); /* Default button colour hover*/
+    --spark-button-large-color: var(--b2b-brand-color); /* Large button colour*/
+    --spark-button-large-color-highlight: var(--b2b-brand-color-hover); /* Large button colour hover*/
+    --spark-border-radius-button: 0; /* Button border radius*/
+    --spark-button-font-weight: 600; /* Button font weight*/
+    --spark-button-text-transform: uppercase; /* Button text transform*/
+    --spark-button-text-letter-spacing: 1px; /* Button letter spacing*/
+    --spark-button-padding: 1em 2.75em; /* Button padding*/
+    --spark-button-small-font-size: 13px; /* Small button font size*/
+
+    /* Tables */
+    --spark-table-border-color: #CCCCCC; /* Table border colour*/
+    --spark-table-header-background-color: #F1F1F1; /* Table header background*/
+    --spark-table-header-text-color: #222222; /* Table header font colour*/
+    --spark-table-header-font-weight: 500; /* Table header font weight*/
+
+    /* Product Card */
+    --spark-product-card-button-radius: 0; /* Button radius*/
+    --spark-product-card-button-padding: 0.75em 1em; /* Button padding*/
+    --spark-product-card-pricing-font-size: 15px; /* Pricng font size*/
+    --spark-product-card-pricing-font-size-small: 14px; /* Pricng font size on mobile*/
+    --spark-product-card-select-min-height: 0; /* Set a min-height for select menu*/
+
+  }
+
+  .essential_free_shipping_bar_wrapper,
+  .product-page-info__button-add-to-cart,
+  .product-page-info__quantity,
+  delivery-countdown {
+    display: none !important
+  }
+
+  spark-product-card {
+    display: block !important;
+    width: 100%
+  }
+</style>
+<!-- End SparkLayer Sample CSS Code -->
+{%- endif -%}
+
+  {% include 'scm-product-label-head' %}
+<!--Product-Label script. Don't modify or delete-->
+<script>
+    ;(function() {
+        const checkDone = setInterval(function(){
+            if (document.readyState === "complete") {
+                clearInterval(checkDone)
+                setTimeout(function(){
+                    if (typeof SECOMAPP !== "undefined" && typeof SECOMAPP.pl !== "undefined") {
+                        SECOMAPP.pl.labelCollections(true);
+                    }
+                },1000);
+            }
+        }, 1500);
+
+        let pushState = history.pushState;
+        let replaceState = history.replaceState;
+
+        history.pushState = function() {
+            pushState.apply(history, arguments);
+            window.dispatchEvent(new Event('pushstate'));
+            window.dispatchEvent(new Event('locationchange'));
+        };
+
+        history.replaceState = function() {
+            replaceState.apply(history, arguments);
+            window.dispatchEvent(new Event('replacestate'));
+            window.dispatchEvent(new Event('locationchange'));
+        };
+
+        window.addEventListener('popstate', function() {
+            window.dispatchEvent(new Event('locationchange'))
+        });
+    })();
+    window.addEventListener('locationchange', function(){
+        setTimeout(function(){
+            if (typeof SECOMAPP !== "undefined" && typeof SECOMAPP.pl !== "undefined") {
+                SECOMAPP.pl.labelCollections(true);
+                var queryString = window.location.search;
+                var urlParams = new URLSearchParams(queryString);
+                var variant = urlParams.get('variant');
+                SECOMAPP.pl.showLabel(variant );
+            }
+        },1000);
+    })
+</script>
+<!--Product-Label script. Don't modify or delete-->
+</head>
+<body{% render 'layout-get-body-attributes' %}>
+
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTKL999D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+{% include 'layout-get-includes-start' %}
+{%- if settings.product_show_custom_options and settings.product_enable_variants_section -%}
+  {% section 'product-variants' %}
+{%- endif -%}
+{% section 'header' %}
+<main id="MainContent">
+  {%- if request.page_type == 'page' -%}
+    {% include 'breadcrumbs' %}
+  {%- endif -%}
+  {{ content_for_layout }}
+{% capture bsscommerce_passcode_to_see_price_product_custom %}{% render 'bss-passcode-to-see-price-js.liquid' %}{% endcapture %}{% unless bsscommerce_passcode_to_see_price_product_custom contains "Liquid error" %}{% render 'bss-passcode-to-see-price-js.liquid' %}{% endunless %}{% capture bsscommerce_login_to_see_price_product_custom %}{% render 'bsscommerce-login-to-see-price-custom-js.liquid' %}{% endcapture %}{% unless bsscommerce_login_to_see_price_product_custom contains "Liquid error" %}{% render 'bsscommerce-login-to-see-price-custom-js.liquid' %}{% endunless %}{% capture bss_ltap_fl_redirect %}{% render 'bss-ltap-fl-redirect.liquid' %}{% endcapture %}{% unless bss_ltap_fl_redirect contains "Liquid error" %}{% render 'bss-ltap-fl-redirect.liquid' %}{% endunless %}</main>
+{% section 'footer' %}
+{% include 'popups' %}
+{% include 'footbar' %}
+{%- if settings.presentation_enable or template == 'product' and settings.product_info_page_show_usage_info_sidebar -%}
+  {% include 'fixed-sidebar' %}
+{%- endif -%}
+{% include 'templates' %}
+{% include 'layout-get-includes-end' %}
+<!-- START APPS -->
+{%- if settings.app_klarna_enable -%}
+  <!-- start Klarna app -->
+  <script>window.KlarnaThemeGlobals={};{%case template.name%} {%when"product"%} window.KlarnaThemeGlobals.data_purchase_amount={{product.first_available_variant.price}};window.KlarnaThemeGlobals.productVariants={{product.variants|json}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%when"cart"%} window.KlarnaThemeGlobals.data_purchase_amount={{cart.total_price}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%endcase%}</script>
+  <!-- end Klarna app -->
+{%- endif -%}
+{%- if settings.app_growave_enable -%}
+  <!-- start Growave app -->
+  {% capture the_snippet_content %}{% render 'socialshopwave-helper' %}{% endcapture %}
+  {%- unless the_snippet_content contains 'Liquid error' -%}
+    {{ the_snippet_content }}
+  {%- endunless -%}
+  <script>
+    sswRun(function(){
+      var intervalId = setInterval(function() {
+        if(ssw('.ssw-stars.ssw-stars-large').length) {
+          ssw('.ssw-stars.ssw-stars-large').on('click', function() {
+            ssw('.product-page__tabs .tabs__btn[data-tab="reviews"]').click();
+            ssw('html, body').animate({
+              scrollTop: ssw("#ssw-widget-recommends-html").offset().top - 200
+            }, 100);
+          });
+          clearInterval(intervalId);
+        }
+      },1000);
+    });
+  </script>
+  <!-- end Growave app -->
+{%- endif -%}
+{%- if settings.reviews_type == 'loox' -%}
+  {{ shop.metafields.loox["global_html_body"] }}
+  <style>
+    .loox-rating .loox-icon {
+      font-size: 1.22em;
+    }
+    .loox-rating .loox-icon:not(:last-child) {
+      margin-right: 5px;
+    }
+    .loox-rating span {
+      margin-left: 2px;
+      vertical-align: 2px;
+    }
+  </style>
+{%- endif -%}
+<!-- END APPS -->
+<script>window.performance.mark('theme:DOM:loaded');</script>
+{% comment %}
+{% render 'js-api' %}
+{% endcomment %}
+{{ '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23' | script_tag }}
+{% include 'shopstar-initializer' %}{% if content_for_header contains 'bss-b2b-cp' %}{% include 'bss-b2b-jquery-341-js' %}{% include 'bss-b2b-js' %}{% endif %}</body>
+</html>

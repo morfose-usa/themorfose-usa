@@ -1,0 +1,469 @@
+{% doc %}
+  @prompt
+    categry text area seo focused
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-category-seo-{{ ai_gen_id }} {
+    padding: {{ block.settings.padding_top }}px 0 {{ block.settings.padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-category-seo-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.content_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-category-seo-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size }}px;
+    line-height: {{ block.settings.line_height }};
+    color: {{ block.settings.text_color }};
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} p {
+    margin: 0 0 {{ block.settings.paragraph_spacing }}px;
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} h2,
+  .ai-category-seo-content-{{ ai_gen_id }} h3,
+  .ai-category-seo-content-{{ ai_gen_id }} h4 {
+    color: {{ block.settings.heading_color }};
+    margin: {{ block.settings.subheading_spacing }}px 0 {{ block.settings.paragraph_spacing }}px;
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} h2 {
+    font-size: {{ block.settings.heading_size | times: 0.8 }}px;
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} h3 {
+    font-size: {{ block.settings.heading_size | times: 0.7 }}px;
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} h4 {
+    font-size: {{ block.settings.heading_size | times: 0.6 }}px;
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} ul,
+  .ai-category-seo-content-{{ ai_gen_id }} ol {
+    margin: 0 0 {{ block.settings.paragraph_spacing }}px;
+    padding-left: 20px;
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} li {
+    margin-bottom: 8px;
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} a {
+    color: {{ block.settings.link_color }};
+    text-decoration: underline;
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} a:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  .ai-category-seo-content-{{ ai_gen_id }} strong,
+  .ai-category-seo-content-{{ ai_gen_id }} b {
+    font-weight: 600;
+  }
+
+  .ai-category-seo-toggle-{{ ai_gen_id }} {
+    margin-top: {{ block.settings.paragraph_spacing }}px;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-category-seo-button-{{ ai_gen_id }} {
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    border: 1px solid {{ block.settings.button_border_color }};
+    padding: 12px 24px;
+    font-size: {{ block.settings.text_size }}px;
+    cursor: pointer;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    transition: all 0.3s ease;
+  }
+
+  .ai-category-seo-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+    color: {{ block.settings.button_hover_text_color }};
+    border-color: {{ block.settings.button_hover_border_color }};
+  }
+
+  .ai-category-seo-content-collapsed-{{ ai_gen_id }} {
+    max-height: {{ block.settings.collapsed_height }}px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ai-category-seo-content-collapsed-{{ ai_gen_id }}::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, {{ block.settings.background_color }});
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-category-seo-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.8 }}px;
+    }
+
+    .ai-category-seo-content-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<category-seo-{{ ai_gen_id }} class="ai-category-seo-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-category-seo-container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-category-seo-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    {% if block.settings.content != blank %}
+      <div 
+        class="ai-category-seo-content-{{ ai_gen_id }} {% if block.settings.enable_read_more %}ai-category-seo-content-collapsed-{{ ai_gen_id }}{% endif %}"
+        data-content
+      >
+        {{ block.settings.content }}
+      </div>
+
+      {% if block.settings.enable_read_more %}
+        <div class="ai-category-seo-toggle-{{ ai_gen_id }}">
+          <button 
+            class="ai-category-seo-button-{{ ai_gen_id }}"
+            data-toggle-button
+            aria-expanded="false"
+          >
+            {{ block.settings.read_more_text }}
+          </button>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="ai-category-seo-content-{{ ai_gen_id }}">
+        <p style="color: #999; font-style: italic;">Add SEO-optimized content for this category to improve search rankings and provide valuable information to customers.</p>
+      </div>
+    {% endif %}
+  </div>
+</category-seo-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class CategorySeo{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.content = this.querySelector('[data-content]');
+        this.toggleButton = this.querySelector('[data-toggle-button]');
+        
+        if (this.toggleButton && this.content) {
+          this.isExpanded = false;
+          this.readMoreText = '{{ block.settings.read_more_text }}';
+          this.readLessText = '{{ block.settings.read_less_text }}';
+          
+          this.toggleButton.addEventListener('click', () => {
+            this.toggleContent();
+          });
+        }
+      }
+
+      toggleContent() {
+        this.isExpanded = !this.isExpanded;
+        
+        if (this.isExpanded) {
+          this.content.classList.remove('ai-category-seo-content-collapsed-{{ ai_gen_id }}');
+          this.toggleButton.textContent = this.readLessText;
+          this.toggleButton.setAttribute('aria-expanded', 'true');
+        } else {
+          this.content.classList.add('ai-category-seo-content-collapsed-{{ ai_gen_id }}');
+          this.toggleButton.textContent = this.readMoreText;
+          this.toggleButton.setAttribute('aria-expanded', 'false');
+        }
+      }
+    }
+
+    customElements.define('category-seo-{{ ai_gen_id }}', CategorySeo{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Category SEO text",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "About this collection"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "SEO content",
+      "info": "Add keyword-rich content to improve search engine visibility"
+    },
+    {
+      "type": "header",
+      "content": "Read more"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_read_more",
+      "label": "Enable read more toggle",
+      "default": true,
+      "info": "Collapse long content with a read more button"
+    },
+    {
+      "type": "range",
+      "id": "collapsed_height",
+      "min": 100,
+      "max": 500,
+      "step": 20,
+      "unit": "px",
+      "label": "Collapsed height",
+      "default": 200
+    },
+    {
+      "type": "text",
+      "id": "read_more_text",
+      "label": "Read more text",
+      "default": "Read more"
+    },
+    {
+      "type": "text",
+      "id": "read_less_text",
+      "label": "Read less text",
+      "default": "Read less"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 600,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Content width",
+      "default": 1000
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "label": "Line height",
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Heading spacing",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "subheading_spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Subheading top spacing",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "paragraph_spacing",
+      "min": 5,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Paragraph spacing",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link",
+      "default": "#0066cc"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover",
+      "default": "#004499"
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Border",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Hover background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Hover text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Hover border",
+      "default": "#999999"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category SEO text"
+    }
+  ]
+}
+{% endschema %}

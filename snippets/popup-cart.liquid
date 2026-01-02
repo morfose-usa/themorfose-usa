@@ -1,0 +1,270 @@
+<!-- BACKDROP -->
+<div
+  class="popup-backdrop"
+  style="
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s ease;
+    z-index: 9998;
+  "
+></div>
+
+<!-- DRAWER -->
+<div
+  class="popup-cart js-popup-cart-ajax"
+  data-popup-content
+  style="
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    z-index: 9999;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform .45s cubic-bezier(.32, .72, 0, 1);
+    box-shadow: -12px 0 35px rgba(0,0,0,.22);
+    border-radius: 24px 0 0 24px;
+  "
+>
+  <!-- STICKY HEADER -->
+  <div
+    class="popup-cart__head d-flex align-items-center"
+    style="
+      position: sticky;
+      top: 0;
+      padding: 24px 22px;
+      background: #fff;
+      z-index: 999;
+      border-bottom: 1px solid #ececec;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+      border-radius: 24px 0 0 0;
+    "
+  >
+    <h5 class="m-0" style="font-size:22px; font-weight:700; display:flex; align-items:center; gap:6px;">
+      {{ 'general.popups.cart.title' | t }}
+      <span style="font-size:14px; color:#777;">({{ cart.item_count }})</span>
+    </h5>
+
+    <i
+      class="popup-cart__close ml-auto cursor-pointer"
+      data-js-popup-close
+      style="
+        padding:12px;
+        font-size:26px;
+        border-radius:50%;
+        transition:.25s;
+      "
+      onmouseover="this.style.background='#f2f2f2'"
+      onmouseout="this.style.background='transparent'"
+    >
+      {% render 'icon-theme-164' %}
+    </i>
+  </div>
+
+  <!-- CONTENT -->
+  {%- if cart.items.size > 0 -%}
+    <div class="popup-cart__content" style="padding:20px; padding-bottom:260px;">
+      <!-- ITEMS -->
+      <div
+        class="popup-cart__items"
+        style="display:flex; flex-direction:column; gap:22px; margin-top:10px;"
+      >
+        {%- for item in cart.items -%}
+          <!-- PRODUCT CARD -->
+          <div
+            style="
+              padding:20px;
+              border-radius:22px;
+              border:1px solid #f0f0f0;
+              background:#fff;
+              box-shadow:0 4px 12px rgba(0,0,0,0.06);
+              transition:.25s;
+            "
+            onmouseover="this.style.boxShadow='0 6px 18px rgba(0,0,0,.10)'"
+            onmouseout="this.style.boxShadow='0 4px 12px rgba(0,0,0,.06)'"
+          >
+            {%- comment -%}
+              PRODUCT-CART SNIPPET RENDER — BUT WE STRIP THE EMOJIS
+            {%- endcomment -%}
+
+            <div style="font-size:17px; font-weight:700; margin-bottom:4px;">
+              {{ item.product.title | replace: '🥛', '' | replace: '🍼', '' | replace: '🍶', '' }}
+            </div>
+
+            {% include 'product-cart' with disable_lazyload: disable_lazyload %}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <!-- FIXED FOOTER -->
+    <div
+      class="popup-cart__footer"
+      style="
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: 480px;
+        background: #ffffff;
+        padding: 22px 22px 26px 22px;
+        border-top: 1px solid #e5e5e5;
+        box-shadow: 0 -10px 28px rgba(0,0,0,0.10);
+        z-index: 10000;
+        border-radius: 0 0 24px 24px;
+      "
+    >
+      <!-- SUBTOTAL -->
+      <div style="margin-bottom: 16px;">
+        <div
+          class="d-flex align-items-center"
+          style="font-size:20px; font-weight:700; color:#111;"
+        >
+          <span>Subtotal</span>
+          <span class="ml-auto">
+            {% include 'product-get-price' with price: cart.total_price %}
+          </span>
+        </div>
+
+        <p
+          style="
+            font-size:13px;
+            color:#666;
+            margin:6px 0 0 0;
+          "
+        >
+          Taxes and shipping calculated at checkout.
+        </p>
+      </div>
+
+      <!-- DISCOUNTS -->
+      {%- if cart.cart_level_discount_applications.size > 0 -%}
+        <div style="margin-bottom: 12px;">
+          {%- for discount_application in cart.cart_level_discount_applications -%}
+            <div
+              class="d-flex align-items-center"
+              style="font-size:14px; color:#d33; font-weight:600;"
+            >
+              <span>{{ discount_application.title | upcase }}</span>
+              <span class="ml-auto"
+                >-
+                {% include 'product-get-price' with price: discount_application.total_allocated_amount %}
+              </span>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <!-- CHECKOUT BUTTON -->
+      <div class="checkout-actions" style="display:flex; gap:12px;">
+        <a
+          href="{{ routes.root_url }}{% if routes.root_url != '/' %}/{% endif %}checkout"
+          class="btn btn--full animated-btn checkout-btn"
+        >
+          Checkout
+        </a>
+
+        <a
+          href="{{ routes.cart_url }}"
+          class="btn btn--full animated-btn cart-btn"
+        >
+          View Cart
+        </a>
+      </div>
+    </div>
+
+  {%- else -%}
+    <div style="font-size:18px; text-align:center; padding:40px 0; color:#777;">
+      {{ 'general.popups.cart.empty' | t }}
+    </div>
+  {%- endif -%}
+</div>
+
+<!-- UNIVERSAL FIXES -->
+<style>
+    /* REMOVE PRODUCT UNIT / EMOJI ICONS */
+    .popup-cart .unit-price,
+    .popup-cart .product-unit,
+    .popup-cart .cart-item__unit,
+    .popup-cart .product__unit,
+    .popup-cart .unit,
+    .popup-cart .unit-price-wrapper {
+        display:none !important;
+    }
+
+    /* Quantity button universal override */
+    .popup-cart button,
+    .popup-cart .qty button,
+    .popup-cart .js-qty button,
+    .popup-cart .quantity button,
+    .popup-cart .cart-item__qty button,
+    .popup-cart .product-cart__qty button {
+        background:#000 !important;
+        color:#fff !important;
+        border-radius:10px !important;
+        width:34px !important;
+        height:34px !important;
+        display:flex !important;
+        align-items:center;
+        justify-content:center;
+        padding:0 !important;
+        border:none !important;
+        font-weight:700 !important;
+    }
+
+    /* Fix SVG icons inside +/- */
+    .popup-cart button svg *,
+    .popup-cart .cart-item__qty button svg *,
+    .popup-cart .quantity button svg *,
+    .popup-cart .js-qty button svg * {
+        fill:#fff !important;
+        stroke:#fff !important;
+    }
+
+    /* Hover effect */
+    .popup-cart .js-qty button:hover,
+    .popup-cart .quantity button:hover,
+    .popup-cart .cart-item__qty button:hover {
+        background:#111 !important;
+    }
+
+    /* Animated checkout buttons */
+    .animated-btn:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15) !important;
+    }
+
+    /* Footer hover fix */
+    .popup-cart .popup-cart__footer a.btn:hover {
+        color:#000 !important;
+    }
+    .popup-cart .popup-cart__footer a.btn.btn--secondary:hover {
+        color:#fff !important;
+    }
+
+    .checkout-actions a {
+      flex: 1;
+      padding: 12px !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      border-radius: 14px !important;
+  }
+
+  .checkout-btn {
+      background:#000 !important;
+      color:#fff !important;
+  }
+
+  .cart-btn {
+      background:#fff !important;
+      border:1px solid #000 !important;
+      color:#000 !important;
+  }
+</style>

@@ -1,0 +1,66 @@
+# Shopify platform
+User-agent: *
+Disallow: /admin
+Disallow: /cart
+Disallow: /carts
+Disallow: /orders
+Disallow: /checkouts/
+Disallow: /checkout
+Disallow: /account
+Disallow: /search
+Disallow: /policies/
+Disallow: /a/downloads/-/*
+Disallow: /sf_private_access_tokens
+
+# Collection parametreleri & filtreler
+Disallow: /*sort_by*
+Disallow: /*+*
+Disallow: /*%2B*
+Disallow: */collections/*filter*&*filter*
+
+# Blog parametreleri
+Disallow: /blogs/*+*
+Disallow: /blogs/*%2B*
+
+# Tracking & preview parametreleri
+Disallow: /*?*oseid=*
+Disallow: /*preview_theme_id*
+Disallow: /*preview_script_id*
+Disallow: /*?*ls=*&ls=*
+
+# Recommendation API & remote ürün linkleri
+Disallow: /recommendations/products
+Disallow: /*/recommendations/products
+Disallow: /products/*-[a-f0-9]{8}-remote
+Disallow: /*/products/*-[a-f0-9]{8}-remote
+Disallow: /collections/*/products/*-[a-f0-9]{8}-remote
+Disallow: /*/collections/*/products/*-[a-f0-9]{8}-remote
+
+# Shopify internal system paths
+Disallow: /.well-known/shopify/monorail
+Disallow: /apple-app-site-association
+Disallow: /cdn/wpm/*.js
+
+Sitemap: https://themorfose.com/sitemap.xml
+
+
+# Google AdsBot (robots.txt’i dikkate alır)
+User-agent: adsbot-google
+Disallow: /checkouts/
+Disallow: /checkout
+Disallow: /carts
+Disallow: /orders
+Disallow: /*?*oseid=*
+Disallow: /*preview_theme_id*
+Disallow: /*preview_script_id*
+Disallow: /products/*-[a-f0-9]{8}-remote
+Disallow: /*/products/*-[a-f0-9]{8}-remote
+Disallow: /collections/*/products/*-[a-f0-9]{8}-remote
+Disallow: /sf_private_access_tokens
+
+
+# Bloklanan botlar
+User-agent: Nutch
+Disallow: /
+
+

@@ -1,0 +1,25 @@
+<html>
+                  <body>
+                                     {% if page.title %}
+  <h1 class="page__title text-center">{{ page.title }}</h1>
+{% endif %}
+                    <div id="Squadded-SDK"></div>
+                    <script src="https://static.squadded.co/sdk/js/main.js"></script>
+                    <script src="https://static.squadded.co/loader/squad-widget-loader.min.js" id="squad-js" data-merchant-id="themorfose_myshopify_com"></script>
+                    <script>
+                              const params= new URLSearchParams(window.location.search)
+                              const userId= params.get('userId') || (params.values().next().value === '' ? params.keys().next().value : null)
+                              window.SquaddedProductPage.install({
+                                rootElt: document.getElementById('Squadded-SDK'),
+                                lng: 'en',
+                                apiPrefix: 'https://api.squadded.co',
+                                type: 'context-user',
+                                merchantId: 'themorfose_myshopify_com',
+                                userId,
+                                onlyAdminExpert: true,
+
+                              })
+                            
+                    </script>
+                  </body>
+                </html>

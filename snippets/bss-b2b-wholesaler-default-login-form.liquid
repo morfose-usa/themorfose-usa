@@ -1,0 +1,31 @@
+
+            {{ 'bss-b2b-state.js' | asset_url | script_tag }}
+            <script id="bss-b2b-wholesaler-form">
+            if (typeof BSS_B2B == 'undefined') {
+              var BSS_B2B = {};
+            }
+            BSS_B2B.formDataRender = [{"type":"text","required":true,"label":"Phone","placeholder":"Enter your phone number","className":"form-control phone-field","name":"phone-field","access":false,"subtype":"text","placement":"bottom"},{"type":"text","required":true,"label":"Company","placeholder":"Enter your company name","className":"form-control company-field","name":"company-field","access":false,"subtype":"text","placement":"bottom"},{"type":"text","required":false,"label":"Address","placeholder":"Enter your address","className":"form-control address-field","name":"address-field","access":false,"subtype":"text","placement":"bottom"},{"type":"autocomplete","required":true,"label":"Country","placeholder":"Enter your country","className":"form-control country-field","name":"country-field","access":false,"requireValidOption":false,"values":[{"label":"","value":"","selected":false}],"placement":"bottom"},{"type":"select","label":"State","className":"form-control state-field","name":"state-field","access":false,"values":[{"label":"","value":"","selected":false}],"placement":"bottom"},{"type":"text","required":true,"label":"City","className":"form-control city-field","name":"city-field","access":false,"value":"Enter your city","subtype":"text","placement":"bottom"},{"type":"text","required":true,"label":"Zip","className":"form-control zip-field","name":"zip-field","access":false,"value":"Enter your zip code","subtype":"text","placement":"bottom"},{"type":"text","required":true,"label":"US EIN Validation","placeholder":"Enter your US EIN number","className":"form-control us-ein-validation","name":"us-ein-validation","access":false,"subtype":"text","placement":"bottom"},{"type":"file","required":false,"label":"Certificate Upload","description":"If you have any kind of certificate please upload.","className":"form-control","name":"file-1694814739706-0","access":false,"placement":"bottom"},{"type":"checkbox-group","required":false,"label":"Subscribe to our newsletter","toggle":false,"inline":false,"className":"form-control accepts-marketing-field","name":"accepts-marketing","access":false,"other":false,"values":[{"label":"Option 1","value":"option-1","selected":true}],"placement":"bottom"}];
+            BSS_B2B.formId = 17344;
+            BSS_B2B.reCAPCHA = 0;
+            BSS_B2B.CAPCHA_SITE_KEY = "6LcYPEgbAAAAAKEQdimI1PPA4vuOJHxNb5p6eLUo";
+            BSS_B2B.status = 1;
+            BSS_B2B.created_account = 0;
+            BSS_B2B.redirect_url = "";
+            BSS_B2B.taxExempt = 0;
+            BSS_B2B.formPrivacyPolicyStatus = 0;
+            BSS_B2B.formPrivacyPolicyContent = `<p>By clicking Create, I confirm that I have read and accepted the <a href="/">privacy policy</a></p>`;
+            let isEnableForm = 1
+            BSS_B2B.shopModules && BSS_B2B.shopModules.forEach(function(sm){
+                if(sm.code == 'form') {
+                    isEnableForm = sm.status;
+                }
+            })
+            if (window.location.pathname == '/account/register' && BSS_B2B.created_account == 0 && isEnableForm == 1) {
+                let passwordField = document.querySelector('form[action*="/account"] input[type*="password"]')
+                let labelPasswordField = document.querySelector('form[action*="/account"] label[for*="' + passwordField.id + '"]')
+                labelPasswordField.style.display = "none";
+            }
+            </script>
+            <style>input[bss-b2b-password-hidden]{ display: none;}null</style>
+            
+            

@@ -1,0 +1,4 @@
+<div class="reputon-amazon-reviews-widget" id="b9cee570-cc1f-11ed-8613-61298d267773" data-product-reviews="true">{% assign productId = product.id | append: "" %}{% if productId != "" %}  <script>window.reputonAmazonProductReviewsData = {{ product.metafields['ReputonAmazonReviews::ProductReviews'][productId] }};</script>{% else %}  <script>window.reputonAmazonProductReviewsData = null;</script>{% endif %}</div>
+{% schema %}
+{"name":"Carousel with rating","presets":[{"name":"Carousel with rating","category":"Reputon Amazon Reviews Widget"}]}
+{% endschema %}

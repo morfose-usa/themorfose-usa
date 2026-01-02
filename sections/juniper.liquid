@@ -1,0 +1,22 @@
+{{ section.settings.html_area }}
+{% unless section.settings.html_area contains "feed-" %}
+  <div id="mintty-tiktok-feed"></div>
+{% endunless %}
+{% schema %}
+{
+  "name": "Juniper App",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "html_area",
+      "label": "Custom Code (optional)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Juniper App",
+      "category": "TikTok Feed"
+    }
+  ]
+}
+{% endschema %}
