@@ -9,12 +9,17 @@
 {%- assign selected_blocks_tape = section.blocks | where: 'type', 'tape' -%}
 {%- comment -%} Debug: selected_blocks_tape size = {{ selected_blocks_tape.size }} {%- endcomment -%}
 
-{%- comment -%} Get menu - prioritize 'mega' menu {%- endcomment -%}
-{%- assign main_menu = linklists['mega'] -%}
+{%- comment -%} Get menu - prioritize section settings menu {%- endcomment -%}
+{%- assign main_menu = blank -%}
 
-{%- comment -%} If 'mega' doesn't exist, try section settings {%- endcomment -%}
-{%- if main_menu == blank -%}
+{%- comment -%} First try section settings menu {%- endcomment -%}
+{%- if section.settings.menu != blank -%}
   {%- assign main_menu = linklists[section.settings.menu] -%}
+{%- endif -%}
+
+{%- comment -%} If section settings menu doesn't exist, try 'mega' menu {%- endcomment -%}
+{%- if main_menu == blank -%}
+  {%- assign main_menu = linklists['mega'] -%}
 {%- endif -%}
 
 {%- comment -%} If still blank, try 'main-menu' as fallback {%- endcomment -%}
@@ -949,6 +954,41 @@
     flex-shrink: 0;
   }
 
+  .header-modern__menu-item-image {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: 300px;
+    height: 200px;
+    z-index: 10003;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    background: #fff;
+  }
+
+  .header-modern__menu-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .header-modern__menu-item:hover .header-modern__menu-item-image {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .header-modern__menu-item--has-children:hover .header-modern__menu-item-image {
+    z-index: 10004;
+  }
+
   .header-modern__menu-link {
     display: block;
     padding: 24px 20px;
@@ -1017,6 +1057,26 @@
     margin: 0 auto;
     width: 100%;
     pointer-events: none;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .header-modern__mega-menu::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .header-modern__mega-menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .header-modern__mega-menu::-webkit-scrollbar-thumb {
+    background: #F36703;
+    border-radius: 4px;
+  }
+
+  .header-modern__mega-menu::-webkit-scrollbar-thumb:hover {
+    background: #d45a02;
   }
 
   .header-modern__menu-item:hover .header-modern__mega-menu {
@@ -1040,6 +1100,81 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 50px;
     max-width: 100%;
+    position: relative;
+    align-items: start;
+  }
+
+  .header-modern__mega-menu-wrapper--with-banners {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .header-modern__mega-menu-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
+    max-width: 100%;
+  }
+
+  .header-modern__mega-menu-wrapper--with-banners .header-modern__mega-menu-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
+  }
+
+  .header-modern__mega-menu-banners {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .header-modern__mega-menu-banners--right {
+    position: sticky;
+    top: 0;
+    right: 40px;
+    align-self: flex-start;
+    flex-direction: column;
+    width: auto;
+    max-width: 400px;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+  }
+
+  .header-modern__mega-menu-banners--bottom {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .header-modern__mega-menu-banner {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .header-modern__mega-menu-banner:hover {
+    transform: translateY(-5px);
+  }
+
+  .header-modern__mega-menu-banner img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .header-modern__mega-menu-banners--right .header-modern__mega-menu-banner {
+    width: 400px;
+    height: 600px;
+    margin-bottom: 20px;
+  }
+
+  .header-modern__mega-menu-banners--bottom .header-modern__mega-menu-banner {
+    flex: 1;
+    max-width: 50%;
+    height: 300px;
   }
 
   .header-modern__mega-menu-column {
@@ -1050,7 +1185,7 @@
   }
 
   .header-modern__mega-menu-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color: #000;
     margin: 0 0 20px 0;
@@ -1058,6 +1193,26 @@
     border-bottom: 2px solid #F36703;
     letter-spacing: -0.2px;
     line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header-modern__mega-menu-title-image {
+    width: 100%;
+    max-width: 160px;
+    height: 160px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .header-modern__mega-menu-title-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
   }
 
   .header-modern__mega-menu-title a {
@@ -1122,6 +1277,7 @@
   @media (max-width: 1399px) {
     .header-modern__mega-menu {
       padding: 40px 30px;
+      max-height: calc(100vh - 140px);
     }
     
     .header-modern__mega-menu-wrapper {
@@ -1130,8 +1286,17 @@
   }
 
   @media (max-width: 1199px) {
+    .header-modern__mega-menu {
+      max-height: calc(100vh - 130px);
+      padding: 35px 25px;
+    }
+    
     .header-modern__mega-menu-wrapper {
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 35px;
+    }
+    
+    .header-modern__mega-menu-content {
       gap: 35px;
     }
   }
@@ -1316,6 +1481,34 @@
     top: 0;
     z-index: 10;
     margin-top: 0;
+  }
+
+  .header-modern__mobile-menu-logo {
+    max-width: 150px;
+    flex-shrink: 0;
+  }
+
+  .header-modern__mobile-menu-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .header-modern__mobile-menu-logo img {
+    max-width: 150px;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .header-modern__mobile-menu-logo svg {
+    max-width: 150px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    display: block;
   }
 
   .header-modern__mobile-menu-close {
@@ -1760,18 +1953,126 @@
       <div class="header-modern__menu-container">
         <nav class="header-modern__menu-nav">
           {%- for link in main_menu.links -%}
+            {%- comment -%} Check for menu item image {%- endcomment -%}
+            {%- assign menu_item_image = blank -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'menu_item_image' and block.settings.menu_item_title == link.title -%}
+                {%- assign menu_item_image = block.settings.image -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+            
             <div class="header-modern__menu-item{% if link.links.size > 0 %} header-modern__menu-item--has-children{% endif %}">
+              {%- if menu_item_image != blank -%}
+                <div class="header-modern__menu-item-image">
+                  <img src="{{ menu_item_image | img_url: '300x200' }}" alt="{{ link.title }}" loading="lazy" width="300" height="200">
+                </div>
+              {%- endif -%}
               <a href="{{ link.url }}" class="header-modern__menu-link">
                 {{ link.title }}
               </a>
               
               {%- if link.links.size > 0 -%}
                 {%- comment -%} Always use Mega Menu Layout for better UX {%- endcomment -%}
+                {%- comment -%} Get banners for this menu item {%- endcomment -%}
+                {%- assign menu_banner_1 = blank -%}
+                {%- assign menu_banner_2 = blank -%}
+                {%- assign menu_banner_1_position = 'bottom' -%}
+                {%- assign menu_banner_2_position = 'bottom' -%}
+                {%- assign menu_banner_1_url = blank -%}
+                {%- assign menu_banner_2_url = blank -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'mega_menu_banner' and block.settings.menu_item_title == link.title -%}
+                    {%- if menu_banner_1 == blank -%}
+                      {%- assign menu_banner_1 = block.settings.image -%}
+                      {%- assign menu_banner_1_position = block.settings.position -%}
+                      {%- assign menu_banner_1_url = block.settings.url -%}
+                    {%- elsif menu_banner_2 == blank -%}
+                      {%- assign menu_banner_2 = block.settings.image -%}
+                      {%- assign menu_banner_2_position = block.settings.position -%}
+                      {%- assign menu_banner_2_url = block.settings.url -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                
                 <div class="header-modern__mega-menu">
-                  <div class="header-modern__mega-menu-wrapper">
+                  <div class="header-modern__mega-menu-wrapper{% if menu_banner_1 != blank or menu_banner_2 != blank %} header-modern__mega-menu-wrapper--with-banners{% endif %}">
+                    {%- if menu_banner_1 != blank and menu_banner_1_position == 'right' -%}
+                      <div class="header-modern__mega-menu-banners header-modern__mega-menu-banners--right">
+                        {%- if menu_banner_1_url != blank -%}
+                          <a href="{{ menu_banner_1_url }}" class="header-modern__mega-menu-banner">
+                            <img src="{{ menu_banner_1 | image_url: width: 400 }}" alt="Banner" loading="lazy" width="400" height="600" style="object-fit: cover;">
+                          </a>
+                        {%- else -%}
+                          <div class="header-modern__mega-menu-banner">
+                            <img src="{{ menu_banner_1 | image_url: width: 400 }}" alt="Banner" loading="lazy" width="400" height="600" style="object-fit: cover;">
+                          </div>
+                        {%- endif -%}
+                        {%- if menu_banner_2 != blank and menu_banner_2_position == 'right' -%}
+                          {%- if menu_banner_2_url != blank -%}
+                            <a href="{{ menu_banner_2_url }}" class="header-modern__mega-menu-banner">
+                              <img src="{{ menu_banner_2 | image_url: width: 400 }}" alt="Banner" loading="lazy" width="400" height="600" style="object-fit: cover;">
+                            </a>
+                          {%- else -%}
+                            <div class="header-modern__mega-menu-banner">
+                              <img src="{{ menu_banner_2 | image_url: width: 400 }}" alt="Banner" loading="lazy" width="400" height="600" style="object-fit: cover;">
+                            </div>
+                          {%- endif -%}
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                    
+                    <div class="header-modern__mega-menu-content">
                     {%- for sub_link in link.links -%}
+                      {%- comment -%} Check if this is a collection link and get collection image {%- endcomment -%}
+                      {%- assign collection_for_image = blank -%}
+                      {%- assign custom_collection_image = blank -%}
+                      {%- if section.settings.mega_menu_show_collection_images -%}
+                        {%- comment -%} Try to get collection from URL {%- endcomment -%}
+                        {%- if sub_link.url contains '/collections/' -%}
+                          {%- assign collection_handle = sub_link.url | split: '/collections/' | last | split: '/' | first -%}
+                          {%- assign collection_for_image = collections[collection_handle] -%}
+                        {%- endif -%}
+                        {%- if collection_for_image != blank -%}
+                          {%- for block in section.blocks -%}
+                            {%- if block.type == 'collection_image' and block.settings.collection != blank -%}
+                              {%- assign block_collection = collections[block.settings.collection] -%}
+                              {%- if block_collection.handle == collection_for_image.handle -%}
+                                {%- assign custom_collection_image = block.settings.image -%}
+                                {%- break -%}
+                              {%- endif -%}
+                            {%- endif -%}
+                          {%- endfor -%}
+                        {%- endif -%}
+                      {%- endif -%}
+                      {%- comment -%} Check for mega menu title image {%- endcomment -%}
+                      {%- assign mega_menu_title_image = blank -%}
+                      {%- for block in section.blocks -%}
+                        {%- if block.type == 'mega_menu_title_image' and block.settings.title == sub_link.title -%}
+                          {%- assign mega_menu_title_image = block.settings.image -%}
+                          {%- break -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                      
                       <div class="header-modern__mega-menu-column">
                         <div class="header-modern__mega-menu-title">
+                          {%- if mega_menu_title_image != blank -%}
+                            <div class="header-modern__mega-menu-title-image">
+                              <img src="{{ mega_menu_title_image | image_url: width: 160 }}" alt="{{ sub_link.title }}" loading="lazy" width="160" height="160" style="object-fit: cover;">
+                            </div>
+                          {%- elsif section.settings.mega_menu_show_collection_images -%}
+                            {%- if collection_for_image != blank -%}
+                              {%- if custom_collection_image != blank or collection_for_image.featured_image != blank -%}
+                                <div class="header-modern__mega-menu-title-image">
+                                  {%- if custom_collection_image != blank -%}
+                                    <img src="{{ custom_collection_image | image_url: width: 160 }}" alt="{{ sub_link.title }}" loading="lazy" width="160" height="160" style="object-fit: cover;">
+                                  {%- elsif collection_for_image.featured_image != blank -%}
+                                    <img src="{{ collection_for_image.featured_image | image_url: width: 160 }}" alt="{{ sub_link.title }}" loading="lazy" width="160" height="160" style="object-fit: cover;">
+                                  {%- endif -%}
+                                </div>
+                              {%- endif -%}
+                            {%- endif -%}
+                          {%- endif -%}
                           <a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
                         </div>
                         {%- if sub_link.links.size > 0 -%}
@@ -1796,6 +2097,32 @@
                         {%- endif -%}
                       </div>
                     {%- endfor -%}
+                    </div>
+                    
+                    {%- if menu_banner_1 != blank and menu_banner_1_position == 'bottom' -%}
+                      <div class="header-modern__mega-menu-banners header-modern__mega-menu-banners--bottom">
+                        {%- if menu_banner_1_url != blank -%}
+                          <a href="{{ menu_banner_1_url }}" class="header-modern__mega-menu-banner">
+                            <img src="{{ menu_banner_1 | image_url: width: 1200 }}" alt="Banner" loading="lazy" width="1200" height="300" style="object-fit: cover;">
+                          </a>
+                        {%- else -%}
+                          <div class="header-modern__mega-menu-banner">
+                            <img src="{{ menu_banner_1 | image_url: width: 1200 }}" alt="Banner" loading="lazy" width="1200" height="300" style="object-fit: cover;">
+                          </div>
+                        {%- endif -%}
+                        {%- if menu_banner_2 != blank and menu_banner_2_position == 'bottom' -%}
+                          {%- if menu_banner_2_url != blank -%}
+                            <a href="{{ menu_banner_2_url }}" class="header-modern__mega-menu-banner">
+                              <img src="{{ menu_banner_2 | image_url: width: 1200 }}" alt="Banner" loading="lazy" width="1200" height="300" style="object-fit: cover;">
+                            </a>
+                          {%- else -%}
+                            <div class="header-modern__mega-menu-banner">
+                              <img src="{{ menu_banner_2 | image_url: width: 1200 }}" alt="Banner" loading="lazy" width="1200" height="300" style="object-fit: cover;">
+                            </div>
+                          {%- endif -%}
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
                   </div>
                 </div>
               {%- endif -%}
@@ -1810,7 +2137,17 @@
   {%- if main_menu.links.size > 0 -%}
     <div class="header-modern__mobile-menu" id="mobile-menu">
       <div class="header-modern__mobile-menu-header">
-        <h2 style="margin: 0; font-size: 20px; font-weight: 700;">Menu</h2>
+        <div class="header-modern__mobile-menu-logo">
+          <a href="{{ routes.root_url }}">
+            {%- if settings.logo_types == 'svg' and settings.logo_svg_file != blank -%}
+              {%- render settings.logo_svg_file -%}
+            {%- elsif settings.logo_types == 'image' and settings.logo_image != blank -%}
+              <img src="{{ settings.logo_image | img_url: '200x' }}" alt="{{ shop.name }}" loading="eager" width="150" height="auto">
+            {%- else -%}
+              <span style="font-size: 18px; font-weight: 600;">{{ shop.name }}</span>
+            {%- endif -%}
+          </a>
+        </div>
         <button class="header-modern__mobile-menu-close" id="mobile-menu-close" aria-label="Close">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -1885,15 +2222,22 @@
       </div>
       <div class="header-modern__search-drawer-content">
         <!-- Featured Collections Grid -->
-        <div class="header-modern__search-drawer-collections" id="mobile-search-collections">
-          {%- for block in section.blocks limit: 4 -%}
-            {%- if block.type == 'collection' and block.settings.collection != blank -%}
-              {%- assign collection = collections[block.settings.collection] -%}
-              {%- if collection != blank -%}
-                <a href="{{ collection.url }}" class="header-modern__search-drawer-collection-item">
+        {%- assign has_collections = false -%}
+        {%- if section.settings.search_collection_1 != blank or section.settings.search_collection_2 != blank -%}
+          {%- assign has_collections = true -%}
+        {%- endif -%}
+        
+        {%- if has_collections -%}
+          <div class="header-modern__search-drawer-collections" id="mobile-search-collections">
+            {%- if section.settings.search_collection_1 != blank -%}
+              {%- assign collection_1 = collections[section.settings.search_collection_1] -%}
+              {%- if collection_1 != blank -%}
+                <a href="{{ collection_1.url }}" class="header-modern__search-drawer-collection-item">
                   <div class="header-modern__search-drawer-collection-image">
-                    {%- if collection.featured_image != blank -%}
-                      <img src="{{ collection.featured_image | img_url: '200x200' }}" alt="{{ collection.title }}" loading="lazy">
+                    {%- if section.settings.search_collection_1_image != blank -%}
+                      <img src="{{ section.settings.search_collection_1_image | img_url: '200x200' }}" alt="{{ collection_1.title }}" loading="lazy" width="200" height="200">
+                    {%- elsif collection_1.featured_image != blank -%}
+                      <img src="{{ collection_1.featured_image | img_url: '200x200' }}" alt="{{ collection_1.title }}" loading="lazy" width="200" height="200">
                     {%- else -%}
                       <div class="header-modern__search-drawer-collection-placeholder">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="40" height="40">
@@ -1902,12 +2246,36 @@
                       </div>
                     {%- endif -%}
                   </div>
-                  <div class="header-modern__search-drawer-collection-title">{{ collection.title }}</div>
+                  <div class="header-modern__search-drawer-collection-title">{{ collection_1.title }}</div>
                 </a>
               {%- endif -%}
             {%- endif -%}
-          {%- endfor -%}
-        </div>
+            
+            {%- if section.settings.search_collection_2 != blank -%}
+              {%- assign collection_2 = collections[section.settings.search_collection_2] -%}
+              {%- if collection_2 != blank -%}
+                <a href="{{ collection_2.url }}" class="header-modern__search-drawer-collection-item">
+                  <div class="header-modern__search-drawer-collection-image">
+                    {%- if section.settings.search_collection_2_image != blank -%}
+                      <img src="{{ section.settings.search_collection_2_image | img_url: '200x200' }}" alt="{{ collection_2.title }}" loading="lazy" width="200" height="200">
+                    {%- elsif collection_2.featured_image != blank -%}
+                      <img src="{{ collection_2.featured_image | img_url: '200x200' }}" alt="{{ collection_2.title }}" loading="lazy" width="200" height="200">
+                    {%- else -%}
+                      <div class="header-modern__search-drawer-collection-placeholder">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="40" height="40">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                  <div class="header-modern__search-drawer-collection-title">{{ collection_2.title }}</div>
+                </a>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          <div class="header-modern__search-drawer-collections" id="mobile-search-collections" style="display: none;"></div>
+        {%- endif -%}
         
         <!-- Last Searched Products -->
         <div class="header-modern__search-drawer-last-searched" id="mobile-search-last-searched" style="display: none;">
@@ -1976,7 +2344,20 @@
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
+    // Debug: Check if mobile menu elements exist
+    if (!mobileMenuBtn) {
+      console.warn('Mobile menu button not found');
+    }
+    if (!mobileMenu) {
+      console.warn('Mobile menu not found');
+    }
+    
     const mobileSearchBtn = document.getElementById('mobile-search-btn');
+    
+    // Debug: Check if mobile search elements exist
+    if (!mobileSearchBtn) {
+      console.warn('Mobile search button not found');
+    }
     const mobileSearchDrawer = document.getElementById('mobile-search-drawer');
     const mobileSearchBackdrop = document.getElementById('mobile-search-backdrop');
     const mobileSearchInput = document.getElementById('mobile-search-input');
@@ -2129,8 +2510,15 @@
 
     // Mobile Menu Toggle
     const mobileMenuClose = document.getElementById('mobile-menu-close');
+    console.log('Mobile Menu Debug:', {
+      mobileMenuBtn: !!mobileMenuBtn,
+      mobileMenu: !!mobileMenu,
+      mobileMenuClose: !!mobileMenuClose
+    });
+    
     if (mobileMenuBtn && mobileMenu) {
       function openMobileMenu() {
+        console.log('Opening mobile menu');
         mobileMenuBtn.classList.add('active');
         mobileMenu.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -2138,9 +2526,12 @@
         mobileMenu.style.setProperty('transform', 'translateX(0)', 'important');
         mobileMenu.style.setProperty('z-index', '10001', 'important');
         mobileMenu.style.setProperty('height', '100vh', 'important');
+        mobileMenu.style.setProperty('display', 'block', 'important');
+        console.log('Mobile menu opened, display:', getComputedStyle(mobileMenu).display);
       }
 
       function closeMobileMenu() {
+        console.log('Closing mobile menu');
         mobileMenuBtn.classList.remove('active');
         mobileMenu.classList.remove('active');
         mobileMenu.style.removeProperty('transform');
@@ -2150,9 +2541,11 @@
       }
 
       mobileMenuBtn.addEventListener('click', function(e) {
+        console.log('Mobile menu button clicked');
         e.preventDefault();
         e.stopPropagation();
         const isActive = mobileMenu.classList.contains('active');
+        console.log('Menu is active:', isActive);
         if (isActive) {
           closeMobileMenu();
         } else {
@@ -2167,7 +2560,6 @@
           closeMobileMenu();
         }, false);
       }
-    }
 
       // Close menu when clicking outside
       document.addEventListener('click', function(e) {
@@ -2248,8 +2640,16 @@
     }
 
     // Mobile Search Drawer
+    console.log('Mobile Search Debug:', {
+      mobileSearchBtn: !!mobileSearchBtn,
+      mobileSearchDrawer: !!mobileSearchDrawer,
+      mobileSearchInput: !!mobileSearchInput,
+      mobileSearchBackdrop: !!mobileSearchBackdrop
+    });
+    
     if (mobileSearchBtn && mobileSearchDrawer && mobileSearchInput) {
       function openDrawer() {
+        console.log('Opening search drawer, window width:', window.innerWidth);
         if (window.innerWidth <= 991) {
           if (mobileSearchBackdrop) {
             mobileSearchBackdrop.style.display = 'block';
@@ -2258,6 +2658,7 @@
             }, 10);
           }
           mobileSearchDrawer.style.display = 'flex';
+          mobileSearchDrawer.style.setProperty('z-index', '10002', 'important');
           setTimeout(function() {
             mobileSearchDrawer.classList.add('active');
           }, 10);
@@ -2265,12 +2666,29 @@
           setTimeout(function() {
             mobileSearchInput.focus();
           }, 300);
+          
+          // Show/hide collections based on whether they exist
+          if (mobileSearchCollections) {
+            const hasCollectionItems = mobileSearchCollections.querySelectorAll('.header-modern__search-drawer-collection-item').length > 0;
+            if (hasCollectionItems) {
+              mobileSearchCollections.style.display = 'grid';
+            } else {
+              mobileSearchCollections.style.display = 'none';
+            }
+          }
+          
           // Load last searched products when drawer opens
-          loadLastSearched();
+          if (typeof loadLastSearched === 'function') {
+            loadLastSearched();
+          }
+          console.log('Search drawer opened, display:', getComputedStyle(mobileSearchDrawer).display);
+        } else {
+          console.log('Window too wide for mobile drawer');
         }
       }
 
       function closeDrawer() {
+        console.log('Closing search drawer');
         mobileSearchDrawer.classList.remove('active');
         if (mobileSearchBackdrop) {
           mobileSearchBackdrop.classList.remove('active');
@@ -2283,9 +2701,15 @@
         }, 300);
         document.body.style.overflow = '';
         mobileSearchInput.value = '';
-        mobileSearchResults.innerHTML = '';
-        mobileSearchLoading.style.display = 'none';
-        mobileSearchEmpty.style.display = 'none';
+        if (mobileSearchResults) {
+          mobileSearchResults.innerHTML = '';
+        }
+        if (mobileSearchLoading) {
+          mobileSearchLoading.style.display = 'none';
+        }
+        if (mobileSearchEmpty) {
+          mobileSearchEmpty.style.display = 'none';
+        }
         if (mobileSearchCollections) {
           mobileSearchCollections.style.display = 'grid';
         }
@@ -2294,6 +2718,7 @@
 
       // Open drawer
       mobileSearchBtn.addEventListener('click', function(e) {
+        console.log('Mobile search button clicked');
         e.preventDefault();
         e.stopPropagation();
         openDrawer();
@@ -2527,16 +2952,66 @@
   "name": "Modern Header",
   "settings": [
     {
+      "type": "header",
+      "content": "Mega Menu Settings"
+    },
+    {
       "type": "link_list",
       "id": "menu",
-      "label": "Menu"
+      "label": "Mega Menu",
+      "info": "Select the navigation menu to display in the mega menu. If 'mega' menu exists, it will be used by default."
+    },
+    {
+      "type": "checkbox",
+      "id": "mega_menu_show_collection_images",
+      "label": "Show collection images in mega menu",
+      "default": false,
+      "info": "Display collection featured images in mega menu column titles"
+    },
+    {
+      "type": "header",
+      "content": "Collection Image Mapping"
+    },
+    {
+      "type": "paragraph",
+      "content": "Add collection image blocks below to assign custom images to specific collections in the mega menu. If no custom image is set, the collection's featured image will be used."
+    },
+    {
+      "type": "header",
+      "content": "Search Collections"
+    },
+    {
+      "type": "paragraph",
+      "content": "Configure collections to display in mobile search drawer. If no collections are selected, nothing will be shown in the search drawer."
+    },
+    {
+      "type": "collection",
+      "id": "search_collection_1",
+      "label": "Search Collection 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "search_collection_1_image",
+      "label": "Collection 1 Image",
+      "info": "Optional: Custom image for collection 1. If not set, collection's featured image will be used."
+    },
+    {
+      "type": "collection",
+      "id": "search_collection_2",
+      "label": "Search Collection 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "search_collection_2_image",
+      "label": "Collection 2 Image",
+      "info": "Optional: Custom image for collection 2. If not set, collection's featured image will be used."
     }
   ],
   "blocks": [
     {
       "type": "tape",
       "name": "Announcement bar",
-      "limit": 1,
+      "limit": 4,
       "settings": [
         {
           "type": "richtext",
@@ -2592,6 +3067,101 @@
           "type": "collection",
           "id": "collection",
           "label": "Collection"
+        }
+      ]
+    },
+    {
+      "type": "collection_image",
+      "name": "Collection Image",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection",
+          "info": "Select the collection to assign an image to"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Collection Image",
+          "info": "Image to display for this collection in the mega menu. Recommended size: 200x200px"
+        }
+      ]
+    },
+    {
+      "type": "menu_item_image",
+      "name": "Menu Item Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item_title",
+          "label": "Menu Item Title",
+          "info": "Enter the exact title of the menu item to assign an image to"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Menu Item Image",
+          "info": "Image to display for this menu item in the mega menu. Recommended size: 300x200px"
+        }
+      ]
+    },
+    {
+      "type": "mega_menu_title_image",
+      "name": "Mega Menu Title Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Enter the exact title of the mega menu column title to assign an image to"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Title Image",
+          "info": "Image to display for this title in the mega menu. Recommended size: 200x200px"
+        }
+      ]
+    },
+    {
+      "type": "mega_menu_banner",
+      "name": "Mega Menu Banner",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item_title",
+          "label": "Menu Item Title",
+          "info": "Enter the exact title of the menu item to show this banner for"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Banner Image",
+          "info": "Banner image to display in mega menu. Recommended size: 400x600px for right position, 1200x300px for bottom position"
+        },
+        {
+          "type": "select",
+          "id": "position",
+          "label": "Banner Position",
+          "default": "bottom",
+          "options": [
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Banner Link (Optional)",
+          "info": "Optional link URL for the banner"
         }
       ]
     }
