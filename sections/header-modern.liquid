@@ -664,6 +664,9 @@
   .header-modern__search-drawer-result-item {
     padding: 16px 0;
     border-bottom: 1px solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    gap: 15px;
   }
 
   .header-modern__search-drawer-result-item::before {
@@ -680,6 +683,7 @@
     gap: 15px;
     text-decoration: none;
     color: #000;
+    flex: 1;
   }
 
   .header-modern__search-drawer-result-image {
@@ -760,6 +764,9 @@
     padding: 16px 24px;
     border-bottom: 1px solid #f5f5f5;
     transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
   }
 
   .header-modern__search-result-item::before {
@@ -785,6 +792,7 @@
     gap: 15px;
     text-decoration: none;
     color: #000;
+    flex: 1;
   }
 
   .header-modern__search-result-image {
@@ -809,6 +817,59 @@
   .header-modern__search-result-price {
     font-size: 13px;
     color: #666;
+  }
+
+  .header-modern__search-quick-add {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .header-modern__search-quick-add form {
+    display: block !important;
+  }
+
+  .header-modern__search-quick-add-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #F36703;
+    padding: 0;
+    margin: 0;
+  }
+
+  .header-modern__search-quick-add-btn:hover {
+    background: #F36703;
+    color: #fff;
+    border-color: #F36703;
+    transform: scale(1.1);
+  }
+
+  .header-modern__search-quick-add-btn:active {
+    transform: scale(0.95);
+  }
+
+  .header-modern__search-quick-add-btn.loading,
+  .header-modern__search-quick-add-btn.active {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .header-modern__search-quick-add-btn[data-button-status="added"] {
+    background: #4caf50;
+    border-color: #4caf50;
+    color: #fff;
+  }
+
+  .header-modern__search-quick-add-btn svg {
+    width: 18px;
+    height: 18px;
   }
 
   .header-modern__search-view-all {
@@ -1729,7 +1790,6 @@
     top: 0;
     left: 0;
     right: 0;
-    background: #F36703;
     color: #fff !important;
     padding: 8px 0;
     font-size: 13px;
@@ -1775,6 +1835,15 @@
     animation: scroll-text 30s linear infinite;
   }
 
+  .header-modern__tape-text-item {
+    display: inline-block;
+    margin-right: 100px;
+  }
+
+  .header-modern__tape-text-item:last-child {
+    margin-right: 0;
+  }
+
   .header-modern__tape-text:hover {
     animation-play-state: paused;
   }
@@ -1808,12 +1877,30 @@
 </style>
 
 {%- comment -%} Announcement Bar (Tape) {%- endcomment -%}
+{%- assign announcement_bg_color = section.settings.announcement_background_color | default: '#F36703' -%}
+{%- assign announcement_text_1 = section.settings.announcement_text_1 | default: '' -%}
+{%- assign announcement_text_2 = section.settings.announcement_text_2 | default: '' -%}
+{%- assign announcement_text_3 = section.settings.announcement_text_3 | default: '' -%}
+
 {%- if selected_blocks_tape.size > 0 -%}
   {%- for block in selected_blocks_tape -%}
     <div class="d-none js-header-modern-tape" data-js-show-once="{{ header_tape_show_once }}" data-js-delay="{{ block.settings.delay }}" data-js-cookies-life="{{ header_tape_cookies_life }}">
-    <div class="header-modern__tape header-modern__tape--style-{{ block.settings.style }}">
+    <div class="header-modern__tape header-modern__tape--style-{{ block.settings.style }}" style="background: {{ announcement_bg_color }};">
       <div class="header-modern__tape-content">
-        <div class="header-modern__tape-text">{{ block.settings.content }}</div>
+        <div class="header-modern__tape-text">
+          {%- if announcement_text_1 != blank -%}
+            <span class="header-modern__tape-text-item">{{ announcement_text_1 }}</span>
+          {%- endif -%}
+          {%- if announcement_text_2 != blank -%}
+            <span class="header-modern__tape-text-item">{{ announcement_text_2 }}</span>
+          {%- endif -%}
+          {%- if announcement_text_3 != blank -%}
+            <span class="header-modern__tape-text-item">{{ announcement_text_3 }}</span>
+          {%- endif -%}
+          {%- if announcement_text_1 == blank and announcement_text_2 == blank and announcement_text_3 == blank -%}
+            {{ block.settings.content }}
+          {%- endif -%}
+        </div>
       </div>
     </div>
   </div>
@@ -1829,22 +1916,34 @@
   {%- endif -%}
   {%- endfor -%}
 {%- else -%}
-  {%- comment -%} No tape blocks found - add a default one for testing {%- endcomment -%}
-  <div class="d-none js-header-modern-tape" data-js-show-once="true" data-js-delay="0" data-js-cookies-life="1">
-    <div class="header-modern__tape header-modern__tape--style-1">
-      <div class="header-modern__tape-content">
-        <div class="header-modern__tape-text">Welcome! Add an announcement bar from theme editor.</div>
+  {%- comment -%} No tape blocks found - use section settings {%- endcomment -%}
+  {%- if announcement_text_1 != blank or announcement_text_2 != blank or announcement_text_3 != blank -%}
+    <div class="d-none js-header-modern-tape" data-js-show-once="true" data-js-delay="0" data-js-cookies-life="1">
+      <div class="header-modern__tape header-modern__tape--style-1" style="background: {{ announcement_bg_color }};">
+        <div class="header-modern__tape-content">
+          <div class="header-modern__tape-text">
+            {%- if announcement_text_1 != blank -%}
+              <span class="header-modern__tape-text-item">{{ announcement_text_1 }}</span>
+            {%- endif -%}
+            {%- if announcement_text_2 != blank -%}
+              <span class="header-modern__tape-text-item">{{ announcement_text_2 }}</span>
+            {%- endif -%}
+            {%- if announcement_text_3 != blank -%}
+              <span class="header-modern__tape-text-item">{{ announcement_text_3 }}</span>
+            {%- endif -%}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <script>
-    if(document.cookie.indexOf('header-tape=off') === -1) {
-      var tapeElement = document.querySelector('.js-header-modern-tape');
-      if(tapeElement) {
-        tapeElement.classList.remove('d-none');
+    <script>
+      if(document.cookie.indexOf('header-tape=off') === -1) {
+        var tapeElement = document.querySelector('.js-header-modern-tape');
+        if(tapeElement) {
+          tapeElement.classList.remove('d-none');
+        }
       }
-    }
-  </script>
+    </script>
+  {%- endif -%}
 {%- endif -%}
 
 <header class="header-modern" id="header-modern">
@@ -2489,7 +2588,130 @@
                 
                 link.appendChild(info);
                 item.appendChild(link);
+                
+                // Add item to list FIRST (so search results appear immediately)
                 searchResultsList.appendChild(item);
+                
+                // Quick Add to Cart Button - Using Theme's Format (add async after item is in DOM)
+                {%- if section.settings.search_quick_add_to_cart -%}
+                // #region agent log
+                fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:quick-add-start',message:'Starting quick add button creation',data:{productId:product.id,productUrl:product.url,settingEnabled:true},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                // #endregion
+                
+                // Extract handle from URL if not provided
+                let productHandle = product.handle;
+                if (!productHandle && product.url) {
+                  // Remove query strings and hash from URL first
+                  const cleanUrl = product.url.split('?')[0].split('#')[0];
+                  const urlMatch = cleanUrl.match(/\/products\/([^\/]+)/);
+                  if (urlMatch) {
+                    productHandle = urlMatch[1];
+                  }
+                }
+                
+                // #region agent log
+                fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:handle-extraction',message:'Extracted handle',data:{productHandle:productHandle,originalUrl:product.url},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+                // #endregion
+                
+                // #region agent log
+                fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:quick-add-check',message:'Checking product identifier',data:{productId:product.id,productHandle:productHandle,hasIdentifier:!!(product.id || productHandle)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                // #endregion
+                
+                if (product.id || productHandle) {
+                  const quickAdd = document.createElement('div');
+                  quickAdd.className = 'header-modern__search-quick-add';
+                  
+                  // Create form (theme expects a form)
+                  const form = document.createElement('form');
+                  form.style.display = 'block';
+                  form.style.position = 'relative';
+                  
+                  // Create hidden input for variant ID (will be set after fetching product)
+                  const variantInput = document.createElement('input');
+                  variantInput.type = 'hidden';
+                  variantInput.name = 'id';
+                  variantInput.id = 'quick-add-variant-' + (product.id || productHandle);
+                  variantInput.value = ''; // Will be set after fetch
+                  
+                  // Create quantity input
+                  const quantityInput = document.createElement('input');
+                  quantityInput.type = 'hidden';
+                  quantityInput.name = 'quantity';
+                  quantityInput.value = '1';
+                  
+                  form.appendChild(variantInput);
+                  form.appendChild(quantityInput);
+                  
+                  // Create button in theme's format
+                  const quickAddBtn = document.createElement('button');
+                  quickAddBtn.type = 'submit';
+                  quickAddBtn.name = 'add';
+                  quickAddBtn.className = 'btn btn--status js-product-button-add-to-cart header-modern__search-quick-add-btn';
+                  quickAddBtn.setAttribute('data-js-product-button-add-to-cart', '');
+                  quickAddBtn.setAttribute('aria-label', 'Add to cart');
+                  
+                  quickAddBtn.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>';
+                  
+                  // Fetch product to get variant ID - Shopify needs handle, not ID
+                  if (!productHandle) {
+                    // #region agent log
+                    fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:quick-add-no-handle',message:'No product handle found',data:{productId:product.id,productUrl:product.url},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+                    // #endregion
+                    return; // Skip if no handle
+                  }
+                  const productUrl = '/products/' + productHandle + '.js';
+                  
+                  // Fetch product and add button async (item is already in DOM)
+                  fetch(productUrl)
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error('Product not found');
+                      }
+                      return response.json();
+                    })
+                    .then(productData => {
+                      // #region agent log
+                      fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product',message:'Product data fetched',data:{variantsCount:productData.variants?productData.variants.length:0,productHandle:productHandle},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                      // #endregion
+                      
+                      if (productData.variants && productData.variants.length > 0) {
+                        const variant = productData.variants.find(v => v.available) || productData.variants[0];
+                        if (variant && variant.id) {
+                          variantInput.value = variant.id;
+                          
+                          // #region agent log
+                          fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product',message:'Variant ID set, adding button',data:{variantId:variant.id,variantAvailable:variant.available},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                          // #endregion
+                          
+                          // Now add button to form (variant is ready)
+                          form.appendChild(quickAddBtn);
+                          quickAdd.appendChild(form);
+                          item.appendChild(quickAdd);
+                        } else {
+                          // #region agent log
+                          fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product',message:'No available variant found',data:{variantsCount:productData.variants.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                          // #endregion
+                          console.error('No available variant found');
+                        }
+                      } else {
+                        // #region agent log
+                        fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product',message:'No variants found',data:{productHandle:productHandle},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                        // #endregion
+                        console.error('No variants found');
+                      }
+                    })
+                    .catch(err => {
+                      // #region agent log
+                      fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product',message:'Error fetching product',data:{error:err.message,productHandle:productHandle},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                      // #endregion
+                      console.error('Error fetching product:', err);
+                    });
+                } else {
+                  // #region agent log
+                  fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:quick-add-skip',message:'Skipping button - no product identifier',data:{productId:product.id,productHandle:productHandle},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                  // #endregion
+                }
+                {%- endif -%}
               });
               
               // View all link
@@ -2834,7 +3056,120 @@
                 
                 link.appendChild(info);
                 item.appendChild(link);
+                
+                // Add item to list FIRST (so search results appear immediately)
                 mobileSearchResults.appendChild(item);
+                
+                // Quick Add to Cart Button - Using Theme's Format (add async after item is in DOM)
+                {%- if section.settings.search_quick_add_to_cart -%}
+                // Extract handle from URL if not provided
+                let productHandle = product.handle;
+                if (!productHandle && product.url) {
+                  const urlMatch = product.url.match(/\/products\/([^\/\?]+)/);
+                  if (urlMatch) {
+                    productHandle = urlMatch[1];
+                  }
+                }
+                
+                if (product.id || productHandle) {
+                  const quickAdd = document.createElement('div');
+                  quickAdd.className = 'header-modern__search-quick-add';
+                  
+                  // Create form (theme expects a form)
+                  const form = document.createElement('form');
+                  form.style.display = 'block';
+                  form.style.position = 'relative';
+                  
+                  // Create hidden input for variant ID (will be set after fetching product)
+                  const variantInput = document.createElement('input');
+                  variantInput.type = 'hidden';
+                  variantInput.name = 'id';
+                  variantInput.id = 'quick-add-variant-mobile-' + (product.id || productHandle);
+                  variantInput.value = ''; // Will be set after fetch
+                  
+                  // Create quantity input
+                  const quantityInput = document.createElement('input');
+                  quantityInput.type = 'hidden';
+                  quantityInput.name = 'quantity';
+                  quantityInput.value = '1';
+                  
+                  form.appendChild(variantInput);
+                  form.appendChild(quantityInput);
+                  
+                  // Create button in theme's format
+                  const quickAddBtn = document.createElement('button');
+                  quickAddBtn.type = 'submit';
+                  quickAddBtn.name = 'add';
+                  quickAddBtn.className = 'btn btn--status js-product-button-add-to-cart header-modern__search-quick-add-btn';
+                  quickAddBtn.setAttribute('data-js-product-button-add-to-cart', '');
+                  quickAddBtn.setAttribute('aria-label', 'Add to cart');
+                  
+                  quickAddBtn.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>';
+                  
+                  // Fetch product to get variant ID - Shopify needs handle, not ID
+                  if (!productHandle) {
+                    // #region agent log
+                    fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:quick-add-no-handle-mobile',message:'No product handle found (mobile)',data:{productId:product.id,productUrl:product.url},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+                    // #endregion
+                    return; // Skip if no handle
+                  }
+                  const productUrl = '/products/' + productHandle + '.js';
+                  
+                  // Fetch product and add button async (item is already in DOM)
+                  fetch(productUrl)
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error('Product not found');
+                      }
+                      return response.json();
+                    })
+                    .then(productData => {
+                      // #region agent log
+                      fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product-mobile',message:'Product data fetched',data:{variantsCount:productData.variants?productData.variants.length:0,productHandle:productHandle},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                      // #endregion
+                      
+                      if (productData.variants && productData.variants.length > 0) {
+                        const variant = productData.variants.find(v => v.available) || productData.variants[0];
+                        if (variant && variant.id) {
+                          variantInput.value = variant.id;
+                          
+                          // #region agent log
+                          fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product-mobile',message:'Variant ID set, adding button',data:{variantId:variant.id,variantAvailable:variant.available},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                          // #endregion
+                          
+                          // Now add button to form (variant is ready)
+                          form.appendChild(quickAddBtn);
+                          quickAdd.appendChild(form);
+                          item.appendChild(quickAdd);
+                          
+                          // #region agent log
+                          fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:quick-add-success-mobile',message:'Button added to DOM (mobile)',data:{variantId:variant.id,itemInDOM:item.parentNode !== null},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                          // #endregion
+                        } else {
+                          // #region agent log
+                          fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product-mobile',message:'No available variant found',data:{variantsCount:productData.variants.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                          // #endregion
+                          console.error('No available variant found');
+                        }
+                      } else {
+                        // #region agent log
+                        fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product-mobile',message:'No variants found',data:{productHandle:productHandle},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                        // #endregion
+                        console.error('No variants found');
+                      }
+                    })
+                    .catch(err => {
+                      // #region agent log
+                      fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:fetch-product-mobile',message:'Error fetching product',data:{error:err.message,productHandle:productHandle},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                      // #endregion
+                      console.error('Error fetching product:', err);
+                    });
+                } else {
+                  // #region agent log
+                  fetch('http://127.0.0.1:7243/ingest/38daafca-415c-4896-9b1d-c4bf4c3c00ac',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'header-modern.liquid:quick-add-skip-mobile',message:'Skipping button - no product identifier',data:{productId:product.id,productHandle:productHandle},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+                  // #endregion
+                }
+                {%- endif -%}
                 
                 // Add click handler to save to last searched
                 link.addEventListener('click', function(e) {
@@ -2883,6 +3218,32 @@
         console.error('Error saving to last searched:', e);
       }
     }
+
+    
+    // Update Cart Count
+    function updateCartCount() {
+      fetch('/cart.js')
+        .then(response => response.json())
+        .then(cart => {
+          const cartCount = document.querySelector('.header-modern__cart-count');
+          if (cartCount) {
+            const totalItems = cart.item_count || 0;
+            cartCount.textContent = totalItems;
+            cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+          }
+        })
+        .catch(function(error) {
+          console.error('Error updating cart count:', error);
+        });
+    }
+    
+    // Listen to theme's cart added event to update cart count
+    document.addEventListener('theme:cart::added', function() {
+      updateCartCount();
+    });
+    
+    // Initialize cart count on page load
+    updateCartCount();
 
     function loadLastSearched() {
       if (!mobileSearchLastSearched || !mobileSearchLastSearchedList) {
@@ -2985,6 +3346,13 @@
       "content": "Configure collections to display in mobile search drawer. If no collections are selected, nothing will be shown in the search drawer."
     },
     {
+      "type": "checkbox",
+      "id": "search_quick_add_to_cart",
+      "label": "Enable Quick Add to Cart in Search Results",
+      "default": true,
+      "info": "Show quick add to cart button in search results"
+    },
+    {
       "type": "collection",
       "id": "search_collection_1",
       "label": "Search Collection 1"
@@ -3005,6 +3373,38 @@
       "id": "search_collection_2_image",
       "label": "Collection 2 Image",
       "info": "Optional: Custom image for collection 2. If not set, collection's featured image will be used."
+    },
+    {
+      "type": "header",
+      "content": "Announcement Bar"
+    },
+    {
+      "type": "text",
+      "id": "announcement_text_1",
+      "label": "Announcement Text 1",
+      "default": "FINAL CLEARANCE: Take 20% Off 'Sale Must-Haves'",
+      "info": "First scrolling text for the announcement bar"
+    },
+    {
+      "type": "text",
+      "id": "announcement_text_2",
+      "label": "Announcement Text 2",
+      "default": "Free Shipping on Orders Over $50",
+      "info": "Second scrolling text for the announcement bar"
+    },
+    {
+      "type": "text",
+      "id": "announcement_text_3",
+      "label": "Announcement Text 3",
+      "default": "New Arrivals - Shop the Latest Collection",
+      "info": "Third scrolling text for the announcement bar"
+    },
+    {
+      "type": "color",
+      "id": "announcement_background_color",
+      "label": "Background Color",
+      "default": "#F36703",
+      "info": "Background color for the announcement bar"
     }
   ],
   "blocks": [
