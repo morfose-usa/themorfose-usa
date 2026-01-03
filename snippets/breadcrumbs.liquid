@@ -1,6 +1,6 @@
 {%- unless template == 'index' -%}
     {%- if settings.layout_show_breadcrumbs -%}
-        <div class="breadcrumbs pt-15">
+        <div class="breadcrumbs pt-15 mt-5">
             <div {% if template.name == 'collection' and section.settings.container != blank %}{% render 'layout-get-container-class', fullwidth_need_paddings: true %}{% else %}class="container"{% endif %}>
                 <ul class="list-unstyled d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <li><a href="/" >{{ 'layout.breadcrumbs.home' | t }}</a></li>

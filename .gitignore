@@ -44,6 +44,9 @@ $RECYCLE.BIN/
 .classpath
 .settings/
 
+# Cursor
+.cursor/rules
+
 # Node modules (if using npm/yarn)
 node_modules/
 npm-debug.log*
