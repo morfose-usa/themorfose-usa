@@ -81,3 +81,7 @@ HEADER_ANALYSIS.md
 debug.log
 *.log
 
+# Large video files (not used in theme, exceeds Shopify 50MB limit)
+assets/*.mp4
+assets/tiktok-*.mp4
+
