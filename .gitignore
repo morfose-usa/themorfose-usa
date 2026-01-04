@@ -36,13 +36,16 @@ $RECYCLE.BIN/
 
 # IDE
 .idea/
-# .vscode/ - Proje ayarları için ekliyoruz
+.vscode/
 *.swp
 *.swo
 *~
 .project
 .classpath
 .settings/
+
+# Cursor
+.cursor/
 
 # Node modules (if using npm/yarn)
 node_modules/
@@ -67,4 +70,18 @@ logs
 # Shopify specific
 config/settings_data.json.backup
 *.backup
+
+# Non-Shopify theme files (documentation, analysis, etc.)
+HEADER_ANALYSIS.md
+*.md
+!README.md
+
+# Debug and log files
+.cursor/debug.log
+debug.log
+*.log
+
+# Large video files (not used in theme, exceeds Shopify 50MB limit)
+assets/*.mp4
+assets/tiktok-*.mp4
 
