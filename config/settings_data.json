@@ -1,1 +1,2959 @@
-{"current":{"purchase_code":"b3e8ee38-1934-40df-9d3a-f0d5b3d650cd","presentation_enable":true,"logo_types":"image","logo_svg_file":"svg-logo","logo_image":"shopify:\/\/shop_images\/morfose.png","logo_width":200,"logo_mobile_svg_file":"svg-logo-mobile","logo_mobile_image":"shopify:\/\/shop_images\/Morfose_Logo1.png","logo_mobile_width":220,"logo_sticky_svg_file":"svg-logo-sticky","logo_sticky_image":"shopify:\/\/shop_images\/morfose.png","logo_sticky_width":112,"logo_footer_svg_file":"","logo_footer_image":"shopify:\/\/shop_images\/morfose.png","logo_footer_width":140,"logo_footer_mobile_svg_file":"","logo_footer_mobile_image":"shopify:\/\/shop_images\/Morfose_Logo1.png","logo_footer_mobile_width":220,"favicon":"shopify:\/\/shop_images\/morfose.png","layout_container":"fullwidth","layout_show_breadcrumbs":true,"layout_pagination_type":"infinite_scroll","layout_enable_rtl":false,"layout_images_lazyload":true,"layout_settings_file":"default","layout_age_confirmation":false,"layout_age_confirmation_image":"","layout_age_confirmation_image_width":600,"layout_age_confirmation_checkbox":true,"color_theme_primary":"","color_theme_body":"","color_theme_c":"#000000","color_theme_head_c":"","color_theme_link_c":"","color_theme":"","color_theme2":"","color_theme3":"","color_theme4":"","color_theme5":"","color_theme6":"","color_theme7":"","color_theme8":"","color_theme9":"","color_theme10":"","color_theme11":"","color_theme12":"","font_base":"mono","font_base_apply_to_all":true,"font_base_type":"none","font_size_body":15,"font_heading":"basic_commercial_n4","font_heading_type":"none","font_size_h1":44,"font_size_h2":32,"font_size_h3":24,"font_size_h4":18,"font_size_h5":15,"font_size_h6":20,"font_button":"basic_commercial_n4","font_size_button":18,"font_size_input":15,"font_menu":"basic_commercial_n4","font_size_menu":14,"font_size_menu_list":13,"font_size_menu_title":13,"font_size_menu_mobile":15,"font_load_alternative":false,"font_alternative":"basic_commercial_n4","font_alternative_type":"none","collection_show_sidebar":"hide","collection_sidebar_position":"left","collection_enable_sticky":true,"product_format_pjpg":true,"product_cursor":"","product_show_custom_options":true,"product_enable_variants_section":true,"product_hide_options_without_availability_variants":true,"product_variant_auto_select":"enable","product_auto_selected_options":"","product_collection_set_first_image_by_variant":false,"product_options_listing_visibility":"all","product_variant_change_on_hover":true,"product_options_type_circle_color":"Color","product_options_type_circle_image":"Select color","product_options_type_square_color":"Colour","product_options_type_square_image":"Material 2","product_options_type_select":"Select","product_options_type_large_text":"Size","product_collection_image_height_percent":128,"product_collection_image_size":"contain","product_collection_image_border_radius":0,"product_replace_images_hover":true,"product_collection_show_label_in_stock":false,"product_collection_show_label_pre_order":true,"product_collection_show_label_out_stock":true,"product_collection_show_label_sale":false,"product_collection_show_label_new":false,"product_collection_show_label_hot":true,"product_collection_centered_info":false,"product_collection_more_info_type":"hide","product_collection_show_title":true,"product_collection_title_trim":true,"product_collection_show_price":true,"product_collection_show_button_quick_view":true,"product_collection_show_countdown":true,"product_collection_show_images_navigation":true,"product_collection_show_options":true,"product_collection_show_quantity":false,"product_collection_show_button_add_to_cart":true,"product_collection_show_button_add_to_wishlist":true,"product_collection_show_button_add_to_compare":true,"product_collection_show_reviews":true,"product_collection_hide_reviews_counter":true,"product_collection_hide_reviews_mobile_counter":true,"product_collection_show_sku":false,"product_collection_show_barcode":false,"product_collection_show_availability":false,"product_collection_show_type":true,"product_collection_show_vendor":true,"product_collection_show_description":true,"product_collection_list_show_quantity":false,"product_info_layout":"4","product_info_show_mobile_thumbnails":true,"product_info_enable_fullscreen_popup":false,"product_info_show_btn_fullscreen":false,"product_info_show_btn_video":true,"product_info_video_autoplay":true,"product_info_enable_zoom":false,"product_info_zoom_scale_coef":2,"product_info_gallery_height_and_size_path":"collection","product_info_gallery_height_percent":100,"product_info_gallery_image_size":"contain","product_info_gallery_image_size_mobile":"use_desktop_settings","product_info_gallery_grouped":"tag","product_info_show_label_in_stock":false,"product_info_show_label_pre_order":false,"product_info_show_label_out_stock":false,"product_info_show_label_sale":false,"product_info_show_label_new":false,"product_info_show_label_hot":false,"product_info_show_collections":false,"product_info_show_title":true,"product_info_show_reviews":true,"product_info_hide_reviews_counter":false,"product_info_show_sku":false,"product_info_show_barcode":false,"product_info_show_availability":false,"product_info_show_type":false,"product_info_show_vendor":false,"product_info_show_price":true,"product_info_show_sale_details":true,"product_info_show_taxes":true,"product_info_payment_terms":true,"product_info_show_description":false,"product_info_show_selling_plan":false,"product_info_show_countdown":false,"product_info_show_stock_countdown":true,"product_info_show_stock_countdown_range":true,"product_stock_countdown_min":10,"product_info_show_delivery_countdown":false,"product_delivery_countdown_delivery_format":"Day MM\/DD\/YYYY","product_info_show_visitors":false,"product_visitors_min":10,"product_visitors_max":25,"product_visitors_stroke":4,"product_visitors_interval_min":2,"product_visitors_interval_max":6,"product_info_show_options":true,"product_info_show_size_guide":false,"product_info_size_guide_page_content":"","product_info_show_delivery_return":false,"product_info_delivery_return_page_content":"shipping","product_info_show_message":false,"product_info_show_notes":false,"product_info_show_quantity":true,"product_info_button_layout":"4","product_info_show_button_add_to_cart":true,"product_info_button_add_to_cart_size":"large","product_info_show_button_dynamic_checkout":false,"product_info_show_button_add_to_wishlist":true,"product_info_show_button_add_to_compare":true,"product_info_show_free_shipping":true,"product_info_show_pickup_available":false,"product_info_show_payments":true,"product_info_show_social_share_buttons":false,"product_info_social_share_buttons_type":"1","product_info_page_show_usage_info_sidebar":true,"product_footbar_enable":true,"product_footbar_show_title":true,"product_footbar_show_price":true,"product_footbar_show_reviews":true,"product_footbar_show_options":true,"product_footbar_show_quantity":true,"product_footbar_show_button_add_to_cart":true,"search_show":true,"search_show_only_products":true,"search_ajax":true,"price_show_sale_separator":true,"show_multiple_currencies":false,"currency_format":"money_with_currency_format","supported_currencies":"USD EUR GBP","supported_currencies_short_names":"US($)|UE(€)|BP(£)","supported_currencies_full_names":"USD - US Dollar|EUR - Euro|GBP - British Pound","default_currency":"USD","cart_show_header_button":true,"cart_ajax":true,"cart_icon":"","cart_popup_enable":true,"cart_popup_show_quantity_input":true,"cart_show_vendor":false,"cart_show_notes":true,"cart_show_free_shipping":false,"cart_free_shipping_value":"5000","shipping_calculator":"Enabled","shipping_calculator_default_country":"United States","compare_type":"disable","compare_show_description":true,"compare_show_collection":false,"compare_show_availability":false,"compare_show_product_type":false,"compare_show_vendor":false,"compare_show_sku":false,"compare_show_barcode":false,"compare_show_options":true,"compare_description_max_size":100,"payment_design":"shopify","social_share_image":"shopify:\/\/shop_images\/Frame_7.1_2.png","social_facebook":"https:\/\/facebook.com\/morfoseus","social_twitter":"","social_instagram":"https:\/\/www.instagram.com\/morfoseusa\/","social_pinterest":"https:\/\/www.pinterest.com\/morfose_usa\/","social_youtube":"https:\/\/www.youtube.com\/@morfoseusa","social_behance":"","social_skype":"","social_share_enable_facebook":true,"social_share_enable_twitter":true,"social_share_enable_pinterest":true,"social_share_enable_linkedin":true,"social_share_enable_buffer":true,"social_share_enable_reddit":true,"subscription_method":"shopify","subscription_mailchimp_form_action":"\/\/myshopify.us18.list-manage.com\/subscribe\/post?u=8a50b61e56896303a04d0243e&amp;id=3c3d06b907","subscription_popup_enable":false,"subscription_popup_layout":"4","subscription_popup_show_icon":true,"subscription_popup_text_line_01":"ULTIMATE SALE","subscription_popup_text_line_02":"20%Off","subscription_popup_text_line_03":"All Products. Limited time offer!","subscription_popup_text_line_04":"","subscription_popup_show_form":true,"subscription_popup_text_input_placeholder":"Enter Please Your Email Address","subscription_popup_text_submit_button_text":"SUBSCRIBE!","subscription_popup_text_button":"SHOP NOW!","subscription_popup_text_dont_show_again":"","subscription_popup_text_close":"NO, THANK YOU","subscription_popup_image":"shopify:\/\/shop_images\/subscription-03.jpg","subscription_popup_image_width":600,"subscription_popup_image_format_pjpg":true,"subscription_popup_insert_image":"","subscription_popup_insert_image_width":200,"subscription_popup_insert_image_format_pjpg":false,"subscription_popup_link":"shopify:\/\/collections","subscription_popup_show_once":"true","subscription_popup_delay":4,"subscription_popup_cookies_life":"1","subscription_confirmation_popup_enable":true,"subscription_confirmation_popup_success_message":"Thanks for subscribing!","subscription_confirmation_popup_success_button":"Continue shopping","blog_show_sidebar":"hide","blog_sidebar_position":"right","blog_enable_sticky":true,"article_show_sidebar":"hide","article_sidebar_position":"right","article_enable_sticky":true,"account_show_header_button":true,"account_popup_enable":true,"account_popup_sign_up_info_page_content":"","account_popup_show_subscription":true,"account_page_sing_up_page_content":"","reviews_type":"disable","services_show_header_button":false,"services_popup_enable":true,"services_popup_page_content":"","app_language":"none","app_language_link_list":"languages","button_border_radius":0,"input_border_radius":0,"promobox_image_border_radius":0,"promobox_format_pjpg":true,"notification_cookies_enable":false,"notification_cookies_button_information_link":"","notification_cookies_delay":0,"notification_cookies_show_once":true,"notification_cookies_cookies_life":"1","notification_products_enable":true,"notification_products_collection":"featured","notification_products_range_min":2,"notification_products_range_max":20,"notification_products_delay":8,"notification_products_interval_min":10,"notification_products_interval_max":18,"notification_products_time_life":14,"layout_preloader_image":"shopify:\/\/shop_images\/Morfose_Logo1.png","layout_preloader_image_size":100,"layout_preloader_opacity":0.8,"promobox_animation_duration":0.5,"tooltips_enable":false,"tooltips_animation_type":"scale","header_animation_sticky_opacity":0.9,"header_tape_animation_duration":0,"product_hover_animation_type":"fade","buttons_animation_icon_enable":true,"dev_enable_custom_css":false,"dev_enable_custom_js":false,"checkout_header_image":"","checkout_logo_image":"shopify:\/\/shop_images\/morfose.png","checkout_logo_position":"left","checkout_logo_size":"medium","checkout_body_background_image":"","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"white","checkout_sidebar_background_image":"","checkout_sidebar_background_color":"#fafafa","checkout_heading_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_body_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_accent_color":"#197bbd","checkout_button_color":"#197bbd","checkout_error_color":"#e32c2b","product_info_show_text_countdown":true,"product_text_countdown_reset_time":2,"product_text_countdown_delivery_time":3,"product_text_countdown_delivery_format":"Day DD\/MM\/YYYY","product_text_countdown_delivery_excludes":"Saturday, Sunday","layout_enable_preloader":false,"product_set_first_image_by_variant":true,"javascript_loader_jquery_first":true,"product_show_review_loading":false,"product_collection_hide_empty_reviews":true,"product_info_hide_empty_reviews":true,"collection_tag_filters_logic":"and","collection_only_available":false,"collection_enable_fullwidth_head_section":true,"collection_enable_product_carousel_section":true,"collection_builder_mode":"","product_info_description_place":"tabs","product_button_addtocart_size":"default","product_info_page_enable_sticky_gallery":true,"product_info_page_show_button_dynamic_checkout":true,"product_info_page_show_dynamic_checkout_confirmation":true,"product_info_page_styled_dynamic_checkout":true,"product_info_page_show_related_products":true,"product_info_page_sidebar":"off","product_info_page_enable_sticky_sidebar":true,"color_skin":"default","color_theme_paragraph_c":"","color_theme_link_act_c":"","typography_skin":"default","dev_enable_content_for_header":true,"product_info_show_arrows":true,"product_info_quick_show_full_details":true,"product_info_payments_type":"dark","wishlist_enable":true,"compare_enable":true,"payment_footer_sequence":"1,2,3,4,5,6,7,8,9","payment_product_sequence":"10,11,12,1,2,3,4,5,6,7,8,9","payment_icon_1_show":true,"payment_icon_1_code":"","payment_icon_1_image":"","payment_icon_1_url":"","payment_icon_1_tooltip":"","payment_icon_2_show":true,"payment_icon_2_code":"","payment_icon_2_image":"","payment_icon_2_url":"","payment_icon_2_tooltip":"","payment_icon_3_show":true,"payment_icon_3_code":"","payment_icon_3_image":"","payment_icon_3_url":"","payment_icon_3_tooltip":"","payment_icon_4_show":true,"payment_icon_4_code":"","payment_icon_4_image":"","payment_icon_4_url":"","payment_icon_4_tooltip":"","payment_icon_5_show":true,"payment_icon_5_code":"","payment_icon_5_image":"","payment_icon_5_url":"","payment_icon_5_tooltip":"","payment_icon_6_show":true,"payment_icon_6_code":"","payment_icon_6_image":"","payment_icon_6_url":"","payment_icon_6_tooltip":"","payment_icon_7_show":true,"payment_icon_7_code":"","payment_icon_7_image":"","payment_icon_7_url":"","payment_icon_7_tooltip":"","payment_icon_8_show":true,"payment_icon_8_code":"","payment_icon_8_image":"","payment_icon_8_url":"","payment_icon_8_tooltip":"","payment_icon_9_show":true,"payment_icon_9_code":"","payment_icon_9_image":"","payment_icon_9_url":"","payment_icon_9_tooltip":"","payment_icon_10_show":true,"payment_icon_10_code":"","payment_icon_10_image":"","payment_icon_10_url":"","payment_icon_10_tooltip":"","payment_icon_11_show":true,"payment_icon_11_code":"","payment_icon_11_image":"","payment_icon_11_url":"","payment_icon_11_tooltip":"","payment_icon_12_show":true,"payment_icon_12_code":"","payment_icon_12_image":"","payment_icon_12_url":"","payment_icon_12_tooltip":"","social_share_facebook":"#","social_share_twitter":"#","social_share_pinterest":"#","social_share_linkedin":"#","social_share_buffer":"#","social_share_reddit":"#","subscription_confirmation_popup_button_type":"1","show_free_shipping":true,"social_google":"","scm_pl_pisregex":".product-collection__image .cursor-default","scm_pl_piregex":".product-gallery__main_item .rimage__img","scm_pl_lppath":".product-gallery__main_item .rimage","scm_pl_lpspath":".product-collection__image","sections":{"product-variants":{"type":"product-variants","blocks":{"1582766687353":{"type":"option_images","disabled":true,"settings":{"product":"sweater-with-slogan","property_value_1":"Colour|Pink","property_value_2":"Colour|White","property_value_3":"","property_value_4":"","property_value_5":"","property_value_6":"","property_value_7":"","property_value_8":"","property_value_9":"","property_value_10":""}},"1582767119041":{"type":"option_images","disabled":true,"settings":{"product":"jersey-graphic-tee","property_value_1":"Select color|LightPink","property_value_2":"Select color|Gainsboro","property_value_3":"","property_value_4":"","property_value_5":"","property_value_6":"","property_value_7":"","property_value_8":"","property_value_9":"","property_value_10":""}},"1582767138198":{"type":"option_images","disabled":true,"settings":{"product":"round-neck-sweater","property_value_1":"Select color|Black","property_value_2":"Select color|Yellow","property_value_3":"Select color|Pink","property_value_4":"Select color|White","property_value_5":"","property_value_6":"","property_value_7":"","property_value_8":"","property_value_9":"","property_value_10":""}},"1582767162351":{"type":"option_images","disabled":true,"settings":{"product":"trainers-with-heel-detail","property_value_1":"Color|PowderBlue","property_value_2":"Color|Pink","property_value_3":"","property_value_4":"","property_value_5":"","property_value_6":"","property_value_7":"","property_value_8":"","property_value_9":"","property_value_10":""}},"1582767223711":{"type":"option_images","disabled":true,"settings":{"product":"hoodie-with-slogan","property_value_1":"Colour|Black","property_value_2":"Colour|Gainsboro","property_value_3":"","property_value_4":"","property_value_5":"","property_value_6":"","property_value_7":"","property_value_8":"","property_value_9":"","property_value_10":""}},"1582769733910":{"type":"option_colors","disabled":true,"settings":{"product":"belted-chino-trousers","property_value_1":"Color|Green","color_1":"#337563","property_value_2":"Color|Pink","color_2":"#e7c7c2","property_value_3":"Color|Gainsboro","color_3":"#d5d2d1","property_value_4":"","color_4":"","property_value_5":"","color_5":"","property_value_6":"","color_6":"","property_value_7":"","color_7":"","property_value_8":"","color_8":"","property_value_9":"","color_9":"","property_value_10":"","color_10":""}}},"block_order":["1582766687353","1582767119041","1582767138198","1582767162351","1582767223711","1582769733910"],"settings":{}},"header":{"type":"header","blocks":{"1525791872612":{"type":"tape","disabled":true,"settings":{"delay":0,"style":"2","transparent_bg":false,"content":"🌊 Up to 65% Off for a Limited Time – Dive In Morfose Hair-Volution Week !"}},"1527372910910":{"type":"megamenu","settings":{"for_item":"Layouts","grid":2,"second_level_column":false,"second_level_column_size":24,"wrap":false,"wrapper_grid":12,"column_left_type":"none","column_left_size":0,"column_right_type":"2","column_right_size":0,"enable_width_limit":false,"width_limit":630}},"1527384342086":{"type":"megamenu_promobox","settings":{"title":"","url":"shopify:\/\/collections","image_size":400,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"NEW IN","text_line_2":"Spring\/Summer 2020 Collection","text_line_3":"Text line 3","style":"3","button_1":"","button_1_url":"","color_button_type_1":"default","button_2":"Button text #2","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","type":"type-2-2","content_position":"center","content_align":"center","animation_to":"center","animation_from":"none","animation_opacity":"none","customization_class":""}},"1527385504306":{"type":"megamenu_promobox","settings":{"title":"","url":"shopify:\/\/collections","image_size":400,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"SALE & SPECIAL OFFERS","text_line_2":"Get up to 20% off","text_line_3":"Text line 3","style":"3","button_1":"","button_1_url":"","color_button_type_1":"default","button_2":"Button text #2","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","type":"type-2-2","content_position":"center","content_align":"center","animation_to":"center","animation_from":"none","animation_opacity":"none","customization_class":""}},"1527373213741":{"type":"megamenu","settings":{"for_item":"Shop","grid":2,"second_level_column":false,"second_level_column_size":20,"wrap":false,"wrapper_grid":12,"column_left_type":"none","column_left_size":0,"column_right_type":"8\/12-4\/12","column_right_size":0,"enable_width_limit":false,"width_limit":630}},"1527432364326":{"type":"megamenu_products","settings":{"title":"Featured products","collection":"featured","products_per_row":"2","products_rows":1}},"1583964796904":{"type":"megamenu_brands","settings":{"title":"Top brands","url":"\/collections\/womens?q=vd_:Calvin%20Klein","size_of_images":"2","image_size_1":80,"url_1":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Calvin%20Klein","image_size_2":80,"url_2":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Chanel","image_size_3":80,"url_3":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Dior","image_size_4":80,"url_4":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Giorgio%20Armani","image_size_5":80,"url_5":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Levi%27s","image_size_6":80,"url_6":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Versace","image_size_7":80,"url_7":"","image_size_8":80,"url_8":"","image_size_9":80,"url_9":"","image_size_10":80,"url_10":""}},"1527373220764":{"type":"megamenu","settings":{"for_item":"Women's","grid":2,"second_level_column":false,"second_level_column_size":50,"wrap":false,"wrapper_grid":12,"column_left_type":"none","column_left_size":0,"column_right_type":"2*2","column_right_size":0,"enable_width_limit":false,"width_limit":630}},"1527418910812":{"type":"megamenu_promobox","settings":{"title":"","url":"shopify:\/\/collections","image_size":400,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"NEW IN","text_line_2":"Spring\/Summer 2020 Collection","text_line_3":"Text line 3","style":"3","button_1":"Button text","button_1_url":"","color_button_type_1":"default","button_2":"Button text #2","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","type":"type-3","content_position":"center","content_align":"center","animation_to":"center","animation_from":"none","animation_opacity":"none","customization_class":""}},"1527420420060":{"type":"megamenu_promobox","settings":{"title":"","url":"shopify:\/\/collections","image_size":400,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"SALE & SPECIAL OFFERS","text_line_2":"Get up to 20% off","text_line_3":"Text line 3","style":"3","button_1":"Button text","button_1_url":"","color_button_type_1":"default","button_2":"Button text #2","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","type":"type-3","content_position":"center","content_align":"center","animation_to":"center","animation_from":"none","animation_opacity":"none","customization_class":""}},"1527420550360":{"type":"megamenu_promobox","settings":{"title":"","url":"shopify:\/\/collections","image_size":400,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"FEATURED","text_line_2":"Popular Items","text_line_3":"Text line 3","style":"3","button_1":"Button text","button_1_url":"","color_button_type_1":"default","button_2":"Button text #2","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","type":"type-3","content_position":"center","content_align":"center","animation_to":"center","animation_from":"none","animation_opacity":"none","customization_class":""}},"1527420557049":{"type":"megamenu_promobox","settings":{"title":"","url":"shopify:\/\/collections","image_size":400,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"COMING SOON","text_line_2":"Autumn 2020 Collection","text_line_3":"Text line 3","style":"3","button_1":"Button text","button_1_url":"","color_button_type_1":"default","button_2":"Button text #2","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","type":"type-3","content_position":"center","content_align":"center","animation_to":"center","animation_from":"none","animation_opacity":"none","customization_class":""}},"1527373227613":{"type":"megamenu","settings":{"for_item":"Men's","grid":2,"second_level_column":false,"second_level_column_size":10,"wrap":false,"wrapper_grid":12,"column_left_type":"1","column_left_size":0,"column_right_type":"1","column_right_size":0,"enable_width_limit":false,"width_limit":630}},"1527385990580":{"type":"megamenu_promobox","settings":{"title":"","url":"shopify:\/\/collections","image_size":400,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"NEW IN","text_line_2":"Spring\/Summer 2020 Collection","text_line_3":"Text line 3","style":"3","button_1":"","button_1_url":"","color_button_type_1":"default","button_2":"Button text #2","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","type":"type-2-2","content_position":"center","content_align":"center","animation_to":"center","animation_from":"none","animation_opacity":"none","customization_class":""}},"1527386066314":{"type":"megamenu_promobox","settings":{"title":"","url":"shopify:\/\/collections","image_size":400,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"SALE & SPECIAL OFFERS","text_line_2":"Get up to 20% off","text_line_3":"Text line 3","style":"3","button_1":"Button text","button_1_url":"","color_button_type_1":"default","button_2":"Button text #2","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","type":"type-3","content_position":"center","content_align":"center","animation_to":"center","animation_from":"none","animation_opacity":"none","customization_class":""}},"1527422624107":{"type":"megamenu_title_image","settings":{"for_item":"Men's+Clothing","image_size":170,"for_item_2":"Men's+Shoes","image_size_2":200,"for_item_3":"Men's+Accessories","image_size_3":200,"for_item_4":"","image_size_4":200,"for_item_5":"","image_size_5":200}},"1543698183190":{"type":"megamenu_label","settings":{"type":"hot","text":"","for_item":"Layouts+Layouts+Home V1","for_item_2":"Layouts+Layouts+Home V3","for_item_3":"Layouts+Layouts+Home V6","for_item_4":"Women's+Shoes+Heels","for_item_5":"Layouts+Layouts+Home V17","for_item_6":"Layouts+Skins+Skin 4 - One Product","for_item_7":"Shop+Collection layouts+Look book","for_item_8":"Shop+Single Product Layouts+3D Models and Video","for_item_9":"Layouts+Skins+Skin 12 - Cannabis","for_item_10":"Shop+Collection layouts+List Products V2","for_item_11":"Shop+Single Product Layouts+Pre Order","for_item_12":"Layouts+Layouts+Home V18","for_item_13":"Shop+Product options+Gallery width","for_item_14":"","for_item_15":""}},"1527438870190":{"type":"megamenu_label","settings":{"type":"new","text":"","for_item":"Women's+Clothing+Dresses","for_item_2":"Shop+product options+Custom Image, Text","for_item_3":"Layouts+Layouts+Home V18","for_item_4":"Shop+Collection layouts+List Products V2","for_item_5":"Shop+Single Product Layouts+Pre Order","for_item_6":"Layouts+Skins+Skin 12 - Cannabis","for_item_7":"Layouts+Layouts+Home V16","for_item_8":"Layouts+Layouts+Home V17","for_item_9":"Shop+Single Product Layouts+Product V5 — Grid","for_item_10":"Layouts+Skins+Skin 13 - Wine","for_item_11":"Layouts+Skins+Skin 14 - Food Delivery","for_item_12":"Layouts+Skins+Skin 15 - Lenses","for_item_13":"Layouts+Skins+Skin 16 - Cakes","for_item_14":"Layouts+Skins+Skin 17 - Plants","for_item_15":"Layouts+Skins+Skin 18 - Pasta"}},"1582328455745":{"type":"megamenu_label","settings":{"type":"new","text":"SLIDER","for_item":"Layouts+Layouts+Home V8","for_item_2":"","for_item_3":"","for_item_4":"","for_item_5":"","for_item_6":"","for_item_7":"","for_item_8":"","for_item_9":"","for_item_10":"","for_item_11":"","for_item_12":"","for_item_13":"","for_item_14":"","for_item_15":""}},"1567840286505":{"type":"megamenu_label","settings":{"type":"sale","text":"ACTIVE","for_item":"Layouts+Layouts+Home V1","for_item_2":"","for_item_3":"","for_item_4":"","for_item_5":"","for_item_6":"","for_item_7":"","for_item_8":"","for_item_9":"","for_item_10":"","for_item_11":"","for_item_12":"","for_item_13":"","for_item_14":"","for_item_15":""}},"1591272472793":{"type":"megamenu_label","settings":{"type":"sale","text":"SALE","for_item":"Buy now!","for_item_2":"Men's+clothing+jackets","for_item_3":"Men's+Shoes","for_item_4":"","for_item_5":"","for_item_6":"","for_item_7":"","for_item_8":"","for_item_9":"","for_item_10":"","for_item_11":"","for_item_12":"","for_item_13":"","for_item_14":"","for_item_15":""}},"1593945756616":{"type":"menu","settings":{"for_item":"Gallery","menu":""}}},"block_order":["1525791872612","1527372910910","1527384342086","1527385504306","1527373213741","1527432364326","1583964796904","1527373220764","1527418910812","1527420420060","1527420550360","1527420557049","1527373227613","1527385990580","1527386066314","1527422624107","1543698183190","1527438870190","1582328455745","1567840286505","1591272472793","1593945756616"],"settings":{"type":"6","style":"1","transparent_bg":"disable","logo_mobile_centered":false,"height":0,"items_padding":0,"menu":"main-menu","show_menu_arrows":true,"show_menu_hover_underline":false,"vertical_menu":"","fixed_vertical_menu":false,"additional_line_info_page_content":"","sticky":"desktop_and_mobile","desktop_sticky_type":"wide","hide_sticky_when_scroll_down":false}},"footer":{"type":"footer","blocks":{"1586284608625":{"type":"subscription","settings":{"title":"Newsletter subscription","paragraph":"Sign up for Morfose updates to receive information about new arrivals, future events and specials.","placeholder":"Enter Your Email Address","button_text":"SUBSCRIBE!"}},"1586284525260":{"type":"menu","settings":{"title":"CUSTOMER","show_title_on_desktop":true,"menu":"customer","size":0,"rows_limit":0}},"1586284527889":{"type":"menu","settings":{"title":"INFORMATION","show_title_on_desktop":true,"menu":"information","size":0,"rows_limit":0}},"1586284530934":{"type":"menu","settings":{"title":"SERVICE","show_title_on_desktop":true,"menu":"service","size":0,"rows_limit":0}},"1586284576772":{"type":"custom_html","settings":{"title":"Here to help","show_title_on_desktop":true,"page_content":"here-to-help"}},"1586284588048":{"type":"social_media","settings":{"title":"Follow us","show_facebook":true,"show_twitter":false,"show_instagram":true,"show_pinterest":true,"show_youtube":true,"show_behance":false,"show_skype":false}},"footer-0":{"type":"copyright","settings":{"page_content":"copyright"}},"1586284627913":{"type":"payments","settings":{}}},"block_order":["1586284608625","1586284525260","1586284527889","1586284530934","1586284576772","1586284588048","footer-0","1586284627913"],"settings":{"type":"1","style":"1","show_logo":true,"show_button_back_to_top":true,"enable_fixed":true}},"1586279708879":{"type":"home-builder","blocks":{"1586279874234":{"type":"promobox","disabled":true,"settings":{"url":"","image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-11_13.33.51.png","image_size":900,"image_mobile_size":900,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"","text_line_2":"","text_line_3":"","style":"1","button_1":"","button_1_url":"shopify:\/\/collections\/womens","color_button_type_1":"secondary","button_2":"Button #2 text","button_2_url":"shopify:\/\/collections\/mens","color_button_type_2":"default-transparent","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/72758eacca6b4cb3b95e990cf5918ba1.mp4","video_autoplay":true,"video_controls":false,"type":"type-1","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"preset_1","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"none","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"c218454b-26a2-444c-a442-cd1b6a5e9f2e":{"type":"promobox","disabled":true,"settings":{"url":"https:\/\/themorfose.com\/collections\/bundles","image_size":1450,"image_mobile_size":550,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"Text line #1","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/73b2ead0271446f082f371f72a57bcc3.mp4","video_autoplay":true,"video_controls":false,"type":"clean","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"none","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"f9c52d90-33a5-48b1-9fcb-30aba5e5be53":{"type":"promobox","disabled":true,"settings":{"url":"shopify:\/\/collections\/bundles","image":"shopify:\/\/shop_images\/1_f2988e51-f05b-48ba-ae85-70f76234d857.png","image_size":1450,"image_mobile":"shopify:\/\/shop_images\/1_8c7a33a4-f0c1-4756-868b-6611130272e2.png","image_mobile_size":550,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"Text line #1","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"clean","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"none","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"281ff8f3-c823-45e0-9bed-2dd6dd8d1e24":{"type":"slick_slider","settings":{"height":"preset_1","min_height":0,"size_of_column":"auto","arrows":true,"bullets":true,"speed":3}},"slick_slide_B4DFiF":{"type":"slick_slide","settings":{"url":"shopify:\/\/collections\/milk-therapy","image":"shopify:\/\/shop_images\/Morofse_Website_Banner_2eea4c11-bfc2-41a9-8399-781ec03cda0a.png","image_size":900,"image_mobile":"shopify:\/\/shop_images\/Morfose_123Mobile_Banner_540_x_550_piksel.png","image_mobile_size":550,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"Text line #1","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"clean","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"6e0a228d-623c-4856-bc67-1456ec4347b0":{"type":"slick_slide","disabled":true,"settings":{"url":"shopify:\/\/collections\/bundles","image":"shopify:\/\/shop_images\/Morofse_Website_Banner_34722dbe-51e4-4d78-bd68-ca988aa12ee1.png","image_size":900,"image_mobile":"shopify:\/\/shop_images\/15.png","image_mobile_size":550,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"Text line #1","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"clean","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"4575178c-8d89-4627-8c8b-8297e335163a":{"type":"slick_slide","disabled":true,"settings":{"url":"shopify:\/\/collections\/men-care-series","image":"shopify:\/\/shop_images\/Morofse_Website_Banner_731ad1f6-f0a1-4782-8e88-76f2f12fc09b.png","image_size":900,"image_mobile":"shopify:\/\/shop_images\/16_52fc9226-cdf5-4422-bf92-d38950b1b183.png","image_mobile_size":550,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"Text line #1","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"clean","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"e540a985-661d-4da6-82dc-c99cb891f224":{"type":"slick_slide","disabled":true,"settings":{"url":"shopify:\/\/collections\/conditioners-masks","image":"shopify:\/\/shop_images\/5_c1089cdb-25fe-4eba-81c6-52e8f1820833.png","image_size":900,"image_mobile":"shopify:\/\/shop_images\/123asd123sd.png","image_mobile_size":550,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"Text line #1","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"clean","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"24e2cbe1-2818-4cb4-97dc-2ef953668588":{"type":"slick_slide","disabled":true,"settings":{"url":"shopify:\/\/pages\/ambassador","image":"shopify:\/\/shop_images\/3_d03a28be-e0d9-4f06-b4cb-87c72d322f49.png","image_size":900,"image_mobile":"shopify:\/\/shop_images\/3_df537ba1-fa2a-4ec3-bc2e-f892d7b45bf5.png","image_mobile_size":550,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"Text line #1","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"clean","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}}},"block_order":["1586279874234","c218454b-26a2-444c-a442-cd1b6a5e9f2e","f9c52d90-33a5-48b1-9fcb-30aba5e5be53","281ff8f3-c823-45e0-9bed-2dd6dd8d1e24","slick_slide_B4DFiF","6e0a228d-623c-4856-bc67-1456ec4347b0","4575178c-8d89-4627-8c8b-8297e335163a","e540a985-661d-4da6-82dc-c99cb891f224","24e2cbe1-2818-4cb4-97dc-2ef953668588"],"settings":{"title":"","container":"fullwidth","size_of_columns":"1","size_of_columns_mobile":"1","margins_for_columns":"none","align_of_columns":"top_center","disable_column_paddings":false,"precedence":"","customization_class":""}},"1586280453180":{"type":"home-builder","blocks":{"206e9998-0750-49ca-b592-d3eae867908b":{"type":"promobox","settings":{"url":"shopify:\/\/collections\/bundles","image":"shopify:\/\/shop_images\/brian-asare-uIT9Vk0HHJE-unsplash_f19bb5b8-2038-474e-97e8-382e9fdf270a.jpg","image_size":900,"image_mobile_size":900,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"BUNDLE SALES 🔥","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default-transparent","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default-transparent","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"type-4","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"center","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"#000000","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"1586280489479":{"type":"promobox","settings":{"url":"shopify:\/\/collections\/shampoos","image":"shopify:\/\/shop_images\/9.png","image_size":900,"image_mobile_size":900,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"SHAMPOOS","text_line_2":"","text_line_3":"","style":"2","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default-transparent","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default-transparent","list_1":"list-for-promobox","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"type-4","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"center","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"1586280492143":{"type":"promobox","settings":{"url":"shopify:\/\/collections\/conditioners-masks","image":"shopify:\/\/shop_images\/8.png","image_size":900,"image_mobile_size":900,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"CONDITIONERS & MASKS","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"2","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default-transparent","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default-transparent","list_1":"include-promo-box-list-mens","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"type-4","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"center","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"1586280494368":{"type":"promobox","settings":{"url":"shopify:\/\/collections\/scalp-hair-treatments","image":"shopify:\/\/shop_images\/10.png","image_size":900,"image_mobile_size":900,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"SCALP & HAIR TREATMENTS","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"2","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default-transparent","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default-transparent","list_1":"include-promo-box-list-accessories","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"type-4","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"center","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"4a25e93e-033a-4be4-9e17-e64d32290bde":{"type":"promobox","settings":{"url":"shopify:\/\/collections\/styling-creams","image":"shopify:\/\/shop_images\/12_430x_4a5c70ec-3eb6-46df-9cbf-8a7b58d666e9.png","image_size":900,"image_mobile_size":900,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"STYLING & CREAMS","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default-transparent","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default-transparent","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"type-4","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"center","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"#000000","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"1f27186c-d4cf-41de-9b1f-55adcf07e963":{"type":"promobox","settings":{"url":"shopify:\/\/collections\/men-care-series","image":"shopify:\/\/shop_images\/13_430x_a718b330-7d37-436c-a0eb-52a9b380a5a5.png","image_size":900,"image_mobile_size":900,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"MEN CARE SERIES","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default-transparent","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default-transparent","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"type-4","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"center","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"#000000","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}}},"block_order":["206e9998-0750-49ca-b592-d3eae867908b","1586280489479","1586280492143","1586280494368","4a25e93e-033a-4be4-9e17-e64d32290bde","1f27186c-d4cf-41de-9b1f-55adcf07e963"],"settings":{"title":"","container":"boxed","size_of_columns":"3","size_of_columns_mobile":"1","margins_for_columns":"preset_1","align_of_columns":"top_center","disable_column_paddings":false,"precedence":"","customization_class":""}},"1586280477165":{"type":"spacer","settings":{"margin_top":60,"margin_bottom":0,"margin_top_mobile":10,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"1586282516064":{"type":"sorting-collections","blocks":{"1586282526457":{"type":"collection","settings":{"title":"","collection":"milk-therapy"}},"1586282565448":{"type":"collection","settings":{"title":"Bundle Sales 🔥","collection":"bundles"}},"1586282583295":{"type":"collection","disabled":true,"settings":{"title":"","collection":"amino-keratin"}}},"block_order":["1586282526457","1586282565448","1586282583295"],"settings":{"size_of_columns":"4","max_count":4,"show_btn_more_products":true}},"1586282646707":{"type":"spacer","settings":{"margin_top":40,"margin_bottom":0,"margin_top_mobile":0,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"1586282852274":{"type":"spacer","settings":{"margin_top":20,"margin_bottom":0,"margin_top_mobile":10,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"1586282860739":{"type":"home-builder","blocks":{"1586282889393":{"type":"promobox","settings":{"url":"shopify:\/\/collections\/men-care-series","image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-10_18.02.42.png","image_size":900,"image_mobile":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-10_18.02.42.png","image_mobile_size":900,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"NEW ARRIVALS","text_line_2":"MEN CARE SERIES","text_line_3":"Essential styles come alive in healty colors.","style":"5","button_1":"DISCOVER MORE","button_1_url":"","color_button_type_1":"invert-transparent","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default-transparent","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"type-1-3","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"none","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}},"1586282892935":{"type":"promobox","settings":{"url":"shopify:\/\/collections\/styling-creams","image":"shopify:\/\/shop_images\/SHAMPOOS-6.png","image_size":900,"image_mobile":"shopify:\/\/shop_images\/SHAMPOOS-6.png","image_mobile_size":900,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"DISCOVER THEM ALL","text_line_2":"HAIR STYLING <br>CREAMS","text_line_3":"","style":"5","button_1":"DISCOVER MORE","button_1_url":"","color_button_type_1":"invert-transparent","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default-transparent","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"type-1-3","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"none","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}}},"block_order":["1586282889393","1586282892935"],"settings":{"title":"","container":"boxed","size_of_columns":"2","size_of_columns_mobile":"1","margins_for_columns":"preset_1","align_of_columns":"top_center","disable_column_paddings":false,"precedence":"","customization_class":""}},"1586283266986":{"type":"spacer","settings":{"margin_top":45,"margin_bottom":0,"margin_top_mobile":35,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"1586283282255":{"type":"carousel-products","blocks":{"1586283286719":{"type":"collection","settings":{"title":"TRENDING NOW","collection":"scalp-hair-treatments"}}},"block_order":["1586283286719"],"settings":{"show_title":true,"container":"boxed","size_of_columns":"4","max_count":6,"autoplay":true,"speed":5,"infinite":true,"arrows":true,"bullets":true}},"1586283399218":{"type":"spacer","disabled":true,"settings":{"margin_top":60,"margin_bottom":50,"margin_top_mobile":0,"margin_bottom_mobile":35,"container":"boxed","show_separator":true,"title":""}},"1586283433745":{"type":"carousel-brands","blocks":{"1586283438841":{"type":"brand","settings":{"link":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Calvin%20Klein"}},"1586283440593":{"type":"brand","settings":{"link":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Chanel"}},"1586283442261":{"type":"brand","settings":{"link":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Dior"}},"1586283444209":{"type":"brand","settings":{"link":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Giorgio%20Armani"}},"1586283447563":{"type":"brand","settings":{"link":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Calvin%20Klein"}},"1586283449137":{"type":"brand","settings":{"link":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Calvin%20Klein"}},"1586283451048":{"type":"brand","settings":{"link":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Calvin%20Klein"}},"1586283452306":{"type":"brand","settings":{"link":"https:\/\/shella-demo.myshopify.com\/collections\/vendors?q=Calvin%20Klein"}}},"block_order":["1586283438841","1586283440593","1586283442261","1586283444209","1586283447563","1586283449137","1586283451048","1586283452306"],"disabled":true,"settings":{"title":"","layout":"slider","size_of_columns":"6","image_max_width":0,"bordered_links":true,"border_radius":"","autoplay":true,"speed":5,"infinite":true,"arrows":true,"bullets":false}},"1586283959656":{"type":"spacer","disabled":true,"settings":{"margin_top":55,"margin_bottom":0,"margin_top_mobile":45,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"1586283978403":{"type":"carousel-articles","disabled":true,"settings":{"title":"WORLD OF SHELLA","blog":"blog","layout":"1","max_symbols_count":200,"show_details":true,"button_text":"Read & Shop","size_of_columns":"2","max_items_count":10,"autoplay":true,"speed":5,"infinite":true,"arrows":true,"bullets":true}},"1586284034569":{"type":"spacer","settings":{"margin_top":60,"margin_bottom":0,"margin_top_mobile":0,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"1586284059940":{"type":"home-builder","blocks":{"1586284065628":{"type":"instagram","settings":{"show_post_details":true,"limit":12,"size_of_images":"6","inner_disable_paddings":true,"fixed_height":100,"disable_lazyload":false,"size_of_column":"auto"}},"1586284075152":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_19.54.23.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CpdblOOu68a\/","likes":"24","comments":"12"}},"1586284077419":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_19.54.29.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CpdZY7yvVYd\/","likes":"15","comments":"7"}},"1586284080852":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_19.54.35.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnrlIGlrp24\/","likes":"35","comments":"10"}},"1586366174420":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_20.03.03.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnDPKQoLb0Q\/","likes":"97","comments":"34"}},"1586284083626":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_19.54.44.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnVKWXjLZTg\/","likes":"18","comments":"6"}},"1586284088787":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_20.00.03.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnKL7ZRva1o\/","likes":"17","comments":"14"}},"1586284086290":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_19.54.49.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnPFO2OvVe1\/","likes":"46","comments":"28"}},"1586366161062":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_19.54.57.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnII9QvOGRq\/","likes":"42","comments":"16"}},"1586366163574":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_20.02.20.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnFNpjSDhT2\/","likes":"37","comments":"22"}},"1586366171436":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_20.05.31.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnENXAxuDss\/","likes":"83","comments":"45"}},"1586366165951":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_20.02.27.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnETa8EggMw\/","likes":"79","comments":"15"}},"1586366177575":{"type":"instagram_block","settings":{"image":"shopify:\/\/shop_images\/Ekran_Resmi_2023-03-09_20.07.27.png","image_size":195,"format_pjpg":true,"disable_lazyload":false,"url":"https:\/\/www.instagram.com\/p\/CnDEIX6OO3z\/","likes":"34","comments":"18"}}},"block_order":["1586284065628","1586284075152","1586284077419","1586284080852","1586366174420","1586284083626","1586284088787","1586284086290","1586366161062","1586366163574","1586366171436","1586366165951","1586366177575"],"settings":{"title":"<p><a href=\"https:\/\/www.instagram.com\/morfoseusa\/\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/morfoseusa\/\">@MORFOSEUSA<\/a> Follow us on Instagram<\/p>","container":"boxed","size_of_columns":"1","size_of_columns_mobile":"1","margins_for_columns":"none","align_of_columns":"top_center","disable_column_paddings":false,"precedence":"","customization_class":""}},"carousel-products":{"type":"carousel-products","blocks":{"1586291186708":{"type":"collection","settings":{"title":"","collection":"trending-now-hp"}}},"block_order":["1586291186708"],"settings":{"show_title":true,"container":"boxed","size_of_columns":"4","max_count":6,"autoplay":true,"speed":5,"infinite":true,"arrows":true,"bullets":true}},"carousel-related-products":{"type":"carousel-related-products","settings":{"type":"related","title":"Related Products","size_of_columns":"4","max_count":6,"autoplay":true,"speed":5,"infinite":true,"arrows":true,"bullets":true}},"product-fixed-sizebar":{"type":"product-fixed-sizebar","blocks":{"1586291806417":{"type":"text_line","settings":{"icon":"","text":"","min_value":"200","max_value":"500"}},"1586291808135":{"type":"text_line","settings":{"icon":"","text":"","min_value":"30","max_value":"100"}},"1586291810188":{"type":"text_line","settings":{"icon":"","text":"","min_value":"100","max_value":"200"}}},"block_order":["1586291806417","1586291808135","1586291810188"],"settings":{}},"home-builder":{"type":"home-builder","settings":{"title":"","container":"boxed","size_of_columns":"1","margins_for_columns":"none","align_of_columns":"top_center","disable_column_paddings":false,"precedence":"","customization_class":""}},"1586567788223":{"type":"spacer","settings":{"margin_top":60,"margin_bottom":0,"margin_top_mobile":50,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"password-page-footer":{"type":"password-page-footer","settings":{"enable_custom":true,"page_content":""}},"aad00548-f1de-4736-a313-23bebad3eb46":{"type":"carousel-products","blocks":{"66b36f1e-49fa-4986-8a16-d8d9f9f4cc32":{"type":"collection","settings":{"title":"MEN CARE","collection":"men-care-series"}}},"block_order":["66b36f1e-49fa-4986-8a16-d8d9f9f4cc32"],"settings":{"show_title":true,"container":"boxed","size_of_columns":"4","max_count":6,"autoplay":true,"speed":5,"infinite":true,"arrows":true,"bullets":true}},"0663b541-250b-4f2b-b1c8-b38735e98e4b":{"type":"spacer","settings":{"margin_top":60,"margin_bottom":0,"margin_top_mobile":50,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"cb4bcae2-b8f4-48d2-b3fd-5e5c58096fe4":{"type":"spacer","settings":{"margin_top":60,"margin_bottom":0,"margin_top_mobile":0,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"e0e4c762-1a56-4751-a24c-507ba1a82712":{"type":"home-builder","blocks":{"6229132c-8c22-46b5-8810-cb598c3ef084":{"type":"promobox","settings":{"url":"https:\/\/themorfose.com\/blogs\/news\/ambassador-program","image":"shopify:\/\/shop_images\/Apply_Now_to_Join_Our_Ambassador_Community.png","image_size":1450,"image_mobile_size":550,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"Text line #1","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"clean","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"none","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}}},"block_order":["6229132c-8c22-46b5-8810-cb598c3ef084"],"settings":{"title":"","container":"boxed","size_of_columns":"1","size_of_columns_mobile":"1","margins_for_columns":"none","align_of_columns":"top_center","disable_column_paddings":false,"precedence":"","customization_class":""}},"2b05a4c3-9f15-4b73-99bb-2e45f7070b1b":{"type":"spacer","disabled":true,"settings":{"margin_top":60,"margin_bottom":0,"margin_top_mobile":0,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"d89000d7-6ea8-4327-b5a9-1ac5394007ae":{"type":"home-builder","blocks":{"ebbe0dc7-8e93-4f22-94d1-0ed444f8b7cb":{"type":"promobox","settings":{"url":"https:\/\/themorfose.com\/pages\/reward","image":"shopify:\/\/shop_images\/Royality.png","image_size":1450,"image_mobile_size":550,"image_position_x":50,"color_image_mask":"","image_mask_opacity":0.5,"text_line_1":"Text line #1","text_line_2":"Text line #2","text_line_3":"Text line #3","style":"1","button_1":"Button #1 text","button_1_url":"","color_button_type_1":"default","button_2":"Button #2 text","button_2_url":"","color_button_type_2":"default","list_1":"","custom_html":"","video_external_url":"","video_mp4_url":"","video_autoplay":true,"video_controls":false,"type":"clean","content_position":"center","content_align":"center","add_container":false,"content_width":100,"text_width":0,"height":"auto","min_height":0,"size_of_column":"auto","visible":"desktop_mobile","parallax":"disable","animation_to":"none","animation_from":"none","animation_opacity":"none","animation_text":"none","color_text_1":"","color_text_2":"","color_text_3":"","color_text_bg":"","color_curtain_bg":"","customization_class":""}}},"block_order":["ebbe0dc7-8e93-4f22-94d1-0ed444f8b7cb"],"disabled":true,"settings":{"title":"","container":"boxed","size_of_columns":"1","size_of_columns_mobile":"1","margins_for_columns":"none","align_of_columns":"top_center","disable_column_paddings":false,"precedence":"","customization_class":""}},"8a8eb849-0d08-439b-a133-6d30648e7327":{"type":"spacer","settings":{"margin_top":60,"margin_bottom":0,"margin_top_mobile":0,"margin_bottom_mobile":0,"container":"boxed","show_separator":false,"title":""}},"7216bc90-47fa-4b2c-959c-4b0b0ba07bd0":{"type":"information-line","blocks":{"7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-1":{"type":"content","settings":{"icon":"theme-116","title":"Free Shipping.","paragraph":"All orders of $49 or more of eligible items across any product category qualify.","url":""}},"7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-2":{"type":"content","settings":{"icon":"theme-125","title":"Payment Methods.","paragraph":"Credit Card: Visa, MasterCard, Maestro, American Express.","url":""}},"7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-3":{"type":"content","settings":{"icon":"theme-009","title":"Returns & Refunds.","paragraph":"You can return any item purchased on Shella within 20 days of the delivery date.","url":""}}},"block_order":["7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-1","7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-2","7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-3"],"disabled":true,"settings":{"title":"","type":"1","style":"1"}},"juniper_KHpKBq":{"type":"juniper","settings":{"html_area":""}}},"content_for_index":["1586279708879","1586280477165","1586280453180","1586282646707","1586282516064","cb4bcae2-b8f4-48d2-b3fd-5e5c58096fe4","1586282852274","1586282860739","1586283266986","1586283282255","1586283399218","1586283433745","1586283959656","1586283978403","1586284034569","e0e4c762-1a56-4751-a24c-507ba1a82712","8a8eb849-0d08-439b-a133-6d30648e7327","1586284059940","0663b541-250b-4f2b-b1c8-b38735e98e4b","aad00548-f1de-4736-a313-23bebad3eb46","1586567788223","2b05a4c3-9f15-4b73-99bb-2e45f7070b1b","d89000d7-6ea8-4327-b5a9-1ac5394007ae","7216bc90-47fa-4b2c-959c-4b0b0ba07bd0","juniper_KHpKBq"],"blocks":{"15079184273603081885":{"type":"shopify:\/\/apps\/essential-free-shipping-bar\/blocks\/app_embed\/4125375e-37c8-4137-949d-c4e1a3aac572","disabled":false,"settings":{}},"18228966181090706294":{"type":"shopify:\/\/apps\/upsell-cross-sell-selleasy\/blocks\/app-embed\/790c1a03-a71f-4bc1-9869-00dad526d3c2","disabled":false,"settings":{}},"2680175748099902610":{"type":"shopify:\/\/apps\/reputon-amazon-reviews\/blocks\/product-rating-snippet-embed\/88ab28f3-a438-4eb3-a83e-f1a9c62c5069","disabled":false,"settings":{}},"604233939152458686":{"type":"shopify:\/\/apps\/omega-product-video-gallery\/blocks\/product_video_extension\/f8ad865c-5edf-40a0-9672-4378dafc8d88","disabled":false,"settings":{}},"1513253815146976218":{"type":"shopify:\/\/apps\/omnisend-email-marketing-sms\/blocks\/app-embed\/44704aa2-794f-4c5d-8c8e-039c841158e9","disabled":false,"settings":{}},"11349500561483629931":{"type":"shopify:\/\/apps\/ReStock\/blocks\/app-embed\/b399b727-6c85-44fc-9e21-63114bd72054","disabled":false,"settings":{}},"5460033060862993441":{"type":"shopify:\/\/apps\/essential-announcement-bar\/blocks\/app-embed\/93b5429f-c8d6-4c33-ae14-250fd84f361b","disabled":false,"settings":{}},"2118589882331710876":{"type":"shopify:\/\/apps\/essential-trust-badges\/blocks\/app-embed\/0ff65b25-07e1-408e-950f-f54dd3d1751b","disabled":false,"settings":{}},"15683396631634586217":{"type":"shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b","disabled":true,"settings":{"button_color":"#202a36","secondary_color":"#ffffff","button_icon":"hand_wave","button_text":"chat_with_us","button_horizontal_position":"bottom_left","button_vertical_position":"highest","greeting_message":"👋 Hi, message us with any questions. We're happy to help!"}},"pagefly-page-builder":{"type":"shopify:\/\/apps\/pagefly-page-builder\/blocks\/app-embed\/83e179f7-59a0-4589-8c66-c0dddf959200","disabled":false,"settings":{}},"3138269044488530766":{"type":"shopify:\/\/apps\/uppromote-affiliate\/blocks\/core-script\/64c32457-930d-4cb9-9641-e24c0d9cf1f4","disabled":false,"settings":{}},"6097499278999377719":{"type":"shopify:\/\/apps\/globo-mega-menu\/blocks\/app-embed\/7a00835e-fe40-45a5-a615-2eb4ab697b58","disabled":false,"settings":{}}}}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "purchase_code": "b3e8ee38-1934-40df-9d3a-f0d5b3d650cd",
+    "presentation_enable": true,
+    "logo_types": "image",
+    "logo_svg_file": "svg-logo",
+    "logo_image": "shopify://shop_images/morfose.png",
+    "logo_width": 200,
+    "logo_mobile_svg_file": "svg-logo-mobile",
+    "logo_mobile_image": "shopify://shop_images/Morfose_Logo1.png",
+    "logo_mobile_width": 220,
+    "logo_sticky_svg_file": "svg-logo-sticky",
+    "logo_sticky_image": "shopify://shop_images/morfose.png",
+    "logo_sticky_width": 112,
+    "logo_footer_svg_file": "",
+    "logo_footer_image": "shopify://shop_images/morfose.png",
+    "logo_footer_width": 140,
+    "logo_footer_mobile_svg_file": "",
+    "logo_footer_mobile_image": "shopify://shop_images/Morfose_Logo1.png",
+    "logo_footer_mobile_width": 220,
+    "favicon": "shopify://shop_images/morfose.png",
+    "layout_container": "fullwidth",
+    "layout_show_breadcrumbs": true,
+    "layout_pagination_type": "infinite_scroll",
+    "layout_enable_rtl": false,
+    "layout_images_lazyload": true,
+    "layout_settings_file": "default",
+    "layout_age_confirmation": false,
+    "layout_age_confirmation_image": "",
+    "layout_age_confirmation_image_width": 600,
+    "layout_age_confirmation_checkbox": true,
+    "color_theme_primary": "",
+    "color_theme_body": "",
+    "color_theme_c": "#000000",
+    "color_theme_head_c": "",
+    "color_theme_link_c": "",
+    "color_theme": "",
+    "color_theme2": "",
+    "color_theme3": "",
+    "color_theme4": "",
+    "color_theme5": "",
+    "color_theme6": "",
+    "color_theme7": "",
+    "color_theme8": "",
+    "color_theme9": "",
+    "color_theme10": "",
+    "color_theme11": "",
+    "color_theme12": "",
+    "font_base": "mono",
+    "font_base_apply_to_all": true,
+    "font_base_type": "none",
+    "font_size_body": 15,
+    "font_heading": "basic_commercial_n4",
+    "font_heading_type": "none",
+    "font_size_h1": 44,
+    "font_size_h2": 32,
+    "font_size_h3": 24,
+    "font_size_h4": 18,
+    "font_size_h5": 15,
+    "font_size_h6": 20,
+    "font_button": "basic_commercial_n4",
+    "font_size_button": 18,
+    "font_size_input": 15,
+    "font_menu": "basic_commercial_n4",
+    "font_size_menu": 14,
+    "font_size_menu_list": 13,
+    "font_size_menu_title": 13,
+    "font_size_menu_mobile": 15,
+    "font_load_alternative": false,
+    "font_alternative": "basic_commercial_n4",
+    "font_alternative_type": "none",
+    "collection_show_sidebar": "hide",
+    "collection_sidebar_position": "left",
+    "collection_enable_sticky": true,
+    "product_format_pjpg": true,
+    "product_cursor": "",
+    "product_show_custom_options": true,
+    "product_enable_variants_section": true,
+    "product_hide_options_without_availability_variants": true,
+    "product_variant_auto_select": "enable",
+    "product_auto_selected_options": "",
+    "product_collection_set_first_image_by_variant": false,
+    "product_options_listing_visibility": "all",
+    "product_variant_change_on_hover": true,
+    "product_options_type_circle_color": "Color",
+    "product_options_type_circle_image": "Select color",
+    "product_options_type_square_color": "Colour",
+    "product_options_type_square_image": "Material 2",
+    "product_options_type_select": "Select",
+    "product_options_type_large_text": "Size",
+    "product_collection_image_height_percent": 128,
+    "product_collection_image_size": "contain",
+    "product_collection_image_border_radius": 0,
+    "product_replace_images_hover": true,
+    "product_collection_show_label_in_stock": false,
+    "product_collection_show_label_pre_order": true,
+    "product_collection_show_label_out_stock": true,
+    "product_collection_show_label_sale": false,
+    "product_collection_show_label_new": false,
+    "product_collection_show_label_hot": true,
+    "product_collection_centered_info": false,
+    "product_collection_more_info_type": "hide",
+    "product_collection_show_title": true,
+    "product_collection_title_trim": true,
+    "product_collection_show_price": true,
+    "product_collection_show_button_quick_view": true,
+    "product_collection_show_countdown": true,
+    "product_collection_show_images_navigation": true,
+    "product_collection_show_options": true,
+    "product_collection_show_quantity": false,
+    "product_collection_show_button_add_to_cart": true,
+    "product_collection_show_button_add_to_wishlist": true,
+    "product_collection_show_button_add_to_compare": true,
+    "product_collection_show_reviews": true,
+    "product_collection_hide_reviews_counter": true,
+    "product_collection_hide_reviews_mobile_counter": true,
+    "product_collection_show_sku": false,
+    "product_collection_show_barcode": false,
+    "product_collection_show_availability": false,
+    "product_collection_show_type": true,
+    "product_collection_show_vendor": true,
+    "product_collection_show_description": true,
+    "product_collection_list_show_quantity": false,
+    "product_info_layout": "4",
+    "product_info_show_mobile_thumbnails": true,
+    "product_info_enable_fullscreen_popup": false,
+    "product_info_show_btn_fullscreen": false,
+    "product_info_show_btn_video": true,
+    "product_info_video_autoplay": true,
+    "product_info_enable_zoom": false,
+    "product_info_zoom_scale_coef": 2,
+    "product_info_gallery_height_and_size_path": "collection",
+    "product_info_gallery_height_percent": 100,
+    "product_info_gallery_image_size": "contain",
+    "product_info_gallery_image_size_mobile": "use_desktop_settings",
+    "product_info_gallery_grouped": "tag",
+    "product_info_show_label_in_stock": false,
+    "product_info_show_label_pre_order": false,
+    "product_info_show_label_out_stock": false,
+    "product_info_show_label_sale": false,
+    "product_info_show_label_new": false,
+    "product_info_show_label_hot": false,
+    "product_info_show_collections": false,
+    "product_info_show_title": true,
+    "product_info_show_reviews": true,
+    "product_info_hide_reviews_counter": false,
+    "product_info_show_sku": false,
+    "product_info_show_barcode": false,
+    "product_info_show_availability": false,
+    "product_info_show_type": false,
+    "product_info_show_vendor": false,
+    "product_info_show_price": true,
+    "product_info_show_sale_details": true,
+    "product_info_show_taxes": true,
+    "product_info_payment_terms": true,
+    "product_info_show_description": false,
+    "product_info_show_selling_plan": false,
+    "product_info_show_countdown": false,
+    "product_info_show_stock_countdown": true,
+    "product_info_show_stock_countdown_range": true,
+    "product_stock_countdown_min": 10,
+    "product_info_show_delivery_countdown": false,
+    "product_delivery_countdown_delivery_format": "Day MM/DD/YYYY",
+    "product_info_show_visitors": false,
+    "product_visitors_min": 10,
+    "product_visitors_max": 25,
+    "product_visitors_stroke": 4,
+    "product_visitors_interval_min": 2,
+    "product_visitors_interval_max": 6,
+    "product_info_show_options": true,
+    "product_info_show_size_guide": false,
+    "product_info_size_guide_page_content": "",
+    "product_info_show_delivery_return": false,
+    "product_info_delivery_return_page_content": "shipping",
+    "product_info_show_message": false,
+    "product_info_show_notes": false,
+    "product_info_show_quantity": true,
+    "product_info_button_layout": "4",
+    "product_info_show_button_add_to_cart": true,
+    "product_info_button_add_to_cart_size": "large",
+    "product_info_show_button_dynamic_checkout": false,
+    "product_info_show_button_add_to_wishlist": true,
+    "product_info_show_button_add_to_compare": true,
+    "product_info_show_free_shipping": true,
+    "product_info_show_pickup_available": false,
+    "product_info_show_payments": true,
+    "product_info_show_social_share_buttons": false,
+    "product_info_social_share_buttons_type": "1",
+    "product_info_page_show_usage_info_sidebar": true,
+    "product_footbar_enable": true,
+    "product_footbar_show_title": true,
+    "product_footbar_show_price": true,
+    "product_footbar_show_reviews": true,
+    "product_footbar_show_options": true,
+    "product_footbar_show_quantity": true,
+    "product_footbar_show_button_add_to_cart": true,
+    "search_show": true,
+    "search_show_only_products": true,
+    "search_ajax": true,
+    "price_show_sale_separator": true,
+    "show_multiple_currencies": false,
+    "currency_format": "money_with_currency_format",
+    "supported_currencies": "USD EUR GBP",
+    "supported_currencies_short_names": "US($)|UE(€)|BP(£)",
+    "supported_currencies_full_names": "USD - US Dollar|EUR - Euro|GBP - British Pound",
+    "default_currency": "USD",
+    "cart_show_header_button": true,
+    "cart_ajax": true,
+    "cart_icon": "",
+    "cart_popup_enable": true,
+    "cart_popup_show_quantity_input": true,
+    "cart_show_vendor": false,
+    "cart_show_notes": true,
+    "cart_show_free_shipping": false,
+    "cart_free_shipping_value": "5000",
+    "shipping_calculator": "Enabled",
+    "shipping_calculator_default_country": "United States",
+    "compare_type": "disable",
+    "compare_show_description": true,
+    "compare_show_collection": false,
+    "compare_show_availability": false,
+    "compare_show_product_type": false,
+    "compare_show_vendor": false,
+    "compare_show_sku": false,
+    "compare_show_barcode": false,
+    "compare_show_options": true,
+    "compare_description_max_size": 100,
+    "payment_design": "shopify",
+    "social_share_image": "shopify://shop_images/Frame_7.1_2.png",
+    "social_facebook": "https://facebook.com/morfoseus",
+    "social_twitter": "",
+    "social_instagram": "https://www.instagram.com/morfoseusa/",
+    "social_pinterest": "https://www.pinterest.com/morfose_usa/",
+    "social_youtube": "https://www.youtube.com/@morfoseusa",
+    "social_behance": "",
+    "social_skype": "",
+    "social_share_enable_facebook": true,
+    "social_share_enable_twitter": true,
+    "social_share_enable_pinterest": true,
+    "social_share_enable_linkedin": true,
+    "social_share_enable_buffer": true,
+    "social_share_enable_reddit": true,
+    "subscription_method": "shopify",
+    "subscription_mailchimp_form_action": "//myshopify.us18.list-manage.com/subscribe/post?u=8a50b61e56896303a04d0243e&amp;id=3c3d06b907",
+    "subscription_popup_enable": false,
+    "subscription_popup_layout": "4",
+    "subscription_popup_show_icon": true,
+    "subscription_popup_text_line_01": "ULTIMATE SALE",
+    "subscription_popup_text_line_02": "20%Off",
+    "subscription_popup_text_line_03": "All Products. Limited time offer!",
+    "subscription_popup_text_line_04": "",
+    "subscription_popup_show_form": true,
+    "subscription_popup_text_input_placeholder": "Enter Please Your Email Address",
+    "subscription_popup_text_submit_button_text": "SUBSCRIBE!",
+    "subscription_popup_text_button": "SHOP NOW!",
+    "subscription_popup_text_dont_show_again": "",
+    "subscription_popup_text_close": "NO, THANK YOU",
+    "subscription_popup_image": "shopify://shop_images/subscription-03.jpg",
+    "subscription_popup_image_width": 600,
+    "subscription_popup_image_format_pjpg": true,
+    "subscription_popup_insert_image": "",
+    "subscription_popup_insert_image_width": 200,
+    "subscription_popup_insert_image_format_pjpg": false,
+    "subscription_popup_link": "shopify://collections",
+    "subscription_popup_show_once": "true",
+    "subscription_popup_delay": 4,
+    "subscription_popup_cookies_life": "1",
+    "subscription_confirmation_popup_enable": true,
+    "subscription_confirmation_popup_success_message": "Thanks for subscribing!",
+    "subscription_confirmation_popup_success_button": "Continue shopping",
+    "blog_show_sidebar": "hide",
+    "blog_sidebar_position": "right",
+    "blog_enable_sticky": true,
+    "article_show_sidebar": "hide",
+    "article_sidebar_position": "right",
+    "article_enable_sticky": true,
+    "account_show_header_button": true,
+    "account_popup_enable": true,
+    "account_popup_sign_up_info_page_content": "",
+    "account_popup_show_subscription": true,
+    "account_page_sing_up_page_content": "",
+    "reviews_type": "disable",
+    "services_show_header_button": false,
+    "services_popup_enable": true,
+    "services_popup_page_content": "",
+    "app_language": "none",
+    "app_language_link_list": "languages",
+    "button_border_radius": 0,
+    "input_border_radius": 0,
+    "promobox_image_border_radius": 0,
+    "promobox_format_pjpg": true,
+    "notification_cookies_enable": false,
+    "notification_cookies_button_information_link": "",
+    "notification_cookies_delay": 0,
+    "notification_cookies_show_once": true,
+    "notification_cookies_cookies_life": "1",
+    "notification_products_enable": true,
+    "notification_products_collection": "featured",
+    "notification_products_range_min": 2,
+    "notification_products_range_max": 20,
+    "notification_products_delay": 8,
+    "notification_products_interval_min": 10,
+    "notification_products_interval_max": 18,
+    "notification_products_time_life": 14,
+    "layout_preloader_image": "shopify://shop_images/Morfose_Logo1.png",
+    "layout_preloader_image_size": 100,
+    "layout_preloader_opacity": 0.8,
+    "promobox_animation_duration": 0.5,
+    "tooltips_enable": false,
+    "tooltips_animation_type": "scale",
+    "header_animation_sticky_opacity": 0.9,
+    "header_tape_animation_duration": 0,
+    "product_hover_animation_type": "fade",
+    "buttons_animation_icon_enable": true,
+    "dev_enable_custom_css": false,
+    "dev_enable_custom_js": false,
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify://shop_images/morfose.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "product_info_show_text_countdown": true,
+    "product_text_countdown_reset_time": 2,
+    "product_text_countdown_delivery_time": 3,
+    "product_text_countdown_delivery_format": "Day DD/MM/YYYY",
+    "product_text_countdown_delivery_excludes": "Saturday, Sunday",
+    "layout_enable_preloader": false,
+    "product_set_first_image_by_variant": true,
+    "javascript_loader_jquery_first": true,
+    "product_show_review_loading": false,
+    "product_collection_hide_empty_reviews": true,
+    "product_info_hide_empty_reviews": true,
+    "collection_tag_filters_logic": "and",
+    "collection_only_available": false,
+    "collection_enable_fullwidth_head_section": true,
+    "collection_enable_product_carousel_section": true,
+    "collection_builder_mode": "",
+    "product_info_description_place": "tabs",
+    "product_button_addtocart_size": "default",
+    "product_info_page_enable_sticky_gallery": true,
+    "product_info_page_show_button_dynamic_checkout": true,
+    "product_info_page_show_dynamic_checkout_confirmation": true,
+    "product_info_page_styled_dynamic_checkout": true,
+    "product_info_page_show_related_products": true,
+    "product_info_page_sidebar": "off",
+    "product_info_page_enable_sticky_sidebar": true,
+    "color_skin": "default",
+    "color_theme_paragraph_c": "",
+    "color_theme_link_act_c": "",
+    "typography_skin": "default",
+    "dev_enable_content_for_header": true,
+    "product_info_show_arrows": true,
+    "product_info_quick_show_full_details": true,
+    "product_info_payments_type": "dark",
+    "wishlist_enable": true,
+    "compare_enable": true,
+    "payment_footer_sequence": "1,2,3,4,5,6,7,8,9",
+    "payment_product_sequence": "10,11,12,1,2,3,4,5,6,7,8,9",
+    "payment_icon_1_show": true,
+    "payment_icon_1_code": "",
+    "payment_icon_1_image": "",
+    "payment_icon_1_url": "",
+    "payment_icon_1_tooltip": "",
+    "payment_icon_2_show": true,
+    "payment_icon_2_code": "",
+    "payment_icon_2_image": "",
+    "payment_icon_2_url": "",
+    "payment_icon_2_tooltip": "",
+    "payment_icon_3_show": true,
+    "payment_icon_3_code": "",
+    "payment_icon_3_image": "",
+    "payment_icon_3_url": "",
+    "payment_icon_3_tooltip": "",
+    "payment_icon_4_show": true,
+    "payment_icon_4_code": "",
+    "payment_icon_4_image": "",
+    "payment_icon_4_url": "",
+    "payment_icon_4_tooltip": "",
+    "payment_icon_5_show": true,
+    "payment_icon_5_code": "",
+    "payment_icon_5_image": "",
+    "payment_icon_5_url": "",
+    "payment_icon_5_tooltip": "",
+    "payment_icon_6_show": true,
+    "payment_icon_6_code": "",
+    "payment_icon_6_image": "",
+    "payment_icon_6_url": "",
+    "payment_icon_6_tooltip": "",
+    "payment_icon_7_show": true,
+    "payment_icon_7_code": "",
+    "payment_icon_7_image": "",
+    "payment_icon_7_url": "",
+    "payment_icon_7_tooltip": "",
+    "payment_icon_8_show": true,
+    "payment_icon_8_code": "",
+    "payment_icon_8_image": "",
+    "payment_icon_8_url": "",
+    "payment_icon_8_tooltip": "",
+    "payment_icon_9_show": true,
+    "payment_icon_9_code": "",
+    "payment_icon_9_image": "",
+    "payment_icon_9_url": "",
+    "payment_icon_9_tooltip": "",
+    "payment_icon_10_show": true,
+    "payment_icon_10_code": "",
+    "payment_icon_10_image": "",
+    "payment_icon_10_url": "",
+    "payment_icon_10_tooltip": "",
+    "payment_icon_11_show": true,
+    "payment_icon_11_code": "",
+    "payment_icon_11_image": "",
+    "payment_icon_11_url": "",
+    "payment_icon_11_tooltip": "",
+    "payment_icon_12_show": true,
+    "payment_icon_12_code": "",
+    "payment_icon_12_image": "",
+    "payment_icon_12_url": "",
+    "payment_icon_12_tooltip": "",
+    "social_share_facebook": "#",
+    "social_share_twitter": "#",
+    "social_share_pinterest": "#",
+    "social_share_linkedin": "#",
+    "social_share_buffer": "#",
+    "social_share_reddit": "#",
+    "subscription_confirmation_popup_button_type": "1",
+    "show_free_shipping": true,
+    "social_google": "",
+    "scm_pl_pisregex": ".product-collection__image .cursor-default",
+    "scm_pl_piregex": ".product-gallery__main_item .rimage__img",
+    "scm_pl_lppath": ".product-gallery__main_item .rimage",
+    "scm_pl_lpspath": ".product-collection__image",
+    "sections": {
+      "product-variants": {
+        "type": "product-variants",
+        "blocks": {
+          "1582766687353": {
+            "type": "option_images",
+            "disabled": true,
+            "settings": {
+              "product": "sweater-with-slogan",
+              "property_value_1": "Colour|Pink",
+              "property_value_2": "Colour|White",
+              "property_value_3": "",
+              "property_value_4": "",
+              "property_value_5": "",
+              "property_value_6": "",
+              "property_value_7": "",
+              "property_value_8": "",
+              "property_value_9": "",
+              "property_value_10": ""
+            }
+          },
+          "1582767119041": {
+            "type": "option_images",
+            "disabled": true,
+            "settings": {
+              "product": "jersey-graphic-tee",
+              "property_value_1": "Select color|LightPink",
+              "property_value_2": "Select color|Gainsboro",
+              "property_value_3": "",
+              "property_value_4": "",
+              "property_value_5": "",
+              "property_value_6": "",
+              "property_value_7": "",
+              "property_value_8": "",
+              "property_value_9": "",
+              "property_value_10": ""
+            }
+          },
+          "1582767138198": {
+            "type": "option_images",
+            "disabled": true,
+            "settings": {
+              "product": "round-neck-sweater",
+              "property_value_1": "Select color|Black",
+              "property_value_2": "Select color|Yellow",
+              "property_value_3": "Select color|Pink",
+              "property_value_4": "Select color|White",
+              "property_value_5": "",
+              "property_value_6": "",
+              "property_value_7": "",
+              "property_value_8": "",
+              "property_value_9": "",
+              "property_value_10": ""
+            }
+          },
+          "1582767162351": {
+            "type": "option_images",
+            "disabled": true,
+            "settings": {
+              "product": "trainers-with-heel-detail",
+              "property_value_1": "Color|PowderBlue",
+              "property_value_2": "Color|Pink",
+              "property_value_3": "",
+              "property_value_4": "",
+              "property_value_5": "",
+              "property_value_6": "",
+              "property_value_7": "",
+              "property_value_8": "",
+              "property_value_9": "",
+              "property_value_10": ""
+            }
+          },
+          "1582767223711": {
+            "type": "option_images",
+            "disabled": true,
+            "settings": {
+              "product": "hoodie-with-slogan",
+              "property_value_1": "Colour|Black",
+              "property_value_2": "Colour|Gainsboro",
+              "property_value_3": "",
+              "property_value_4": "",
+              "property_value_5": "",
+              "property_value_6": "",
+              "property_value_7": "",
+              "property_value_8": "",
+              "property_value_9": "",
+              "property_value_10": ""
+            }
+          },
+          "1582769733910": {
+            "type": "option_colors",
+            "disabled": true,
+            "settings": {
+              "product": "belted-chino-trousers",
+              "property_value_1": "Color|Green",
+              "color_1": "#337563",
+              "property_value_2": "Color|Pink",
+              "color_2": "#e7c7c2",
+              "property_value_3": "Color|Gainsboro",
+              "color_3": "#d5d2d1",
+              "property_value_4": "",
+              "color_4": "",
+              "property_value_5": "",
+              "color_5": "",
+              "property_value_6": "",
+              "color_6": "",
+              "property_value_7": "",
+              "color_7": "",
+              "property_value_8": "",
+              "color_8": "",
+              "property_value_9": "",
+              "color_9": "",
+              "property_value_10": "",
+              "color_10": ""
+            }
+          }
+        },
+        "block_order": [
+          "1582766687353",
+          "1582767119041",
+          "1582767138198",
+          "1582767162351",
+          "1582767223711",
+          "1582769733910"
+        ],
+        "settings": {}
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "1525791872612": {
+            "type": "tape",
+            "disabled": true,
+            "settings": {
+              "delay": 0,
+              "style": "2",
+              "transparent_bg": false,
+              "content": "🌊 Up to 65% Off for a Limited Time – Dive In Morfose Hair-Volution Week !"
+            }
+          },
+          "1527372910910": {
+            "type": "megamenu",
+            "settings": {
+              "for_item": "Layouts",
+              "grid": 2,
+              "second_level_column": false,
+              "second_level_column_size": 24,
+              "wrap": false,
+              "wrapper_grid": 12,
+              "column_left_type": "none",
+              "column_left_size": 0,
+              "column_right_type": "2",
+              "column_right_size": 0,
+              "enable_width_limit": false,
+              "width_limit": 630
+            }
+          },
+          "1527384342086": {
+            "type": "megamenu_promobox",
+            "settings": {
+              "title": "",
+              "url": "shopify://collections",
+              "image_size": 400,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "NEW IN",
+              "text_line_2": "Spring/Summer 2020 Collection",
+              "text_line_3": "Text line 3",
+              "style": "3",
+              "button_1": "",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button text #2",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "type": "type-2-2",
+              "content_position": "center",
+              "content_align": "center",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "customization_class": ""
+            }
+          },
+          "1527385504306": {
+            "type": "megamenu_promobox",
+            "settings": {
+              "title": "",
+              "url": "shopify://collections",
+              "image_size": 400,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "SALE & SPECIAL OFFERS",
+              "text_line_2": "Get up to 20% off",
+              "text_line_3": "Text line 3",
+              "style": "3",
+              "button_1": "",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button text #2",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "type": "type-2-2",
+              "content_position": "center",
+              "content_align": "center",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "customization_class": ""
+            }
+          },
+          "1527373213741": {
+            "type": "megamenu",
+            "settings": {
+              "for_item": "Shop",
+              "grid": 2,
+              "second_level_column": false,
+              "second_level_column_size": 20,
+              "wrap": false,
+              "wrapper_grid": 12,
+              "column_left_type": "none",
+              "column_left_size": 0,
+              "column_right_type": "8/12-4/12",
+              "column_right_size": 0,
+              "enable_width_limit": false,
+              "width_limit": 630
+            }
+          },
+          "1527432364326": {
+            "type": "megamenu_products",
+            "settings": {
+              "title": "Featured products",
+              "collection": "featured",
+              "products_per_row": "2",
+              "products_rows": 1
+            }
+          },
+          "1583964796904": {
+            "type": "megamenu_brands",
+            "settings": {
+              "title": "Top brands",
+              "url": "/collections/womens?q=vd_:Calvin%20Klein",
+              "size_of_images": "2",
+              "image_size_1": 80,
+              "url_1": "https://shella-demo.myshopify.com/collections/vendors?q=Calvin%20Klein",
+              "image_size_2": 80,
+              "url_2": "https://shella-demo.myshopify.com/collections/vendors?q=Chanel",
+              "image_size_3": 80,
+              "url_3": "https://shella-demo.myshopify.com/collections/vendors?q=Dior",
+              "image_size_4": 80,
+              "url_4": "https://shella-demo.myshopify.com/collections/vendors?q=Giorgio%20Armani",
+              "image_size_5": 80,
+              "url_5": "https://shella-demo.myshopify.com/collections/vendors?q=Levi%27s",
+              "image_size_6": 80,
+              "url_6": "https://shella-demo.myshopify.com/collections/vendors?q=Versace",
+              "image_size_7": 80,
+              "url_7": "",
+              "image_size_8": 80,
+              "url_8": "",
+              "image_size_9": 80,
+              "url_9": "",
+              "image_size_10": 80,
+              "url_10": ""
+            }
+          },
+          "1527373220764": {
+            "type": "megamenu",
+            "settings": {
+              "for_item": "Women's",
+              "grid": 2,
+              "second_level_column": false,
+              "second_level_column_size": 50,
+              "wrap": false,
+              "wrapper_grid": 12,
+              "column_left_type": "none",
+              "column_left_size": 0,
+              "column_right_type": "2*2",
+              "column_right_size": 0,
+              "enable_width_limit": false,
+              "width_limit": 630
+            }
+          },
+          "1527418910812": {
+            "type": "megamenu_promobox",
+            "settings": {
+              "title": "",
+              "url": "shopify://collections",
+              "image_size": 400,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "NEW IN",
+              "text_line_2": "Spring/Summer 2020 Collection",
+              "text_line_3": "Text line 3",
+              "style": "3",
+              "button_1": "Button text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button text #2",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "type": "type-3",
+              "content_position": "center",
+              "content_align": "center",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "customization_class": ""
+            }
+          },
+          "1527420420060": {
+            "type": "megamenu_promobox",
+            "settings": {
+              "title": "",
+              "url": "shopify://collections",
+              "image_size": 400,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "SALE & SPECIAL OFFERS",
+              "text_line_2": "Get up to 20% off",
+              "text_line_3": "Text line 3",
+              "style": "3",
+              "button_1": "Button text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button text #2",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "type": "type-3",
+              "content_position": "center",
+              "content_align": "center",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "customization_class": ""
+            }
+          },
+          "1527420550360": {
+            "type": "megamenu_promobox",
+            "settings": {
+              "title": "",
+              "url": "shopify://collections",
+              "image_size": 400,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "FEATURED",
+              "text_line_2": "Popular Items",
+              "text_line_3": "Text line 3",
+              "style": "3",
+              "button_1": "Button text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button text #2",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "type": "type-3",
+              "content_position": "center",
+              "content_align": "center",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "customization_class": ""
+            }
+          },
+          "1527420557049": {
+            "type": "megamenu_promobox",
+            "settings": {
+              "title": "",
+              "url": "shopify://collections",
+              "image_size": 400,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "COMING SOON",
+              "text_line_2": "Autumn 2020 Collection",
+              "text_line_3": "Text line 3",
+              "style": "3",
+              "button_1": "Button text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button text #2",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "type": "type-3",
+              "content_position": "center",
+              "content_align": "center",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "customization_class": ""
+            }
+          },
+          "1527373227613": {
+            "type": "megamenu",
+            "settings": {
+              "for_item": "Men's",
+              "grid": 2,
+              "second_level_column": false,
+              "second_level_column_size": 10,
+              "wrap": false,
+              "wrapper_grid": 12,
+              "column_left_type": "1",
+              "column_left_size": 0,
+              "column_right_type": "1",
+              "column_right_size": 0,
+              "enable_width_limit": false,
+              "width_limit": 630
+            }
+          },
+          "1527385990580": {
+            "type": "megamenu_promobox",
+            "settings": {
+              "title": "",
+              "url": "shopify://collections",
+              "image_size": 400,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "NEW IN",
+              "text_line_2": "Spring/Summer 2020 Collection",
+              "text_line_3": "Text line 3",
+              "style": "3",
+              "button_1": "",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button text #2",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "type": "type-2-2",
+              "content_position": "center",
+              "content_align": "center",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "customization_class": ""
+            }
+          },
+          "1527386066314": {
+            "type": "megamenu_promobox",
+            "settings": {
+              "title": "",
+              "url": "shopify://collections",
+              "image_size": 400,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "SALE & SPECIAL OFFERS",
+              "text_line_2": "Get up to 20% off",
+              "text_line_3": "Text line 3",
+              "style": "3",
+              "button_1": "Button text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button text #2",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "type": "type-3",
+              "content_position": "center",
+              "content_align": "center",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "customization_class": ""
+            }
+          },
+          "1527422624107": {
+            "type": "megamenu_title_image",
+            "settings": {
+              "for_item": "Men's+Clothing",
+              "image_size": 170,
+              "for_item_2": "Men's+Shoes",
+              "image_size_2": 200,
+              "for_item_3": "Men's+Accessories",
+              "image_size_3": 200,
+              "for_item_4": "",
+              "image_size_4": 200,
+              "for_item_5": "",
+              "image_size_5": 200
+            }
+          },
+          "1543698183190": {
+            "type": "megamenu_label",
+            "settings": {
+              "type": "hot",
+              "text": "",
+              "for_item": "Layouts+Layouts+Home V1",
+              "for_item_2": "Layouts+Layouts+Home V3",
+              "for_item_3": "Layouts+Layouts+Home V6",
+              "for_item_4": "Women's+Shoes+Heels",
+              "for_item_5": "Layouts+Layouts+Home V17",
+              "for_item_6": "Layouts+Skins+Skin 4 - One Product",
+              "for_item_7": "Shop+Collection layouts+Look book",
+              "for_item_8": "Shop+Single Product Layouts+3D Models and Video",
+              "for_item_9": "Layouts+Skins+Skin 12 - Cannabis",
+              "for_item_10": "Shop+Collection layouts+List Products V2",
+              "for_item_11": "Shop+Single Product Layouts+Pre Order",
+              "for_item_12": "Layouts+Layouts+Home V18",
+              "for_item_13": "Shop+Product options+Gallery width",
+              "for_item_14": "",
+              "for_item_15": ""
+            }
+          },
+          "1527438870190": {
+            "type": "megamenu_label",
+            "settings": {
+              "type": "new",
+              "text": "",
+              "for_item": "Women's+Clothing+Dresses",
+              "for_item_2": "Shop+product options+Custom Image, Text",
+              "for_item_3": "Layouts+Layouts+Home V18",
+              "for_item_4": "Shop+Collection layouts+List Products V2",
+              "for_item_5": "Shop+Single Product Layouts+Pre Order",
+              "for_item_6": "Layouts+Skins+Skin 12 - Cannabis",
+              "for_item_7": "Layouts+Layouts+Home V16",
+              "for_item_8": "Layouts+Layouts+Home V17",
+              "for_item_9": "Shop+Single Product Layouts+Product V5 — Grid",
+              "for_item_10": "Layouts+Skins+Skin 13 - Wine",
+              "for_item_11": "Layouts+Skins+Skin 14 - Food Delivery",
+              "for_item_12": "Layouts+Skins+Skin 15 - Lenses",
+              "for_item_13": "Layouts+Skins+Skin 16 - Cakes",
+              "for_item_14": "Layouts+Skins+Skin 17 - Plants",
+              "for_item_15": "Layouts+Skins+Skin 18 - Pasta"
+            }
+          },
+          "1582328455745": {
+            "type": "megamenu_label",
+            "settings": {
+              "type": "new",
+              "text": "SLIDER",
+              "for_item": "Layouts+Layouts+Home V8",
+              "for_item_2": "",
+              "for_item_3": "",
+              "for_item_4": "",
+              "for_item_5": "",
+              "for_item_6": "",
+              "for_item_7": "",
+              "for_item_8": "",
+              "for_item_9": "",
+              "for_item_10": "",
+              "for_item_11": "",
+              "for_item_12": "",
+              "for_item_13": "",
+              "for_item_14": "",
+              "for_item_15": ""
+            }
+          },
+          "1567840286505": {
+            "type": "megamenu_label",
+            "settings": {
+              "type": "sale",
+              "text": "ACTIVE",
+              "for_item": "Layouts+Layouts+Home V1",
+              "for_item_2": "",
+              "for_item_3": "",
+              "for_item_4": "",
+              "for_item_5": "",
+              "for_item_6": "",
+              "for_item_7": "",
+              "for_item_8": "",
+              "for_item_9": "",
+              "for_item_10": "",
+              "for_item_11": "",
+              "for_item_12": "",
+              "for_item_13": "",
+              "for_item_14": "",
+              "for_item_15": ""
+            }
+          },
+          "1591272472793": {
+            "type": "megamenu_label",
+            "settings": {
+              "type": "sale",
+              "text": "SALE",
+              "for_item": "Buy now!",
+              "for_item_2": "Men's+clothing+jackets",
+              "for_item_3": "Men's+Shoes",
+              "for_item_4": "",
+              "for_item_5": "",
+              "for_item_6": "",
+              "for_item_7": "",
+              "for_item_8": "",
+              "for_item_9": "",
+              "for_item_10": "",
+              "for_item_11": "",
+              "for_item_12": "",
+              "for_item_13": "",
+              "for_item_14": "",
+              "for_item_15": ""
+            }
+          },
+          "1593945756616": {
+            "type": "menu",
+            "settings": {
+              "for_item": "Gallery",
+              "menu": ""
+            }
+          }
+        },
+        "block_order": [
+          "1525791872612",
+          "1527372910910",
+          "1527384342086",
+          "1527385504306",
+          "1527373213741",
+          "1527432364326",
+          "1583964796904",
+          "1527373220764",
+          "1527418910812",
+          "1527420420060",
+          "1527420550360",
+          "1527420557049",
+          "1527373227613",
+          "1527385990580",
+          "1527386066314",
+          "1527422624107",
+          "1543698183190",
+          "1527438870190",
+          "1582328455745",
+          "1567840286505",
+          "1591272472793",
+          "1593945756616"
+        ],
+        "settings": {
+          "type": "6",
+          "style": "1",
+          "transparent_bg": "disable",
+          "logo_mobile_centered": false,
+          "height": 0,
+          "items_padding": 0,
+          "menu": "main-menu",
+          "show_menu_arrows": true,
+          "show_menu_hover_underline": false,
+          "vertical_menu": "",
+          "fixed_vertical_menu": false,
+          "additional_line_info_page_content": "",
+          "sticky": "desktop_and_mobile",
+          "desktop_sticky_type": "wide",
+          "hide_sticky_when_scroll_down": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1586284608625": {
+            "type": "subscription",
+            "settings": {
+              "title": "Newsletter subscription",
+              "paragraph": "Sign up for Morfose updates to receive information about new arrivals, future events and specials.",
+              "placeholder": "Enter Your Email Address",
+              "button_text": "SUBSCRIBE!"
+            }
+          },
+          "1586284525260": {
+            "type": "menu",
+            "settings": {
+              "title": "CUSTOMER",
+              "show_title_on_desktop": true,
+              "menu": "customer",
+              "size": 0,
+              "rows_limit": 0
+            }
+          },
+          "1586284527889": {
+            "type": "menu",
+            "settings": {
+              "title": "INFORMATION",
+              "show_title_on_desktop": true,
+              "menu": "information",
+              "size": 0,
+              "rows_limit": 0
+            }
+          },
+          "1586284530934": {
+            "type": "menu",
+            "settings": {
+              "title": "SERVICE",
+              "show_title_on_desktop": true,
+              "menu": "service",
+              "size": 0,
+              "rows_limit": 0
+            }
+          },
+          "1586284576772": {
+            "type": "custom_html",
+            "settings": {
+              "title": "Here to help",
+              "show_title_on_desktop": true,
+              "page_content": "here-to-help"
+            }
+          },
+          "1586284588048": {
+            "type": "social_media",
+            "settings": {
+              "title": "Follow us",
+              "show_facebook": true,
+              "show_twitter": false,
+              "show_instagram": true,
+              "show_pinterest": true,
+              "show_youtube": true,
+              "show_behance": false,
+              "show_skype": false
+            }
+          },
+          "footer-0": {
+            "type": "copyright",
+            "settings": {
+              "page_content": "copyright"
+            }
+          },
+          "1586284627913": {
+            "type": "payments",
+            "settings": {}
+          }
+        },
+        "block_order": [
+          "1586284608625",
+          "1586284525260",
+          "1586284527889",
+          "1586284530934",
+          "1586284576772",
+          "1586284588048",
+          "footer-0",
+          "1586284627913"
+        ],
+        "settings": {
+          "type": "1",
+          "style": "1",
+          "show_logo": true,
+          "show_button_back_to_top": true,
+          "enable_fixed": true
+        }
+      },
+      "1586279708879": {
+        "type": "home-builder",
+        "blocks": {
+          "1586279874234": {
+            "type": "promobox",
+            "disabled": true,
+            "settings": {
+              "url": "",
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-11_13.33.51.png",
+              "image_size": 900,
+              "image_mobile_size": 900,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "",
+              "text_line_2": "",
+              "text_line_3": "",
+              "style": "1",
+              "button_1": "",
+              "button_1_url": "shopify://collections/womens",
+              "color_button_type_1": "secondary",
+              "button_2": "Button #2 text",
+              "button_2_url": "shopify://collections/mens",
+              "color_button_type_2": "default-transparent",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "https://cdn.shopify.com/videos/c/o/v/72758eacca6b4cb3b95e990cf5918ba1.mp4",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "type-1",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "preset_1",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "none",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "c218454b-26a2-444c-a442-cd1b6a5e9f2e": {
+            "type": "promobox",
+            "disabled": true,
+            "settings": {
+              "url": "https://themorfose.com/collections/bundles",
+              "image_size": 1450,
+              "image_mobile_size": 550,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "Text line #1",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "https://cdn.shopify.com/videos/c/o/v/73b2ead0271446f082f371f72a57bcc3.mp4",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "clean",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "none",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "f9c52d90-33a5-48b1-9fcb-30aba5e5be53": {
+            "type": "promobox",
+            "disabled": true,
+            "settings": {
+              "url": "shopify://collections/bundles",
+              "image": "shopify://shop_images/1_f2988e51-f05b-48ba-ae85-70f76234d857.png",
+              "image_size": 1450,
+              "image_mobile": "shopify://shop_images/1_8c7a33a4-f0c1-4756-868b-6611130272e2.png",
+              "image_mobile_size": 550,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "Text line #1",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "clean",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "none",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "281ff8f3-c823-45e0-9bed-2dd6dd8d1e24": {
+            "type": "slick_slider",
+            "settings": {
+              "height": "preset_1",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "arrows": true,
+              "bullets": true,
+              "speed": 3
+            }
+          },
+          "slick_slide_B4DFiF": {
+            "type": "slick_slide",
+            "settings": {
+              "url": "shopify://collections/milk-therapy",
+              "image": "shopify://shop_images/Morofse_Website_Banner_2eea4c11-bfc2-41a9-8399-781ec03cda0a.png",
+              "image_size": 900,
+              "image_mobile": "shopify://shop_images/Morfose_123Mobile_Banner_540_x_550_piksel.png",
+              "image_mobile_size": 550,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "Text line #1",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "clean",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "6e0a228d-623c-4856-bc67-1456ec4347b0": {
+            "type": "slick_slide",
+            "disabled": true,
+            "settings": {
+              "url": "shopify://collections/bundles",
+              "image": "shopify://shop_images/Morofse_Website_Banner_34722dbe-51e4-4d78-bd68-ca988aa12ee1.png",
+              "image_size": 900,
+              "image_mobile": "shopify://shop_images/15.png",
+              "image_mobile_size": 550,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "Text line #1",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "clean",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "4575178c-8d89-4627-8c8b-8297e335163a": {
+            "type": "slick_slide",
+            "disabled": true,
+            "settings": {
+              "url": "shopify://collections/men-care-series",
+              "image": "shopify://shop_images/Morofse_Website_Banner_731ad1f6-f0a1-4782-8e88-76f2f12fc09b.png",
+              "image_size": 900,
+              "image_mobile": "shopify://shop_images/16_52fc9226-cdf5-4422-bf92-d38950b1b183.png",
+              "image_mobile_size": 550,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "Text line #1",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "clean",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "e540a985-661d-4da6-82dc-c99cb891f224": {
+            "type": "slick_slide",
+            "disabled": true,
+            "settings": {
+              "url": "shopify://collections/conditioners-masks",
+              "image": "shopify://shop_images/5_c1089cdb-25fe-4eba-81c6-52e8f1820833.png",
+              "image_size": 900,
+              "image_mobile": "shopify://shop_images/123asd123sd.png",
+              "image_mobile_size": 550,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "Text line #1",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "clean",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "24e2cbe1-2818-4cb4-97dc-2ef953668588": {
+            "type": "slick_slide",
+            "disabled": true,
+            "settings": {
+              "url": "shopify://pages/ambassador",
+              "image": "shopify://shop_images/3_d03a28be-e0d9-4f06-b4cb-87c72d322f49.png",
+              "image_size": 900,
+              "image_mobile": "shopify://shop_images/3_df537ba1-fa2a-4ec3-bc2e-f892d7b45bf5.png",
+              "image_mobile_size": 550,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "Text line #1",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "clean",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          }
+        },
+        "block_order": [
+          "1586279874234",
+          "c218454b-26a2-444c-a442-cd1b6a5e9f2e",
+          "f9c52d90-33a5-48b1-9fcb-30aba5e5be53",
+          "281ff8f3-c823-45e0-9bed-2dd6dd8d1e24",
+          "slick_slide_B4DFiF",
+          "6e0a228d-623c-4856-bc67-1456ec4347b0",
+          "4575178c-8d89-4627-8c8b-8297e335163a",
+          "e540a985-661d-4da6-82dc-c99cb891f224",
+          "24e2cbe1-2818-4cb4-97dc-2ef953668588"
+        ],
+        "settings": {
+          "title": "",
+          "container": "fullwidth",
+          "size_of_columns": "1",
+          "size_of_columns_mobile": "1",
+          "margins_for_columns": "none",
+          "align_of_columns": "top_center",
+          "disable_column_paddings": false,
+          "precedence": "",
+          "customization_class": ""
+        }
+      },
+      "1586280453180": {
+        "type": "home-builder",
+        "blocks": {
+          "206e9998-0750-49ca-b592-d3eae867908b": {
+            "type": "promobox",
+            "settings": {
+              "url": "shopify://collections/bundles",
+              "image": "shopify://shop_images/brian-asare-uIT9Vk0HHJE-unsplash_f19bb5b8-2038-474e-97e8-382e9fdf270a.jpg",
+              "image_size": 900,
+              "image_mobile_size": 900,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "BUNDLE SALES 🔥",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default-transparent",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default-transparent",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "type-4",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "#000000",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "1586280489479": {
+            "type": "promobox",
+            "settings": {
+              "url": "shopify://collections/shampoos",
+              "image": "shopify://shop_images/9.png",
+              "image_size": 900,
+              "image_mobile_size": 900,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "SHAMPOOS",
+              "text_line_2": "",
+              "text_line_3": "",
+              "style": "2",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default-transparent",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default-transparent",
+              "list_1": "list-for-promobox",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "type-4",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "1586280492143": {
+            "type": "promobox",
+            "settings": {
+              "url": "shopify://collections/conditioners-masks",
+              "image": "shopify://shop_images/8.png",
+              "image_size": 900,
+              "image_mobile_size": 900,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "CONDITIONERS & MASKS",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "2",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default-transparent",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default-transparent",
+              "list_1": "include-promo-box-list-mens",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "type-4",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "1586280494368": {
+            "type": "promobox",
+            "settings": {
+              "url": "shopify://collections/scalp-hair-treatments",
+              "image": "shopify://shop_images/10.png",
+              "image_size": 900,
+              "image_mobile_size": 900,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "SCALP & HAIR TREATMENTS",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "2",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default-transparent",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default-transparent",
+              "list_1": "include-promo-box-list-accessories",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "type-4",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "4a25e93e-033a-4be4-9e17-e64d32290bde": {
+            "type": "promobox",
+            "settings": {
+              "url": "shopify://collections/styling-creams",
+              "image": "shopify://shop_images/12_430x_4a5c70ec-3eb6-46df-9cbf-8a7b58d666e9.png",
+              "image_size": 900,
+              "image_mobile_size": 900,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "STYLING & CREAMS",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default-transparent",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default-transparent",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "type-4",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "#000000",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "1f27186c-d4cf-41de-9b1f-55adcf07e963": {
+            "type": "promobox",
+            "settings": {
+              "url": "shopify://collections/men-care-series",
+              "image": "shopify://shop_images/13_430x_a718b330-7d37-436c-a0eb-52a9b380a5a5.png",
+              "image_size": 900,
+              "image_mobile_size": 900,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "MEN CARE SERIES",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default-transparent",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default-transparent",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "type-4",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "center",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "#000000",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          }
+        },
+        "block_order": [
+          "206e9998-0750-49ca-b592-d3eae867908b",
+          "1586280489479",
+          "1586280492143",
+          "1586280494368",
+          "4a25e93e-033a-4be4-9e17-e64d32290bde",
+          "1f27186c-d4cf-41de-9b1f-55adcf07e963"
+        ],
+        "settings": {
+          "title": "",
+          "container": "boxed",
+          "size_of_columns": "3",
+          "size_of_columns_mobile": "1",
+          "margins_for_columns": "preset_1",
+          "align_of_columns": "top_center",
+          "disable_column_paddings": false,
+          "precedence": "",
+          "customization_class": ""
+        }
+      },
+      "1586280477165": {
+        "type": "spacer",
+        "settings": {
+          "margin_top": 60,
+          "margin_bottom": 0,
+          "margin_top_mobile": 10,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "1586282516064": {
+        "type": "sorting-collections",
+        "blocks": {
+          "1586282526457": {
+            "type": "collection",
+            "settings": {
+              "title": "",
+              "collection": "milk-therapy"
+            }
+          },
+          "1586282565448": {
+            "type": "collection",
+            "settings": {
+              "title": "Bundle Sales 🔥",
+              "collection": "bundles"
+            }
+          },
+          "1586282583295": {
+            "type": "collection",
+            "disabled": true,
+            "settings": {
+              "title": "",
+              "collection": "amino-keratin"
+            }
+          }
+        },
+        "block_order": [
+          "1586282526457",
+          "1586282565448",
+          "1586282583295"
+        ],
+        "settings": {
+          "size_of_columns": "4",
+          "max_count": 4,
+          "show_btn_more_products": true
+        }
+      },
+      "1586282646707": {
+        "type": "spacer",
+        "settings": {
+          "margin_top": 40,
+          "margin_bottom": 0,
+          "margin_top_mobile": 0,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "1586282852274": {
+        "type": "spacer",
+        "settings": {
+          "margin_top": 20,
+          "margin_bottom": 0,
+          "margin_top_mobile": 10,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "1586282860739": {
+        "type": "home-builder",
+        "blocks": {
+          "1586282889393": {
+            "type": "promobox",
+            "settings": {
+              "url": "shopify://collections/men-care-series",
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-10_18.02.42.png",
+              "image_size": 900,
+              "image_mobile": "shopify://shop_images/Ekran_Resmi_2023-03-10_18.02.42.png",
+              "image_mobile_size": 900,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "NEW ARRIVALS",
+              "text_line_2": "MEN CARE SERIES",
+              "text_line_3": "Essential styles come alive in healty colors.",
+              "style": "5",
+              "button_1": "DISCOVER MORE",
+              "button_1_url": "",
+              "color_button_type_1": "invert-transparent",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default-transparent",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "type-1-3",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "none",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          },
+          "1586282892935": {
+            "type": "promobox",
+            "settings": {
+              "url": "shopify://collections/styling-creams",
+              "image": "shopify://shop_images/SHAMPOOS-6.png",
+              "image_size": 900,
+              "image_mobile": "shopify://shop_images/SHAMPOOS-6.png",
+              "image_mobile_size": 900,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "DISCOVER THEM ALL",
+              "text_line_2": "HAIR STYLING <br>CREAMS",
+              "text_line_3": "",
+              "style": "5",
+              "button_1": "DISCOVER MORE",
+              "button_1_url": "",
+              "color_button_type_1": "invert-transparent",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default-transparent",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "type-1-3",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "none",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          }
+        },
+        "block_order": [
+          "1586282889393",
+          "1586282892935"
+        ],
+        "settings": {
+          "title": "",
+          "container": "boxed",
+          "size_of_columns": "2",
+          "size_of_columns_mobile": "1",
+          "margins_for_columns": "preset_1",
+          "align_of_columns": "top_center",
+          "disable_column_paddings": false,
+          "precedence": "",
+          "customization_class": ""
+        }
+      },
+      "1586283266986": {
+        "type": "spacer",
+        "settings": {
+          "margin_top": 45,
+          "margin_bottom": 0,
+          "margin_top_mobile": 35,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "1586283282255": {
+        "type": "carousel-products",
+        "blocks": {
+          "1586283286719": {
+            "type": "collection",
+            "settings": {
+              "title": "TRENDING NOW",
+              "collection": "scalp-hair-treatments"
+            }
+          }
+        },
+        "block_order": [
+          "1586283286719"
+        ],
+        "settings": {
+          "show_title": true,
+          "container": "boxed",
+          "size_of_columns": "4",
+          "max_count": 6,
+          "autoplay": true,
+          "speed": 5,
+          "infinite": true,
+          "arrows": true,
+          "bullets": true
+        }
+      },
+      "1586283399218": {
+        "type": "spacer",
+        "disabled": true,
+        "settings": {
+          "margin_top": 60,
+          "margin_bottom": 50,
+          "margin_top_mobile": 0,
+          "margin_bottom_mobile": 35,
+          "container": "boxed",
+          "show_separator": true,
+          "title": ""
+        }
+      },
+      "1586283433745": {
+        "type": "carousel-brands",
+        "blocks": {
+          "1586283438841": {
+            "type": "brand",
+            "settings": {
+              "link": "https://shella-demo.myshopify.com/collections/vendors?q=Calvin%20Klein"
+            }
+          },
+          "1586283440593": {
+            "type": "brand",
+            "settings": {
+              "link": "https://shella-demo.myshopify.com/collections/vendors?q=Chanel"
+            }
+          },
+          "1586283442261": {
+            "type": "brand",
+            "settings": {
+              "link": "https://shella-demo.myshopify.com/collections/vendors?q=Dior"
+            }
+          },
+          "1586283444209": {
+            "type": "brand",
+            "settings": {
+              "link": "https://shella-demo.myshopify.com/collections/vendors?q=Giorgio%20Armani"
+            }
+          },
+          "1586283447563": {
+            "type": "brand",
+            "settings": {
+              "link": "https://shella-demo.myshopify.com/collections/vendors?q=Calvin%20Klein"
+            }
+          },
+          "1586283449137": {
+            "type": "brand",
+            "settings": {
+              "link": "https://shella-demo.myshopify.com/collections/vendors?q=Calvin%20Klein"
+            }
+          },
+          "1586283451048": {
+            "type": "brand",
+            "settings": {
+              "link": "https://shella-demo.myshopify.com/collections/vendors?q=Calvin%20Klein"
+            }
+          },
+          "1586283452306": {
+            "type": "brand",
+            "settings": {
+              "link": "https://shella-demo.myshopify.com/collections/vendors?q=Calvin%20Klein"
+            }
+          }
+        },
+        "block_order": [
+          "1586283438841",
+          "1586283440593",
+          "1586283442261",
+          "1586283444209",
+          "1586283447563",
+          "1586283449137",
+          "1586283451048",
+          "1586283452306"
+        ],
+        "disabled": true,
+        "settings": {
+          "title": "",
+          "layout": "slider",
+          "size_of_columns": "6",
+          "image_max_width": 0,
+          "bordered_links": true,
+          "border_radius": "",
+          "autoplay": true,
+          "speed": 5,
+          "infinite": true,
+          "arrows": true,
+          "bullets": false
+        }
+      },
+      "1586283959656": {
+        "type": "spacer",
+        "disabled": true,
+        "settings": {
+          "margin_top": 55,
+          "margin_bottom": 0,
+          "margin_top_mobile": 45,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "1586283978403": {
+        "type": "carousel-articles",
+        "disabled": true,
+        "settings": {
+          "title": "WORLD OF SHELLA",
+          "blog": "blog",
+          "layout": "1",
+          "max_symbols_count": 200,
+          "show_details": true,
+          "button_text": "Read & Shop",
+          "size_of_columns": "2",
+          "max_items_count": 10,
+          "autoplay": true,
+          "speed": 5,
+          "infinite": true,
+          "arrows": true,
+          "bullets": true
+        }
+      },
+      "1586284034569": {
+        "type": "spacer",
+        "settings": {
+          "margin_top": 60,
+          "margin_bottom": 0,
+          "margin_top_mobile": 0,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "1586284059940": {
+        "type": "home-builder",
+        "blocks": {
+          "1586284065628": {
+            "type": "instagram",
+            "settings": {
+              "show_post_details": true,
+              "limit": 12,
+              "size_of_images": "6",
+              "inner_disable_paddings": true,
+              "fixed_height": 100,
+              "disable_lazyload": false,
+              "size_of_column": "auto"
+            }
+          },
+          "1586284075152": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_19.54.23.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CpdblOOu68a/",
+              "likes": "24",
+              "comments": "12"
+            }
+          },
+          "1586284077419": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_19.54.29.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CpdZY7yvVYd/",
+              "likes": "15",
+              "comments": "7"
+            }
+          },
+          "1586284080852": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_19.54.35.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnrlIGlrp24/",
+              "likes": "35",
+              "comments": "10"
+            }
+          },
+          "1586366174420": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_20.03.03.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnDPKQoLb0Q/",
+              "likes": "97",
+              "comments": "34"
+            }
+          },
+          "1586284083626": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_19.54.44.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnVKWXjLZTg/",
+              "likes": "18",
+              "comments": "6"
+            }
+          },
+          "1586284088787": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_20.00.03.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnKL7ZRva1o/",
+              "likes": "17",
+              "comments": "14"
+            }
+          },
+          "1586284086290": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_19.54.49.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnPFO2OvVe1/",
+              "likes": "46",
+              "comments": "28"
+            }
+          },
+          "1586366161062": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_19.54.57.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnII9QvOGRq/",
+              "likes": "42",
+              "comments": "16"
+            }
+          },
+          "1586366163574": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_20.02.20.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnFNpjSDhT2/",
+              "likes": "37",
+              "comments": "22"
+            }
+          },
+          "1586366171436": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_20.05.31.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnENXAxuDss/",
+              "likes": "83",
+              "comments": "45"
+            }
+          },
+          "1586366165951": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_20.02.27.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnETa8EggMw/",
+              "likes": "79",
+              "comments": "15"
+            }
+          },
+          "1586366177575": {
+            "type": "instagram_block",
+            "settings": {
+              "image": "shopify://shop_images/Ekran_Resmi_2023-03-09_20.07.27.png",
+              "image_size": 195,
+              "format_pjpg": true,
+              "disable_lazyload": false,
+              "url": "https://www.instagram.com/p/CnDEIX6OO3z/",
+              "likes": "34",
+              "comments": "18"
+            }
+          }
+        },
+        "block_order": [
+          "1586284065628",
+          "1586284075152",
+          "1586284077419",
+          "1586284080852",
+          "1586366174420",
+          "1586284083626",
+          "1586284088787",
+          "1586284086290",
+          "1586366161062",
+          "1586366163574",
+          "1586366171436",
+          "1586366165951",
+          "1586366177575"
+        ],
+        "settings": {
+          "title": "<p><a href=\"https://www.instagram.com/morfoseusa/\" target=\"_blank\" title=\"https://www.instagram.com/morfoseusa/\">@MORFOSEUSA</a> Follow us on Instagram</p>",
+          "container": "boxed",
+          "size_of_columns": "1",
+          "size_of_columns_mobile": "1",
+          "margins_for_columns": "none",
+          "align_of_columns": "top_center",
+          "disable_column_paddings": false,
+          "precedence": "",
+          "customization_class": ""
+        }
+      },
+      "carousel-products": {
+        "type": "carousel-products",
+        "blocks": {
+          "1586291186708": {
+            "type": "collection",
+            "settings": {
+              "title": "",
+              "collection": "trending-now-hp"
+            }
+          }
+        },
+        "block_order": [
+          "1586291186708"
+        ],
+        "settings": {
+          "show_title": true,
+          "container": "boxed",
+          "size_of_columns": "4",
+          "max_count": 6,
+          "autoplay": true,
+          "speed": 5,
+          "infinite": true,
+          "arrows": true,
+          "bullets": true
+        }
+      },
+      "carousel-related-products": {
+        "type": "carousel-related-products",
+        "settings": {
+          "type": "related",
+          "title": "Related Products",
+          "size_of_columns": "4",
+          "max_count": 6,
+          "autoplay": true,
+          "speed": 5,
+          "infinite": true,
+          "arrows": true,
+          "bullets": true
+        }
+      },
+      "product-fixed-sizebar": {
+        "type": "product-fixed-sizebar",
+        "blocks": {
+          "1586291806417": {
+            "type": "text_line",
+            "settings": {
+              "icon": "",
+              "text": "",
+              "min_value": "200",
+              "max_value": "500"
+            }
+          },
+          "1586291808135": {
+            "type": "text_line",
+            "settings": {
+              "icon": "",
+              "text": "",
+              "min_value": "30",
+              "max_value": "100"
+            }
+          },
+          "1586291810188": {
+            "type": "text_line",
+            "settings": {
+              "icon": "",
+              "text": "",
+              "min_value": "100",
+              "max_value": "200"
+            }
+          }
+        },
+        "block_order": [
+          "1586291806417",
+          "1586291808135",
+          "1586291810188"
+        ],
+        "settings": {}
+      },
+      "home-builder": {
+        "type": "home-builder",
+        "settings": {
+          "title": "",
+          "container": "boxed",
+          "size_of_columns": "1",
+          "margins_for_columns": "none",
+          "align_of_columns": "top_center",
+          "disable_column_paddings": false,
+          "precedence": "",
+          "customization_class": ""
+        }
+      },
+      "1586567788223": {
+        "type": "spacer",
+        "settings": {
+          "margin_top": 60,
+          "margin_bottom": 0,
+          "margin_top_mobile": 50,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "password-page-footer": {
+        "type": "password-page-footer",
+        "settings": {
+          "enable_custom": true,
+          "page_content": ""
+        }
+      },
+      "aad00548-f1de-4736-a313-23bebad3eb46": {
+        "type": "carousel-products",
+        "blocks": {
+          "66b36f1e-49fa-4986-8a16-d8d9f9f4cc32": {
+            "type": "collection",
+            "settings": {
+              "title": "MEN CARE",
+              "collection": "men-care-series"
+            }
+          }
+        },
+        "block_order": [
+          "66b36f1e-49fa-4986-8a16-d8d9f9f4cc32"
+        ],
+        "settings": {
+          "show_title": true,
+          "container": "boxed",
+          "size_of_columns": "4",
+          "max_count": 6,
+          "autoplay": true,
+          "speed": 5,
+          "infinite": true,
+          "arrows": true,
+          "bullets": true
+        }
+      },
+      "0663b541-250b-4f2b-b1c8-b38735e98e4b": {
+        "type": "spacer",
+        "settings": {
+          "margin_top": 60,
+          "margin_bottom": 0,
+          "margin_top_mobile": 50,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "cb4bcae2-b8f4-48d2-b3fd-5e5c58096fe4": {
+        "type": "spacer",
+        "settings": {
+          "margin_top": 60,
+          "margin_bottom": 0,
+          "margin_top_mobile": 0,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "e0e4c762-1a56-4751-a24c-507ba1a82712": {
+        "type": "home-builder",
+        "blocks": {
+          "6229132c-8c22-46b5-8810-cb598c3ef084": {
+            "type": "promobox",
+            "settings": {
+              "url": "https://themorfose.com/blogs/news/ambassador-program",
+              "image": "shopify://shop_images/Apply_Now_to_Join_Our_Ambassador_Community.png",
+              "image_size": 1450,
+              "image_mobile_size": 550,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "Text line #1",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "clean",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "none",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          }
+        },
+        "block_order": [
+          "6229132c-8c22-46b5-8810-cb598c3ef084"
+        ],
+        "settings": {
+          "title": "",
+          "container": "boxed",
+          "size_of_columns": "1",
+          "size_of_columns_mobile": "1",
+          "margins_for_columns": "none",
+          "align_of_columns": "top_center",
+          "disable_column_paddings": false,
+          "precedence": "",
+          "customization_class": ""
+        }
+      },
+      "2b05a4c3-9f15-4b73-99bb-2e45f7070b1b": {
+        "type": "spacer",
+        "disabled": true,
+        "settings": {
+          "margin_top": 60,
+          "margin_bottom": 0,
+          "margin_top_mobile": 0,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "d89000d7-6ea8-4327-b5a9-1ac5394007ae": {
+        "type": "home-builder",
+        "blocks": {
+          "ebbe0dc7-8e93-4f22-94d1-0ed444f8b7cb": {
+            "type": "promobox",
+            "settings": {
+              "url": "https://themorfose.com/pages/reward",
+              "image": "shopify://shop_images/Royality.png",
+              "image_size": 1450,
+              "image_mobile_size": 550,
+              "image_position_x": 50,
+              "color_image_mask": "",
+              "image_mask_opacity": 0.5,
+              "text_line_1": "Text line #1",
+              "text_line_2": "Text line #2",
+              "text_line_3": "Text line #3",
+              "style": "1",
+              "button_1": "Button #1 text",
+              "button_1_url": "",
+              "color_button_type_1": "default",
+              "button_2": "Button #2 text",
+              "button_2_url": "",
+              "color_button_type_2": "default",
+              "list_1": "",
+              "custom_html": "",
+              "video_external_url": "",
+              "video_mp4_url": "",
+              "video_autoplay": true,
+              "video_controls": false,
+              "type": "clean",
+              "content_position": "center",
+              "content_align": "center",
+              "add_container": false,
+              "content_width": 100,
+              "text_width": 0,
+              "height": "auto",
+              "min_height": 0,
+              "size_of_column": "auto",
+              "visible": "desktop_mobile",
+              "parallax": "disable",
+              "animation_to": "none",
+              "animation_from": "none",
+              "animation_opacity": "none",
+              "animation_text": "none",
+              "color_text_1": "",
+              "color_text_2": "",
+              "color_text_3": "",
+              "color_text_bg": "",
+              "color_curtain_bg": "",
+              "customization_class": ""
+            }
+          }
+        },
+        "block_order": [
+          "ebbe0dc7-8e93-4f22-94d1-0ed444f8b7cb"
+        ],
+        "disabled": true,
+        "settings": {
+          "title": "",
+          "container": "boxed",
+          "size_of_columns": "1",
+          "size_of_columns_mobile": "1",
+          "margins_for_columns": "none",
+          "align_of_columns": "top_center",
+          "disable_column_paddings": false,
+          "precedence": "",
+          "customization_class": ""
+        }
+      },
+      "8a8eb849-0d08-439b-a133-6d30648e7327": {
+        "type": "spacer",
+        "settings": {
+          "margin_top": 60,
+          "margin_bottom": 0,
+          "margin_top_mobile": 0,
+          "margin_bottom_mobile": 0,
+          "container": "boxed",
+          "show_separator": false,
+          "title": ""
+        }
+      },
+      "7216bc90-47fa-4b2c-959c-4b0b0ba07bd0": {
+        "type": "information-line",
+        "blocks": {
+          "7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-1": {
+            "type": "content",
+            "settings": {
+              "icon": "theme-116",
+              "title": "Free Shipping.",
+              "paragraph": "All orders of $49 or more of eligible items across any product category qualify.",
+              "url": ""
+            }
+          },
+          "7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-2": {
+            "type": "content",
+            "settings": {
+              "icon": "theme-125",
+              "title": "Payment Methods.",
+              "paragraph": "Credit Card: Visa, MasterCard, Maestro, American Express.",
+              "url": ""
+            }
+          },
+          "7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-3": {
+            "type": "content",
+            "settings": {
+              "icon": "theme-009",
+              "title": "Returns & Refunds.",
+              "paragraph": "You can return any item purchased on Shella within 20 days of the delivery date.",
+              "url": ""
+            }
+          }
+        },
+        "block_order": [
+          "7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-1",
+          "7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-2",
+          "7216bc90-47fa-4b2c-959c-4b0b0ba07bd0-content-3"
+        ],
+        "disabled": true,
+        "settings": {
+          "title": "",
+          "type": "1",
+          "style": "1"
+        }
+      },
+      "juniper_KHpKBq": {
+        "type": "juniper",
+        "settings": {
+          "html_area": ""
+        }
+      },
+      "header-modern": {
+        "type": "header-modern",
+        "blocks": {
+          "tape_MCde3m": {
+            "type": "tape",
+            "settings": {
+              "content": "<p>FINAL CLEARANCE: Take 20% Off 'Sale Must-Haves'</p>",
+              "delay": 0,
+              "style": "1",
+              "transparent_bg": false
+            }
+          }
+        },
+        "block_order": [
+          "tape_MCde3m"
+        ],
+        "settings": {
+          "menu": "mega",
+          "mega_menu_show_collection_images": true,
+          "search_quick_add_to_cart": true,
+          "search_collection_1": "",
+          "search_collection_2": "",
+          "announcement_text_1": "Hurry Up",
+          "announcement_text_2": "",
+          "announcement_text_3": "",
+          "announcement_background_color": "#000000"
+        }
+      }
+    },
+    "content_for_index": [
+      "1586279708879",
+      "1586280477165",
+      "1586280453180",
+      "1586282646707",
+      "1586282516064",
+      "cb4bcae2-b8f4-48d2-b3fd-5e5c58096fe4",
+      "1586282852274",
+      "1586282860739",
+      "1586283266986",
+      "1586283282255",
+      "1586283399218",
+      "1586283433745",
+      "1586283959656",
+      "1586283978403",
+      "1586284034569",
+      "e0e4c762-1a56-4751-a24c-507ba1a82712",
+      "8a8eb849-0d08-439b-a133-6d30648e7327",
+      "1586284059940",
+      "0663b541-250b-4f2b-b1c8-b38735e98e4b",
+      "aad00548-f1de-4736-a313-23bebad3eb46",
+      "1586567788223",
+      "2b05a4c3-9f15-4b73-99bb-2e45f7070b1b",
+      "d89000d7-6ea8-4327-b5a9-1ac5394007ae",
+      "7216bc90-47fa-4b2c-959c-4b0b0ba07bd0",
+      "juniper_KHpKBq"
+    ],
+    "blocks": {
+      "15079184273603081885": {
+        "type": "shopify://apps/essential-free-shipping-bar/blocks/app_embed/4125375e-37c8-4137-949d-c4e1a3aac572",
+        "disabled": false,
+        "settings": {}
+      },
+      "18228966181090706294": {
+        "type": "shopify://apps/upsell-cross-sell-selleasy/blocks/app-embed/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+        "disabled": false,
+        "settings": {}
+      },
+      "2680175748099902610": {
+        "type": "shopify://apps/reputon-amazon-reviews/blocks/product-rating-snippet-embed/88ab28f3-a438-4eb3-a83e-f1a9c62c5069",
+        "disabled": false,
+        "settings": {}
+      },
+      "604233939152458686": {
+        "type": "shopify://apps/omega-product-video-gallery/blocks/product_video_extension/f8ad865c-5edf-40a0-9672-4378dafc8d88",
+        "disabled": false,
+        "settings": {}
+      },
+      "1513253815146976218": {
+        "type": "shopify://apps/omnisend-email-marketing-sms/blocks/app-embed/44704aa2-794f-4c5d-8c8e-039c841158e9",
+        "disabled": false,
+        "settings": {}
+      },
+      "11349500561483629931": {
+        "type": "shopify://apps/ReStock/blocks/app-embed/b399b727-6c85-44fc-9e21-63114bd72054",
+        "disabled": false,
+        "settings": {}
+      },
+      "5460033060862993441": {
+        "type": "shopify://apps/essential-announcement-bar/blocks/app-embed/93b5429f-c8d6-4c33-ae14-250fd84f361b",
+        "disabled": false,
+        "settings": {}
+      },
+      "2118589882331710876": {
+        "type": "shopify://apps/essential-trust-badges/blocks/app-embed/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+        "disabled": false,
+        "settings": {}
+      },
+      "15683396631634586217": {
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": true,
+        "settings": {
+          "button_color": "#202a36",
+          "secondary_color": "#ffffff",
+          "button_icon": "hand_wave",
+          "button_text": "chat_with_us",
+          "button_horizontal_position": "bottom_left",
+          "button_vertical_position": "highest",
+          "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
+        }
+      },
+      "pagefly-page-builder": {
+        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
+        "disabled": false,
+        "settings": {}
+      },
+      "3138269044488530766": {
+        "type": "shopify://apps/uppromote-affiliate/blocks/core-script/64c32457-930d-4cb9-9641-e24c0d9cf1f4",
+        "disabled": false,
+        "settings": {}
+      },
+      "6097499278999377719": {
+        "type": "shopify://apps/globo-mega-menu/blocks/app-embed/7a00835e-fe40-45a5-a615-2eb4ab697b58",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  }
+}
