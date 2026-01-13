@@ -1254,10 +1254,12 @@
     border-bottom: 2px solid #F36703;
     letter-spacing: -0.2px;
     line-height: 1.3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     gap: 10px;
+    text-align: center !important;
   }
 
   .header-modern__mega-menu-title-image {
@@ -1268,24 +1270,27 @@
     border-radius: 4px;
     overflow: hidden;
     flex-shrink: 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
   }
 
   .header-modern__mega-menu-title-image img {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
+    margin: 0 auto !important;
   }
 
   .header-modern__mega-menu-title a {
     color: inherit;
     text-decoration: none;
     transition: color 0.3s ease;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
   }
 
   .header-modern__mega-menu-title a:hover {
@@ -2162,16 +2167,16 @@
                         <div class="header-modern__mega-menu-title">
                           {%- if mega_menu_title_image != blank -%}
                             <div class="header-modern__mega-menu-title-image">
-                              <img src="{{ mega_menu_title_image | image_url: width: 160 }}" alt="{{ sub_link.title }}" loading="lazy" width="160" height="160" style="object-fit: cover;">
+                              <img src="{{ mega_menu_title_image | image_url: width: 160 }}" alt="{{ sub_link.title }}" loading="lazy" width="160" height="160" style="object-fit: contain;">
                             </div>
                           {%- elsif section.settings.mega_menu_show_collection_images -%}
                             {%- if collection_for_image != blank -%}
                               {%- if custom_collection_image != blank or collection_for_image.featured_image != blank -%}
                                 <div class="header-modern__mega-menu-title-image">
                                   {%- if custom_collection_image != blank -%}
-                                    <img src="{{ custom_collection_image | image_url: width: 160 }}" alt="{{ sub_link.title }}" loading="lazy" width="160" height="160" style="object-fit: cover;">
+                                    <img src="{{ custom_collection_image | image_url: width: 160 }}" alt="{{ sub_link.title }}" loading="lazy" width="160" height="160" style="object-fit: contain;">
                                   {%- elsif collection_for_image.featured_image != blank -%}
-                                    <img src="{{ collection_for_image.featured_image | image_url: width: 160 }}" alt="{{ sub_link.title }}" loading="lazy" width="160" height="160" style="object-fit: cover;">
+                                    <img src="{{ collection_for_image.featured_image | image_url: width: 160 }}" alt="{{ sub_link.title }}" loading="lazy" width="160" height="160" style="object-fit: contain;">
                                   {%- endif -%}
                                 </div>
                               {%- endif -%}
@@ -3741,18 +3746,6 @@
           "id": "transparent_bg",
           "label": "Enable transparent background",
           "default": false
-        }
-      ]
-    },
-    {
-      "type": "collection",
-      "name": "Collection",
-      "limit": 4,
-      "settings": [
-        {
-          "type": "collection",
-          "id": "collection",
-          "label": "Collection"
         }
       ]
     },
