@@ -1,0 +1,665 @@
+{% include 'global-variables' %}
+{%- if template.name == 'collection' and collection and collection.handle -%}
+  {%- comment -%}
+    Collection metafields'dan related collections'ı al
+    Her collection için 2 adet "collection + resim" çifti:
+    - related_collection_1 (collection reference)
+    - related_collection_1_image (file reference - image)
+    - related_collection_2 (collection reference)
+    - related_collection_2_image (file reference - image)
+    
+    Metafield namespace: custom
+    Metafield keys: related_collection_1, related_collection_1_image, related_collection_1_title, related_collection_1_subtext
+                     related_collection_2, related_collection_2_image, related_collection_2_title, related_collection_2_subtext
+  {%- endcomment -%}
+  
+  {%- comment -%} Rich text metafield'dan text çıkarma fonksiyonu {%- endcomment -%}
+  {%- comment -%} Rich text JSON formatından text value'ları çıkar {%- endcomment -%}
+  
+  {%- assign related_collection_1 = null -%}
+  {%- assign related_collection_1_image = null -%}
+  {%- assign related_collection_1_title = null -%}
+  {%- assign related_collection_1_subtext = null -%}
+  {%- assign related_collection_2 = null -%}
+  {%- assign related_collection_2_image = null -%}
+  {%- assign related_collection_2_title = null -%}
+  {%- assign related_collection_2_subtext = null -%}
+  
+  {%- comment -%} Collection 1 metafield'ları {%- endcomment -%}
+  {%- if collection.metafields.custom.related_collection_1 != blank -%}
+    {%- assign related_collection_1 = collection.metafields.custom.related_collection_1.value -%}
+  {%- endif -%}
+  {%- if collection.metafields.custom.related_collection_1_image != blank -%}
+    {%- assign related_collection_1_image = collection.metafields.custom.related_collection_1_image.value -%}
+  {%- endif -%}
+  {%- if collection.metafields.custom.related_collection_1_title != blank -%}
+    {%- assign title_raw = collection.metafields.custom.related_collection_1_title.value -%}
+    {%- if title_raw.type == 'root' -%}
+      {%- comment -%} Rich text formatı - text value'ları topla {%- endcomment -%}
+      {%- assign title_text = '' -%}
+      {%- for child in title_raw.children -%}
+        {%- if child.children -%}
+          {%- for text_node in child.children -%}
+            {%- if text_node.type == 'text' and text_node.value != blank -%}
+              {%- if title_text != blank -%}
+                {%- assign title_text = title_text | append: ' ' -%}
+              {%- endif -%}
+              {%- assign title_text = title_text | append: text_node.value -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- elsif child.type == 'text' and child.value != blank -%}
+          {%- if title_text != blank -%}
+            {%- assign title_text = title_text | append: ' ' -%}
+          {%- endif -%}
+          {%- assign title_text = title_text | append: child.value -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- assign related_collection_1_title = title_text -%}
+    {%- else -%}
+      {%- assign related_collection_1_title = title_raw -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if collection.metafields.custom.related_collection_1_subtext != blank -%}
+    {%- assign subtext_raw = collection.metafields.custom.related_collection_1_subtext.value -%}
+    {%- comment -%} Rich text formatı kontrolü - JSON string'den text extract et {%- endcomment -%}
+    {%- assign subtext_string = subtext_raw | json -%}
+    {%- if subtext_string contains '"type":"root"' or subtext_raw.type == 'root' -%}
+      {%- comment -%} Rich text formatı - text value'ları topla {%- endcomment -%}
+      {%- assign subtext_text = '' -%}
+      {%- if subtext_raw.children -%}
+        {%- for child in subtext_raw.children -%}
+          {%- if child.children -%}
+            {%- for text_node in child.children -%}
+              {%- if text_node.type == 'text' and text_node.value != blank -%}
+                {%- if subtext_text != blank -%}
+                  {%- assign subtext_text = subtext_text | append: ' ' -%}
+                {%- endif -%}
+                {%- assign subtext_text = subtext_text | append: text_node.value -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- elsif child.type == 'text' and child.value != blank -%}
+            {%- if subtext_text != blank -%}
+              {%- assign subtext_text = subtext_text | append: ' ' -%}
+            {%- endif -%}
+            {%- assign subtext_text = subtext_text | append: child.value -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} JSON string'den regex ile extract et {%- endcomment -%}
+        {%- assign subtext_json = subtext_raw | json -%}
+        {%- assign value_matches = subtext_json | split: '"value":"' -%}
+        {%- if value_matches.size > 1 -%}
+          {%- for match in value_matches offset: 1 -%}
+            {%- assign value_part = match | split: '"' | first -%}
+            {%- if value_part != blank -%}
+              {%- if subtext_text != blank -%}
+                {%- assign subtext_text = subtext_text | append: ' ' -%}
+              {%- endif -%}
+              {%- assign subtext_text = subtext_text | append: value_part -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- assign related_collection_1_subtext = subtext_text -%}
+    {%- else -%}
+      {%- assign related_collection_1_subtext = subtext_raw -%}
+    {%- endif -%}
+  {%- endif -%}
+  
+  {%- comment -%} Collection 2 metafield'ları {%- endcomment -%}
+  {%- if collection.metafields.custom.related_collection_2 != blank -%}
+    {%- assign related_collection_2 = collection.metafields.custom.related_collection_2.value -%}
+  {%- endif -%}
+  {%- if collection.metafields.custom.related_collection_2_image != blank -%}
+    {%- assign related_collection_2_image = collection.metafields.custom.related_collection_2_image.value -%}
+  {%- endif -%}
+  {%- if collection.metafields.custom.related_collection_2_title != blank -%}
+    {%- assign title_raw = collection.metafields.custom.related_collection_2_title.value -%}
+    {%- if title_raw.type == 'root' -%}
+      {%- comment -%} Rich text formatı - text value'ları topla {%- endcomment -%}
+      {%- assign title_text = '' -%}
+      {%- for child in title_raw.children -%}
+        {%- if child.children -%}
+          {%- for text_node in child.children -%}
+            {%- if text_node.type == 'text' and text_node.value != blank -%}
+              {%- if title_text != blank -%}
+                {%- assign title_text = title_text | append: ' ' -%}
+              {%- endif -%}
+              {%- assign title_text = title_text | append: text_node.value -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- elsif child.type == 'text' and child.value != blank -%}
+          {%- if title_text != blank -%}
+            {%- assign title_text = title_text | append: ' ' -%}
+          {%- endif -%}
+          {%- assign title_text = title_text | append: child.value -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- assign related_collection_2_title = title_text -%}
+    {%- else -%}
+      {%- assign related_collection_2_title = title_raw -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if collection.metafields.custom.related_collection_2_subtext != blank -%}
+    {%- assign subtext_raw = collection.metafields.custom.related_collection_2_subtext.value -%}
+    {%- comment -%} Rich text formatı kontrolü - JSON string'den text extract et {%- endcomment -%}
+    {%- assign subtext_string = subtext_raw | json -%}
+    {%- if subtext_string contains '"type":"root"' or subtext_raw.type == 'root' -%}
+      {%- comment -%} Rich text formatı - text value'ları topla {%- endcomment -%}
+      {%- assign subtext_text = '' -%}
+      {%- if subtext_raw.children -%}
+        {%- for child in subtext_raw.children -%}
+          {%- if child.children -%}
+            {%- for text_node in child.children -%}
+              {%- if text_node.type == 'text' and text_node.value != blank -%}
+                {%- if subtext_text != blank -%}
+                  {%- assign subtext_text = subtext_text | append: ' ' -%}
+                {%- endif -%}
+                {%- assign subtext_text = subtext_text | append: text_node.value -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- elsif child.type == 'text' and child.value != blank -%}
+            {%- if subtext_text != blank -%}
+              {%- assign subtext_text = subtext_text | append: ' ' -%}
+            {%- endif -%}
+            {%- assign subtext_text = subtext_text | append: child.value -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} JSON string'den regex ile extract et {%- endcomment -%}
+        {%- assign subtext_json = subtext_raw | json -%}
+        {%- assign value_matches = subtext_json | split: '"value":"' -%}
+        {%- if value_matches.size > 1 -%}
+          {%- for match in value_matches offset: 1 -%}
+            {%- assign value_part = match | split: '"' | first -%}
+            {%- if value_part != blank -%}
+              {%- if subtext_text != blank -%}
+                {%- assign subtext_text = subtext_text | append: ' ' -%}
+              {%- endif -%}
+              {%- assign subtext_text = subtext_text | append: value_part -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- assign related_collection_2_subtext = subtext_text -%}
+    {%- else -%}
+      {%- assign related_collection_2_subtext = subtext_raw -%}
+    {%- endif -%}
+  {%- endif -%}
+  
+  {%- comment -%} Collection seçili mi kontrol et - En az bir geçerli collection olmalı {%- endcomment -%}
+  {%- assign has_related = false -%}
+  {%- if related_collection_1 != blank and related_collection_1 != null -%}
+    {%- if related_collection_1.handle != blank and related_collection_1.handle != collection.handle -%}
+      {%- assign has_related = true -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if related_collection_2 != blank and related_collection_2 != null -%}
+    {%- if related_collection_2.handle != blank and related_collection_2.handle != collection.handle -%}
+      {%- assign has_related = true -%}
+    {%- endif -%}
+  {%- endif -%}
+  
+  {%- comment -%} Metafield'lar yoksa veya geçerli collection seçilmemişse section'ı hiç gösterme {%- endcomment -%}
+  {%- if has_related -%}
+    <div class="collection-related-collections" data-section-id="{{ section.id }}" data-section-type="collection-related-collections">
+      {%- comment -%} DEBUG: Metafield kontrolü - silinebilir {%- endcomment -%}
+      {%- if section.settings.show_debug -%}
+        <div style="background: #f0f0f0; padding: 20px; margin: 20px 0; border: 2px solid #ccc;">
+          <h4>DEBUG - Metafield Kontrolü:</h4>
+          <p><strong>Collection Handle:</strong> {{ collection.handle }}</p>
+          <p><strong>related_collection_1 exists:</strong> {{ collection.metafields.custom.related_collection_1 | json }}</p>
+          <p><strong>related_collection_1 value:</strong> {{ related_collection_1 | json }}</p>
+          <p><strong>related_collection_1 handle:</strong> {% if related_collection_1 %}{{ related_collection_1.handle }}{% else %}null{% endif %}</p>
+          <p><strong>has_related:</strong> {{ has_related }}</p>
+          <p><strong>All custom metafields:</strong> {{ collection.metafields.custom | json }}</p>
+        </div>
+      {%- endif -%}
+      
+      {%- comment -%} İçeriği göster {%- endcomment -%}
+      <div class="{% if section.settings.container == 'fullwidth' %}container-fluid{% else %}container{% endif %}">
+        {%- if section.settings.title != blank -%}
+          <h2 class="h4 collection-related-collections__title text-center mb-30 mb-md-50">{{ section.settings.title }}</h2>
+        {%- endif -%}
+        
+        <div class="row collection-related-collections__row">
+          {%- comment -%} First Collection - Sadece collection seçiliyse göster {%- endcomment -%}
+          {%- if related_collection_1 != blank and related_collection_1 != null and related_collection_1.handle != blank and related_collection_1.handle != collection.handle -%}
+            <div class="col-12 col-md-6 collection-related-collections__item mb-30 mb-md-0{% if related_collection_2 == blank or related_collection_2.handle == collection.handle %} collection-related-collections__item--single{% endif %}">
+              <div class="collection-related-item h-100">
+                <a href="{{ related_collection_1.url }}" class="collection-related-item__link d-block h-100">
+                  {%- comment -%} Image: Metafield varsa onu kullan, yoksa collection image'ını kullan {%- endcomment -%}
+                  {%- if related_collection_1_image != blank and related_collection_1_image != null -%}
+                    {%- assign collection_image = related_collection_1_image -%}
+                  {%- elsif related_collection_1.image != blank -%}
+                    {%- assign collection_image = related_collection_1.image -%}
+                  {%- elsif related_collection_1.products.first.featured_image != blank -%}
+                    {%- assign collection_image = related_collection_1.products.first.featured_image -%}
+                  {%- else -%}
+                    {%- assign collection_image = null -%}
+                  {%- endif -%}
+                  {%- if collection_image -%}
+                    <div class="collection-related-item__image-wrapper position-relative overflow-hidden">
+                      {%- if section.settings.image_aspect_ratio > 0 -%}
+                        <div style="padding-top: {{ section.settings.image_aspect_ratio }}%;"></div>
+                        <img 
+                          srcset="
+                            {%- if collection_image.width >= 375 -%}{{ collection_image | image_url: width: 375 }} 375w,{%- endif -%}
+                            {%- if collection_image.width >= 550 -%}{{ collection_image | image_url: width: 550 }} 550w,{%- endif -%}
+                            {%- if collection_image.width >= 750 -%}{{ collection_image | image_url: width: 750 }} 750w,{%- endif -%}
+                            {%- if collection_image.width >= 1100 -%}{{ collection_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                            {%- if collection_image.width >= 1500 -%}{{ collection_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                            {{ collection_image | image_url }} {{ collection_image.width }}w
+                          "
+                          src="{{ collection_image | image_url: width: section.settings.image_size_desktop }}"
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                          alt="{{ related_collection_1.title | escape }}"
+                          class="collection-related-item__image position-absolute top-0 left-0 w-100 h-100"
+                          style="object-fit: {{ section.settings.image_fit }};"
+                          loading="lazy"
+                          width="{{ collection_image.width }}"
+                          height="{{ collection_image.height }}"
+                        >
+                      {%- else -%}
+                        <img 
+                          srcset="
+                            {%- if collection_image.width >= 375 -%}{{ collection_image | image_url: width: 375 }} 375w,{%- endif -%}
+                            {%- if collection_image.width >= 550 -%}{{ collection_image | image_url: width: 550 }} 550w,{%- endif -%}
+                            {%- if collection_image.width >= 750 -%}{{ collection_image | image_url: width: 750 }} 750w,{%- endif -%}
+                            {%- if collection_image.width >= 1100 -%}{{ collection_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                            {%- if collection_image.width >= 1500 -%}{{ collection_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                            {{ collection_image | image_url }} {{ collection_image.width }}w
+                          "
+                          src="{{ collection_image | image_url: width: section.settings.image_size_desktop }}"
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                          alt="{{ related_collection_1.title | escape }}"
+                          class="collection-related-item__image w-100"
+                          style="object-fit: {{ section.settings.image_fit }};"
+                          loading="lazy"
+                          width="{{ collection_image.width }}"
+                          height="{{ collection_image.height }}"
+                        >
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                  <div class="collection-related-item__content mt-20 mt-md-25 text-center">
+                    {%- comment -%} Title: Metafield varsa onu kullan, yoksa collection title'ını kullan {%- endcomment -%}
+                    <h3 class="collection-related-item__title h4 mb-10 mb-md-15">
+                      {%- if related_collection_1_title != blank and related_collection_1_title != null -%}
+                        {{ related_collection_1_title }}
+                      {%- else -%}
+                        {{ related_collection_1.title }}
+                      {%- endif -%}
+                    </h3>
+                    {%- comment -%} Subtext: Metafield varsa onu kullan, yoksa gösterme {%- endcomment -%}
+                    {%- if related_collection_1_subtext != blank and related_collection_1_subtext != null -%}
+                      <p class="collection-related-item__subtext mb-10 mb-md-15">{{ related_collection_1_subtext }}</p>
+                    {%- endif -%}
+                   
+                  </div>
+                </a>
+              </div>
+            </div>
+          {%- endif -%}
+          
+          {%- comment -%} Second Collection - Sadece collection seçiliyse göster {%- endcomment -%}
+          {%- if related_collection_2 != blank and related_collection_2 != null and related_collection_2.handle != blank and related_collection_2.handle != collection.handle -%}
+            <div class="col-12 col-md-6 collection-related-collections__item{% if related_collection_1 == blank or related_collection_1.handle == collection.handle %} collection-related-collections__item--single{% endif %}">
+              <div class="collection-related-item h-100">
+                <a href="{{ related_collection_2.url }}" class="collection-related-item__link d-block h-100">
+                  {%- comment -%} Image: Metafield varsa onu kullan, yoksa collection image'ını kullan {%- endcomment -%}
+                  {%- if related_collection_2_image != blank and related_collection_2_image != null -%}
+                    {%- assign collection_image = related_collection_2_image -%}
+                  {%- elsif related_collection_2.image != blank -%}
+                    {%- assign collection_image = related_collection_2.image -%}
+                  {%- elsif related_collection_2.products.first.featured_image != blank -%}
+                    {%- assign collection_image = related_collection_2.products.first.featured_image -%}
+                  {%- else -%}
+                    {%- assign collection_image = null -%}
+                  {%- endif -%}
+                  {%- if collection_image -%}
+                    <div class="collection-related-item__image-wrapper position-relative overflow-hidden">
+                      {%- if section.settings.image_aspect_ratio > 0 -%}
+                        <div style="padding-top: {{ section.settings.image_aspect_ratio }}%;"></div>
+                        <img 
+                          srcset="
+                            {%- if collection_image.width >= 375 -%}{{ collection_image | image_url: width: 375 }} 375w,{%- endif -%}
+                            {%- if collection_image.width >= 550 -%}{{ collection_image | image_url: width: 550 }} 550w,{%- endif -%}
+                            {%- if collection_image.width >= 750 -%}{{ collection_image | image_url: width: 750 }} 750w,{%- endif -%}
+                            {%- if collection_image.width >= 1100 -%}{{ collection_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                            {%- if collection_image.width >= 1500 -%}{{ collection_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                            {{ collection_image | image_url }} {{ collection_image.width }}w
+                          "
+                          src="{{ collection_image | image_url: width: section.settings.image_size_desktop }}"
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                          alt="{{ related_collection_2.title | escape }}"
+                          class="collection-related-item__image position-absolute top-0 left-0 w-100 h-100"
+                          style="object-fit: {{ section.settings.image_fit }};"
+                          loading="lazy"
+                          width="{{ collection_image.width }}"
+                          height="{{ collection_image.height }}"
+                        >
+                      {%- else -%}
+                        <img 
+                          srcset="
+                            {%- if collection_image.width >= 375 -%}{{ collection_image | image_url: width: 375 }} 375w,{%- endif -%}
+                            {%- if collection_image.width >= 550 -%}{{ collection_image | image_url: width: 550 }} 550w,{%- endif -%}
+                            {%- if collection_image.width >= 750 -%}{{ collection_image | image_url: width: 750 }} 750w,{%- endif -%}
+                            {%- if collection_image.width >= 1100 -%}{{ collection_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                            {%- if collection_image.width >= 1500 -%}{{ collection_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                            {{ collection_image | image_url }} {{ collection_image.width }}w
+                          "
+                          src="{{ collection_image | image_url: width: section.settings.image_size_desktop }}"
+                          sizes="(min-width: 768px) 50vw, 100vw"
+                          alt="{{ related_collection_2.title | escape }}"
+                          class="collection-related-item__image w-100"
+                          style="object-fit: {{ section.settings.image_fit }};"
+                          loading="lazy"
+                          width="{{ collection_image.width }}"
+                          height="{{ collection_image.height }}"
+                        >
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                  <div class="collection-related-item__content mt-20 mt-md-25 text-center">
+                    {%- comment -%} Title: Metafield varsa onu kullan, yoksa collection title'ını kullan {%- endcomment -%}
+                    <h3 class="collection-related-item__title h4 mb-10 mb-md-15">
+                      {%- if related_collection_2_title != blank and related_collection_2_title != null -%}
+                        {{ related_collection_2_title }}
+                      {%- else -%}
+                        {{ related_collection_2.title }}
+                      {%- endif -%}
+                    </h3>
+                    {%- comment -%} Subtext: Metafield varsa onu kullan, yoksa gösterme {%- endcomment -%}
+                    {%- if related_collection_2_subtext != blank and related_collection_2_subtext != null -%}
+                      <p class="collection-related-item__subtext mb-10 mb-md-15">{{ related_collection_2_subtext }}</p>
+                    {%- endif -%}
+                  
+                  </div>
+                </a>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    
+    <style>
+      .collection-related-collections {
+        margin-top: {{ section.settings.margin_top }}px;
+        margin-bottom: {{ section.settings.margin_bottom }}px;
+      }
+      
+      @media (max-width: 767px) {
+        .collection-related-collections {
+          margin-top: {{ section.settings.margin_top_mobile }}px;
+          margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+        }
+      }
+      
+      .collection-related-item {
+        transition: transform 0.3s ease;
+      }
+      
+      .collection-related-item__link {
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.3s ease;
+      }
+      
+      .collection-related-item__link:hover {
+        opacity: 0.9;
+      }
+      
+      .collection-related-item__link:hover .collection-related-item {
+        transform: translateY(-5px);
+      }
+      
+      .collection-related-item__image-wrapper {
+        border-radius: {{ section.settings.image_border_radius }}px;
+        overflow: hidden;
+        background-color: #f5f5f5;
+      }
+      
+      .collection-related-item__image {
+        transition: transform 0.5s ease;
+      }
+      
+      .collection-related-item__link:hover .collection-related-item__image {
+        transform: scale(1.05);
+      }
+      
+      .collection-related-item__title {
+        font-weight: 600;
+        color: {{ section.settings.title_color }};
+      }
+      
+      .collection-related-item__subtext {
+        color: {{ section.settings.subtext_color }};
+        font-size: {{ section.settings.subtext_font_size }}px;
+        line-height: 1.5;
+      }
+      
+      .collection-related-item__count {
+        font-size: 0.9em;
+      }
+      
+      {%- if section.settings.gap_between_items > 0 -%}
+      .collection-related-collections__row {
+        margin-left: -{{ section.settings.gap_between_items | divided_by: 2 }}px;
+        margin-right: -{{ section.settings.gap_between_items | divided_by: 2 }}px;
+      }
+      
+      .collection-related-collections__item {
+        padding-left: {{ section.settings.gap_between_items | divided_by: 2 }}px;
+        padding-right: {{ section.settings.gap_between_items | divided_by: 2 }}px;
+      }
+      {%- endif -%}
+      
+      {%- if section.settings.gap_between_items_mobile > 0 -%}
+      @media (max-width: 767px) {
+        .collection-related-collections__row {
+          margin-left: -{{ section.settings.gap_between_items_mobile | divided_by: 2 }}px;
+          margin-right: -{{ section.settings.gap_between_items_mobile | divided_by: 2 }}px;
+        }
+        
+        .collection-related-collections__item {
+          padding-left: {{ section.settings.gap_between_items_mobile | divided_by: 2 }}px;
+          padding-right: {{ section.settings.gap_between_items_mobile | divided_by: 2 }}px;
+        }
+      }
+      {%- endif -%}
+    </style>
+    </div>
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Related Collections",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_debug",
+      "label": "Show debug info",
+      "default": false,
+      "info": "Metafield'ları kontrol etmek için açın"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "You May Also Like"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "default": "boxed",
+      "options": [
+        {
+          "value": "boxed",
+          "label": "Boxed"
+        },
+        {
+          "value": "fullwidth",
+          "label": "Fullwidth"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Show product count",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin top (desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom (desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Margin top (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Margin bottom (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "gap_between_items",
+      "label": "Gap between items (desktop)",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "gap_between_items_mobile",
+      "label": "Gap between items (mobile)",
+      "min": 0,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Image settings"
+    },
+    {
+      "type": "range",
+      "id": "image_size_desktop",
+      "label": "Image size (desktop)",
+      "min": 400,
+      "max": 2000,
+      "step": 50,
+      "unit": "px",
+      "default": 800,
+      "info": "Desktop'ta her collection için görüntü genişliği"
+    },
+    {
+      "type": "range",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "%",
+      "default": 100,
+      "info": "0 = auto (resmin orijinal oranı), 100% = kare, 75% = 4:3, 133% = 3:4"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "default": "cover",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover (tüm alanı kaplar)"
+        },
+        {
+          "value": "contain",
+          "label": "Contain (tüm resmi gösterir)"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Subtext color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "subtext_font_size",
+      "label": "Subtext font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related Collections",
+      "category": "6) Collection page sections (2)"
+    }
+  ]
+}
+{% endschema %}
