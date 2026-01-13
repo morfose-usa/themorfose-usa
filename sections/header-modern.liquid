@@ -2459,7 +2459,7 @@
     }
     const mobileSearchDrawer = document.getElementById('mobile-search-drawer');
     const mobileSearchBackdrop = document.getElementById('mobile-search-backdrop');
-    const mobileSearchInput = document.getElementById('mobile-search-input');
+    let mobileSearchInput = document.getElementById('mobile-search-input');
     const mobileSearchClose = document.getElementById('mobile-search-close');
     const mobileSearchResults = document.getElementById('mobile-search-results');
     const mobileSearchLoading = document.getElementById('mobile-search-loading');
@@ -2492,20 +2492,45 @@
         }
       });
 
-      // Input typing
+      // Input typing - search on every keystroke (like mobile)
       searchInput.addEventListener('input', function() {
         const query = this.value.trim();
         
-        clearTimeout(searchTimeout);
+        // Clear any pending timeout
+        if (searchTimeout) {
+          clearTimeout(searchTimeout);
+          searchTimeout = null;
+        }
         
-        if (query.length < 2) {
+        // Cancel any pending request
+        if (currentSearchRequest) {
+          try {
+            currentSearchRequest.abort();
+          } catch(e) {
+            // Ignore abort errors
+          }
+          currentSearchRequest = null;
+        }
+        
+        if (query.length === 0) {
+          // Clear results when input is empty
+          if (searchResultsList) searchResultsList.innerHTML = '';
+          if (searchLoading) searchLoading.style.display = 'none';
+          if (searchEmpty) searchEmpty.style.display = 'none';
+          if (searchViewAll) searchViewAll.style.display = 'none';
           searchResults.classList.remove('active');
           return;
         }
 
+        // Search on every keystroke (like mobile) - reduced timeout to 200ms
         searchTimeout = setTimeout(function() {
-          performSearch(query);
-        }, 300);
+          // Double check query is still valid
+          const currentQuery = searchInput ? searchInput.value.trim() : '';
+          if (currentQuery.length > 0) {
+            performSearch(currentQuery);
+          }
+          searchTimeout = null;
+        }, 200);
       });
 
       // Close results when clicking outside
@@ -2525,26 +2550,45 @@
     }
 
     function performSearch(query) {
+      // Validate query
+      const trimmedQuery = query ? query.trim() : '';
+      if (!trimmedQuery || trimmedQuery.length === 0) {
+        return;
+      }
+      
+      // Use trimmed query
+      query = trimmedQuery;
+      
       // Cancel previous request
       if (currentSearchRequest) {
-        currentSearchRequest.abort();
+        try {
+          currentSearchRequest.abort();
+        } catch(e) {
+          // Ignore abort errors
+        }
+        currentSearchRequest = null;
       }
 
       // Show loading
-      searchLoading.style.display = 'block';
-      searchEmpty.style.display = 'none';
-      searchViewAll.style.display = 'none';
-      searchResultsList.innerHTML = '';
-      searchResults.classList.add('active');
+      if (searchLoading) searchLoading.style.display = 'block';
+      if (searchEmpty) searchEmpty.style.display = 'none';
+      if (searchViewAll) searchViewAll.style.display = 'none';
+      if (searchResultsList) searchResultsList.innerHTML = '';
+      if (searchResults) searchResults.classList.add('active');
 
       // Build search URL
       const searchUrl = '{{ routes.search_url }}/suggest.json?q=' + encodeURIComponent(query) + '&resources[type]=product&resources[limit]=5';
 
       // Fetch results
       currentSearchRequest = fetch(searchUrl)
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Search request failed');
+          }
+          return response.json();
+        })
         .then(data => {
-          searchLoading.style.display = 'none';
+          if (searchLoading) searchLoading.style.display = 'none';
           
           if (data.resources && data.resources.results && data.resources.results.products) {
             const products = data.resources.results.products;
@@ -2723,10 +2767,13 @@
           }
         })
         .catch(function(error) {
+          // Only handle error if this is still the current request
           if (error.name !== 'AbortError') {
-            searchLoading.style.display = 'none';
-            searchEmpty.style.display = 'block';
+            if (searchLoading) searchLoading.style.display = 'none';
+            if (searchEmpty) searchEmpty.style.display = 'block';
+            if (searchViewAll) searchViewAll.style.display = 'none';
           }
+          currentSearchRequest = null;
         });
     }
 
@@ -2880,13 +2927,16 @@
             }, 10);
           }
           mobileSearchDrawer.style.display = 'flex';
+          // Ensure search drawer is always above cart drawer (cart is 9999, we use 10002)
           mobileSearchDrawer.style.setProperty('z-index', '10002', 'important');
           setTimeout(function() {
             mobileSearchDrawer.classList.add('active');
           }, 10);
           document.body.style.overflow = 'hidden';
           setTimeout(function() {
-            mobileSearchInput.focus();
+            if (mobileSearchInput && document.body.contains(mobileSearchInput)) {
+              mobileSearchInput.focus();
+            }
           }, 300);
           
           // Show/hide collections based on whether they exist
@@ -2957,15 +3007,42 @@
       }
 
       // Live search on mobile - her harfte
-      mobileSearchInput.addEventListener('input', function() {
-        const query = this.value.trim();
+      // Use event delegation to ensure it always works, even after cart drawer opens/closes
+      function handleMobileSearchInput(e) {
+        const input = e.target;
+        if (!input || input.id !== 'mobile-search-input') {
+          return;
+        }
         
-        clearTimeout(mobileSearchTimeout);
+        // Always refresh the input reference in case DOM changed
+        mobileSearchInput = input;
+        
+        const query = input.value.trim();
+        
+        // Clear any pending timeout
+        if (mobileSearchTimeout) {
+          clearTimeout(mobileSearchTimeout);
+          mobileSearchTimeout = null;
+        }
+        
+        // Cancel any pending request
+        if (mobileSearchRequest) {
+          try {
+            mobileSearchRequest.abort();
+          } catch(e) {
+            // Ignore abort errors
+          }
+          mobileSearchRequest = null;
+        }
         
         if (query.length === 0) {
-          mobileSearchResults.innerHTML = '';
-          mobileSearchLoading.style.display = 'none';
-          mobileSearchEmpty.style.display = 'none';
+          // Clear results
+          if (mobileSearchResults) {
+            mobileSearchResults.innerHTML = '';
+            mobileSearchResults.style.display = 'none';
+          }
+          if (mobileSearchLoading) mobileSearchLoading.style.display = 'none';
+          if (mobileSearchEmpty) mobileSearchEmpty.style.display = 'none';
           if (mobileSearchCollections) {
             mobileSearchCollections.style.display = 'grid';
           }
@@ -2974,25 +3051,134 @@
           return;
         }
 
-        // Search on every keystroke
+        // Search on every keystroke - ensure timeout is set
         mobileSearchTimeout = setTimeout(function() {
-          performMobileSearch(query);
+          // Double check query is still valid and input still exists
+          if (!mobileSearchInput || !document.body.contains(mobileSearchInput)) {
+            mobileSearchInput = document.getElementById('mobile-search-input');
+          }
+          const currentQuery = mobileSearchInput ? mobileSearchInput.value.trim() : '';
+          if (currentQuery.length > 0) {
+            performMobileSearch(currentQuery);
+          }
+          mobileSearchTimeout = null;
         }, 200);
+      }
+      
+      // Function to re-bind event listeners (called after cart drawer closes)
+      // Store in window scope so it can be called from restoreSearchDrawerFocus
+      window.rebindMobileSearchListeners = function() {
+        // Get fresh reference to input
+        let currentInput = document.getElementById('mobile-search-input');
+        if (!currentInput) {
+          return;
+        }
+        
+        // Store current value
+        const inputValue = currentInput.value;
+        
+        // Remove old listeners by cloning the element (removes all listeners)
+        const parent = currentInput.parentNode;
+        const newInput = currentInput.cloneNode(true);
+        parent.replaceChild(newInput, currentInput);
+        newInput.value = inputValue;
+        
+        // Update reference (mobileSearchInput is now let, so we can reassign)
+        mobileSearchInput = newInput;
+        
+        // Re-bind listeners
+        newInput.addEventListener('input', handleMobileSearchInput);
+        newInput.addEventListener('keydown', handleMobileSearchKeydown);
+        
+        // Restore focus
+        setTimeout(function() {
+          if (newInput && document.body.contains(newInput)) {
+            newInput.focus();
+            // If there's text, trigger input event to refresh search
+            if (newInput.value && newInput.value.trim().length > 0) {
+              setTimeout(function() {
+                const inputEvent = new Event('input', { 
+                  bubbles: true, 
+                  cancelable: true,
+                  composed: true
+                });
+                newInput.dispatchEvent(inputEvent);
+              }, 50);
+            }
+          }
+        }, 100);
+      };
+      
+      // Use event delegation on document to ensure it always works
+      // This is the primary listener that should always work
+      document.addEventListener('input', handleMobileSearchInput, true);
+      
+      // Also keep direct listener as backup (only if input exists)
+      if (mobileSearchInput) {
+        mobileSearchInput.addEventListener('input', handleMobileSearchInput);
+      }
+      
+      // Re-bind direct listener whenever input changes (in case DOM is modified)
+      const inputObserver = new MutationObserver(function(mutations) {
+        const currentInput = document.getElementById('mobile-search-input');
+        if (currentInput && currentInput !== mobileSearchInput) {
+          // Input element changed, update reference and re-bind
+          mobileSearchInput = currentInput;
+          currentInput.addEventListener('input', handleMobileSearchInput);
+        }
       });
+      
+      // Observe the drawer for any DOM changes
+      if (mobileSearchDrawer) {
+        inputObserver.observe(mobileSearchDrawer, {
+          childList: true,
+          subtree: true
+        });
+      }
 
-      // Close drawer on escape
-      mobileSearchInput.addEventListener('keydown', function(e) {
+      // Close drawer on escape - also use event delegation
+      function handleMobileSearchKeydown(e) {
+        const input = e.target;
+        if (!input || input.id !== 'mobile-search-input') {
+          return;
+        }
         if (e.key === 'Escape') {
           closeDrawer();
         }
-      });
+      }
+      
+      document.addEventListener('keydown', handleMobileSearchKeydown, true);
+      mobileSearchInput.addEventListener('keydown', handleMobileSearchKeydown);
     }
 
     function performMobileSearch(query) {
+      // Validate query
+      const trimmedQuery = query ? query.trim() : '';
+      if (!trimmedQuery || trimmedQuery.length === 0) {
+        return;
+      }
+      
+      // Ensure we have the input element reference
+      if (!mobileSearchInput || !document.body.contains(mobileSearchInput)) {
+        mobileSearchInput = document.getElementById('mobile-search-input');
+        if (!mobileSearchInput) {
+          console.warn('Mobile search input not found');
+          return;
+        }
+      }
+      
       // Cancel previous request
       if (mobileSearchRequest) {
-        mobileSearchRequest.abort();
+        try {
+          mobileSearchRequest.abort();
+        } catch(e) {
+          // Ignore abort errors
+        }
+        mobileSearchRequest = null;
       }
+      
+      // Use trimmed query
+      query = trimmedQuery;
 
       // Hide collections and last searched, show loading
       if (mobileSearchCollections) {
@@ -3001,25 +3187,51 @@
       if (mobileSearchLastSearched) {
         mobileSearchLastSearched.style.display = 'none';
       }
-      mobileSearchLoading.style.display = 'block';
-      mobileSearchEmpty.style.display = 'none';
-      mobileSearchResults.innerHTML = '';
+      if (mobileSearchLoading) {
+        mobileSearchLoading.style.display = 'block';
+      }
+      if (mobileSearchEmpty) {
+        mobileSearchEmpty.style.display = 'none';
+      }
+      if (mobileSearchResults) {
+        mobileSearchResults.innerHTML = '';
+        mobileSearchResults.style.display = 'block';
+      }
 
       // Build search URL
       const searchUrl = '{{ routes.search_url }}/suggest.json?q=' + encodeURIComponent(query) + '&resources[type]=product&resources[limit]=10';
 
       // Fetch results
       mobileSearchRequest = fetch(searchUrl)
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Search request failed');
+          }
+          return response.json();
+        })
         .then(data => {
-          mobileSearchLoading.style.display = 'none';
+          if (mobileSearchLoading) {
+            mobileSearchLoading.style.display = 'none';
+          }
           
           if (data.resources && data.resources.results && data.resources.results.products) {
             const products = data.resources.results.products;
             
             if (products.length === 0) {
-              mobileSearchEmpty.style.display = 'block';
+              if (mobileSearchEmpty) {
+                mobileSearchEmpty.style.display = 'block';
+              }
+              if (mobileSearchResults) {
+                mobileSearchResults.style.display = 'none';
+              }
             } else {
+              // Ensure results container is visible
+              if (mobileSearchResults) {
+                mobileSearchResults.style.display = 'block';
+              }
+              if (mobileSearchEmpty) {
+                mobileSearchEmpty.style.display = 'none';
+              }
               // Render products
               products.forEach(function(product) {
                 const item = document.createElement('li');
@@ -3241,6 +3453,82 @@
     document.addEventListener('theme:cart::added', function() {
       updateCartCount();
     });
+    
+    // Fix: Restore search drawer functionality after cart drawer closes
+    // This ensures search input works properly after cart popup closes
+    function restoreSearchDrawerFocus() {
+      if (!mobileSearchDrawer) {
+        return;
+      }
+      
+      // Check if search drawer is actually open
+      const drawerDisplay = getComputedStyle(mobileSearchDrawer).display;
+      const isSearchDrawerOpen = drawerDisplay === 'flex' || 
+                                mobileSearchDrawer.classList.contains('active') ||
+                                mobileSearchDrawer.style.display === 'flex';
+      
+      if (isSearchDrawerOpen) {
+        // Re-bind event listeners to ensure they work after cart drawer closes
+        setTimeout(function() {
+          if (typeof window.rebindMobileSearchListeners === 'function') {
+            window.rebindMobileSearchListeners();
+          } else {
+            // Fallback: just restore focus and trigger input event
+            const currentInput = document.getElementById('mobile-search-input');
+            if (currentInput && document.body.contains(currentInput)) {
+              try {
+                currentInput.focus();
+                // Force a re-trigger of input event if there's existing text
+                if (currentInput.value && currentInput.value.trim().length > 0) {
+                  setTimeout(function() {
+                    const inputEvent = new Event('input', { 
+                      bubbles: true, 
+                      cancelable: true,
+                      composed: true
+                    });
+                    currentInput.dispatchEvent(inputEvent);
+                  }, 100);
+                }
+              } catch(e) {
+                console.warn('Could not restore search focus:', e);
+              }
+            }
+          }
+        }, 300);
+      }
+    }
+    
+    // Listen for popup close events using multiple methods for reliability
+    if (typeof jQuery !== 'undefined' && jQuery.fn.on) {
+      // Listen to popup close events via jQuery (theme uses jQuery)
+      jQuery(document).on('cart.close.after', function() {
+        restoreSearchDrawerFocus();
+      });
+    }
+    
+    // Also use MutationObserver as fallback
+    if (document.body) {
+      const bodyObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            const body = document.body;
+            const wasPopupOpened = mutation.oldValue && mutation.oldValue.includes('popup-opened');
+            const isPopupOpened = body.classList.contains('popup-opened');
+            
+            // If popup was just closed, restore search drawer focus
+            if (wasPopupOpened && !isPopupOpened) {
+              restoreSearchDrawerFocus();
+            }
+          }
+        });
+      });
+      
+      bodyObserver.observe(document.body, {
+        attributes: true,
+        attributeOldValue: true,
+        attributeFilter: ['class']
+      });
+    }
     
     // Initialize cart count on page load
     updateCartCount();
