@@ -1359,11 +1359,11 @@
             "type": "slick_slide",
             "settings": {
               "url": "shopify://collections/milk-therapy",
-              "image": "shopify://shop_images/Morofse_Website_Banner_2eea4c11-bfc2-41a9-8399-781ec03cda0a.png",
+              "image": "shopify://shop_images/12_e91763e6-1204-41d1-aa51-886f9fa4537b.png",
               "image_size": 900,
-              "image_mobile": "shopify://shop_images/Morfose_123Mobile_Banner_540_x_550_piksel.png",
-              "image_mobile_size": 550,
-              "image_position_x": 50,
+              "image_mobile": "shopify://shop_images/12_66f78454-6709-4c93-871b-0984fb0222f2.png",
+              "image_mobile_size": 200,
+              "image_position_x": 51,
               "color_image_mask": "",
               "image_mask_opacity": 0.5,
               "text_line_1": "Text line #1",
@@ -1398,12 +1398,11 @@
           },
           "6e0a228d-623c-4856-bc67-1456ec4347b0": {
             "type": "slick_slide",
-            "disabled": true,
             "settings": {
               "url": "shopify://collections/bundles",
-              "image": "shopify://shop_images/Morofse_Website_Banner_34722dbe-51e4-4d78-bd68-ca988aa12ee1.png",
+              "image": "shopify://shop_images/8_16bf96f8-873f-401f-a4b5-ff0b09f8000f.png",
               "image_size": 900,
-              "image_mobile": "shopify://shop_images/15.png",
+              "image_mobile": "shopify://shop_images/8_029eb103-6bbb-4409-81cd-a1cec05f624b.png",
               "image_mobile_size": 550,
               "image_position_x": 50,
               "color_image_mask": "",
@@ -2831,17 +2830,31 @@
       },
       "header-modern": {
         "type": "header-modern",
+        "blocks": {
+          "tape_MCde3m": {
+            "type": "tape",
+            "settings": {
+              "content": "<p>FINAL CLEARANCE: Take 20% Off 'Sale Must-Haves'</p>",
+              "delay": 0,
+              "style": "1",
+              "transparent_bg": false
+            }
+          }
+        },
+        "block_order": [
+          "tape_MCde3m"
+        ],
         "settings": {
           "menu": "mega",
           "mega_menu_show_collection_images": true,
           "search_quick_add_to_cart": true,
-          "search_collection_1": "all-products",
-          "search_collection_1_image": "shopify://shop_images/8_029eb103-6bbb-4409-81cd-a1cec05f624b.png",
-          "search_collection_2": "beard-care",
-          "search_collection_2_image": "shopify://shop_images/12_66f78454-6709-4c93-871b-0984fb0222f2.png",
-          "announcement_text_1": "FINAL CLEARANCE: Take 20% Off 'Sale Must-Haves'",
-          "announcement_text_2": "Free Shipping on Orders Over $50",
-          "announcement_text_3": "New Arrivals - Shop the Latest Collection",
+          "search_collection_1": "argan-oil-hair-masks",
+          "search_collection_1_image": "shopify://shop_images/45.jpg",
+          "search_collection_2": "milk-therapy",
+          "search_collection_2_image": "shopify://shop_images/36_994b415b-ac68-4136-bc07-acddad294795.jpg",
+          "announcement_text_1": "HURRY! Free Shipping, Buy 2 & Save 30% On The Second Item",
+          "announcement_text_2": "",
+          "announcement_text_3": "",
           "announcement_background_color": "#000000"
         }
       }
