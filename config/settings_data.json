@@ -2831,6 +2831,13 @@
       "header-modern": {
         "type": "header-modern",
         "blocks": {
+          "mega_menu_title_image_NiNwDU": {
+            "type": "mega_menu_title_image",
+            "settings": {
+              "title": "Supreme",
+              "image": "shopify://shop_images/1765233488_0.png"
+            }
+          },
           "tape_MCde3m": {
             "type": "tape",
             "settings": {
@@ -2842,6 +2849,7 @@
           }
         },
         "block_order": [
+          "mega_menu_title_image_NiNwDU",
           "tape_MCde3m"
         ],
         "settings": {
