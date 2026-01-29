@@ -1,0 +1,1217 @@
+{% comment %}
+  MORFOSE Product Page - Mobile Layout
+  Optimized for touch devices and small screens
+{% endcomment %}
+
+<style>
+  /* ========================================
+     MOBILE PRODUCT PAGE - OPTIMIZED LAYOUT
+     ======================================== */
+  
+  .morfose-mobile {
+    display: none;
+  }
+
+  @media (max-width: 991px) {
+    .morfose-mobile {
+      display: block;
+    }
+  }
+
+  .morfose-mobile__container {
+    padding: 15px 15px 100px;
+  }
+
+  /* Breadcrumb */
+  .morfose-mobile__breadcrumb {
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .morfose-mobile__breadcrumb a {
+    color: #666;
+    text-decoration: none;
+  }
+
+  .morfose-mobile__breadcrumb span {
+    margin: 0 6px;
+    color: #999;
+  }
+
+  /* ========================================
+     GALLERY - Full Width Mobile Experience
+     ======================================== */
+  
+  .morfose-mobile__gallery {
+    position: relative;
+    margin: 0 -15px;
+    background: #fafafa;
+  }
+
+  .morfose-mobile__gallery-main {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .morfose-mobile__main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Swipe Indicator */
+  .morfose-mobile__swipe-hint {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+  }
+
+  .morfose-mobile__swipe-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.2);
+    transition: all 0.3s;
+  }
+
+  .morfose-mobile__swipe-dot.active {
+    background: #000;
+    width: 20px;
+    border-radius: 4px;
+  }
+
+  /* Gallery Navigation */
+  .morfose-mobile__gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .morfose-mobile__gallery-nav svg {
+    width: 18px;
+    height: 18px;
+    stroke: #000;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .morfose-mobile__gallery-prev {
+    left: 10px;
+  }
+
+  .morfose-mobile__gallery-next {
+    right: 10px;
+  }
+
+  /* Thumbnails - Horizontal Scroll */
+  .morfose-mobile__thumbnails {
+    display: flex;
+    gap: 8px;
+    padding: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .morfose-mobile__thumbnails::-webkit-scrollbar {
+    display: none;
+  }
+
+  .morfose-mobile__thumbnail {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.5;
+    scroll-snap-align: start;
+  }
+
+  .morfose-mobile__thumbnail.active {
+    border-color: #000;
+    opacity: 1;
+  }
+
+  /* ========================================
+     PRODUCT INFO
+     ======================================== */
+  
+  .morfose-mobile__info {
+    padding: 20px 0;
+  }
+
+  .morfose-mobile__badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f5e6d3 0%, #ede0cc 100%);
+    color: #8b6914;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+
+  .morfose-mobile__title {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 10px;
+    color: #000;
+  }
+
+  .morfose-mobile__subtitle {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0 0 20px;
+  }
+
+  /* USP Icons - Horizontal Scroll on Mobile */
+  .morfose-mobile__usp {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 15px 0;
+    margin: 0 -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .morfose-mobile__usp::-webkit-scrollbar {
+    display: none;
+  }
+
+  .morfose-mobile__usp-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    background: #f8f8f8;
+    padding: 10px 14px;
+    border-radius: 25px;
+  }
+
+  .morfose-mobile__usp-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .morfose-mobile__usp-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: #333;
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  .morfose-mobile__usp-text {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+  }
+
+  /* ========================================
+     VARIANTS
+     ======================================== */
+  
+  .morfose-mobile__variants {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .morfose-mobile__variant-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 10px;
+  }
+
+  .morfose-mobile__option {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .morfose-mobile__option-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+  }
+
+  .morfose-mobile__option-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Color Swatches */
+  .morfose-mobile__color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .morfose-mobile__color-swatch.selected {
+    border-color: #000;
+    transform: scale(1.1);
+  }
+
+  /* Size/Text Options */
+  .morfose-mobile__option-btn {
+    padding: 14px 20px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .morfose-mobile__option-btn.selected {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
+
+  /* ========================================
+     PRICE & ACTIONS
+     ======================================== */
+  
+  .morfose-mobile__purchase {
+    padding: 20px 0;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .morfose-mobile__price-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .morfose-mobile__price {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .morfose-mobile__compare-price {
+    font-size: 20px;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  /* Quantity - Inline */
+  .morfose-mobile__quantity-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+  .morfose-mobile__quantity-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #666;
+  }
+
+  .morfose-mobile__quantity {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .morfose-mobile__qty-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: #f8f8f8;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .morfose-mobile__qty-btn:active {
+    background: #eee;
+  }
+
+  .morfose-mobile__qty-input {
+    width: 50px;
+    height: 44px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    -moz-appearance: textfield;
+  }
+
+  .morfose-mobile__qty-input::-webkit-outer-spin-button,
+  .morfose-mobile__qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Actions */
+  .morfose-mobile__actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .morfose-mobile__add-btn {
+    flex: 1;
+    height: 56px;
+    background: #000;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .morfose-mobile__add-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
+  .morfose-mobile__wishlist-btn {
+    width: 56px;
+    height: 56px;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .morfose-mobile__wishlist-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: #000;
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  /* ========================================
+     ACCORDION
+     ======================================== */
+  
+  .morfose-mobile__accordion {
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .morfose-mobile__accordion-item {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .morfose-mobile__accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    cursor: pointer;
+  }
+
+  .morfose-mobile__accordion-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #000;
+  }
+
+  .morfose-mobile__accordion-icon {
+    font-size: 12px;
+    color: #666;
+    transition: transform 0.3s;
+  }
+
+  .morfose-mobile__accordion-item.open .morfose-mobile__accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .morfose-mobile__accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+
+  .morfose-mobile__accordion-inner {
+    padding: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  .morfose-mobile__accordion-inner p {
+    margin: 0 0 14px 0;
+  }
+
+  .morfose-mobile__accordion-inner p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ========================================
+     BOTTOM USP ICONS
+     ======================================== */
+  
+  .morfose-mobile__usp-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px 0;
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .morfose-mobile__usp-bottom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .morfose-mobile__usp-bottom-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .morfose-mobile__usp-bottom-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: #333;
+    stroke-width: 1;
+    fill: none;
+  }
+
+  .morfose-mobile__usp-bottom-text {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  /* ========================================
+     STICKY ADD TO CART (Mobile Only)
+     ======================================== */
+  
+  .morfose-mobile__sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 12px 15px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    z-index: 999;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    border-top: 3px solid #F36703;
+  }
+
+  .morfose-mobile__sticky.visible {
+    transform: translateY(0);
+  }
+
+  .morfose-mobile__sticky-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .morfose-mobile__sticky-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .morfose-mobile__sticky-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #F36703;
+  }
+
+  .morfose-mobile__sticky-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .morfose-mobile__sticky-btn span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .morfose-mobile__sticky-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: #F36703;
+  }
+
+  .morfose-mobile__sticky-btn.loading::after {
+    animation: mobileLoading 1.5s ease-in-out infinite;
+  }
+
+  @keyframes mobileLoading {
+    0% { left: 0; width: 0%; }
+    50% { left: 0; width: 100%; }
+    100% { left: 100%; width: 0%; }
+  }
+
+  .morfose-mobile__sticky-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+</style>
+
+<div class="morfose-mobile">
+  <div class="morfose-mobile__container">
+    
+    <!-- Breadcrumb -->
+    {%- assign breadcrumb_collection = collection | default: product.collections.first -%}
+    <div class="morfose-mobile__breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span>›</span>
+      {%- if breadcrumb_collection -%}
+        <a href="{{ breadcrumb_collection.url }}">{{ breadcrumb_collection.title }}</a>
+        <span>›</span>
+      {%- endif -%}
+      <span>{{ product.title }}</span>
+    </div>
+
+    <!-- Gallery -->
+    <div class="morfose-mobile__gallery">
+      <div class="morfose-mobile__gallery-main">
+        
+        {%- if product.media.size > 1 -%}
+          <button class="morfose-mobile__gallery-nav morfose-mobile__gallery-prev" onclick="morfoseGalleryPrev()">
+            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+        {%- endif -%}
+
+        {%- assign first_image = product.featured_media | default: product.media[0] -%}
+        {%- if first_image -%}
+          <img 
+            class="morfose-mobile__main-image" 
+            src="{{ first_image | image_url: width: 800 }}" 
+            alt="{{ first_image.alt | escape | default: product.title }}"
+            id="morfose-main-image-mobile"
+            width="800"
+            height="{{ 800 | divided_by: first_image.aspect_ratio | round }}"
+            loading="eager"
+          >
+        {%- endif -%}
+
+        {%- if product.media.size > 1 -%}
+          <button class="morfose-mobile__gallery-nav morfose-mobile__gallery-next" onclick="morfoseGalleryNext()">
+            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        {%- endif -%}
+
+        <!-- Swipe Dots -->
+        {%- if product.media.size > 1 -%}
+          <div class="morfose-mobile__swipe-hint">
+            {%- for media in product.media -%}
+              {%- if media.media_type == 'image' -%}
+                <span class="morfose-mobile__swipe-dot{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}"></span>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+      </div>
+
+      {%- if product.media.size > 1 -%}
+        <div class="morfose-mobile__thumbnails">
+          {%- for media in product.media -%}
+            {%- if media.media_type == 'image' -%}
+              <img 
+                class="morfose-mobile__thumbnail{% if forloop.first %} active{% endif %}" 
+                src="{{ media | image_url: width: 150 }}" 
+                alt="{{ media.alt | escape | default: product.title }}"
+                data-full-src="{{ media | image_url: width: 800 }}"
+                data-index="{{ forloop.index0 }}"
+                width="150"
+                height="{{ 150 | divided_by: media.aspect_ratio | round }}"
+                loading="lazy"
+              >
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Product Info -->
+    <div class="morfose-mobile__info">
+      
+      {%- if product.metafields.custom.badge_text != blank -%}
+        <span class="morfose-mobile__badge">{{ product.metafields.custom.badge_text }}</span>
+      {%- elsif product.tags contains 'bestseller' -%}
+        <span class="morfose-mobile__badge">Bestseller</span>
+      {%- elsif product.tags contains 'new' -%}
+        <span class="morfose-mobile__badge">New</span>
+      {%- endif -%}
+
+      <h1 class="morfose-mobile__title">{{ product.title }}</h1>
+
+      {%- if section.settings.show_short_description and product.metafields.custom.short_description != blank -%}
+        <p class="morfose-mobile__subtitle">{{ product.metafields.custom.short_description }}</p>
+      {%- elsif product.description != blank -%}
+        <p class="morfose-mobile__subtitle">{{ product.description | strip_html | truncate: 100 }}</p>
+      {%- endif -%}
+
+      <!-- USP Icons - Horizontal Scroll -->
+      {%- if section.settings.show_usp_icons -%}
+        <div class="morfose-mobile__usp">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'usp_icon' -%}
+              <div class="morfose-mobile__usp-item" {{ block.shopify_attributes }}>
+                <div class="morfose-mobile__usp-icon">
+                  {%- render 'product-usp-icon-svg', icon: block.settings.icon, size: 'small' -%}
+                </div>
+                <span class="morfose-mobile__usp-text">{{ block.settings.text }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+
+    <!-- Variants -->
+    {%- form 'product', product, id: 'morfose-product-form-mobile', data-product-form: '' -%}
+      
+      {%- unless product.has_only_default_variant -%}
+        <div class="morfose-mobile__variants">
+          <p class="morfose-mobile__variant-name" id="morfose-variant-name-mobile">{{ current_variant.title }}</p>
+          
+          {%- for option in product.options_with_values -%}
+            <div class="morfose-mobile__option">
+              <label class="morfose-mobile__option-label">{{ option.name }}</label>
+              <div class="morfose-mobile__option-values">
+                {%- for value in option.values -%}
+                  {%- if option.name == 'Color' or option.name == 'Colour' -%}
+                    <button 
+                      type="button" 
+                      class="morfose-mobile__color-swatch{% if option.selected_value == value %} selected{% endif %}"
+                      data-option-index="{{ forloop.parentloop.index0 }}"
+                      data-value="{{ value }}"
+                      style="background-color: {{ value | handleize }};"
+                      title="{{ value }}"
+                      onclick="morfoseSelectOptionMobile(this)"
+                    ></button>
+                  {%- else -%}
+                    <button 
+                      type="button" 
+                      class="morfose-mobile__option-btn{% if option.selected_value == value %} selected{% endif %}"
+                      data-option-index="{{ forloop.parentloop.index0 }}"
+                      data-value="{{ value }}"
+                      onclick="morfoseSelectOptionMobile(this)"
+                    >
+                      {{ value }}
+                    </button>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endunless -%}
+
+      <!-- Price & Actions -->
+      <div class="morfose-mobile__purchase">
+        <div class="morfose-mobile__price-wrapper">
+          <span class="morfose-mobile__price" id="morfose-price-mobile">{{ current_variant.price | money }}</span>
+          {%- if current_variant.compare_at_price > current_variant.price -%}
+            <span class="morfose-mobile__compare-price" id="morfose-compare-price-mobile">{{ current_variant.compare_at_price | money }}</span>
+          {%- endif -%}
+        </div>
+
+        <div class="morfose-mobile__quantity-row">
+          <span class="morfose-mobile__quantity-label">Quantity</span>
+          <div class="morfose-mobile__quantity">
+            <button type="button" class="morfose-mobile__qty-btn" onclick="morfoseUpdateQtyMobile(-1)">−</button>
+            <input type="number" name="quantity" value="1" min="1" class="morfose-mobile__qty-input" id="morfose-qty-mobile">
+            <button type="button" class="morfose-mobile__qty-btn" onclick="morfoseUpdateQtyMobile(1)">+</button>
+          </div>
+        </div>
+
+        <div class="morfose-mobile__actions">
+          <button 
+            type="submit" 
+            name="add" 
+            class="morfose-mobile__add-btn"
+            data-js-product-button-add-to-cart
+            {% unless current_variant.available %}disabled{% endunless %}
+          >
+            {%- if current_variant.available -%}Add to Bag{%- else -%}Sold Out{%- endif -%}
+          </button>
+
+          <button type="button" class="morfose-mobile__wishlist-btn" title="Add to Wishlist">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <select name="id" id="morfose-variant-select-mobile" style="display: none;">
+        {%- for variant in product.variants -%}
+          <option 
+            value="{{ variant.id }}"
+            {% if variant == current_variant %}selected{% endif %}
+            data-available="{{ variant.available }}"
+            data-price="{{ variant.price | money }}"
+            data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+            {% if variant.featured_media %}data-image="{{ variant.featured_media | image_url: width: 800 }}"{% endif %}
+          >
+            {{ variant.title }}
+          </option>
+        {%- endfor -%}
+      </select>
+    {%- endform -%}
+
+    <!-- Accordion -->
+    {%- if section.settings.show_accordion -%}
+      <div class="morfose-mobile__accordion">
+        
+        {%- if section.settings.show_description and product.description != blank -%}
+          <div class="morfose-mobile__accordion-item">
+            <div class="morfose-mobile__accordion-header" onclick="morfoseToggleAccordionMobile(this)">
+              <h3 class="morfose-mobile__accordion-title">{{ section.settings.description_title | default: 'Description' }}</h3>
+              <span class="morfose-mobile__accordion-icon">▼</span>
+            </div>
+            <div class="morfose-mobile__accordion-content">
+              <div class="morfose-mobile__accordion-inner">
+                {{ product.description }}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if product.metafields.custom.test != blank -%}
+          <div class="morfose-mobile__accordion-item">
+            <div class="morfose-mobile__accordion-header" onclick="morfoseToggleAccordionMobile(this)">
+              <h3 class="morfose-mobile__accordion-title">Test</h3>
+              <span class="morfose-mobile__accordion-icon">▼</span>
+            </div>
+            <div class="morfose-mobile__accordion-content">
+              <div class="morfose-mobile__accordion-inner">
+                {{ product.metafields.custom.test | metafield_tag }}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if product.metafields.custom.results != blank -%}
+          <div class="morfose-mobile__accordion-item">
+            <div class="morfose-mobile__accordion-header" onclick="morfoseToggleAccordionMobile(this)">
+              <h3 class="morfose-mobile__accordion-title">Results</h3>
+              <span class="morfose-mobile__accordion-icon">▼</span>
+            </div>
+            <div class="morfose-mobile__accordion-content">
+              <div class="morfose-mobile__accordion-inner">
+                {{ product.metafields.custom.results | metafield_tag }}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_how_to_use and product.metafields.custom.how_to_use != blank -%}
+          <div class="morfose-mobile__accordion-item">
+            <div class="morfose-mobile__accordion-header" onclick="morfoseToggleAccordionMobile(this)">
+              <h3 class="morfose-mobile__accordion-title">{{ section.settings.how_to_use_title | default: 'How to Use' }}</h3>
+              <span class="morfose-mobile__accordion-icon">▼</span>
+            </div>
+            <div class="morfose-mobile__accordion-content">
+              <div class="morfose-mobile__accordion-inner">
+                {{ product.metafields.custom.how_to_use | metafield_tag }}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if product.metafields.custom.pack != blank -%}
+          <div class="morfose-mobile__accordion-item">
+            <div class="morfose-mobile__accordion-header" onclick="morfoseToggleAccordionMobile(this)">
+              <h3 class="morfose-mobile__accordion-title">Pack</h3>
+              <span class="morfose-mobile__accordion-icon">▼</span>
+            </div>
+            <div class="morfose-mobile__accordion-content">
+              <div class="morfose-mobile__accordion-inner">
+                {{ product.metafields.custom.pack | metafield_tag }}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_ingredients and product.metafields.custom.ingredients != blank -%}
+          <div class="morfose-mobile__accordion-item">
+            <div class="morfose-mobile__accordion-header" onclick="morfoseToggleAccordionMobile(this)">
+              <h3 class="morfose-mobile__accordion-title">{{ section.settings.ingredients_title | default: 'Ingredient List' }}</h3>
+              <span class="morfose-mobile__accordion-icon">▼</span>
+            </div>
+            <div class="morfose-mobile__accordion-content">
+              <div class="morfose-mobile__accordion-inner">
+                {{ product.metafields.custom.ingredients | metafield_tag }}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'accordion_tab' and block.settings.title != blank -%}
+            <div class="morfose-mobile__accordion-item" {{ block.shopify_attributes }}>
+              <div class="morfose-mobile__accordion-header" onclick="morfoseToggleAccordionMobile(this)">
+                <h3 class="morfose-mobile__accordion-title">{{ block.settings.title }}</h3>
+                <span class="morfose-mobile__accordion-icon">▼</span>
+              </div>
+              <div class="morfose-mobile__accordion-content">
+                <div class="morfose-mobile__accordion-inner">
+                  {%- if block.settings.content != blank -%}
+                    {{ block.settings.content }}
+                  {%- elsif block.settings.page != blank -%}
+                    {{ block.settings.page.content }}
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+      </div>
+    {%- endif -%}
+
+    <!-- Bottom USP Icons -->
+    {%- if section.settings.show_bottom_usp -%}
+      <div class="morfose-mobile__usp-bottom">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'bottom_usp' -%}
+            <div class="morfose-mobile__usp-bottom-item" {{ block.shopify_attributes }}>
+              <div class="morfose-mobile__usp-bottom-icon">
+                {%- render 'product-usp-icon-svg', icon: block.settings.icon, size: 'medium', text: block.settings.text -%}
+              </div>
+              <span class="morfose-mobile__usp-bottom-text">{{ block.settings.text }}</span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+
+  <!-- Sticky Add to Cart -->
+  <div class="morfose-mobile__sticky" id="morfose-sticky-mobile">
+    <div class="morfose-mobile__sticky-inner">
+      <div class="morfose-mobile__sticky-info">
+        <span class="morfose-mobile__sticky-price" id="morfose-sticky-price-mobile">{{ current_variant.price | money }}</span>
+      </div>
+      <button type="button" class="morfose-mobile__sticky-btn" id="morfose-sticky-btn-mobile" {% unless current_variant.available %}disabled{% endunless %}>
+        <span>{%- if current_variant.available -%}Add to Bag{%- else -%}Sold Out{%- endif -%}</span>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  // Mobile-specific JavaScript
+  
+  // Gallery
+  let mobileCurrentIndex = 0;
+  const mobileThumbnails = document.querySelectorAll('.morfose-mobile__thumbnail');
+  const mobileMainImage = document.getElementById('morfose-main-image-mobile');
+  const mobileDots = document.querySelectorAll('.morfose-mobile__swipe-dot');
+  
+  function mobileChangeImage(index) {
+    if (!mobileMainImage || mobileThumbnails.length === 0) return;
+    if (index < 0 || index >= mobileThumbnails.length) return;
+    
+    mobileCurrentIndex = index;
+    const thumb = mobileThumbnails[index];
+    const fullSrc = thumb.getAttribute('data-full-src');
+    
+    if (fullSrc) {
+      mobileMainImage.src = fullSrc;
+    }
+    
+    // Update thumbnails
+    mobileThumbnails.forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+    
+    // Update dots
+    mobileDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+  
+  // Bind thumbnail clicks
+  mobileThumbnails.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => mobileChangeImage(index));
+  });
+  
+  // Gallery Navigation
+  window.morfoseGalleryPrev = function() {
+    const newIndex = (mobileCurrentIndex - 1 + mobileThumbnails.length) % mobileThumbnails.length;
+    mobileChangeImage(newIndex);
+  };
+  
+  window.morfoseGalleryNext = function() {
+    const newIndex = (mobileCurrentIndex + 1) % mobileThumbnails.length;
+    mobileChangeImage(newIndex);
+  };
+  
+  // Quantity
+  window.morfoseUpdateQtyMobile = function(change) {
+    const input = document.getElementById('morfose-qty-mobile');
+    if (!input) return;
+    let value = parseInt(input.value) || 1;
+    value = Math.max(1, value + change);
+    input.value = value;
+  };
+  
+  // Variant Selection
+  window.morfoseSelectOptionMobile = function(btn) {
+    const optionValues = btn.parentElement;
+    const buttons = optionValues.querySelectorAll('.morfose-mobile__option-btn, .morfose-mobile__color-swatch');
+    buttons.forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    
+    // Build selected options
+    const selectedOptions = [];
+    document.querySelectorAll('.morfose-mobile__option').forEach(optionGroup => {
+      const selected = optionGroup.querySelector('.morfose-mobile__option-btn.selected, .morfose-mobile__color-swatch.selected');
+      if (selected) {
+        selectedOptions.push(selected.getAttribute('data-value'));
+      }
+    });
+    
+    // Find matching variant
+    const variantSelect = document.getElementById('morfose-variant-select-mobile');
+    if (!variantSelect) return;
+    
+    let matchedOption = null;
+    Array.from(variantSelect.options).forEach(option => {
+      const variantTitle = option.textContent.trim();
+      const allMatch = selectedOptions.every(opt => variantTitle.indexOf(opt) !== -1);
+      if (allMatch) matchedOption = option;
+    });
+    
+    if (matchedOption) {
+      variantSelect.value = matchedOption.value;
+      
+      // Update UI
+      const variantName = document.getElementById('morfose-variant-name-mobile');
+      if (variantName) variantName.textContent = matchedOption.textContent.trim();
+      
+      const priceEl = document.getElementById('morfose-price-mobile');
+      const comparePriceEl = document.getElementById('morfose-compare-price-mobile');
+      const stickyPriceEl = document.getElementById('morfose-sticky-price-mobile');
+      
+      const price = matchedOption.getAttribute('data-price');
+      const comparePrice = matchedOption.getAttribute('data-compare-price');
+      
+      if (priceEl && price) priceEl.textContent = price;
+      if (stickyPriceEl && price) stickyPriceEl.textContent = price;
+      if (comparePriceEl) {
+        comparePriceEl.style.display = comparePrice ? '' : 'none';
+        if (comparePrice) comparePriceEl.textContent = comparePrice;
+      }
+      
+      // Update buttons
+      const isAvailable = matchedOption.getAttribute('data-available') === 'true';
+      const addBtn = document.querySelector('.morfose-mobile__add-btn');
+      const stickyBtn = document.getElementById('morfose-sticky-btn-mobile');
+      
+      if (addBtn) {
+        addBtn.disabled = !isAvailable;
+        addBtn.textContent = isAvailable ? 'Add to Bag' : 'Sold Out';
+      }
+      if (stickyBtn) {
+        stickyBtn.disabled = !isAvailable;
+        stickyBtn.querySelector('span').textContent = isAvailable ? 'Add to Bag' : 'Sold Out';
+      }
+      
+      // Update image
+      const variantImage = matchedOption.getAttribute('data-image');
+      if (variantImage && mobileMainImage) {
+        mobileMainImage.src = variantImage;
+        mobileThumbnails.forEach((thumb, index) => {
+          if (thumb.getAttribute('data-full-src') === variantImage) {
+            mobileChangeImage(index);
+          }
+        });
+      }
+    }
+  };
+  
+  // Accordion
+  window.morfoseToggleAccordionMobile = function(header) {
+    const item = header.parentElement;
+    const content = item.querySelector('.morfose-mobile__accordion-content');
+    const inner = content.querySelector('.morfose-mobile__accordion-inner');
+    
+    if (!content || !inner) return;
+    
+    const isOpen = item.classList.contains('open');
+    
+    if (isOpen) {
+      item.classList.remove('open');
+      content.style.maxHeight = '0';
+    } else {
+      // Close others
+      document.querySelectorAll('.morfose-mobile__accordion-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.morfose-mobile__accordion-content').style.maxHeight = '0';
+      });
+      
+      item.classList.add('open');
+      content.style.maxHeight = inner.scrollHeight + 'px';
+    }
+  };
+  
+  // Sticky Bar
+  const stickyBar = document.getElementById('morfose-sticky-mobile');
+  const mainAddBtn = document.querySelector('.morfose-mobile__add-btn');
+  const stickyAddBtn = document.getElementById('morfose-sticky-btn-mobile');
+  
+  if (stickyBar && mainAddBtn) {
+    let ticking = false;
+    
+    function checkSticky() {
+      const btnRect = mainAddBtn.getBoundingClientRect();
+      const isVisible = btnRect.top < window.innerHeight && btnRect.bottom > 0;
+      stickyBar.classList.toggle('visible', !isVisible);
+    }
+    
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          checkSticky();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    
+    checkSticky();
+    
+    // Sticky button click
+    if (stickyAddBtn) {
+      stickyAddBtn.addEventListener('click', function() {
+        if (stickyAddBtn.disabled) return;
+        
+        const variantSelect = document.getElementById('morfose-variant-select-mobile');
+        const quantityInput = document.getElementById('morfose-qty-mobile');
+        const variantId = variantSelect ? variantSelect.value : null;
+        const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+        
+        if (!variantId) return;
+        
+        const btnSpan = stickyAddBtn.querySelector('span');
+        const originalText = btnSpan.textContent;
+        btnSpan.textContent = 'Adding...';
+        stickyAddBtn.classList.add('loading');
+        stickyAddBtn.disabled = true;
+        
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: variantId, quantity: quantity })
+        })
+        .then(response => response.json())
+        .then(data => {
+          btnSpan.textContent = 'Added!';
+          
+          setTimeout(function() {
+            const cartTrigger = document.querySelector('[data-js-popup-button="cart"]');
+            if (cartTrigger) cartTrigger.click();
+          }, 300);
+          
+          setTimeout(() => {
+            stickyAddBtn.classList.remove('loading');
+            btnSpan.textContent = originalText;
+            stickyAddBtn.disabled = false;
+          }, 1500);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          stickyAddBtn.classList.remove('loading');
+          btnSpan.textContent = 'Error';
+          setTimeout(() => {
+            btnSpan.textContent = originalText;
+            stickyAddBtn.disabled = false;
+          }, 1500);
+        });
+      });
+    }
+  }
+  
+})();
+</script>

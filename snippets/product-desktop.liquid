@@ -1,0 +1,992 @@
+{% comment %}
+  MORFOSE Product Page - Desktop Layout
+  3-Column Layout: Title Left | Gallery Center | Info Right
+{% endcomment %}
+
+<style>
+  /* ========================================
+     DESKTOP PRODUCT PAGE - 3 COLUMN LAYOUT
+     ======================================== */
+  
+  .morfose-desktop {
+    display: block;
+  }
+
+  @media (max-width: 991px) {
+    .morfose-desktop {
+      display: none;
+    }
+  }
+
+  .morfose-desktop__container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 30px 60px;
+  }
+
+  /* Breadcrumb */
+  .morfose-desktop__breadcrumb {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .morfose-desktop__breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .morfose-desktop__breadcrumb a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .morfose-desktop__breadcrumb span {
+    margin: 0 10px;
+    color: #999;
+  }
+
+  /* 3-Column Grid */
+  .morfose-desktop__grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 400px;
+    gap: 50px;
+    align-items: start;
+    min-height: 600px;
+  }
+
+  @media (max-width: 1400px) {
+    .morfose-desktop__grid {
+      grid-template-columns: 260px 1fr 360px;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .morfose-desktop__grid {
+      grid-template-columns: 240px 1fr 320px;
+      gap: 30px;
+    }
+  }
+
+  /* ========================================
+     LEFT COLUMN - Title & USP
+     ======================================== */
+  
+  .morfose-desktop__left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: 120px;
+  }
+
+  .morfose-desktop__badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f5e6d3 0%, #ede0cc 100%);
+    color: #8b6914;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: fit-content;
+  }
+
+  .morfose-desktop__title {
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0;
+    color: #000;
+    font-family: inherit;
+  }
+
+  @media (max-width: 1200px) {
+    .morfose-desktop__title {
+      font-size: 32px;
+    }
+  }
+
+  .morfose-desktop__subtitle {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+  }
+
+  .morfose-desktop__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: 2px solid #000;
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 16px 28px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: fit-content;
+  }
+
+  .morfose-desktop__cta-btn:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  .morfose-desktop__cta-btn svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s;
+  }
+
+  .morfose-desktop__cta-btn:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* USP Icons - Left Column */
+  .morfose-desktop__usp-left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+  }
+
+  .morfose-desktop__usp-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .morfose-desktop__usp-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    flex-shrink: 0;
+  }
+
+  .morfose-desktop__usp-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: #333;
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  .morfose-desktop__usp-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+    letter-spacing: 0.3px;
+  }
+
+  /* ========================================
+     CENTER COLUMN - Gallery
+     ======================================== */
+  
+  .morfose-desktop__gallery {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .morfose-desktop__gallery-main {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .morfose-desktop__main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+    transition: transform 0.3s;
+  }
+
+  .morfose-desktop__gallery-main:hover .morfose-desktop__main-image {
+    transform: scale(1.02);
+  }
+
+  /* Gallery Navigation Arrows */
+  .morfose-desktop__gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .morfose-desktop__gallery-nav:hover {
+    background: #000;
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .morfose-desktop__gallery-nav:hover svg {
+    stroke: #fff;
+  }
+
+  .morfose-desktop__gallery-nav svg {
+    width: 22px;
+    height: 22px;
+    stroke: #000;
+    stroke-width: 2;
+    fill: none;
+    transition: stroke 0.3s;
+  }
+
+  .morfose-desktop__gallery-prev {
+    left: -26px;
+  }
+
+  .morfose-desktop__gallery-next {
+    right: -26px;
+  }
+
+  /* Thumbnails */
+  .morfose-desktop__thumbnails {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    justify-content: center;
+  }
+
+  .morfose-desktop__thumbnail {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    opacity: 0.5;
+  }
+
+  .morfose-desktop__thumbnail:hover {
+    opacity: 0.8;
+  }
+
+  .morfose-desktop__thumbnail.active {
+    border-color: #000;
+    opacity: 1;
+  }
+
+  /* ========================================
+     RIGHT COLUMN - Product Info
+     ======================================== */
+  
+  .morfose-desktop__right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: 120px;
+    padding-left: 20px;
+    border-left: 1px solid #f0f0f0;
+  }
+
+  /* Variant Name */
+  .morfose-desktop__variant-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+  }
+
+  /* Variant Swatches */
+  .morfose-desktop__variants {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .morfose-desktop__option {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .morfose-desktop__option-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+  }
+
+  .morfose-desktop__option-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Color Swatches */
+  .morfose-desktop__color-swatch {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .morfose-desktop__color-swatch:hover,
+  .morfose-desktop__color-swatch.selected {
+    border-color: #000;
+    transform: scale(1.1);
+  }
+
+  /* Size/Text Options */
+  .morfose-desktop__option-btn {
+    padding: 14px 24px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 0;
+  }
+
+  .morfose-desktop__option-btn:hover {
+    border-color: #000;
+  }
+
+  .morfose-desktop__option-btn.selected {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
+
+  /* Price */
+  .morfose-desktop__price-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    padding: 20px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .morfose-desktop__price {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .morfose-desktop__compare-price {
+    font-size: 22px;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  /* Add to Cart Actions */
+  .morfose-desktop__actions-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .morfose-desktop__actions {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .morfose-desktop__add-btn {
+    flex: 1;
+    height: 60px;
+    background: #000;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .morfose-desktop__add-btn:hover {
+    background: #333;
+  }
+
+  .morfose-desktop__add-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
+  .morfose-desktop__wishlist-btn {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .morfose-desktop__wishlist-btn:hover {
+    border-color: #000;
+  }
+
+  .morfose-desktop__wishlist-btn:hover svg {
+    fill: #e53935;
+    stroke: #e53935;
+  }
+
+  .morfose-desktop__wishlist-btn svg {
+    width: 26px;
+    height: 26px;
+    stroke: #000;
+    stroke-width: 1.5;
+    fill: none;
+    transition: all 0.2s;
+  }
+
+  /* Quantity */
+  .morfose-desktop__quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .morfose-desktop__quantity {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+  }
+
+  .morfose-desktop__qty-btn {
+    width: 48px;
+    height: 50px;
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .morfose-desktop__qty-btn:hover {
+    background: #f5f5f5;
+  }
+
+  .morfose-desktop__qty-input {
+    width: 60px;
+    height: 50px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    -moz-appearance: textfield;
+  }
+
+  .morfose-desktop__qty-input::-webkit-outer-spin-button,
+  .morfose-desktop__qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* ========================================
+     ACCORDION TABS
+     ======================================== */
+  
+  .morfose-desktop__accordion {
+    margin-top: 10px;
+  }
+
+  .morfose-desktop__accordion-item {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .morfose-desktop__accordion-item:first-child {
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .morfose-desktop__accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.2s;
+  }
+
+  .morfose-desktop__accordion-header:hover {
+    opacity: 0.7;
+  }
+
+  .morfose-desktop__accordion-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0;
+    color: #000;
+  }
+
+  .morfose-desktop__accordion-icon {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform 0.3s;
+    color: #666;
+  }
+
+  .morfose-desktop__accordion-item.open .morfose-desktop__accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .morfose-desktop__accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+
+  .morfose-desktop__accordion-inner {
+    padding: 0 0 24px 0;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .morfose-desktop__accordion-inner p {
+    margin: 0 0 14px 0;
+  }
+
+  .morfose-desktop__accordion-inner p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ========================================
+     BOTTOM USP ICONS
+     ======================================== */
+  
+  .morfose-desktop__usp-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 60px 0;
+    margin-top: 50px;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .morfose-desktop__usp-bottom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .morfose-desktop__usp-bottom-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .morfose-desktop__usp-bottom-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: #333;
+    stroke-width: 1;
+    fill: none;
+  }
+
+  .morfose-desktop__usp-bottom-text {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #333;
+    line-height: 1.4;
+  }
+</style>
+
+<div class="morfose-desktop">
+  <div class="morfose-desktop__container">
+    
+    <!-- Breadcrumb -->
+    {%- assign breadcrumb_collection = collection | default: product.collections.first -%}
+    <div class="morfose-desktop__breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span>›</span>
+      {%- if breadcrumb_collection -%}
+        <a href="{{ breadcrumb_collection.url }}">{{ breadcrumb_collection.title }}</a>
+        <span>›</span>
+      {%- endif -%}
+      <span>{{ product.title }}</span>
+    </div>
+
+    <div class="morfose-desktop__grid">
+      
+      <!-- LEFT COLUMN - Title & Info -->
+      <div class="morfose-desktop__left">
+        
+        {%- if product.metafields.custom.badge_text != blank -%}
+          <span class="morfose-desktop__badge">{{ product.metafields.custom.badge_text }}</span>
+        {%- elsif product.tags contains 'bestseller' -%}
+          <span class="morfose-desktop__badge">Bestseller</span>
+        {%- elsif product.tags contains 'new' -%}
+          <span class="morfose-desktop__badge">New</span>
+        {%- endif -%}
+
+        <h1 class="morfose-desktop__title">{{ product.title }}</h1>
+
+        {%- if section.settings.show_short_description and product.metafields.custom.short_description != blank -%}
+          <p class="morfose-desktop__subtitle">{{ product.metafields.custom.short_description }}</p>
+        {%- elsif product.description != blank -%}
+          <p class="morfose-desktop__subtitle">{{ product.description | strip_html | truncate: 150 }}</p>
+        {%- endif -%}
+
+        <button type="button" class="morfose-desktop__cta-btn" onclick="document.querySelector('.morfose-desktop__add-btn').scrollIntoView({behavior: 'smooth'})">
+          Try It Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <!-- USP Icons - Left Side -->
+        {%- if section.settings.show_usp_icons -%}
+          <div class="morfose-desktop__usp-left">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'usp_icon' -%}
+                <div class="morfose-desktop__usp-item" {{ block.shopify_attributes }}>
+                  <div class="morfose-desktop__usp-icon">
+                    {%- render 'product-usp-icon-svg', icon: block.settings.icon, size: 'small' -%}
+                  </div>
+                  <span class="morfose-desktop__usp-text">{{ block.settings.text }}</span>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+      </div>
+
+      <!-- CENTER COLUMN - Gallery -->
+      <div class="morfose-desktop__gallery">
+        <div class="morfose-desktop__gallery-main">
+          
+          {%- if product.media.size > 1 -%}
+            <button class="morfose-desktop__gallery-nav morfose-desktop__gallery-prev" onclick="morfoseGalleryPrev()">
+              <svg viewBox="0 0 24 24">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </button>
+          {%- endif -%}
+
+          {%- assign first_image = product.featured_media | default: product.media[0] -%}
+          {%- if first_image -%}
+            <img 
+              class="morfose-desktop__main-image" 
+              src="{{ first_image | image_url: width: 1200 }}" 
+              alt="{{ first_image.alt | escape | default: product.title }}"
+              id="morfose-main-image"
+              data-media-id="{{ first_image.id }}"
+              width="1200"
+              height="{{ 1200 | divided_by: first_image.aspect_ratio | round }}"
+              loading="eager"
+            >
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag: 'morfose-desktop__main-image' }}
+          {%- endif -%}
+
+          {%- if product.media.size > 1 -%}
+            <button class="morfose-desktop__gallery-nav morfose-desktop__gallery-next" onclick="morfoseGalleryNext()">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+          {%- endif -%}
+
+        </div>
+
+        {%- if product.media.size > 1 -%}
+          <div class="morfose-desktop__thumbnails">
+            {%- for media in product.media -%}
+              {%- if media.media_type == 'image' -%}
+                <img 
+                  class="morfose-desktop__thumbnail{% if forloop.first %} active{% endif %}" 
+                  src="{{ media | image_url: width: 200 }}" 
+                  alt="{{ media.alt | escape | default: product.title }}"
+                  data-full-src="{{ media | image_url: width: 1200 }}"
+                  data-media-id="{{ media.id }}"
+                  width="200"
+                  height="{{ 200 | divided_by: media.aspect_ratio | round }}"
+                  loading="lazy"
+                >
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- RIGHT COLUMN - Product Info -->
+      <div class="morfose-desktop__right">
+        
+        <!-- Variant Name Display -->
+        {%- unless product.has_only_default_variant -%}
+          <p class="morfose-desktop__variant-name" id="morfose-variant-name">{{ current_variant.title }}</p>
+        {%- endunless -%}
+
+        <!-- Product Form -->
+        {%- form 'product', product, id: 'morfose-product-form', data-product-form: '' -%}
+          
+          {%- if product.has_only_default_variant == false -%}
+            <div class="morfose-desktop__variants">
+              {%- for option in product.options_with_values -%}
+                <div class="morfose-desktop__option">
+                  <label class="morfose-desktop__option-label">{{ option.name }}</label>
+                  <div class="morfose-desktop__option-values">
+                    {%- for value in option.values -%}
+                      {%- if option.name == 'Color' or option.name == 'Colour' -%}
+                        <button 
+                          type="button" 
+                          class="morfose-desktop__color-swatch{% if option.selected_value == value %} selected{% endif %}"
+                          data-option-index="{{ forloop.parentloop.index0 }}"
+                          data-value="{{ value }}"
+                          style="background-color: {{ value | handleize }};"
+                          title="{{ value }}"
+                          onclick="morfoseSelectOption(this)"
+                        ></button>
+                      {%- else -%}
+                        <button 
+                          type="button" 
+                          class="morfose-desktop__option-btn{% if option.selected_value == value %} selected{% endif %}"
+                          data-option-index="{{ forloop.parentloop.index0 }}"
+                          data-value="{{ value }}"
+                          onclick="morfoseSelectOption(this)"
+                        >
+                          {{ value }}
+                        </button>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          <!-- Price -->
+          <div class="morfose-desktop__price-wrapper">
+            <span class="morfose-desktop__price" id="morfose-price">{{ current_variant.price | money }}</span>
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+              <span class="morfose-desktop__compare-price" id="morfose-compare-price">{{ current_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
+
+          <!-- Add to Cart -->
+          <div class="morfose-desktop__actions-wrapper">
+            <div class="morfose-desktop__actions">
+              <button 
+                type="submit" 
+                name="add" 
+                class="morfose-desktop__add-btn"
+                data-js-product-button-add-to-cart
+                data-js-button-add-to-cart-clone-id="footbar"
+                {% unless current_variant.available %}disabled{% endunless %}
+              >
+                {%- if current_variant.available -%}
+                  Add to Bag
+                {%- else -%}
+                  Sold Out
+                {%- endif -%}
+              </button>
+
+              <button type="button" class="morfose-desktop__wishlist-btn" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="morfose-desktop__quantity-row">
+              <div class="morfose-desktop__quantity">
+                <button type="button" class="morfose-desktop__qty-btn" onclick="morfoseUpdateQty(-1)">−</button>
+                <input type="number" name="quantity" value="1" min="1" class="morfose-desktop__qty-input" id="morfose-qty">
+                <button type="button" class="morfose-desktop__qty-btn" onclick="morfoseUpdateQty(1)">+</button>
+              </div>
+            </div>
+          </div>
+
+          <select name="id" id="morfose-variant-select" style="display: none;">
+            {%- for variant in product.variants -%}
+              <option 
+                value="{{ variant.id }}"
+                {% if variant == current_variant %}selected{% endif %}
+                data-available="{{ variant.available }}"
+                data-price="{{ variant.price | money }}"
+                data-compare-price="{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}"
+                {% if variant.featured_media %}data-image="{{ variant.featured_media | image_url: width: 1200 }}"{% endif %}
+              >
+                {{ variant.title }}
+              </option>
+            {%- endfor -%}
+          </select>
+        {%- endform -%}
+
+        <!-- Accordion Tabs -->
+        {%- if section.settings.show_accordion -%}
+          <div class="morfose-desktop__accordion">
+            
+            {%- if section.settings.show_description and product.description != blank -%}
+              <div class="morfose-desktop__accordion-item">
+                <div class="morfose-desktop__accordion-header" onclick="morfoseToggleAccordion(this)">
+                  <h3 class="morfose-desktop__accordion-title">{{ section.settings.description_title | default: 'Description' }}</h3>
+                  <span class="morfose-desktop__accordion-icon">▼</span>
+                </div>
+                <div class="morfose-desktop__accordion-content">
+                  <div class="morfose-desktop__accordion-inner">
+                    {{ product.description }}
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- if product.metafields.custom.test != blank -%}
+              <div class="morfose-desktop__accordion-item">
+                <div class="morfose-desktop__accordion-header" onclick="morfoseToggleAccordion(this)">
+                  <h3 class="morfose-desktop__accordion-title">Test</h3>
+                  <span class="morfose-desktop__accordion-icon">▼</span>
+                </div>
+                <div class="morfose-desktop__accordion-content">
+                  <div class="morfose-desktop__accordion-inner">
+                    {{ product.metafields.custom.test | metafield_tag }}
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- if product.metafields.custom.results != blank -%}
+              <div class="morfose-desktop__accordion-item">
+                <div class="morfose-desktop__accordion-header" onclick="morfoseToggleAccordion(this)">
+                  <h3 class="morfose-desktop__accordion-title">Results</h3>
+                  <span class="morfose-desktop__accordion-icon">▼</span>
+                </div>
+                <div class="morfose-desktop__accordion-content">
+                  <div class="morfose-desktop__accordion-inner">
+                    {{ product.metafields.custom.results | metafield_tag }}
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_how_to_use and product.metafields.custom.how_to_use != blank -%}
+              <div class="morfose-desktop__accordion-item">
+                <div class="morfose-desktop__accordion-header" onclick="morfoseToggleAccordion(this)">
+                  <h3 class="morfose-desktop__accordion-title">{{ section.settings.how_to_use_title | default: 'How to Use' }}</h3>
+                  <span class="morfose-desktop__accordion-icon">▼</span>
+                </div>
+                <div class="morfose-desktop__accordion-content">
+                  <div class="morfose-desktop__accordion-inner">
+                    {{ product.metafields.custom.how_to_use | metafield_tag }}
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- if product.metafields.custom.pack != blank -%}
+              <div class="morfose-desktop__accordion-item">
+                <div class="morfose-desktop__accordion-header" onclick="morfoseToggleAccordion(this)">
+                  <h3 class="morfose-desktop__accordion-title">Pack</h3>
+                  <span class="morfose-desktop__accordion-icon">▼</span>
+                </div>
+                <div class="morfose-desktop__accordion-content">
+                  <div class="morfose-desktop__accordion-inner">
+                    {{ product.metafields.custom.pack | metafield_tag }}
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_ingredients and product.metafields.custom.ingredients != blank -%}
+              <div class="morfose-desktop__accordion-item">
+                <div class="morfose-desktop__accordion-header" onclick="morfoseToggleAccordion(this)">
+                  <h3 class="morfose-desktop__accordion-title">{{ section.settings.ingredients_title | default: 'Ingredient List' }}</h3>
+                  <span class="morfose-desktop__accordion-icon">▼</span>
+                </div>
+                <div class="morfose-desktop__accordion-content">
+                  <div class="morfose-desktop__accordion-inner">
+                    {{ product.metafields.custom.ingredients | metafield_tag }}
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'accordion_tab' and block.settings.title != blank -%}
+                <div class="morfose-desktop__accordion-item" {{ block.shopify_attributes }}>
+                  <div class="morfose-desktop__accordion-header" onclick="morfoseToggleAccordion(this)">
+                    <h3 class="morfose-desktop__accordion-title">{{ block.settings.title }}</h3>
+                    <span class="morfose-desktop__accordion-icon">▼</span>
+                  </div>
+                  <div class="morfose-desktop__accordion-content">
+                    <div class="morfose-desktop__accordion-inner">
+                      {%- if block.settings.content != blank -%}
+                        {{ block.settings.content }}
+                      {%- elsif block.settings.page != blank -%}
+                        {{ block.settings.page.content }}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+
+          </div>
+        {%- endif -%}
+
+      </div>
+    </div>
+
+    <!-- Bottom USP Icons -->
+    {%- if section.settings.show_bottom_usp -%}
+      <div class="morfose-desktop__usp-bottom">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'bottom_usp' -%}
+            <div class="morfose-desktop__usp-bottom-item" {{ block.shopify_attributes }}>
+              <div class="morfose-desktop__usp-bottom-icon">
+                {%- render 'product-usp-icon-svg', icon: block.settings.icon, size: 'large', text: block.settings.text -%}
+              </div>
+              <span class="morfose-desktop__usp-bottom-text">{{ block.settings.text }}</span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>

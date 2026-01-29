@@ -1,13 +1,220 @@
 {% comment %}
   MORFOSE Product Page v2
-  3-Column Layout: Title Left | Gallery Center | Info Right
-  Mobile: Standard stacked layout
+  Desktop: 3-Column Layout (Title Left | Gallery Center | Info Right)
+  Mobile: Optimized touch-friendly layout
+  
+  Uses separate snippets for each platform for better maintainability
 {% endcomment %}
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
 -%}
 
+<!-- Desktop Layout -->
+{%- render 'product-desktop', product: product, current_variant: current_variant, section: section, collection: collection -%}
+
+<!-- Mobile Layout -->
+{%- render 'product-mobile', product: product, current_variant: current_variant, section: section, collection: collection -%}
+
+<!-- Shared JavaScript for Desktop -->
+<script>
+(function() {
+  // Only run on desktop
+  if (window.innerWidth <= 991) return;
+  
+  // ========================================
+  // DESKTOP GALLERY
+  // ========================================
+  
+  let currentIndex = 0;
+  let thumbnails = [];
+  let mainImage = null;
+  
+  function initGallery() {
+    mainImage = document.getElementById('morfose-main-image');
+    thumbnails = Array.from(document.querySelectorAll('.morfose-desktop__thumbnail'));
+    
+    if (!mainImage) return;
+    
+    thumbnails.forEach(function(thumb, index) {
+      if (thumb.classList.contains('active')) {
+        currentIndex = index;
+      }
+      thumb.addEventListener('click', function(e) {
+        e.preventDefault();
+        changeImage(index);
+      });
+    });
+  }
+  
+  function changeImage(index) {
+    if (!mainImage || thumbnails.length === 0) return;
+    if (index < 0 || index >= thumbnails.length) return;
+    
+    currentIndex = index;
+    const thumb = thumbnails[index];
+    const fullSrc = thumb.getAttribute('data-full-src');
+    
+    if (fullSrc) {
+      mainImage.src = fullSrc;
+      mainImage.alt = thumb.alt || '';
+    }
+    
+    thumbnails.forEach(function(t) {
+      t.classList.remove('active');
+    });
+    thumb.classList.add('active');
+  }
+  
+  window.morfoseGalleryPrev = function() {
+    if (thumbnails.length === 0) return;
+    const newIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+    changeImage(newIndex);
+  };
+  
+  window.morfoseGalleryNext = function() {
+    if (thumbnails.length === 0) return;
+    const newIndex = (currentIndex + 1) % thumbnails.length;
+    changeImage(newIndex);
+  };
+  
+  // ========================================
+  // QUANTITY
+  // ========================================
+  
+  window.morfoseUpdateQty = function(change) {
+    const input = document.getElementById('morfose-qty');
+    if (!input) return;
+    let value = parseInt(input.value) || 1;
+    value += change;
+    if (value < 1) value = 1;
+    input.value = value;
+  };
+  
+  // ========================================
+  // VARIANT SELECTION
+  // ========================================
+  
+  window.morfoseSelectOption = function(btn) {
+    const optionValues = btn.parentElement;
+    const buttons = optionValues.querySelectorAll('.morfose-desktop__option-btn, .morfose-desktop__color-swatch');
+    buttons.forEach(function(b) {
+      b.classList.remove('selected');
+    });
+    btn.classList.add('selected');
+    
+    const selectedOptions = [];
+    document.querySelectorAll('.morfose-desktop__option').forEach(function(optionGroup) {
+      const selected = optionGroup.querySelector('.morfose-desktop__option-btn.selected, .morfose-desktop__color-swatch.selected');
+      if (selected) {
+        selectedOptions.push(selected.getAttribute('data-value'));
+      }
+    });
+    
+    const variantSelect = document.getElementById('morfose-variant-select');
+    if (!variantSelect) return;
+    
+    let matchedOption = null;
+    Array.from(variantSelect.options).forEach(function(option) {
+      const variantTitle = option.textContent.trim();
+      const allMatch = selectedOptions.every(function(opt) {
+        return variantTitle.indexOf(opt) !== -1;
+      });
+      if (allMatch) {
+        matchedOption = option;
+      }
+    });
+    
+    if (matchedOption) {
+      variantSelect.value = matchedOption.value;
+      
+      const variantName = document.getElementById('morfose-variant-name');
+      if (variantName) {
+        variantName.textContent = matchedOption.textContent.trim();
+      }
+      
+      const priceEl = document.getElementById('morfose-price');
+      const comparePriceEl = document.getElementById('morfose-compare-price');
+      const price = matchedOption.getAttribute('data-price');
+      const comparePrice = matchedOption.getAttribute('data-compare-price');
+      
+      if (priceEl && price) {
+        priceEl.textContent = price;
+      }
+      if (comparePriceEl) {
+        if (comparePrice && comparePrice !== price) {
+          comparePriceEl.textContent = comparePrice;
+          comparePriceEl.style.display = '';
+        } else {
+          comparePriceEl.style.display = 'none';
+        }
+      }
+      
+      const addBtn = document.querySelector('.morfose-desktop__add-btn');
+      const isAvailable = matchedOption.getAttribute('data-available') === 'true';
+      if (addBtn) {
+        addBtn.disabled = !isAvailable;
+        addBtn.textContent = isAvailable ? 'Add to Bag' : 'Sold Out';
+      }
+      
+      const variantImage = matchedOption.getAttribute('data-image');
+      if (variantImage && mainImage) {
+        mainImage.src = variantImage;
+        thumbnails.forEach(function(thumb, index) {
+          const thumbSrc = thumb.getAttribute('data-full-src');
+          if (thumbSrc === variantImage) {
+            changeImage(index);
+          }
+        });
+      }
+      
+      if (window.history && window.history.replaceState) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('variant', matchedOption.value);
+        window.history.replaceState({}, '', url.toString());
+      }
+    }
+  };
+  
+  // ========================================
+  // ACCORDION
+  // ========================================
+  
+  window.morfoseToggleAccordion = function(header) {
+    const item = header.parentElement;
+    const content = item.querySelector('.morfose-desktop__accordion-content');
+    const inner = content.querySelector('.morfose-desktop__accordion-inner');
+    
+    if (!content || !inner) return;
+    
+    const isOpen = item.classList.contains('open');
+    
+    if (isOpen) {
+      item.classList.remove('open');
+      content.style.maxHeight = '0';
+    } else {
+      document.querySelectorAll('.morfose-desktop__accordion-item.open').forEach(function(openItem) {
+        openItem.classList.remove('open');
+        const openContent = openItem.querySelector('.morfose-desktop__accordion-content');
+        if (openContent) openContent.style.maxHeight = '0';
+      });
+      
+      item.classList.add('open');
+      content.style.maxHeight = inner.scrollHeight + 'px';
+    }
+  };
+  
+  // Init
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGallery);
+  } else {
+    initGallery();
+  }
+  
+})();
+</script>
+
+{% comment %} Legacy styles kept for backward compatibility - will be removed {% endcomment %}
 <style>
   /* ========================================
      MORFOSE PRODUCT PAGE v2 - 3 COLUMN LAYOUT
@@ -698,11 +905,12 @@
 <div class="morfose-product" data-js-product-clone-id="footbar">
   
   <!-- Breadcrumb -->
+  {%- assign breadcrumb_collection = collection | default: product.collections.first -%}
   <div class="morfose-product__breadcrumb">
     <a href="{{ routes.root_url }}">Home</a>
     <span>›</span>
-    {%- if collection -%}
-      <a href="{{ collection.url }}">{{ collection.title }}</a>
+    {%- if breadcrumb_collection -%}
+      <a href="{{ breadcrumb_collection.url }}">{{ breadcrumb_collection.title }}</a>
       <span>›</span>
     {%- endif -%}
     <span>{{ product.title }}</span>
@@ -761,10 +969,8 @@
                         <circle cx="9" cy="11" r="1.5" fill="#333"/>
                         <circle cx="15" cy="11" r="1.5" fill="#333"/>
                         <path d="M9 16c1.5 2 4.5 2 6 0"/>
-                      {%- when 'made_in_italy' -%}
-                        <rect x="6" y="4" width="12" height="16" rx="1"/>
-                        <rect x="6" y="4" width="4" height="16" fill="#009246"/>
-                        <rect x="14" y="4" width="4" height="16" fill="#ce2b37"/>
+                      {%- when 'made_in_turkey' -%}
+                        <image href="{{ 'turkey-flag.png' | asset_url }}" x="0" y="0" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>
                       {%- when 'paraben_free' -%}
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M6 6l12 12" stroke-width="2"/>
@@ -1071,10 +1277,8 @@
                   {%- when 'weight' -%}
                     <path d="M24 8L8 16v16l16 8 16-8V16L24 8z"/>
                     <path d="M24 24v16M8 16l16 8 16-8"/>
-                  {%- when 'made_in_italy' -%}
-                    <rect x="12" y="8" width="24" height="32" rx="2"/>
-                    <rect x="12" y="8" width="8" height="32" fill="#009246"/>
-                    <rect x="28" y="8" width="8" height="32" fill="#ce2b37"/>
+                  {%- when 'made_in_turkey' -%}
+                    <image href="{{ 'turkey-flag.png' | asset_url }}" x="0" y="0" width="48" height="48" preserveAspectRatio="xMidYMid meet"/>
                   {%- when 'shelf_life' -%}
                     <rect x="10" y="6" width="28" height="36" rx="2"/>
                     <path d="M10 14h28"/>
@@ -1808,7 +2012,7 @@
             { "value": "cruelty_free", "label": "Cruelty Free" },
             { "value": "vegan", "label": "Vegan" },
             { "value": "dermatologically_tested", "label": "Dermatologically Tested" },
-            { "value": "made_in_italy", "label": "Made in Italy" },
+            { "value": "made_in_turkey", "label": "Made in Turkey" },
             { "value": "paraben_free", "label": "Paraben Free" },
             { "value": "sulfate_free", "label": "Sulfate Free" },
             { "value": "organic", "label": "Organic" },
@@ -1834,7 +2038,7 @@
           "default": "weight",
           "options": [
             { "value": "weight", "label": "Weight/Size" },
-            { "value": "made_in_italy", "label": "Made in Italy" },
+            { "value": "made_in_turkey", "label": "Made in Turkey" },
             { "value": "shelf_life", "label": "Shelf Life" },
             { "value": "custom", "label": "Custom" }
           ]
@@ -1912,7 +2116,7 @@
         {
           "type": "bottom_usp",
           "settings": {
-            "icon": "made_in_italy",
+            "icon": "made_in_turkey",
             "text": "MADE IN ITALY"
           }
         },
