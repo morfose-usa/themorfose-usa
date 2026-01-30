@@ -1,0 +1,231 @@
+{{ 'section-description-with-image.css' | asset_url | stylesheet_tag }}
+
+<div class="description-image-section {% if section.settings.image_position == 'left' %}description-image-section--image-left{% endif %}" style="background-color: {{ section.settings.background_color }};">
+  <div class="description-image__container">
+    
+    <div class="description-image__content">
+      {%- if section.settings.subtitle != blank -%}
+        <span class="description-image__subtitle">{{ section.settings.subtitle }}</span>
+      {%- endif -%}
+      
+      {%- if section.settings.title != blank -%}
+        <h2 class="description-image__title" style="color: {{ section.settings.title_color }};">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      
+      {%- if section.settings.description != blank -%}
+        <div class="description-image__text" style="color: {{ section.settings.text_color }};">
+          {{ section.settings.description }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_text != blank -%}
+        <a href="{{ section.settings.button_link }}" class="description-image__button">
+          {{ section.settings.button_text }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.show_features -%}
+        <div class="description-image__features">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'feature' -%}
+              <div class="description-image__feature" {{ block.shopify_attributes }}>
+                {%- if block.settings.icon != 'none' -%}
+                  <div class="description-image__feature-icon">
+                    {%- render 'product-usp-icon-svg', icon: block.settings.icon, size: 'medium' -%}
+                  </div>
+                {%- endif -%}
+                <div class="description-image__feature-content">
+                  {%- if block.settings.title != blank -%}
+                    <h4 class="description-image__feature-title">{{ block.settings.title }}</h4>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <p class="description-image__feature-text">{{ block.settings.text }}</p>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="description-image__media">
+      {%- if section.settings.image != blank -%}
+        <img 
+          src="{{ section.settings.image | image_url: width: 800 }}"
+          alt="{{ section.settings.image.alt | escape | default: section.settings.title }}"
+          width="800"
+          height="{{ 800 | divided_by: section.settings.image.aspect_ratio | round }}"
+          loading="lazy"
+          class="description-image__img"
+        >
+      {%- else -%}
+        <div class="description-image__placeholder">
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Description with Image",
+  "tag": "section",
+  "class": "section-description-image",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Why Choose Us"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Premium Quality Ingredients"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Our products are crafted with the finest ingredients, designed to nourish and transform your hair. Experience the difference of professional-grade hair care.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "options": [
+        { "value": "right", "label": "Right" },
+        { "value": "left", "label": "Left" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Features"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_features",
+      "label": "Show Features",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#555555"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "cruelty_free", "label": "Cruelty Free" },
+            { "value": "vegan", "label": "Vegan" },
+            { "value": "dermatologically_tested", "label": "Dermatologically Tested" },
+            { "value": "paraben_free", "label": "Paraben Free" },
+            { "value": "sulfate_free", "label": "Sulfate Free" },
+            { "value": "organic", "label": "Organic" },
+            { "value": "eco_friendly", "label": "Eco Friendly" },
+            { "value": "made_in_turkey", "label": "Made in Turkey" }
+          ],
+          "default": "cruelty_free"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Feature description goes here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Description with Image",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "cruelty_free",
+            "title": "Cruelty Free",
+            "text": "Never tested on animals"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "vegan",
+            "title": "Vegan Formula",
+            "text": "100% plant-based ingredients"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "paraben_free",
+            "title": "Paraben Free",
+            "text": "Safe for daily use"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

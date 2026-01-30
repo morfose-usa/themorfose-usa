@@ -1,0 +1,166 @@
+{% comment %}
+  TikTok / UGC Section
+  Display viral TikTok videos with linked products
+{% endcomment %}
+
+{%- render 'product-tiktok-ugc', section: section -%}
+
+{% schema %}
+{
+  "name": "TikTok / UGC Gallery",
+  "tag": "section",
+  "class": "section-tiktok-ugc",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "See It In Action"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Real people, real results. Join the trend!"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Follow Us on TikTok"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tiktok_video",
+      "name": "TikTok Video",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Video"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "TikTok Video URL",
+          "info": "Paste the full TikTok video URL (e.g., https://www.tiktok.com/@username/video/1234567890)"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Video Thumbnail",
+          "info": "Upload a thumbnail image for the video (9:16 ratio recommended)"
+        },
+        {
+          "type": "header",
+          "content": "Creator Info"
+        },
+        {
+          "type": "text",
+          "id": "username",
+          "label": "TikTok Username",
+          "info": "Without @ symbol"
+        },
+        {
+          "type": "textarea",
+          "id": "caption",
+          "label": "Video Caption",
+          "info": "Brief description or hashtags"
+        },
+        {
+          "type": "header",
+          "content": "Stats (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "views",
+          "label": "Views Count",
+          "placeholder": "1.2M"
+        },
+        {
+          "type": "text",
+          "id": "likes",
+          "label": "Likes Count",
+          "placeholder": "45K"
+        },
+        {
+          "type": "header",
+          "content": "Featured Product"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Link Product",
+          "info": "Select the product featured in this video"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_quick_add",
+          "label": "Show Quick Add Button",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TikTok / UGC Gallery",
+      "settings": {
+        "title": "Viral on TikTok",
+        "subtitle": "See why millions are obsessed with Morfose!"
+      },
+      "blocks": [
+        {
+          "type": "tiktok_video",
+          "settings": {
+            "username": "morfose_official",
+            "caption": "Ultimate hair transformation! Watch this glow up #morfose #haircare #hairtok #fyp",
+            "views": "2.4M",
+            "likes": "156K",
+            "show_quick_add": true
+          }
+        },
+        {
+          "type": "tiktok_video",
+          "settings": {
+            "username": "beautybyjess",
+            "caption": "OMG this styling gel is everything! Been using it for a month now #hairstyle #grwm #morfose",
+            "views": "1.8M",
+            "likes": "98K",
+            "show_quick_add": true
+          }
+        },
+        {
+          "type": "tiktok_video",
+          "settings": {
+            "username": "curlyhairqueen",
+            "caption": "Finally a product that works on my curls! No frizz, perfect definition #curlyhairtips #morfose",
+            "views": "956K",
+            "likes": "72K",
+            "show_quick_add": true
+          }
+        },
+        {
+          "type": "tiktok_video",
+          "settings": {
+            "username": "hairstylist.mike",
+            "caption": "Professional results at home? Yes please! My clients love this #hairdresser #protips #morfose",
+            "views": "1.2M",
+            "likes": "89K",
+            "show_quick_add": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
