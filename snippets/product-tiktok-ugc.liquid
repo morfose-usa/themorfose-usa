@@ -66,22 +66,31 @@
   /* Carousel Container */
   .morfose-tiktok__carousel-wrapper {
     position: relative;
+    overflow: hidden;
   }
 
   .morfose-tiktok__carousel {
     display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 10px 0 20px;
-    margin: 0 -30px;
-    padding-left: 30px;
-    padding-right: 30px;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 30px;
+    transition: transform 0.4s ease;
   }
 
-  .morfose-tiktok__carousel::-webkit-scrollbar {
-    display: none;
+  @media (max-width: 1200px) {
+    .morfose-tiktok__carousel {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      justify-content: flex-start;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .morfose-tiktok__carousel::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   /* Navigation Arrows */
@@ -136,25 +145,57 @@
   /* Video Card */
   .morfose-tiktok__card {
     flex-shrink: 0;
-    width: 280px;
-    scroll-snap-align: start;
+    width: 180px;
+    scroll-snap-align: center;
     background: #fff;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: all 0.4s ease;
+    transform: scale(0.92);
+    opacity: 0.6;
   }
 
   .morfose-tiktok__card:hover {
-    transform: translateY(-5px);
+    opacity: 0.8;
+  }
+
+  /* Active/Center Card - Larger */
+  .morfose-tiktok__card.is-active {
+    width: 220px;
+    transform: scale(1);
+    opacity: 1;
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
   }
 
-  /* Video Container - 9:16 aspect ratio */
+  .morfose-tiktok__card.is-active:hover {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 1200px) {
+    .morfose-tiktok__card {
+      transform: scale(1);
+      opacity: 1;
+      width: 200px;
+    }
+    
+    .morfose-tiktok__card.is-active {
+      width: 200px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .morfose-tiktok__card,
+    .morfose-tiktok__card.is-active {
+      width: 160px;
+    }
+  }
+
+  /* Video Container - 9:16 aspect ratio but shorter */
   .morfose-tiktok__video-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 177.78%; /* 9:16 aspect ratio */
+    padding-bottom: 140%; /* Shorter than 9:16 */
     background: #000;
     overflow: hidden;
   }
@@ -212,8 +253,8 @@
   .morfose-tiktok__play-btn {
     position: relative;
     z-index: 2;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     background: rgba(255,255,255,0.95);
     border-radius: 50%;
     display: flex;
@@ -224,97 +265,104 @@
   }
 
   .morfose-tiktok__play-btn svg {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     fill: #000;
-    margin-left: 4px;
+    margin-left: 3px;
   }
 
   .morfose-tiktok__tiktok-logo {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    right: 10px;
     z-index: 2;
   }
 
   .morfose-tiktok__tiktok-logo svg {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
   }
 
-  /* Card Info */
-  .morfose-tiktok__info {
-    padding: 16px;
+  /* Combined Card Footer - Info + Product */
+  .morfose-tiktok__footer {
+    padding: 10px;
+    background: #fff;
+  }
+
+  .morfose-tiktok__footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
   }
 
   .morfose-tiktok__username {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
+    gap: 4px;
+    font-size: 11px;
     font-weight: 600;
     color: #000;
-    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .morfose-tiktok__username svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .morfose-tiktok__caption {
-    font-size: 13px;
-    color: #555;
-    line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
   }
 
   .morfose-tiktok__stats {
     display: flex;
-    gap: 16px;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid #f0f0f0;
+    gap: 8px;
+    flex-shrink: 0;
   }
 
   .morfose-tiktok__stat {
     display: flex;
     align-items: center;
-    gap: 5px;
-    font-size: 12px;
+    gap: 3px;
+    font-size: 10px;
     color: #666;
   }
 
   .morfose-tiktok__stat svg {
-    width: 14px;
-    height: 14px;
+    width: 11px;
+    height: 11px;
     stroke: #666;
     fill: none;
   }
 
-  /* Product Section */
-  .morfose-tiktok__product {
-    padding: 12px 16px 16px;
-    border-top: 1px solid #f0f0f0;
-    background: #fafafa;
+  .morfose-tiktok__caption {
+    font-size: 10px;
+    color: #666;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 8px;
   }
 
-  .morfose-tiktok__product-inner {
+  /* Product Section - Compact */
+  .morfose-tiktok__product {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
   }
 
   .morfose-tiktok__product-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
     overflow: hidden;
     flex-shrink: 0;
-    background: #fff;
+    background: #f5f5f5;
   }
 
   .morfose-tiktok__product-image img {
@@ -327,12 +375,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f5f5f5;
   }
 
   .morfose-tiktok__product-image--placeholder svg {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
   }
 
   .morfose-tiktok__product-info {
@@ -341,10 +388,10 @@
   }
 
   .morfose-tiktok__product-title {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 600;
     color: #000;
-    margin: 0 0 4px;
+    margin: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -355,36 +402,32 @@
     text-decoration: none;
   }
 
-  .morfose-tiktok__product-title a:hover {
-    text-decoration: underline;
-  }
-
   .morfose-tiktok__product-price {
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 700;
-    color: #000;
+    color: #ff6b00;
   }
 
   .morfose-tiktok__product-compare {
-    font-size: 11px;
+    font-size: 9px;
     color: #999;
     text-decoration: line-through;
-    margin-left: 6px;
+    margin-left: 4px;
   }
 
   .morfose-tiktok__quick-add {
     background: #000;
     color: #fff;
     border: none;
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s;
     flex-shrink: 0;
+    transition: all 0.2s;
   }
 
   .morfose-tiktok__quick-add:hover {
@@ -399,8 +442,8 @@
   }
 
   .morfose-tiktok__quick-add svg {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     stroke: #fff;
     stroke-width: 2;
     fill: none;
@@ -572,58 +615,59 @@
                 
               </div>
               
-              <div class="morfose-tiktok__info">
-                {%- if block.settings.username != blank -%}
-                  <div class="morfose-tiktok__username">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                      <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                    @{{ block.settings.username }}
+              <!-- Combined Footer: User Info + Stats + Product -->
+              <div class="morfose-tiktok__footer">
+                {%- if block.settings.username != blank or block.settings.views != blank or block.settings.likes != blank -%}
+                  <div class="morfose-tiktok__footer-top">
+                    {%- if block.settings.username != blank -%}
+                      <div class="morfose-tiktok__username">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        @{{ block.settings.username }}
+                      </div>
+                    {%- endif -%}
+                    
+                    {%- if block.settings.views != blank or block.settings.likes != blank -%}
+                      <div class="morfose-tiktok__stats">
+                        {%- if block.settings.views != blank -%}
+                          <span class="morfose-tiktok__stat">
+                            <svg viewBox="0 0 24 24" stroke-width="2">
+                              <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                            {{ block.settings.views }}
+                          </span>
+                        {%- endif -%}
+                        {%- if block.settings.likes != blank -%}
+                          <span class="morfose-tiktok__stat">
+                            <svg viewBox="0 0 24 24" stroke-width="2" fill="#ff4757" stroke="#ff4757">
+                              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            {{ block.settings.likes }}
+                          </span>
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
                   </div>
                 {%- endif -%}
                 
                 {%- if block.settings.caption != blank -%}
                   <p class="morfose-tiktok__caption">{{ block.settings.caption }}</p>
                 {%- endif -%}
-                
-                {%- if block.settings.views != blank or block.settings.likes != blank -%}
-                  <div class="morfose-tiktok__stats">
-                    {%- if block.settings.views != blank -%}
-                      <span class="morfose-tiktok__stat">
-                        <svg viewBox="0 0 24 24" stroke-width="2">
-                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                          <circle cx="12" cy="12" r="3"/>
-                        </svg>
-                        {{ block.settings.views }}
-                      </span>
-                    {%- endif -%}
-                    {%- if block.settings.likes != blank -%}
-                      <span class="morfose-tiktok__stat">
-                        <svg viewBox="0 0 24 24" stroke-width="2">
-                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                        </svg>
-                        {{ block.settings.likes }}
-                      </span>
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
-              </div>
 
-              <!-- Featured Product -->
-              {%- if block.settings.product != blank -%}
-                {%- assign featured_product = block.settings.product -%}
-                {%- assign featured_variant = featured_product.selected_or_first_available_variant -%}
-                <div class="morfose-tiktok__product">
-                  <div class="morfose-tiktok__product-inner">
+                <!-- Featured Product -->
+                {%- if block.settings.product != blank -%}
+                  {%- assign featured_product = block.settings.product -%}
+                  {%- assign featured_variant = featured_product.selected_or_first_available_variant -%}
+                  <div class="morfose-tiktok__product">
                     <div class="morfose-tiktok__product-image">
                       {%- if featured_product.featured_image != blank -%}
                         <img 
-                          src="{{ featured_product.featured_image | image_url: width: 100 }}" 
+                          src="{{ featured_product.featured_image | image_url: width: 80 }}" 
                           alt="{{ featured_product.title | escape }}"
                           loading="lazy"
-                          width="50"
-                          height="50"
+                          width="36"
+                          height="36"
                         >
                       {%- endif -%}
                     </div>
@@ -631,12 +675,10 @@
                       <h4 class="morfose-tiktok__product-title">
                         <a href="{{ featured_product.url }}">{{ featured_product.title }}</a>
                       </h4>
-                      <div>
-                        <span class="morfose-tiktok__product-price">{{ featured_variant.price | money }}</span>
-                        {%- if featured_variant.compare_at_price > featured_variant.price -%}
-                          <span class="morfose-tiktok__product-compare">{{ featured_variant.compare_at_price | money }}</span>
-                        {%- endif -%}
-                      </div>
+                      <span class="morfose-tiktok__product-price">{{ featured_variant.price | money }}</span>
+                      {%- if featured_variant.compare_at_price > featured_variant.price -%}
+                        <span class="morfose-tiktok__product-compare">{{ featured_variant.compare_at_price | money }}</span>
+                      {%- endif -%}
                     </div>
                     {%- if block.settings.show_quick_add -%}
                       <button 
@@ -654,39 +696,26 @@
                       </button>
                     {%- endif -%}
                   </div>
-                </div>
-              {%- elsif block.settings.show_quick_add -%}
-                <!-- Dummy Product for Preview -->
-                <div class="morfose-tiktok__product">
-                  <div class="morfose-tiktok__product-inner">
+                {%- elsif block.settings.show_quick_add -%}
+                  <!-- Dummy Product for Preview -->
+                  <div class="morfose-tiktok__product">
                     <div class="morfose-tiktok__product-image morfose-tiktok__product-image--placeholder">
                       <svg viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5">
                         <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <circle cx="8.5" cy="8.5" r="1.5"/>
-                        <path d="M21 15l-5-5L5 21"/>
                       </svg>
                     </div>
                     <div class="morfose-tiktok__product-info">
-                      <h4 class="morfose-tiktok__product-title">
-                        <span style="color: #999;">Select a product</span>
-                      </h4>
-                      <div>
-                        <span class="morfose-tiktok__product-price" style="color: #ccc;">$0.00</span>
-                      </div>
+                      <h4 class="morfose-tiktok__product-title">Featured Product</h4>
+                      <span class="morfose-tiktok__product-price">$24.99</span>
                     </div>
-                    <button 
-                      type="button" 
-                      class="morfose-tiktok__quick-add"
-                      disabled
-                      title="Select a product first"
-                    >
+                    <button type="button" class="morfose-tiktok__quick-add" disabled>
                       <svg viewBox="0 0 24 24">
                         <path d="M12 5v14M5 12h14"/>
                       </svg>
                     </button>
                   </div>
-                </div>
-              {%- endif -%}
+                {%- endif -%}
+              </div>
             </div>
           {%- endif -%}
         {%- endfor -%}
@@ -720,22 +749,69 @@
   const carousel = document.getElementById('morfose-tiktok-carousel');
   if (!carousel) return;
   
-  const cardWidth = 300; // card width + gap
+  const cards = carousel.querySelectorAll('.morfose-tiktok__card');
+  let currentIndex = Math.floor(cards.length / 2); // Start with center card
+  
+  // Set initial active card
+  function setActiveCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.remove('is-active');
+      // Stop any playing videos in non-active cards
+      const video = card.querySelector('video');
+      if (video) video.pause();
+    });
+    
+    if (cards[index]) {
+      cards[index].classList.add('is-active');
+      currentIndex = index;
+      
+      // Auto-play video in active card if exists
+      const activeVideo = cards[index].querySelector('video');
+      if (activeVideo) {
+        activeVideo.play().catch(() => {});
+      }
+    }
+  }
+  
+  // Initialize - set center card as active
+  setActiveCard(currentIndex);
+  
+  // Auto-load center video on page load
+  setTimeout(function() {
+    const activeCard = cards[currentIndex];
+    if (activeCard) {
+      const placeholder = activeCard.querySelector('.morfose-tiktok__placeholder[data-video-url]');
+      if (placeholder) {
+        morfoseLoadTiktok(placeholder, true); // true = autoplay
+      }
+    }
+  }, 1000);
   
   window.morfoseTiktokPrev = function() {
-    carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    if (currentIndex > 0) {
+      setActiveCard(currentIndex - 1);
+    }
   };
   
   window.morfoseTiktokNext = function() {
-    carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    if (currentIndex < cards.length - 1) {
+      setActiveCard(currentIndex + 1);
+    }
   };
   
   // Load TikTok embed on click
-  window.morfoseLoadTiktok = function(placeholder) {
+  window.morfoseLoadTiktok = function(placeholder, autoplay) {
     const videoUrl = placeholder.getAttribute('data-video-url');
     if (!videoUrl) return;
     
     const wrapper = placeholder.parentElement;
+    const card = wrapper.closest('.morfose-tiktok__card');
+    
+    // Set this card as active
+    const cardIndex = Array.from(cards).indexOf(card);
+    if (cardIndex !== -1) {
+      setActiveCard(cardIndex);
+    }
     
     // Check if it's a TikTok URL
     if (videoUrl.includes('tiktok.com')) {
@@ -747,7 +823,7 @@
         
         // Create TikTok embed iframe
         const iframe = document.createElement('iframe');
-        iframe.src = `https://www.tiktok.com/embed/v2/${videoId}?lang=en-US`;
+        iframe.src = `https://www.tiktok.com/embed/v2/${videoId}?lang=en-US&autoplay=1`;
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
         iframe.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;';
@@ -764,14 +840,17 @@
       const video = document.createElement('video');
       video.src = videoUrl;
       video.controls = true;
-      video.autoplay = true;
+      video.autoplay = autoplay !== false;
+      video.muted = autoplay === true; // Muted for autoplay
       video.playsInline = true;
+      video.loop = true;
       video.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;';
       
       placeholder.style.opacity = '0';
       setTimeout(() => {
         placeholder.remove();
         wrapper.appendChild(video);
+        if (autoplay !== false) video.play().catch(() => {});
       }, 300);
     }
   };
@@ -796,6 +875,15 @@
     const x = e.touches[0].pageX - carousel.offsetLeft;
     const walk = (x - startX) * 1.5;
     carousel.scrollLeft = scrollLeft - walk;
+  });
+  
+  // Click on card to make it active
+  cards.forEach((card, index) => {
+    card.addEventListener('click', function(e) {
+      if (!e.target.closest('.morfose-tiktok__placeholder') && !e.target.closest('.morfose-tiktok__quick-add')) {
+        setActiveCard(index);
+      }
+    });
   });
   
   // Quick Add to Cart
