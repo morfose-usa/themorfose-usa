@@ -1,0 +1,33 @@
+# Git Merge Rules for Shopify Theme
+
+## ⚠️ CRITICAL RULE: settings_data.json File - NEVER OVERWRITE
+
+**ABSOLUTE REQUIREMENT**: The `main` branch is ALWAYS the production/live branch and is the SOURCE OF TRUTH for `config/settings_data.json`.
+
+### 🚨 settings_data.json Merge Strategy - MANDATORY
+
+**RULE #1**: The `config/settings_data.json` file in the `main` branch is managed by users through the Shopify admin panel and MUST NEVER be overwritten during merges.
+
+**RULE #2**: When merging from develop to main:
+  - **ALWAYS** check if `config/settings_data.json` has changes in develop
+  - **ALWAYS** discard develop's version of `config/settings_data.json` 
+  - **ALWAYS** keep main's version of `config/settings_data.json`
+  - The main branch version is ALWAYS correct and MUST be preserved
+
+**RULE #3**: Merge conflict resolution (MANDATORY STEPS):
+  1. If conflict occurs: `git checkout --theirs config/settings_data.json` (theirs = main when on main branch)
+  2. Verify the file is from main: `git show HEAD~1:config/settings_data.json` to compare
+  3. Stage: `git add config/settings_data.json`
+  4. **VERIFY BEFORE COMMIT**: Check that settings_data.json matches main's version
+
+**RULE #4**: If merge completed but wrong version was used:
+  - Immediately restore: `git checkout HEAD~1 -- config/settings_data.json`
+  - Commit and push immediately to restore production settings
+
+### Why This Rule Exists
+
+The `settings_data.json` file contains theme configuration that is modified by users directly in the Shopify admin panel. These changes are automatically synced to the `main` branch. Overwriting this file would lose user-configured settings, which is UNACCEPTABLE and causes production issues.
+
+### ⚠️ WARNING
+
+**NEVER** accept develop's settings_data.json during merge. **ALWAYS** preserve main's version. This is non-negotiable.

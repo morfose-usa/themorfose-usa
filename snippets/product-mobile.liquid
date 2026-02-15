@@ -512,58 +512,27 @@
   }
 
   /* ========================================
-     PRODUCT BANNER SLIDER (Mobile)
+     PRODUCT BANNER IMAGES (Mobile - Stacked)
      ======================================== */
   
-  .morfose-mobile__banner {
-    margin: 20px -15px 0;
+  .morfose-mobile__banner-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 20px 0 0;
     padding: 0;
   }
 
-  .morfose-mobile__banner-slider {
-    position: relative;
+  .morfose-mobile__banner-item {
+    border-radius: 8px;
     overflow: hidden;
-  }
-
-  .morfose-mobile__banner-track {
-    display: flex;
-    transition: transform 0.4s ease;
-  }
-
-  .morfose-mobile__banner-slide {
-    flex-shrink: 0;
-    width: 100%;
   }
 
   .morfose-mobile__banner-image {
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 16/9;
     object-fit: cover;
-  }
-
-  .morfose-mobile__banner-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 15px;
-  }
-
-  .morfose-mobile__banner-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ddd;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    padding: 0;
-  }
-
-  .morfose-mobile__banner-dot.active {
-    background: #ff6b00;
-    transform: scale(1.2);
   }
 
   /* ========================================
@@ -598,6 +567,17 @@
     stroke: #333;
     stroke-width: 1;
     fill: none;
+    overflow: visible;
+  }
+
+  /* Made in Turkey - wider icon */
+  .morfose-mobile__usp-bottom-item--wide .morfose-mobile__usp-bottom-icon {
+    width: 80px;
+    height: 40px;
+  }
+
+  .morfose-mobile__usp-bottom-item--wide .morfose-mobile__usp-bottom-icon svg {
+    overflow: visible;
   }
 
   .morfose-mobile__usp-bottom-text {
@@ -619,12 +599,13 @@
     left: 0;
     right: 0;
     background: #fff;
-    padding: 12px 16px;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    padding: 10px 12px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
     z-index: 999;
     transform: translateY(100%);
     transition: transform 0.3s ease;
-    border-top: 3px solid #ff6b00;
+    border-top: 2px solid #ff6b00;
   }
 
   .morfose-mobile__sticky.visible {
@@ -635,62 +616,69 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 10px;
     max-width: 100%;
+    min-height: 0;
   }
 
   .morfose-mobile__sticky-left {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     flex: 1;
     min-width: 0;
+    overflow: hidden;
   }
 
   .morfose-mobile__sticky-image {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
     object-fit: contain;
     background: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 6px;
     flex-shrink: 0;
   }
 
   .morfose-mobile__sticky-info {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    justify-content: center;
+    gap: 1px;
     min-width: 0;
     flex: 1;
+    overflow: hidden;
   }
 
   .morfose-mobile__sticky-title {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     color: #000;
     margin: 0;
+    line-height: 1.25;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 100%;
   }
 
   .morfose-mobile__sticky-price {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 700;
     color: #ff6b00;
+    line-height: 1.2;
   }
 
   .morfose-mobile__sticky-btn {
     background: #000;
     color: #fff;
     border: none;
-    padding: 14px 20px;
-    font-size: 11px;
+    padding: 10px 14px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    border-radius: 25px;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
@@ -1056,7 +1044,7 @@
       <div class="morfose-mobile__usp-bottom">
         {%- for block in section.blocks -%}
           {%- if block.type == 'bottom_usp' -%}
-            <div class="morfose-mobile__usp-bottom-item" {{ block.shopify_attributes }}>
+            <div class="morfose-mobile__usp-bottom-item{% if block.settings.icon == 'made_in_turkey' %} morfose-mobile__usp-bottom-item--wide{% endif %}" {{ block.shopify_attributes }}>
               <div class="morfose-mobile__usp-bottom-icon">
                 {%- render 'product-usp-icon-svg', icon: block.settings.icon, size: 'medium', text: block.settings.text -%}
               </div>
@@ -1067,38 +1055,22 @@
       </div>
     {%- endif -%}
 
-    <!-- Product Banner Slider (from metafield) - Below USP Icons -->
+    <!-- Product Banner Images (from metafield) - Below USP Icons -->
     {%- assign banner_images = product.metafields.custom.product_banner_image.value -%}
     {%- if banner_images != blank and banner_images.size > 0 -%}
-      <div class="morfose-mobile__banner">
-        <div class="morfose-mobile__banner-slider" id="morfose-banner-slider-mobile">
-          <div class="morfose-mobile__banner-track" id="morfose-banner-track-mobile">
-            {%- for image in banner_images -%}
-              <div class="morfose-mobile__banner-slide">
-                <img 
-                  src="{{ image | image_url: width: 800 }}" 
-                  alt="{{ product.title | escape }} - Banner {{ forloop.index }}"
-                  class="morfose-mobile__banner-image"
-                  width="800"
-                  height="450"
-                  loading="lazy"
-                >
-              </div>
-            {%- endfor -%}
+      <div class="morfose-mobile__banner-stack">
+        {%- for image in banner_images -%}
+          <div class="morfose-mobile__banner-item">
+            <img 
+              src="{{ image | image_url: width: 800 }}" 
+              alt="{{ product.title | escape }} - Banner {{ forloop.index }}"
+              class="morfose-mobile__banner-image"
+              width="800"
+              height="auto"
+              loading="lazy"
+            >
           </div>
-        </div>
-        
-        {%- if banner_images.size > 1 -%}
-          <div class="morfose-mobile__banner-dots">
-            {%- for image in banner_images -%}
-              <button 
-                type="button" 
-                class="morfose-mobile__banner-dot{% if forloop.first %} active{% endif %}"
-                onclick="bannerGoToMobile({{ forloop.index0 }})"
-              ></button>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
+        {%- endfor -%}
       </div>
     {%- endif -%}
 
@@ -1120,7 +1092,7 @@
           >
         {%- endif -%}
         <div class="morfose-mobile__sticky-info">
-          <h4 class="morfose-mobile__sticky-title">{{ product.title }}</h4>
+          <h4 class="morfose-mobile__sticky-title" title="{{ product.title | escape }}">{{ product.title | truncate: 32 }}</h4>
           <span class="morfose-mobile__sticky-price" id="morfose-sticky-price-mobile">{{ current_variant.price | money }}</span>
         </div>
       </div>
@@ -1133,48 +1105,6 @@
 </div>
 
 <script>
-// Mobile Banner Slider - Global scope
-var _bannerIndexMobile = 0;
-
-window.bannerGoToMobile = function(index) {
-  var track = document.getElementById('morfose-banner-track-mobile');
-  var dots = document.querySelectorAll('.morfose-mobile__banner-dot');
-  if (!track) return;
-  
-  _bannerIndexMobile = index;
-  track.style.transform = 'translateX(-' + (_bannerIndexMobile * 100) + '%)';
-  
-  dots.forEach(function(dot, i) {
-    dot.classList.toggle('active', i === _bannerIndexMobile);
-  });
-};
-
-// Mobile banner swipe support
-(function() {
-  var bannerTrack = document.getElementById('morfose-banner-track-mobile');
-  if (bannerTrack) {
-    var startX = 0;
-    var bannerCount = bannerTrack.children.length;
-    
-    bannerTrack.addEventListener('touchstart', function(e) {
-      startX = e.touches[0].clientX;
-    });
-    
-    bannerTrack.addEventListener('touchend', function(e) {
-      var endX = e.changedTouches[0].clientX;
-      var diff = startX - endX;
-      
-      if (Math.abs(diff) > 50) {
-        if (diff > 0 && _bannerIndexMobile < bannerCount - 1) {
-          bannerGoToMobile(_bannerIndexMobile + 1);
-        } else if (diff < 0 && _bannerIndexMobile > 0) {
-          bannerGoToMobile(_bannerIndexMobile - 1);
-        }
-      }
-    });
-  }
-})();
-
 (function() {
   // Mobile-specific JavaScript
   
