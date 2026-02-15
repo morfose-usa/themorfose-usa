@@ -1,0 +1,198 @@
+{% comment %}
+  Complementary Products (Routine): Mevcut ürünün collection'ından tamamlayıcı ürünleri gösterir.
+  Product template'te kullanılır. Collection = collection (varsa) veya product.collections.first
+{% endcomment %}
+{%- liquid
+  assign routine_collection = nil
+  if product != blank
+    if collection != blank
+      assign routine_collection = collection
+    elsif product.collections.size > 0
+      assign routine_collection = product.collections.first
+    endif
+  endif
+
+  assign max_products = section.settings.max_products | default: 3
+  assign has_routine_products = false
+  assign routine_count = 0
+  if routine_collection != blank
+    for p in routine_collection.products
+      if p.id != product.id
+        assign routine_count = routine_count | plus: 1
+        if routine_count >= max_products
+          break
+        endif
+      endif
+    endfor
+    if routine_count > 0
+      assign has_routine_products = true
+    endif
+  endif
+-%}
+
+{%- if product != blank and has_routine_products -%}
+  {{ 'section-complementary-products-routine.css' | asset_url | stylesheet_tag }}
+
+  <section class="complementary-routine section-complementary-routine" id="complementary-routine-{{ section.id }}">
+    <div class="complementary-routine__container">
+      <div class="complementary-routine__content">
+        {%- if section.settings.title != blank -%}
+          <h2 class="complementary-routine__title">{{ section.settings.title }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <div class="complementary-routine__text rte">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_dropdown and section.settings.dropdown_label != blank -%}
+          <div class="complementary-routine__dropdown">
+            <label class="complementary-routine__dropdown-label" for="routine-dropdown-{{ section.id }}">
+              {{ section.settings.dropdown_label }}
+            </label>
+            <select
+              id="routine-dropdown-{{ section.id }}"
+              class="complementary-routine__select"
+              name="routine_dropdown"
+              aria-label="{{ section.settings.dropdown_label }}"
+            >
+              {%- assign first_dropdown = true -%}
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'dropdown_option' and block.settings.option_text != blank -%}
+                  <option value="{{ block.settings.option_text | escape }}" {% if first_dropdown %}selected{% endif %}{% if first_dropdown %}{% assign first_dropdown = false %}{% endif %} {{ block.shopify_attributes }}>
+                    {{ block.settings.option_text }}
+                  </option>
+                {%- endif -%}
+              {%- endfor -%}
+            </select>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="complementary-routine__products">
+        {%- assign step_index = 0 -%}
+        {%- for routine_product in routine_collection.products -%}
+          {%- if routine_product.id == product.id -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- assign step_index = step_index | plus: 1 -%}
+          {%- if step_index > max_products -%}
+            {%- break -%}
+          {%- endif -%}
+
+          {%- assign step_label = '' -%}
+          {%- for block in section.blocks -%}
+            {%- assign block_step_order = block.settings.step_order | plus: 0 -%}
+            {%- if block.type == 'step_label' and block_step_order == step_index -%}
+              {%- assign step_label = block.settings.step_label -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          {%- render 'product-routine-card',
+            product: routine_product,
+            step_index: step_index,
+            step_label: step_label
+          -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Routine products",
+  "tag": "section",
+  "class": "section-complementary-routine",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Complete your routine"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Discover the perfect products to complete your routine. Each step is designed to work together for best results.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Dropdown (optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dropdown",
+      "label": "Show dropdown",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "dropdown_label",
+      "label": "Dropdown label",
+      "default": "My hair is"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "range",
+      "id": "max_products",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "label": "Max products to show",
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "dropdown_option",
+      "name": "Dropdown option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "option_text",
+          "label": "Option text",
+          "default": "Post-Bleached Blonde"
+        }
+      ]
+    },
+    {
+      "type": "step_label",
+      "name": "Step label",
+      "settings": [
+        {
+          "type": "number",
+          "id": "step_order",
+          "label": "Step number",
+          "default": 1,
+          "info": "1 = first product, 2 = second, etc."
+        },
+        {
+          "type": "text",
+          "id": "step_label",
+          "label": "Label",
+          "default": "Bathe",
+          "info": "e.g. Bathe, Treat, Hydrate"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Routine products",
+      "blocks": [
+        { "type": "dropdown_option", "settings": { "option_text": "Post-Bleached Blonde" } },
+        { "type": "dropdown_option", "settings": { "option_text": "Natural Blonde" } },
+        { "type": "step_label", "settings": { "step_order": 1, "step_label": "Bathe" } },
+        { "type": "step_label", "settings": { "step_order": 2, "step_label": "Treat" } },
+        { "type": "step_label", "settings": { "step_order": 3, "step_label": "Hydrate" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

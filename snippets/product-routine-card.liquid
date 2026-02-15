@@ -1,0 +1,82 @@
+{% comment %}
+  product-routine-card: Tamamlayıcı routine ürün kartı. Render ile çağrıldığı için include kullanılmaz.
+  Parametreler: product, step_index (1,2,3...), step_label (opsiyonel)
+{% endcomment %}
+{%- assign routine_product = product -%}
+{%- assign step_index = step_index | default: 1 -%}
+{%- assign step_label = step_label | default: '' -%}
+{%- assign routine_url = routine_product.url -%}
+{%- assign routine_image = routine_product.featured_image -%}
+{%- assign routine_title = routine_product.title -%}
+{%- assign routine_badge = routine_product.metafields.custom.badge_text -%}
+{%- if routine_product.metafields.custom.short_description != blank -%}
+  {%- assign routine_desc = routine_product.metafields.custom.short_description -%}
+{%- else -%}
+  {%- assign routine_desc = routine_product.description | strip_html | truncate: 120 -%}
+{%- endif -%}
+{%- assign current_variant = routine_product.selected_or_first_available_variant -%}
+{%- if current_variant.inventory_quantity <= 0 and current_variant.inventory_policy == 'continue' -%}
+  {%- assign variant_pre_order = true -%}
+{%- else -%}
+  {%- assign variant_pre_order = false -%}
+{%- endif -%}
+{%- liquid
+  assign current_selling_plan_allocation = current_variant.selected_selling_plan_allocation
+  if current_selling_plan_allocation == nil and current_variant.requires_selling_plan
+    assign current_selling_plan_allocation = current_variant.selling_plan_allocations | first
+  endif
+  assign selling_plan_id = ''
+  if current_selling_plan_allocation != blank and current_selling_plan_allocation.selling_plan != blank
+    assign selling_plan_id = current_selling_plan_allocation.selling_plan.id
+  endif
+-%}
+
+<div class="routine-card">
+  <div class="routine-card__step-bg" aria-hidden="true">{{ step_index }}</div>
+  {%- if step_label != blank -%}
+    <div class="routine-card__step-label">{{ step_label }}</div>
+  {%- endif -%}
+
+  <div class="routine-card__image-wrap">
+    <a href="{{ routine_url }}" class="routine-card__image-link">
+      {%- if routine_image != blank -%}
+        <img
+          src="{{ routine_image | image_url: width: 400 }}"
+          alt="{{ routine_title | escape }}"
+          width="400"
+          height="{{ 400 | divided_by: routine_image.aspect_ratio | round }}"
+          loading="lazy"
+          class="routine-card__image"
+        >
+      {%- else -%}
+        <div class="routine-card__placeholder">{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+      {%- endif -%}
+    </a>
+  </div>
+
+  {%- if routine_badge != blank -%}
+    <div class="routine-card__badge">{{ routine_badge }}</div>
+  {%- endif -%}
+
+  <h3 class="routine-card__title">
+    <a href="{{ routine_url }}">{{ routine_title }}</a>
+  </h3>
+  {%- if routine_desc != blank -%}
+    <p class="routine-card__desc">{{ routine_desc }}</p>
+  {%- endif -%}
+
+  <div class="routine-card__actions" data-js-product data-product-handle="{{ routine_product.handle }}" data-product-variant-id="{{ current_variant.id }}">
+    {% form 'product', routine_product, class: 'routine-card__form' %}
+      <input type="hidden" name="id" value="{{ current_variant.id }}">
+      <input type="hidden" name="selling_plan" value="{{ selling_plan_id }}">
+      <div class="routine-card__button-add">
+        <button type="submit" name="add" class="routine-card__cta-btn btn btn--status{% if settings.cart_ajax %} js-product-button-add-to-cart{% endif %}" data-js-product-button-add-to-cart{% if current_variant.available == false %} disabled="disabled" data-button-status="sold-out"{% elsif variant_pre_order %} data-button-status="pre-order"{% endif %}>
+          <span class="d-flex flex-center"><i class="btn__icon mr-5 mb-4">{% render 'icon-theme-109' %}</i><span class="btn__text">{{ 'products.product.add_to_cart.title' | t }}</span></span>
+          <span class="d-flex flex-center" data-button-content="added"><i class="mr-5 mb-4">{% render 'icon-theme-110' %}</i>{{ 'products.product.add_to_cart.added' | t }}</span>
+          <span class="d-flex flex-center" data-button-content="sold-out">{{ 'products.product.add_to_cart.sold_out' | t }}</span>
+          <span class="d-flex flex-center" data-button-content="pre-order"><i class="btn__icon mr-5 mb-4">{% render 'icon-theme-109' %}</i><span class="btn__text">{{ 'products.product.add_to_cart.pre_order' | t }}</span></span>
+        </button>
+      </div>
+    {% endform %}
+  </div>
+</div>

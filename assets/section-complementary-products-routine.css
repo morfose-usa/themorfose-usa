@@ -1,0 +1,398 @@
+/* Complementary products (Routine) - MacBook 13 viewport (~1280px), single CTA per card */
+
+.complementary-routine {
+  padding: 40px 0 56px;
+}
+
+/* Text column narrow, products column wide */
+.complementary-routine__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 300px) 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.complementary-routine__content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 20px;
+  max-width: 300px;
+}
+
+.complementary-routine__title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.complementary-routine__text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+.complementary-routine__text p {
+  margin: 0 0 12px 0;
+}
+
+.complementary-routine__text p:last-child {
+  margin-bottom: 0;
+}
+
+.complementary-routine__dropdown {
+  margin-top: 4px;
+}
+
+.complementary-routine__dropdown-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.complementary-routine__select {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 32px 10px 12px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+
+.complementary-routine__select:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.complementary-routine__products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  min-width: 0;
+}
+
+/* Narrow desktop / small laptop: 2 product columns to fit without overflow */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .complementary-routine__container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .complementary-routine__products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Modern product card - more space, less cramped */
+.routine-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 260px;
+  padding: 22px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-width: 0;
+}
+
+.routine-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.routine-card__step-bg {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  color: #1a1a1a;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.routine-card__step-label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #888;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.routine-card__image-wrap {
+  position: relative;
+  z-index: 0;
+  margin-bottom: 18px;
+}
+
+.routine-card__image-link {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f8f9fa;
+  transition: background 0.2s ease;
+}
+
+.routine-card:hover .routine-card__image-link {
+  background: #f0f1f3;
+}
+
+.routine-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.routine-card:hover .routine-card__image {
+  transform: scale(1.03);
+}
+
+.routine-card__placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #f0f1f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.routine-card__placeholder svg {
+  width: 48px;
+  height: 48px;
+  opacity: 0.2;
+}
+
+.routine-card__badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #666;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  background: #f0f1f3;
+  border-radius: 20px;
+  width: fit-content;
+  z-index: 1;
+}
+
+.routine-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  z-index: 1;
+}
+
+.routine-card__title a {
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.routine-card__title a:hover {
+  color: #000;
+}
+
+.routine-card__desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6b6b6b;
+  margin: 0 0 18px 0;
+  flex-grow: 1;
+  z-index: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.routine-card__actions {
+  margin-top: auto;
+  z-index: 1;
+}
+
+.routine-card__form {
+  margin: 0;
+  width: 100%;
+}
+
+.routine-card__button-add {
+  width: 100%;
+}
+
+/* Modern pill button */
+.routine-card__cta-btn,
+.routine-card__button-add .btn {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-align: center;
+  justify-content: center;
+  color: #1a1a1a;
+  background-color: transparent;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 24px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.routine-card__cta-btn:hover:not(:disabled),
+.routine-card__button-add .btn:hover:not(:disabled) {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
+
+.routine-card__cta-btn:active:not(:disabled),
+.routine-card__button-add .btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.routine-card__button-add .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  color: #999;
+}
+
+/* Mobile - fits small viewport, horizontal scroll cards */
+@media (max-width: 768px) {
+  .complementary-routine {
+    padding: 32px 0 48px;
+  }
+
+  .complementary-routine__container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .complementary-routine__content {
+    position: static;
+  }
+
+  .complementary-routine__title {
+    font-size: 22px;
+  }
+
+  .complementary-routine__text {
+    font-size: 13px;
+  }
+
+  .complementary-routine__select {
+    max-width: 100%;
+  }
+
+  .complementary-routine__products {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+
+  .complementary-routine__products::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .complementary-routine__products::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 2px;
+  }
+
+  .routine-card {
+    flex-shrink: 0;
+    width: 220px;
+    min-width: 220px;
+    scroll-snap-align: start;
+    min-height: 280px;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .routine-card__step-bg {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+    top: 14px;
+    right: 14px;
+  }
+
+  .routine-card__step-label {
+    top: 14px;
+    left: 14px;
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+
+  .routine-card__image-link {
+    border-radius: 10px;
+  }
+
+  .routine-card__title {
+    font-size: 14px;
+  }
+
+  .routine-card__desc {
+    font-size: 12px;
+    -webkit-line-clamp: 2;
+  }
+
+  .routine-card__cta-btn,
+  .routine-card__button-add .btn {
+    padding: 10px 16px;
+    font-size: 10px;
+    border-radius: 20px;
+  }
+}
