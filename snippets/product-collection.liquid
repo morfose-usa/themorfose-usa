@@ -336,7 +336,7 @@
     {%- if template contains 'collection' -%}
         <script type="application/ld+json">
         {
-            "@context": "http://schema.org/",
+            "@context": "https://schema.org",
             "@type": "Product",
             "name": {{ product.title | json }},
             "url": {{ shop.url | append: product.url | json }},
@@ -360,7 +360,7 @@
                     {%- if current_variant.sku != blank -%}
                         "sku": {{ current_variant.sku | json }},
                     {%- endif -%}
-                    "availability" : "http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+                    "availability" : "https://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}",
                     "price" : {{ current_variant.price | divided_by: 100.00 | json }},
                     "priceCurrency" : {{ cart.currency.iso_code | json }},
                     "url" : {{ shop.url | append: current_variant.url | json }}

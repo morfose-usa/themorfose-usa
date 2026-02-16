@@ -1,0 +1,58 @@
+{%- comment -%}
+  Structured data (JSON-LD). Liquid-rendered only — no JavaScript.
+  Ensures markup is present in initial HTML and not lost during JS rendering.
+  Uses https://schema.org throughout for Google compatibility.
+{%- endcomment -%}
+
+{%- comment -%} Organization: site-wide {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.secure_url | json }},
+  {%- if settings.logo_image != blank -%}
+  "logo": {{ settings.logo_image | img_url: '600x' | prepend: 'https:' | json }},
+  {%- endif -%}
+  "description": {{ shop.description | strip_html | truncate: 200 | json }}
+}
+</script>
+
+{%- comment -%} WebSite with SearchAction: site-wide. urlTemplate built in assign to avoid Liquid parsing {{ } in literal. {%- endcomment -%}
+{%- assign search_url_template = shop.secure_url | append: '/search?q=' | append: '{search_term_string}' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.secure_url | json }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": {{ search_url_template | json }}
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+{%- comment -%} Blog: on blog listing pages {%- endcomment -%}
+{%- if template.name == 'blog' or template == 'blog' -%}
+  {%- if blog -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": {{ blog.title | json }},
+  "url": {{ shop.secure_url | append: blog.url | json }},
+  "description": {{ blog.description | strip_html | truncate: 200 | default: blog.title | json }},
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": {{ shop.secure_url | json }}
+  }
+}
+</script>
+  {%- endif -%}
+{%- endif -%}

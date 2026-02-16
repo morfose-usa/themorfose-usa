@@ -43,7 +43,7 @@
 
 <title>{{ title_base }}{%- unless current_tags == blank -%}{%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{%- endunless -%}{%- if current_page != 1 -%} &ndash; {{ 'general.meta.page' | t: page: current_page }}{%- endif -%}{%- unless title_base contains shop.name -%} &ndash; {{ shop.name }}{%- endunless -%}</title>
 
-{%- comment -%} Meta description: page_description first, then template fallbacks {%- endcomment -%}
+{%- comment -%} Meta description: page_description first, then template fallbacks. Always output one tag for indexable pages. {%- endcomment -%}
 {%- assign meta_desc = page_description | strip -%}
 {%- if meta_desc == blank -%}
   {%- if template.name == 'product' and product.description != blank -%}
@@ -56,11 +56,13 @@
     {%- assign meta_desc = page.content | strip_html | truncate: 160 -%}
   {%- elsif template.name == 'index' or template == 'index' -%}
     {%- assign meta_desc = shop.description | strip -%}
+  {%- elsif template.name == 'blog' or template == 'blog' -%}
+    {%- if blog.description != blank -%}
+      {%- assign meta_desc = blog.description | strip_html | truncate: 160 -%}
+    {%- endif -%}
   {%- endif -%}
   {%- if meta_desc == blank -%}
     {%- assign meta_desc = shop.description | default: shop.name -%}
   {%- endif -%}
 {%- endif -%}
-{%- if meta_desc != blank -%}
-  <meta name="description" content="{{ meta_desc | strip_newlines | escape }}">
-{%- endif -%}
+<meta name="description" content="{{ meta_desc | strip_newlines | escape }}">
