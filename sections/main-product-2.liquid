@@ -10,11 +10,32 @@
   assign current_variant = product.selected_or_first_available_variant
 -%}
 
+<div class="morfose-product-v2" id="morfose-product-v2-{{ section.id }}">
+<style>
+  /* Product v2: only our wrapper controls desktop/mobile - single breakpoint 991px */
+  .morfose-product-v2 .morfose-desktop { display: block !important; }
+  .morfose-product-v2 .morfose-mobile { display: none !important; }
+  @media (max-width: 991px) {
+    .morfose-product-v2 .morfose-desktop,
+    .morfose-product-v2 .morfose-desktop__sticky,
+    .morfose-product-v2 #morfose-sticky-desktop {
+      display: none !important;
+      visibility: hidden !important;
+      position: absolute !important;
+      width: 0 !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+      clip: rect(0,0,0,0) !important;
+    }
+    .morfose-product-v2 .morfose-mobile { display: block !important; }
+  }
+</style>
 <!-- Desktop Layout -->
 {%- render 'product-desktop', product: product, current_variant: current_variant, section: section, collection: collection -%}
-
 <!-- Mobile Layout -->
 {%- render 'product-mobile', product: product, current_variant: current_variant, section: section, collection: collection -%}
+</div>
 
 {% schema %}
 {

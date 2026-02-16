@@ -176,18 +176,13 @@
     .morfose-tiktok__card {
       transform: scale(1);
       opacity: 1;
-      width: 200px;
+      width: 280px;
+      min-width: 280px;
     }
     
     .morfose-tiktok__card.is-active {
-      width: 200px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .morfose-tiktok__card,
-    .morfose-tiktok__card.is-active {
-      width: 160px;
+      width: 280px;
+      min-width: 280px;
     }
   }
 
@@ -500,7 +495,7 @@
     height: 18px;
   }
 
-  /* Mobile Adjustments */
+  /* Mobile: same card size for all (no active scaling) */
   @media (max-width: 767px) {
     .morfose-tiktok {
       padding: 40px 0;
@@ -517,8 +512,10 @@
       gap: 15px;
     }
 
-    .morfose-tiktok__card {
-      width: 240px;
+    .morfose-tiktok__card,
+    .morfose-tiktok__card.is-active {
+      width: 280px;
+      min-width: 280px;
     }
 
     .morfose-tiktok__title {

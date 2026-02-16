@@ -49,6 +49,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {% include 'booster-seo' %}
   <meta name="google-site-verification" content="zwoNQbX2j8OOCF3r_8Zy-yH2Xfwc41yrtqDhEUSz1dA" />
  {{ content_for_header }}
+  <script>
+    (function() {
+      var o = window.location.origin;
+      if (o !== 'http://127.0.0.1:9292' && o !== 'http://localhost:9292') return;
+      var origBeacon = navigator.sendBeacon && navigator.sendBeacon.bind(navigator);
+      if (origBeacon) {
+        navigator.sendBeacon = function(url, data) {
+          if (typeof url === 'string' && url.indexOf('/api/collect') !== -1) return true;
+          return origBeacon(url, data);
+        };
+      }
+      var origFetch = window.fetch;
+      if (origFetch) {
+        window.fetch = function(url, opts) {
+          var u = (typeof url === 'string' ? url : (url && url.url));
+          if (u && u.indexOf('/api/collect') !== -1) return Promise.resolve({ ok: true, status: 200 });
+          return origFetch.apply(this, arguments);
+        };
+      }
+    })();
+  </script>
   {% include 'head' %}
 {% render 'weglot_hreftags' %}
 {% render 'weglot_switcher' %}

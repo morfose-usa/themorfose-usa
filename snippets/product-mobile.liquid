@@ -8,15 +8,7 @@
      MOBILE PRODUCT PAGE - OPTIMIZED LAYOUT
      ======================================== */
   
-  .morfose-mobile {
-    display: none;
-  }
-
-  @media (max-width: 991px) {
-    .morfose-mobile {
-      display: block;
-    }
-  }
+  /* Desktop/mobile visibility is controlled by .morfose-product-v2 in main-product-2.liquid */
 
   /* Hide old theme related videos div (injected by app/JS) */
   .ot-related-videos,
@@ -599,8 +591,8 @@
     left: 0;
     right: 0;
     background: #fff;
-    padding: 10px 12px;
-    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    padding: 12px 14px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
     box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
     z-index: 999;
     transform: translateY(100%);
@@ -616,7 +608,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
     max-width: 100%;
     min-height: 0;
   }
@@ -624,18 +616,18 @@
   .morfose-mobile__sticky-left {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex: 1;
     min-width: 0;
     overflow: hidden;
   }
 
   .morfose-mobile__sticky-image {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
     background: #f5f5f5;
-    border-radius: 6px;
+    border-radius: 8px;
     flex-shrink: 0;
   }
 
@@ -643,26 +635,44 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1px;
+    gap: 2px;
     min-width: 0;
     flex: 1;
     overflow: hidden;
   }
 
   .morfose-mobile__sticky-title {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     color: #000;
     margin: 0;
     line-height: 1.25;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
     max-width: 100%;
   }
 
+  .morfose-mobile__sticky-prices {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .morfose-mobile__sticky-compare-price {
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
+    text-decoration: line-through;
+    line-height: 1.2;
+  }
+
   .morfose-mobile__sticky-price {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     color: #ff6b00;
     line-height: 1.2;
@@ -672,8 +682,8 @@
     background: #000;
     color: #fff;
     border: none;
-    padding: 10px 14px;
-    font-size: 10px;
+    padding: 12px 18px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1092,8 +1102,15 @@
           >
         {%- endif -%}
         <div class="morfose-mobile__sticky-info">
-          <h4 class="morfose-mobile__sticky-title" title="{{ product.title | escape }}">{{ product.title | truncate: 32 }}</h4>
-          <span class="morfose-mobile__sticky-price" id="morfose-sticky-price-mobile">{{ current_variant.price | money }}</span>
+          <h4 class="morfose-mobile__sticky-title" title="{{ product.title | escape }}">{{ product.title | truncate: 22 }}</h4>
+          <div class="morfose-mobile__sticky-prices">
+            {%- if current_variant.compare_at_price != blank and current_variant.compare_at_price > current_variant.price -%}
+              <span class="morfose-mobile__sticky-compare-price" id="morfose-sticky-compare-price-mobile">{{ current_variant.compare_at_price | money }}</span>
+            {%- else -%}
+              <span class="morfose-mobile__sticky-compare-price" id="morfose-sticky-compare-price-mobile" style="display: none;"></span>
+            {%- endif -%}
+            <span class="morfose-mobile__sticky-price" id="morfose-sticky-price-mobile">{{ current_variant.price | money }}</span>
+          </div>
         </div>
       </div>
       <button type="button" class="morfose-mobile__sticky-btn" id="morfose-sticky-btn-mobile" {% unless current_variant.available %}disabled{% endunless %}>
@@ -1198,6 +1215,7 @@
       const priceEl = document.getElementById('morfose-price-mobile');
       const comparePriceEl = document.getElementById('morfose-compare-price-mobile');
       const stickyPriceEl = document.getElementById('morfose-sticky-price-mobile');
+      const stickyComparePriceEl = document.getElementById('morfose-sticky-compare-price-mobile');
       
       const price = matchedOption.getAttribute('data-price');
       const comparePrice = matchedOption.getAttribute('data-compare-price');
@@ -1207,6 +1225,10 @@
       if (comparePriceEl) {
         comparePriceEl.style.display = comparePrice ? '' : 'none';
         if (comparePrice) comparePriceEl.textContent = comparePrice;
+      }
+      if (stickyComparePriceEl) {
+        stickyComparePriceEl.style.display = comparePrice ? '' : 'none';
+        if (comparePrice) stickyComparePriceEl.textContent = comparePrice;
       }
       
       // Update buttons
@@ -1220,7 +1242,7 @@
       }
       if (stickyBtn) {
         stickyBtn.disabled = !isAvailable;
-        stickyBtn.querySelector('span').textContent = isAvailable ? 'Add to Bag' : 'Sold Out';
+        stickyBtn.querySelector('span').textContent = isAvailable ? 'ADD TO BAG' : 'SOLD OUT';
       }
       
       // Update image
@@ -1265,16 +1287,13 @@
   const stickyBar = document.getElementById('morfose-sticky-mobile');
   const mainAddBtn = document.querySelector('.morfose-mobile__add-btn');
   const stickyAddBtn = document.getElementById('morfose-sticky-btn-mobile');
-  
   if (stickyBar && mainAddBtn) {
     let ticking = false;
-    
     function checkSticky() {
       const btnRect = mainAddBtn.getBoundingClientRect();
-      const isVisible = btnRect.top < window.innerHeight && btnRect.bottom > 0;
-      stickyBar.classList.toggle('visible', !isVisible);
+      const mainAddBtnInViewport = btnRect.top < window.innerHeight && btnRect.bottom > 0;
+      stickyBar.classList.toggle('visible', !mainAddBtnInViewport);
     }
-    
     window.addEventListener('scroll', function() {
       if (!ticking) {
         window.requestAnimationFrame(function() {
@@ -1284,7 +1303,6 @@
         ticking = true;
       }
     });
-    
     checkSticky();
     
     // Sticky button click
