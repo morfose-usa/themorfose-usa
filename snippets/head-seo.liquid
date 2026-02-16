@@ -1,0 +1,61 @@
+{%- comment -%}
+  Theme-only SEO: title and meta description.
+  Uses Shopify native page_title / page_description and template-based fallbacks.
+  No third-party app dependency.
+{%- endcomment -%}
+
+{%- comment -%} Title: template-based title_base, never empty {%- endcomment -%}
+{%- assign title_base = '' -%}
+{%- if template.name == 'product' and product.title != blank -%}
+  {%- assign title_base = product.title | strip -%}
+{%- elsif template.name == 'collection' and collection.title != blank -%}
+  {%- assign title_base = collection.title | strip -%}
+{%- elsif template.name == 'page' and page.title != blank -%}
+  {%- assign title_base = page.title | strip -%}
+{%- elsif template.name == 'article' and article.title != blank -%}
+  {%- assign title_base = article.title | strip -%}
+{%- elsif template == 'blog' and blog.title != blank -%}
+  {%- assign title_base = blog.title | strip -%}
+{%- elsif template.name == 'list-collections' -%}
+  {%- assign title_base = 'Collections' -%}
+{%- elsif template == 'search' -%}
+  {%- assign title_base = 'Search' -%}
+{%- elsif template == '404' -%}
+  {%- assign title_base = 'Page Not Found' -%}
+{%- elsif template.name == 'cart' -%}
+  {%- assign title_base = 'Cart' -%}
+{%- elsif template.name == 'index' or template == 'index' -%}
+  {%- assign title_base = page_title | strip -%}
+  {%- if title_base == blank -%}
+    {%- assign title_base = 'Home' -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign title_base = page_title | strip -%}
+{%- endif -%}
+{%- if title_base == blank -%}
+  {%- assign title_base = shop.name -%}
+{%- endif -%}
+
+<title>{{ title_base }}{%- unless current_tags == blank -%}{%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{%- endunless -%}{%- if current_page != 1 -%} &ndash; {{ 'general.meta.page' | t: page: current_page }}{%- endif -%}{%- unless title_base contains shop.name -%} &ndash; {{ shop.name }}{%- endunless -%}</title>
+
+{%- comment -%} Meta description: page_description first, then template fallbacks {%- endcomment -%}
+{%- assign meta_desc = page_description | strip -%}
+{%- if meta_desc == blank -%}
+  {%- if template.name == 'product' and product.description != blank -%}
+    {%- assign meta_desc = product.description | strip_html | truncate: 160 -%}
+  {%- elsif template.name == 'collection' and collection.description != blank -%}
+    {%- assign meta_desc = collection.description | strip_html | truncate: 160 -%}
+  {%- elsif template.name == 'article' and article.excerpt_or_content != blank -%}
+    {%- assign meta_desc = article.excerpt_or_content | strip_html | truncate: 160 -%}
+  {%- elsif template.name == 'page' and page.content != blank -%}
+    {%- assign meta_desc = page.content | strip_html | truncate: 160 -%}
+  {%- elsif template.name == 'index' or template == 'index' -%}
+    {%- assign meta_desc = shop.description | strip -%}
+  {%- endif -%}
+  {%- if meta_desc == blank -%}
+    {%- assign meta_desc = shop.description | default: shop.name -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if meta_desc != blank -%}
+  <meta name="description" content="{{ meta_desc | strip_newlines | escape }}">
+{%- endif -%}

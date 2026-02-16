@@ -46,7 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
 <meta name="facebook-domain-verification" content="cx12xo3fnlshwv2qmiz7pa8v1s7pdy" />
 
-{% include 'booster-seo' %}
+{% render 'head-seo' %}
   <meta name="google-site-verification" content="zwoNQbX2j8OOCF3r_8Zy-yH2Xfwc41yrtqDhEUSz1dA" />
  {{ content_for_header }}
   {% include 'head' %}
@@ -237,17 +237,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },1000);
     })
 </script>
-<title>
-{% if template.name == 'product' and product.title %}
-{{ product.title }} | {{ shop.name }}
-{% elsif template.name == 'collection' and collection.title %}
-{{ collection.title }} | {{ shop.name }}
-{% elsif page_title %}
-{{ page_title }} | {{ shop.name }}
-{% else %}
-{{ shop.name }}
-{% endif %}
-</title>
+{% comment %}
+Title tek kaynak: snippets/booster-seo.liquid (çift title ve boş title sorununu önlemek için theme.liquid'deki title kaldırıldı)
+{% endcomment %}
 <!--Product-Label script. Don't modify or delete-->
 {% include 'pagefly-app-header' %}</head>
 <body{% render 'layout-get-body-attributes' %}>
