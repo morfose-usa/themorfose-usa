@@ -4,18 +4,23 @@
   No third-party app dependency.
 {%- endcomment -%}
 
-{%- comment -%} Title: template-based title_base, never empty {%- endcomment -%}
+{%- comment -%} Title: prefer page_title (Search engine listing) then resource title, never empty {%- endcomment -%}
 {%- assign title_base = '' -%}
-{%- if template.name == 'product' and product.title != blank -%}
-  {%- assign title_base = product.title | strip -%}
-{%- elsif template.name == 'collection' and collection.title != blank -%}
-  {%- assign title_base = collection.title | strip -%}
-{%- elsif template.name == 'page' and page.title != blank -%}
-  {%- assign title_base = page.title | strip -%}
-{%- elsif template.name == 'article' and article.title != blank -%}
-  {%- assign title_base = article.title | strip -%}
-{%- elsif template == 'blog' and blog.title != blank -%}
-  {%- assign title_base = blog.title | strip -%}
+{%- if template.name == 'product' -%}
+  {%- assign title_base = page_title | strip -%}
+  {%- if title_base == blank and product.title != blank -%}{%- assign title_base = product.title | strip -%}{%- endif -%}
+{%- elsif template.name == 'collection' -%}
+  {%- assign title_base = page_title | strip -%}
+  {%- if title_base == blank and collection.title != blank -%}{%- assign title_base = collection.title | strip -%}{%- endif -%}
+{%- elsif template.name == 'page' -%}
+  {%- assign title_base = page_title | strip -%}
+  {%- if title_base == blank and page.title != blank -%}{%- assign title_base = page.title | strip -%}{%- endif -%}
+{%- elsif template.name == 'article' -%}
+  {%- assign title_base = page_title | strip -%}
+  {%- if title_base == blank and article.title != blank -%}{%- assign title_base = article.title | strip -%}{%- endif -%}
+{%- elsif template == 'blog' -%}
+  {%- assign title_base = page_title | strip -%}
+  {%- if title_base == blank and blog.title != blank -%}{%- assign title_base = blog.title | strip -%}{%- endif -%}
 {%- elsif template.name == 'list-collections' -%}
   {%- assign title_base = 'Collections' -%}
 {%- elsif template == 'search' -%}
