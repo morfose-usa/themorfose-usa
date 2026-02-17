@@ -2607,6 +2607,10 @@
                 const link = document.createElement('a');
                 link.href = product.url;
                 link.className = 'header-modern__search-result-link';
+                var isExternal = product.url && (product.url.startsWith('http') && !product.url.includes(window.location.hostname));
+                if (isExternal) {
+                    link.rel = 'noopener noreferrer nofollow';
+                }
                 
                 // Image
                 if (product.image) {
