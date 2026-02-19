@@ -30,7 +30,7 @@
     "favicon": "shopify://shop_images/morfose.png",
     "layout_container": "fullwidth",
     "layout_show_breadcrumbs": true,
-    "layout_pagination_type": "infinite_scroll",
+    "layout_pagination_type": "classic",
     "layout_enable_rtl": false,
     "layout_images_lazyload": true,
     "layout_settings_file": "default",
