@@ -85,51 +85,7 @@
 			});
 		</script>
 	{%- endif -%}
-
-	<script type="application/ld+json">
-	{
-	"@context": "https://schema.org",
-	"@type": "Product",
-	"name": {{ product.title | json }},
-	"url": {{ shop.url | append: product.url | json }},
-	{%- if product.featured_media -%}
-		{%- assign media_size = product.featured_media.preview_image.width | append: 'x' -%}
-		"image": [
-		{{ product.featured_media | img_url: media_size | prepend: "https:" | json }}
-		],
-	{%- endif -%}
-	"description": {{ product.description | strip_html | json }},
-	{%- if current_variant.sku != blank -%}
-		"sku": {{ current_variant.sku | json }},
-	{%- endif -%}
-	"brand": {
-		"@type": "Thing",
-		"name": {{ product.vendor | json }}
-	},
-	"offers": [
-		{%- for variant in product.variants -%}
-			{%- if prices -%}
-				{%- assign prices = prices -%}
-				{%- if prices contains variant.price -%}
-					{%- continue -%}
-				{%- endif -%}
-			,
-			{%- endif -%}
-			{
-				"@type" : "Offer",
-				{%- if variant.sku != blank -%}
-				"sku": {{ variant.sku | json }},
-				{%- endif -%}
-				"availability" : "https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
-				"price" : {{ variant.price | divided_by: 100.00 | json }},
-				"priceCurrency" : {{ cart.currency.iso_code | json }},
-				"url" : {{ shop.url | append: variant.url | json }}
-			}
-			{% capture prices %}{{ prices }}{% if prices %}|{% endif %}{{ variant.price }}{% endcapture %}
-		{%- endfor -%}
-	]
-	}
-	</script>
+	{%- comment -%} Product JSON-LD moved to head via snippets/product-json-ld.liquid to prevent loss when body DOM is updated by JS. {%- endcomment -%}
 {%- endif -%}
 
 
