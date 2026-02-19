@@ -526,6 +526,23 @@
           return formatString.replace(placeholderRegex, value);
       };
   }
+
+  theme.ensureLinkRel = function($container) {
+      if (!$container || !$container.length) return;
+      $container.find('a').each(function() {
+          var a = this;
+          var href = a.getAttribute('href');
+          var target = a.getAttribute('target');
+          var isExternal = href && href.indexOf('http') === 0 && href.indexOf(window.location.hostname) === -1;
+          if (target === '_blank' || isExternal) {
+              var rel = (a.getAttribute('rel') || '').trim();
+              if (rel.indexOf('noopener') === -1) rel = (rel + ' noopener noreferrer').trim();
+              if (isExternal && rel.indexOf('nofollow') === -1) rel = (rel + ' nofollow').trim();
+              a.setAttribute('rel', rel);
+          }
+      });
+  };
+
   
   window.theme = window.theme || {};
   
@@ -1369,6 +1386,7 @@
       },
       insertContent: function ($content, data) {
           $content.html(data);
+          theme.ensureLinkRel($content);
       }
   });
       
@@ -1904,11 +1922,12 @@
               cache: false,
               success: function(data) {
                   $content.html(data);
+                  theme.ensureLinkRel($content);
                   theme.LazyImage.update();
                   if(theme.MultiCurrency) {
                       theme.MultiCurrency.update();
                   }
-  
+
                   if(callback) {
                       callback();
                   }
@@ -2948,6 +2967,7 @@
           if(this.$popup.length) {
               return this.getPopupContent().then(data => {
                   this.$popup.html($(data).find(this.selectorPopup).html());
+                  theme.ensureLinkRel(this.$popup);
                   if(theme.MultiCurrency) {
                       theme.MultiCurrency.update();
                   }
@@ -2962,6 +2982,7 @@
           if(this.$page.length) {
               return this.getPageContent().then(data => {
                   this.$page.html($(data).find(this.selectorPage).html());
+                  theme.ensureLinkRel(this.$page);
                   theme.LazyImage.update();
               });
           } else {

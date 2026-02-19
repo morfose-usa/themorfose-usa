@@ -258,12 +258,12 @@
 
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "Article",
   "articleBody": {{ article.content | strip_html | json }},
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": {{ shop.url | append: page.url | json }}
+    "@id": {{ shop.secure_url | append: article.url | json }}
   },
   "headline": {{ article.title | json }},
   {% if article.excerpt != blank %}

@@ -1504,7 +1504,17 @@ if ((typeof SECOMAPP) == 'undefined') {
                     newNode.appendChild(textElement);
                   }
                 if (label.link?.length > 0) {
-                    newNode.addEventListener("click", function(){ window.open(label.link, '_blank'); });
+                    var isExternal = label.link.startsWith('http') && !label.link.includes(window.location.hostname);
+                    newNode.addEventListener("click", function(){ 
+                        var link = document.createElement('a');
+                        link.href = label.link;
+                        link.target = '_blank';
+                        link.rel = 'noopener noreferrer' + (isExternal ? ' nofollow' : '');
+                        link.style.display = 'none';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    });
                 }
                 if (label.tooltip?.length > 0) {
                     var tooltipElement = document.createElement("span");

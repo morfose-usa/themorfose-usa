@@ -80,6 +80,12 @@
 <script>
     theme.AssetsLoader.loadInlineStyles();
 </script>
+{%- comment -%} Newsletter/subscription form gizlenir: ürün sayfasında header ile içerik arasında çirkin görünüm oluşturmasın. {%- endcomment -%}
+{%- assign hide_on_product = false -%}
+{%- if template.name == 'product' or request.page_type == 'product' -%}
+  {%- assign hide_on_product = true -%}
+{%- endif -%}
+{%- unless hide_on_product -%}
 <div data-section-id="{{ section.id }}" data-section-type="subscription-form">
     <div class="subscription-form subscription-form--style-{{ section.settings.style }}">
         <div class="container py-20">
@@ -120,6 +126,7 @@
         {%- endif -%}
     </div>
 </div>
+{%- endunless -%}
 
 
 {% schema %}

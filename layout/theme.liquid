@@ -46,8 +46,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
 <meta name="facebook-domain-verification" content="cx12xo3fnlshwv2qmiz7pa8v1s7pdy" />
 
-{% include 'booster-seo' %}
+{% render 'head-seo' %}
+{% render 'head-structured-data' %}
   <meta name="google-site-verification" content="zwoNQbX2j8OOCF3r_8Zy-yH2Xfwc41yrtqDhEUSz1dA" />
+{%- if template.name == 'product' -%}
+  <style>.template-product [data-section-type="subscription-form"]{display:none!important}</style>
+{%- endif -%}
+{%- comment -%} Footer ve newsletter sayfa akışında: fixed footer kapatılır, scroll ile birlikte hareket eder. {%- endcomment -%}
+<style>.footer--fixed{position:static!important}#MainContent{margin-bottom:0!important}</style>
  {{ content_for_header }}
   {% include 'head' %}
 {% render 'weglot_hreftags' %}
@@ -237,17 +243,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },1000);
     })
 </script>
-<title>
-{% if template.name == 'product' and product.title %}
-{{ product.title }} | {{ shop.name }}
-{% elsif template.name == 'collection' and collection.title %}
-{{ collection.title }} | {{ shop.name }}
-{% elsif page_title %}
-{{ page_title }} | {{ shop.name }}
-{% else %}
-{{ shop.name }}
-{% endif %}
-</title>
+{% comment %}
+Title ve meta description tek kaynak: snippets/head-seo.liquid (tema ile, 3. parti uygulama yok)
+{% endcomment %}
 <!--Product-Label script. Don't modify or delete-->
 {% include 'pagefly-app-header' %}</head>
 <body{% render 'layout-get-body-attributes' %}>

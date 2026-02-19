@@ -366,10 +366,20 @@
 
       activeFacetElementSelectors.forEach((selector) => {
         const activeFacetsElement = html.querySelector(selector);
+        const targetElement = document.querySelector(selector);
         
-        if (!activeFacetsElement) return;
+        if (!activeFacetsElement || !targetElement) return;
         
-        document.querySelector(selector).innerHTML = activeFacetsElement.innerHTML;
+        // Preserve link attributes for SEO
+        const links = activeFacetsElement.querySelectorAll('a');
+        links.forEach(function(link) {
+          const href = link.getAttribute('href');
+          if(href && (href.startsWith('http') && !href.includes(window.location.hostname))) {
+            link.setAttribute('rel', 'noopener noreferrer nofollow');
+          }
+        });
+        
+        targetElement.innerHTML = activeFacetsElement.innerHTML;
       });
 
       this.toggleActiveFacets(false);
@@ -377,16 +387,42 @@
 
     renderPagination(html) {
       const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
+      const paginationElement = document.getElementById('CollectionPagination');
+      const newPaginationContent = parsedHTML.getElementById('CollectionPagination');
 
-      document.getElementById('CollectionPagination').innerHTML = parsedHTML.getElementById('CollectionPagination').innerHTML;
+      if(paginationElement && newPaginationContent) {
+        // Preserve existing links' rel attributes and external link status
+        const existingLinks = paginationElement.querySelectorAll('a');
+        const newLinks = newPaginationContent.querySelectorAll('a');
+        
+        // Apply rel attributes to new links if they're external
+        newLinks.forEach(function(newLink) {
+          const href = newLink.getAttribute('href');
+          if(href && (href.startsWith('http') && !href.includes(window.location.hostname))) {
+            newLink.setAttribute('rel', 'noopener noreferrer nofollow');
+          }
+        });
+        
+        paginationElement.innerHTML = newPaginationContent.innerHTML;
+      }
     }
 
     renderBreadcrumbs(html) {
       const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
       const collectionBreadcrumbs = document.getElementById('CollectionBreadcrumbs');
+      const newBreadcrumbsContent = parsedHTML.getElementById('CollectionBreadcrumbs');
 
-      if(collectionBreadcrumbs) {
-        collectionBreadcrumbs.innerHTML = parsedHTML.getElementById('CollectionBreadcrumbs').innerHTML;
+      if(collectionBreadcrumbs && newBreadcrumbsContent) {
+        // Preserve link attributes for SEO
+        const newLinks = newBreadcrumbsContent.querySelectorAll('a');
+        newLinks.forEach(function(link) {
+          const href = link.getAttribute('href');
+          if(href && (href.startsWith('http') && !href.includes(window.location.hostname))) {
+            link.setAttribute('rel', 'noopener noreferrer nofollow');
+          }
+        });
+        
+        collectionBreadcrumbs.innerHTML = newBreadcrumbsContent.innerHTML;
       }
     }
 

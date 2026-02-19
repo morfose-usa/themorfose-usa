@@ -1,0 +1,172 @@
+{% include 'global-variables' %}
+{%- assign blog = blogs[section.settings.blog] -%}
+{%- if blog != blank and blog.articles_count > 0 -%}
+  <div class="home-blog-modern" data-section-id="{{ section.id }}" data-section-type="home-blog-modern">
+    <div{% render 'layout-get-container-class', fullwidth_need_paddings: true %}>
+      {%- if section.settings.title != blank or section.settings.show_view_all -%}
+        <div class="home-blog-modern__head row align-items-end justify-content-between mb-30">
+          <div class="col-auto">
+            {%- if section.settings.title != blank -%}
+              <h2 class="home-blog-modern__title h4 mb-0">{{ section.settings.title }}</h2>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.show_view_all -%}
+            <div class="col-auto mt-15 mt-sm-0">
+              <a href="{{ blog.url }}" class="home-blog-modern__link link link--arrow">{{ section.settings.view_all_text | default: 'View all' }}</a>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="row home-blog-modern__grid">
+        {%- assign articles_to_show = section.settings.posts_count | at_most: 6 -%}
+        {%- for article in blog.articles limit: articles_to_show -%}
+          <div class="home-blog-modern__card col-12 col-sm-6 col-lg-4 mb-25 mb-lg-30">
+            <article class="home-blog-modern__card-inner h-100 d-flex flex-column">
+              <a href="{{ article.url }}" class="home-blog-modern__image-wrap d-block overflow-hidden mb-15">
+                {%- if article.image != blank -%}
+                  {% render 'rimage' with image: article.image size: section.settings.image_size | default: '500x' format: 'pjpg' alt: article.title %}
+                {%- else -%}
+                  <div class="home-blog-modern__placeholder rimage rimage--placeholder" style="padding-top: 56.25%; background: var(--theme5, #eee);"></div>
+                {%- endif -%}
+              </a>
+              <div class="home-blog-modern__body d-flex flex-column flex-grow-1">
+                {%- if section.settings.show_date -%}
+                  <time class="home-blog-modern__date mb-10" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b %d, %Y' }}</time>
+                {%- endif -%}
+                <h3 class="home-blog-modern__card-title h5 mt-0 mb-10 flex-grow-1">
+                  <a href="{{ article.url }}" class="home-blog-modern__card-link">{{ article.title }}</a>
+                </h3>
+                {%- if section.settings.show_excerpt and article.excerpt_or_content != blank -%}
+                  <div class="home-blog-modern__excerpt rte mb-15">
+                    {{ article.excerpt_or_content | strip_html | truncate: section.settings.excerpt_length }}
+                  </div>
+                {%- endif -%}
+                <a href="{{ article.url }}" class="home-blog-modern__read-more link link--arrow mt-auto">{{ section.settings.read_more_text | default: 'Read more' }}</a>
+              </div>
+            </article>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .home-blog-modern__title { color: var(--theme-head-c, inherit); }
+    .home-blog-modern__card-inner { background: var(--theme-body, #fff); border-radius: 8px; padding: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: box-shadow 0.2s ease; }
+    .home-blog-modern__card-inner:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .home-blog-modern__image-wrap { border-radius: 8px 8px 0 0; }
+    .home-blog-modern__image-wrap .rimage { border-radius: 8px 8px 0 0; }
+    .home-blog-modern__body { padding: 0 20px 20px; }
+    .home-blog-modern__date { font-size: 0.85em; color: var(--theme3, #666); }
+    .home-blog-modern__card-title .home-blog-modern__card-link { color: var(--theme-head-c, inherit); text-decoration: none; }
+    .home-blog-modern__card-title .home-blog-modern__card-link:hover { color: var(--theme-primary, inherit); }
+    .home-blog-modern__excerpt { font-size: 0.95em; color: var(--theme-c, #333); line-height: 1.5; }
+    .home-blog-modern__read-more { font-size: 0.9em; font-weight: 500; }
+    .home-blog-modern__link { font-weight: 500; }
+  </style>
+{%- else -%}
+  <div class="home-blog-modern" data-section-id="{{ section.id }}" data-section-type="home-blog-modern">
+    <div{% render 'layout-get-container-class', fullwidth_need_paddings: true %}>
+      <div class="row">
+        {% render 'no-blocks' with message: 'homepage.onboarding.no_content_message.carousel_articles' %}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Blog posts (Home)",
+  "tag": "section",
+  "class": "section-home-blog-modern",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Anasayfada blog yazılarını en altta gösterir. Tema Özelleştirici > Anasayfa > Bölüm ekle ile ekleyip en alta sürükleyin."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "From the blog"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "posts_count",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Number of posts",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show excerpt",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "excerpt_length",
+      "min": 60,
+      "max": 200,
+      "step": 20,
+      "label": "Excerpt length",
+      "default": 120
+    },
+    {
+      "type": "text",
+      "id": "read_more_text",
+      "label": "Read more button text",
+      "default": "Read more"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show \"View all\" link",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View all link text",
+      "default": "View all"
+    },
+    {
+      "type": "text",
+      "id": "image_size",
+      "label": "Image size (e.g. 500x)",
+      "default": "500x",
+      "info": "Width x height, e.g. 500x300"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog posts (Home)",
+      "category": "Blog",
+      "settings": {
+        "title": "From the blog",
+        "posts_count": 3,
+        "show_date": true,
+        "show_excerpt": true,
+        "excerpt_length": 120,
+        "read_more_text": "Read more",
+        "show_view_all": true,
+        "view_all_text": "View all"
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,29 @@
+{%- comment -%}
+  External link snippet with SEO-friendly attributes
+  Usage: {% render 'link-external', url: 'https://example.com', text: 'Link Text', nofollow: true %}
+{%- endcomment -%}
+
+{%- assign is_external = false -%}
+{%- if url contains 'http' or url contains 'https' -%}
+  {%- unless url contains shop.domain or url contains shop.permanent_domain or url contains 'myshopify.com' -%}
+    {%- assign is_external = true -%}
+  {%- endunless -%}
+{%- endif -%}
+
+{%- assign rel_attrs = '' -%}
+{%- if is_external -%}
+  {%- assign rel_attrs = 'noopener noreferrer' -%}
+  {%- if nofollow -%}
+    {%- assign rel_attrs = rel_attrs | append: ' nofollow' -%}
+  {%- endif -%}
+{%- elsif target == '_blank' -%}
+  {%- assign rel_attrs = 'noopener' -%}
+{%- endif -%}
+
+<a href="{{ url }}" 
+   {% if target %}target="{{ target }}"{% endif %}
+   {% if rel_attrs != '' %}rel="{{ rel_attrs }}"{% endif %}
+   {% if class %}class="{{ class }}"{% endif %}
+   {% if id %}id="{{ id }}"{% endif %}>
+  {{ text | default: url }}
+</a>
