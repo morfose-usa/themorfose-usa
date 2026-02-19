@@ -73,7 +73,7 @@
     </nav>
 {%- elsif type == 'infinite_scroll' -%}
   <nav class="pagination d-flex justify-content-center {{ pagination_margin }} pointer-events-none">
-    {%- if paginate.next.is_link -%}
+    {%- if paginate.next -%}
       <collection-pagination-item>
         <a href="{{ paginate.next.url }}{{ anchor }}" class="btn js-append-content" aria-label="{{ 'general.pagination.next' | t }}">
           <span>{{ 'general.pagination.infinite_scroll' | t }}</span>
