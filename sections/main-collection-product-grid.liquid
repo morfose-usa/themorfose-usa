@@ -515,12 +515,16 @@
     </script>
 {%- endif -%}
 {% if collection.metafields.custom.seo_category_text %}
+  {%- comment -%}
+    SEO / okunabilirlik: İçerik her zaman tam HTML'de; varsayılan tam görünür.
+    JS çalışıyorsa ve içerik yüksekse kısaltılıp "Read more" gösterilir (progressive enhancement).
+  {%- endcomment -%}
   <div class="collection-bottom-description-wrapper" style="margin-top:40px;">
-    <div class="collection-bottom-description">
+    <div class="collection-bottom-description" id="collection-seo-description" data-read-more-max="250">
       {{ collection.metafields.custom.seo_category_text | metafield_tag }}
     </div>
 
-    <button class="read-more-btn" onclick="toggleSeoText(this)">
+    <button type="button" class="read-more-btn collection-read-more-btn" aria-expanded="false" aria-controls="collection-seo-description" style="display: none;">
       Read more
     </button>
   </div>
@@ -532,17 +536,18 @@
       position: relative;
     }
 
-    .collection-bottom-description {
-      max-height: 250px; /* ilk gösterimde kısaltılmış alan */
+    .collection-bottom-description.collection-bottom-description--collapsed {
+      max-height: 250px;
       overflow: hidden;
       transition: max-height 0.4s ease;
     }
 
-    .collection-bottom-description.expanded {
-      max-height: none; /* tam açılmış hali */
+    .collection-bottom-description.expanded,
+    .collection-bottom-description:not(.collection-bottom-description--collapsed) {
+      max-height: none;
     }
 
-    .read-more-btn {
+    .read-more-btn.collection-read-more-btn {
       display: block;
       margin: 15px auto 0;
       background: none;
@@ -555,7 +560,7 @@
       transition: all 0.3s ease;
     }
 
-    .read-more-btn:hover {
+    .read-more-btn.collection-read-more-btn:hover {
       background: #333;
       color: #fff;
     }
@@ -588,11 +593,30 @@
   </style>
 
   <script>
-    function toggleSeoText(btn) {
-      const desc = btn.previousElementSibling;
-      desc.classList.toggle("expanded");
-      btn.textContent = desc.classList.contains("expanded") ? "Show less" : "Read more";
-    }
+    (function() {
+      function initCollectionReadMore() {
+        var desc = document.getElementById('collection-seo-description');
+        var btn = desc && desc.parentElement && desc.parentElement.querySelector('.collection-read-more-btn');
+        if (!desc || !btn) return;
+        var max = parseInt(desc.getAttribute('data-read-more-max'), 10) || 250;
+        if (desc.offsetHeight > max) {
+          desc.classList.add('collection-bottom-description--collapsed');
+          btn.style.display = 'block';
+          btn.setAttribute('aria-expanded', 'false');
+          btn.addEventListener('click', function() {
+            var expanded = desc.classList.toggle('expanded');
+            desc.classList.toggle('collection-bottom-description--collapsed', !expanded);
+            btn.textContent = expanded ? 'Show less' : 'Read more';
+            btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          });
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCollectionReadMore);
+      } else {
+        initCollectionReadMore();
+      }
+    })();
   </script>
 {% endif %}
 

@@ -125,6 +125,7 @@
             {%- endfor -%}
         {%- endunless -%}
 
+        {%- if recommendations.products_count > 0 or rec_fallback_found -%}
         <carousel-products class="d-block" data-section-id="{{ section.id }}" data-section-type="carousel-products">
             <div class="product-recommendations" data-product-id="{{ product.id }}" data-limit="{{ section.settings.max_count }}">
                 {%- if recommendations.products_count > 0 -%}
@@ -230,6 +231,7 @@
         <script>
             theme.AssetsLoader.require('scripts', 'carousel_products');
         </script>
+        {%- endif -%}
     {%- endif -%}
 {%- endif -%}
 
