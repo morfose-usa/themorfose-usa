@@ -54,15 +54,80 @@
     {%- assign meta_desc = article.excerpt_or_content | strip_html | truncate: 160 -%}
   {%- elsif template.name == 'page' and page.content != blank -%}
     {%- assign meta_desc = page.content | strip_html | truncate: 160 -%}
-  {%- elsif template.name == 'index' or template == 'index' -%}
-    {%- assign meta_desc = shop.description | strip -%}
   {%- elsif template.name == 'blog' or template == 'blog' -%}
     {%- if blog.description != blank -%}
       {%- assign meta_desc = blog.description | strip_html | truncate: 160 -%}
     {%- endif -%}
   {%- endif -%}
+  {%- comment -%} Template/handle-specific defaults to avoid duplicate meta descriptions (no single fallback for all pages) {%- endcomment -%}
   {%- if meta_desc == blank -%}
-    {%- assign meta_desc = shop.description | default: shop.name -%}
+    {%- if template.name == 'index' or template == 'index' -%}
+      {%- assign meta_desc = 'Shop the full Morfose collection—professional hair-care essentials for hydration, repair, and styling.' -%}
+    {%- elsif template.name == 'list-collections' -%}
+      {%- assign meta_desc = 'Explore Morfose collections—professional hair-care for hydration, repair, and styling.' -%}
+    {%- elsif template.name == 'page' -%}
+      {%- if page.handle == 'contact' -%}
+        {%- assign meta_desc = 'Contact Morfose. Our support team is here to help with orders and product guidance.' -%}
+      {%- elsif page.handle == 'faqs' -%}
+        {%- assign meta_desc = 'Find answers to FAQs on shipping, returns, products, and customer support.' -%}
+      {%- endif -%}
+    {%- elsif template.name == 'collection' and collection -%}
+      {%- if current_page != blank and current_page > 1 -%}
+        {%- if collection.handle == 'all' -%}
+          {%- assign meta_desc = 'Explore more Morfose hair-care favorites with pro-grade formulas for styling, repair, and hydration.' -%}
+        {%- elsif collection.handle == 'conditioners-masks' -%}
+          {%- assign meta_desc = 'Explore more Morfose conditioners and repair masks crafted to hydrate and revive damaged hair.' -%}
+        {%- elsif collection.handle == 'styling-creams' -%}
+          {%- assign meta_desc = 'Explore more styling creams for frizz control, shine, and effortless definition.' -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- if meta_desc == blank -%}
+        {%- if collection.handle == 'all' -%}
+          {%- assign meta_desc = 'Shop the full Morfose collection—professional hair-care essentials for hydration, repair, and styling.' -%}
+        {%- elsif collection.handle == 'conditioners-masks' -%}
+          {%- assign meta_desc = 'Deep-condition and restore your hair with Morfose masks for silky, hydrated results.' -%}
+        {%- elsif collection.handle == 'hair-mousse' -%}
+          {%- assign meta_desc = 'Shop volumizing hair mousses for long-lasting hold, texture, and natural movement.' -%}
+        {%- elsif collection.handle == 'oxidants-color-cream' -%}
+          {%- assign meta_desc = 'Discover professional oxidants and color creams for vibrant, even, long-lasting color.' -%}
+        {%- elsif collection.handle == 'protein-repair-masks' -%}
+          {%- assign meta_desc = 'Strengthen damaged hair with protein-rich masks for smoother, healthier strands.' -%}
+        {%- elsif collection.handle == 'styling-creams' -%}
+          {%- assign meta_desc = 'Define, smooth, and control your hair with Morfose styling creams for all textures.' -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- elsif template.name == 'product' and product -%}
+      {%- if product.handle == 'save-10' -%}
+        {%- assign meta_desc = 'Save on Morfose hair-care essentials for smoother, shinier, hydrated hair.' -%}
+      {%- elsif product.handle == 'save-30' -%}
+        {%- assign meta_desc = 'Get premium Morfose products at 30% off with professional-grade results.' -%}
+      {%- elsif product.handle == 'save-5' -%}
+        {%- assign meta_desc = 'Limited-time savings on Morfose favorites with salon-quality performance.' -%}
+      {%- elsif product.handle == 'save-75' -%}
+        {%- assign meta_desc = 'Huge savings on select Morfose items—stock up while supplies last.' -%}
+      {%- elsif product.handle == 'morfose-professional-hair-mousse' -%}
+        {%- assign meta_desc = 'Professional Morfose hair mousse for hold, volume, and natural movement.' -%}
+      {%- elsif product.handle == 'morfose-professional-hair-mousse-ultra-strong' -%}
+        {%- assign meta_desc = 'Morfose ultra-strong hair mousse for maximum hold and long-lasting style.' -%}
+      {%- endif -%}
+    {%- elsif template.name == 'blog' or template == 'blog' -%}
+      {%- if blog.handle == 'how-to' -%}
+        {%- assign meta_desc = 'Learn expert hair-care tips, styling guides, and product routines designed for healthier, shinier results.' -%}
+      {%- elsif blog.handle == 'news' -%}
+        {%- if current_page != blank and current_page > 1 -%}
+          {%- assign meta_desc = 'Stay updated with Morfose news, beauty trends, and product innovations for hair-care lovers and professionals.' -%}
+        {%- else -%}
+          {%- assign meta_desc = 'Discover the latest Morfose updates, product launches, and industry insights shaping modern hair care.' -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- elsif template.name == 'article' and article -%}
+      {%- if article.handle == 'ambassador-program' -%}
+        {%- assign meta_desc = 'Join the Morfose Ambassador Program for rewards, early product access, and exclusive brand opportunities.' -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- if meta_desc == blank -%}
+      {%- assign meta_desc = shop.description | default: shop.name -%}
+    {%- endif -%}
   {%- endif -%}
 {%- endif -%}
 <meta name="description" content="{{ meta_desc | strip_newlines | escape }}">
