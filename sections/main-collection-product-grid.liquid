@@ -59,7 +59,7 @@
                         </div>
                     {%- endif -%}
                     <div class="collections__body col pb-25">
-                        <div id="CollectionHeadingProductsGridWidth"></div>
+                        <div id="CollectionHeadingProductsGridWidth"><noscript>{% render 'collection-heading-seo-fallback' %}</noscript></div>
                         {%- if section.settings.view_grid_visibility != 'hide' -%} 
                             {%- for bp in breakpoints -%}
                                     {% capture grid_attrs %}{{ grid_attrs }} data-value-{{ bp }}="{{ grid_values[forloop.index0] }}"{% endcapture %}
