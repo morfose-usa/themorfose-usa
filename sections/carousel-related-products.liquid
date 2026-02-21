@@ -100,12 +100,31 @@
         {%- endif -%}
     {%- elsif section.settings.type == 'recommendations' -%}
         {% comment %}
-        {%- assign limit = section.settings.max_count -%}
-        {%- if size_of_columns > section.settings.max_count -%}
-            {%- assign limit = size_of_columns -%}
-        {%- endif -%}
+        Progressive enhancement: initial HTML always has content (related products from same collection).
+        When JS runs, AJAX replaces this with Shopify recommendations. When JS is off, fallback stays — no content loss.
         {% endcomment %}
         {%- assign limit = section.settings.size_of_columns | abs | at_most: section.settings.max_count | plus: 1 -%}
+        {%- assign rec_fallback_collection = nil -%}
+        {%- assign rec_fallback_found = false -%}
+        {%- if product.metafields.c_f['Related Products'] -%}
+            {%- assign rec_fallback_collection = collections[product.metafields.c_f['Related Products']] -%}
+        {%- endif -%}
+        {%- assign rec_exclusions = 'frontpage,all' | split: ',' -%}
+        {%- if rec_fallback_collection and rec_fallback_collection.all_products_count > 1 -%}
+            {%- unless rec_exclusions contains rec_fallback_collection.handle -%}
+                {%- assign rec_fallback_found = true -%}
+            {%- endunless -%}
+        {%- endif -%}
+        {%- unless rec_fallback_found -%}
+            {%- for c in product.collections -%}
+                {%- unless rec_exclusions contains c.handle or c.all_products_count < 2 -%}
+                    {%- assign rec_fallback_found = true -%}
+                    {%- assign rec_fallback_collection = c -%}
+                    {%- break -%}
+                {%- endunless -%}
+            {%- endfor -%}
+        {%- endunless -%}
+
         <carousel-products class="d-block" data-section-id="{{ section.id }}" data-section-type="carousel-products">
             <div class="product-recommendations" data-product-id="{{ product.id }}" data-limit="{{ section.settings.max_count }}">
                 {%- if recommendations.products_count > 0 -%}
@@ -144,6 +163,54 @@
                                                 {%- else -%}
                                                     <div class="carousel__item col-auto" data-handle="{{ product.handle }}"></div>
                                                 {%- endif -%}
+                                            {%- endfor -%}
+                                        </div>
+                                    </div>
+                                    {%- if section.settings.arrows -%}
+                                        <div class="carousel__next-placeholder position-absolute cursor-pointer" data-js-carousel-next></div>
+                                        <div class="carousel__next position-absolute pointer-events-none" data-js-carousel-arrow><i>{% render 'icon-theme-007' %}</i></div>
+                                    {%- endif -%}
+                                </div>
+                                {% include 'preloader-spinner' %}
+                            </div>
+                        </div>
+                    </div>
+                {%- elsif rec_fallback_found -%}
+                    {%- assign rec_current_product = product -%}
+                    {%- assign rec_counter = 0 -%}
+                    <div class="container">
+                        <div class="carousel{% if section.settings.arrows %} carousel--arrows{% endif %} carousel-products position-relative mt-30 pb-60 mt-lg-0">
+                            {%- if product_page_related_show_border -%}
+                                <div class="border-top mb-50"></div>
+                            {%- endif -%}
+                            <div class="carousel__head row justify-content-center mb-25">
+                                <h2 class="h4 carousel__title home-section-title col-auto mb-10 text-center">{{ section.settings.title }}</h2>
+                            </div>
+                            <div class="carousel__slider_wrapper position-relative">
+                                <div class="carousel__slider position-relative invisible js-slider-tracking"
+                                     data-js-carousel
+                                     data-autoplay="{{ section.settings.autoplay }}"
+                                     data-speed="{{ section.settings.speed | times: 1000 }}"
+                                     data-count="{{ section.settings.size_of_columns }}"
+                                     data-infinite="{{ section.settings.infinite }}"
+                                     data-arrows="{{ section.settings.arrows }}"
+                                     data-bullets="{{ section.settings.bullets }}">
+                                    {%- if section.settings.arrows -%}
+                                        <div class="carousel__prev-placeholder position-absolute cursor-pointer" data-js-carousel-prev></div>
+                                        <div class="carousel__prev position-absolute pointer-events-none" data-js-carousel-arrow><i>{% render 'icon-theme-006' %}</i></div>
+                                    {%- endif -%}
+                                    <div class="carousel__products overflow-hidden">
+                                        <div class="carousel__slick row" data-js-carousel-slick data-carousel-products-items data-max-count="{{ section.settings.max_count }}" data-products-pre-row="{{ section.settings.size_of_columns }}" data-async-ajax-loading="{{ carousel_related_products_async_ajax_loading }}">
+                                            {%- for product in rec_fallback_collection.products -%}
+                                                {%- unless product.handle == rec_current_product.handle -%}
+                                                    {%- if rec_counter < section.settings.max_count -%}
+                                                        <div class="carousel__item col-auto">
+                                                            {%- assign disable_lazyload = carousel_related_products_image_lazyload_carousel_disable -%}
+                                                            {% include 'product-collection' with url_without_collection: true %}
+                                                        </div>
+                                                        {%- assign rec_counter = rec_counter | plus: 1 -%}
+                                                    {%- endif -%}
+                                                {%- endunless -%}
                                             {%- endfor -%}
                                         </div>
                                     </div>

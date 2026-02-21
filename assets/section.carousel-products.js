@@ -45,7 +45,11 @@
                         success: function (data) {
                             data = data.replace(/<carousel-products/g, '<div').replace(/<\/carousel-products/g, '<\/div');
                             
-                            $recommendations.html($(data).find('.product-recommendations').html());
+                            var $recommendationsContent = $(data).find('.product-recommendations').html();
+                            // Only replace when we have content — avoid wiping fallback with empty response (no content loss)
+                            if ($recommendationsContent && $recommendationsContent.trim().length > 0) {
+                                $recommendations.html($recommendationsContent);
+                            }
 
                             _.initCarousel();
 
@@ -56,6 +60,10 @@
                             if (theme.Tooltip) {
                                 theme.Tooltip.init();
                             }
+                        },
+                        error: function() {
+                            // Keep fallback content; still init carousel on it so UX is consistent
+                            _.initCarousel();
                         }
                     });
                 } else {
