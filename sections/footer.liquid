@@ -312,6 +312,25 @@
             </div>
         {%- endcapture -%}
         {%- assign menus = menus | append: menu_html -%}
+    {%- when 'collections_link' -%}
+        {%- comment -%} SEO: 2-click depth to all collections from any page (Home -> Collections -> Collection -> Product = 3 clicks). {%- endcomment -%}
+        {%- capture collections_link_html -%}
+            <div class="footer__border d-lg-none"></div>
+            <div class="col-lg{% if block.settings.size > 0 %}-{{ block.settings.size }}{% endif %}">
+                <div class="footer__section" data-js-accordion="only-mobile">
+                    <div class="footer__section-head position-relative" data-js-accordion-button>
+                        <h5 class="{% if block.settings.show_title_on_desktop != true %}d-lg-none {% endif %}py-10 py-lg-0 mb-0 mb-lg-10 text-uppercase">{{ block.settings.title | default: 'Collections' }}</h5>
+                        {{ section_btn_close }}
+                    </div>
+                    <div class="footer__section-content d-none d-lg-block" data-js-accordion-content>
+                        <ul class="list-unstyled pb-15 pb-lg-0">
+                            <li class="py-5 py-lg-0"><a href="{{ routes.collections_url }}">{{ block.settings.link_text | default: 'All collections' }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {%- endcapture -%}
+        {%- assign menus = menus | append: collections_link_html -%}
     {%- when 'custom_html' -%}
         {%- capture custom_html -%}
             <div class="footer__border row d-lg-none"></div>
@@ -903,6 +922,41 @@
 "step": 1,
 "label": "Rows limit",
 "info": "0 - disable",
+"default": 0
+}
+]
+},
+{
+"type": "collections_link",
+"name": "Collections link",
+"limit": 1,
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Title",
+"default": "Shop"
+},
+{
+"type": "text",
+"id": "link_text",
+"label": "Link text",
+"default": "All collections"
+},
+{
+"type": "checkbox",
+"id": "show_title_on_desktop",
+"label": "Show title on the desktop",
+"default": true
+},
+{
+"type": "range",
+"id": "size",
+"min": 0,
+"max": 12,
+"step": 1,
+"label": "Column size",
+"info": "0 - is auto size",
 "default": 0
 }
 ]

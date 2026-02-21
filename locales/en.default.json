@@ -469,7 +469,8 @@
       "create_account": "SING UP NOW"
     },
     "breadcrumbs": {
-      "home": "Home"
+      "home": "Home",
+      "collections": "Collections"
     },
     "header": {
       "cart_count": "Bag ({{ count }})",

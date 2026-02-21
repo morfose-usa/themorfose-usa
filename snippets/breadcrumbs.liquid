@@ -7,11 +7,28 @@
                     {%- if template contains 'page' -%}
                         <li><span>{{ page.title }}</span></li>
                     {%- elsif template contains 'product' -%}
-                        {%- if collection.url -%}
-                            <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+                        <li><a href="{{ routes.collections_url }}">{{ 'layout.breadcrumbs.collections' | t | default: 'Collections' }}</a></li>
+                        {%- assign breadcrumb_exclusions = 'frontpage,all,all-products' | split: ',' -%}
+                        {%- assign breadcrumb_collection = nil -%}
+                        {%- if collection and collection.url != blank -%}
+                            {%- unless breadcrumb_exclusions contains collection.handle -%}
+                                {%- assign breadcrumb_collection = collection -%}
+                            {%- endunless -%}
+                        {%- endif -%}
+                        {%- if breadcrumb_collection == nil and product.collections.size > 0 -%}
+                            {%- for coll in product.collections -%}
+                                {%- unless breadcrumb_exclusions contains coll.handle -%}
+                                    {%- assign breadcrumb_collection = coll -%}
+                                    {%- break -%}
+                                {%- endunless -%}
+                            {%- endfor -%}
+                        {%- endif -%}
+                        {%- if breadcrumb_collection and breadcrumb_collection.url != blank -%}
+                            <li><a href="{{ breadcrumb_collection.url }}">{{ breadcrumb_collection.title }}</a></li>
                         {%- endif -%}
                         <li><span>{{ product.title }}</span></li>
                     {%- elsif template contains 'collection' and collection.handle -%}
+                        <li><a href="{{ routes.collections_url }}">{{ 'layout.breadcrumbs.collections' | t | default: 'Collections' }}</a></li>
                         {%- if current_tags -%}
                             {%- assign exceptions_filters = 'custom-filter|only_available=|page=' | split: '|' -%}
                             {%- assign correct_filters = 'page=|tag=|vendor=|type=|title=|price=' | split: '|' -%}
