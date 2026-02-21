@@ -206,7 +206,7 @@
       {%- comment -%} DEBUG: Metafield kontrolü - silinebilir {%- endcomment -%}
       {%- if section.settings.show_debug -%}
         <div style="background: #f0f0f0; padding: 20px; margin: 20px 0; border: 2px solid #ccc;">
-          <h4>DEBUG - Metafield Kontrolü:</h4>
+          <p class="mb-0"><strong>DEBUG - Metafield Kontrolü:</strong></p>
           <p><strong>Collection Handle:</strong> {{ collection.handle }}</p>
           <p><strong>related_collection_1 exists:</strong> {{ collection.metafields.custom.related_collection_1 | json }}</p>
           <p><strong>related_collection_1 value:</strong> {{ related_collection_1 | json }}</p>

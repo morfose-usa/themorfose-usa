@@ -61,7 +61,7 @@
                                                     {%- endfor -%}
                                                 </div>
                                             {%- endif -%}
-                                            <h3 class="mb-15"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+                                            <h2 class="h3 mb-15"><a href="{{ article.url }}">{{ article.title }}</a></h2>
                                             {%- if section.settings.show_information -%}
                                                 {% capture author %}{{ article.author | upcase }}{% endcapture %}
                                                 {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
@@ -122,7 +122,7 @@
                                                                     {%- endfor -%}
                                                                 </div>
                                                             {%- endif -%}
-                                                            <h3 class="h4 mb-15"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+                                                            <h2 class="h4 mb-15"><a href="{{ article.url }}">{{ article.title }}</a></h2>
                                                             {%- if section.settings.show_information -%}
                                                                 {% capture author %}{{ article.author | upcase }}{% endcapture %}
                                                                 {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
@@ -158,7 +158,7 @@
                                                             {%- endif -%}
                                                         </div>
                                                     </div>
-                                                    <h3 class="h4 mb-15"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+                                                    <h2 class="h4 mb-15"><a href="{{ article.url }}">{{ article.title }}</a></h2>
                                                     {%- if section.settings.show_information -%}
                                                         {% capture author %}{{ article.author | upcase }}{% endcapture %}
                                                         {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}

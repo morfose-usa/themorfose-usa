@@ -280,7 +280,7 @@
                 {%- assign menu = linklists[block.settings.menu] -%}
                 <div class="footer__section" data-js-accordion="only-mobile">
                     <div class="footer__section-head position-relative" data-js-accordion-button>
-                        <h5 class="{% if block.settings.show_title_on_desktop != true %}d-lg-none {% endif %}py-10 py-lg-0 mb-0 mb-lg-10 text-uppercase">{{ block.settings.title | default: menu.title }}</h5>
+                        <h2 class="h5 {% if block.settings.show_title_on_desktop != true %}d-lg-none {% endif %}py-10 py-lg-0 mb-0 mb-lg-10 text-uppercase">{{ block.settings.title | default: menu.title }}</h2>
                         {%- if block.settings.menu != blank -%}
                             {{ section_btn_close }}
                         {%- endif -%}
@@ -319,7 +319,7 @@
             <div class="col-lg{% if block.settings.size > 0 %}-{{ block.settings.size }}{% endif %}">
                 <div class="footer__section" data-js-accordion="only-mobile">
                     <div class="footer__section-head position-relative" data-js-accordion-button>
-                        <h5 class="{% if block.settings.show_title_on_desktop != true %}d-lg-none {% endif %}py-10 py-lg-0 mb-0 mb-lg-10 text-uppercase">{{ block.settings.title | default: 'Collections' }}</h5>
+                        <h2 class="h5 {% if block.settings.show_title_on_desktop != true %}d-lg-none {% endif %}py-10 py-lg-0 mb-0 mb-lg-10 text-uppercase">{{ block.settings.title | default: 'Collections' }}</h2>
                         {{ section_btn_close }}
                     </div>
                     <div class="footer__section-content d-none d-lg-block" data-js-accordion-content>
@@ -337,7 +337,7 @@
             <div class="footer__custom-html">
                 <div class="footer__section" data-js-accordion="only-mobile">
                     <div class="footer__section-head position-relative" data-js-accordion-button>
-                        <h5 class="{% if block.settings.show_title_on_desktop != true %}d-lg-none {% endif %}py-10 py-lg-0 mb-0 mb-lg-10 text-uppercase">{{ block.settings.title }}</h5>
+                        <h2 class="h5 {% if block.settings.show_title_on_desktop != true %}d-lg-none {% endif %}py-10 py-lg-0 mb-0 mb-lg-10 text-uppercase">{{ block.settings.title }}</h2>
                         {{ section_btn_close }}
                     </div>
                     <div class="footer__section-content footer__section-content--custom-content d-none d-lg-block" data-js-accordion-content>
@@ -356,9 +356,9 @@
             <div class="footer__social-media{% if section.settings.type == '3' or section.settings.type == '7' %} d-lg-flex flex-lg-center{% endif %}">
                 {%- if block.settings.title != blank -%}
                     {%- if section.settings.type == '3' or section.settings.type == '7' -%}
-                        <h5 class="d-none d-lg-block mb-10 mb-lg-0 mr-lg-20 text-uppercase">{{ block.settings.title }}</h5>
+                        <h2 class="h5 d-none d-lg-block mb-10 mb-lg-0 mr-lg-20 text-uppercase">{{ block.settings.title }}</h2>
                     {%- elsif section.settings.type != '4' and section.settings.type != '5' and section.settings.type != '6' -%}
-                        <h5 class="d-none d-lg-block mb-10 text-uppercase">{{ block.settings.title }}</h5>
+                        <h2 class="h5 d-none d-lg-block mb-10 text-uppercase">{{ block.settings.title }}</h2>
                     {%- endif -%}
                 {%- endif -%}
                 {%- if section.settings.type == '1' -%}
@@ -377,7 +377,7 @@
         {%- capture subscription -%}
             {%- capture title -%}
                 {%- if block.settings.title != blank -%}
-                    <h5 class="mb-10 text-uppercase">{{ block.settings.title }}</h5>
+                    <h2 class="h5 mb-10 text-uppercase">{{ block.settings.title }}</h2>
                 {%- endif -%}
                 {%- if block.settings.paragraph != blank -%}
                     <p class="mb-10">{{ block.settings.paragraph }}</p>

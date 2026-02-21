@@ -63,7 +63,7 @@
                             {%- assign need_home_builder_script = true -%}
                         {%- when 'products' -%}
                             {%- if block.settings.title != blank -%}
-                                <h5 class="h4 mb-35"><a href="{{ collections[block.settings.collection].url }}">{{ block.settings.title }}</a></h5>
+                                <h3 class="h4 mb-35"><a href="{{ collections[block.settings.collection].url }}">{{ block.settings.title }}</a></h3>
                             {%- endif -%}
                             {%- if block.settings.collection != blank -%}
                                 {%- assign products = collections[block.settings.collection].products -%}
