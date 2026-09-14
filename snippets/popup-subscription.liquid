@@ -324,9 +324,9 @@
         }
     {%- endif -%}
     
-    {% render 'css-style-button' with class: 'form .btn' type: popup_subscription_form_btn_type %}
+    {% render 'css-style-button' with class, class: 'form .btn', type: popup_subscription_form_btn_type %}
     {%- if settings.subscription_popup_layout != '1' -%}
-        {% render 'css-style-button' with class: '.popup-subscription__btn.btn' type: popup_subscription_btn_type %}
+        {% render 'css-style-button' with class, class: '.popup-subscription__btn.btn', type: popup_subscription_btn_type %}
     {%- endif -%}
 {% endcapture %}
 {% capture image_size_placeholder %}_{width}x.{% endcapture %}
@@ -382,7 +382,7 @@
                         {%- else -%}
                             {%- assign image_format = null -%}
                         {%- endif -%}
-                        {% render 'rimage' with image: settings.subscription_popup_image size: settings.subscription_popup_image_width format: image_format stretch_size: 'cover' %}
+                        {% render 'rimage' with image, image: settings.subscription_popup_image, size: settings.subscription_popup_image_width, format: image_format, stretch_size: 'cover' %}
                     </{% if settings.subscription_popup_link != blank %}a{% else %}div{% endif %}>
                 </div>
             </div>
@@ -448,7 +448,7 @@
                         {%- else -%}
                             {%- assign image_format = null -%}
                         {%- endif -%}
-                        {% render 'rimage' with image: settings.subscription_popup_image size: settings.subscription_popup_image_width format: image_format stretch_size: 'cover' %}
+                        {% render 'rimage' with image, image: settings.subscription_popup_image, size: settings.subscription_popup_image_width, format: image_format, stretch_size: 'cover' %}
                         </{% if settings.subscription_popup_link != blank %}a{% else %}div{% endif %}>
                 </div>
             </div>
@@ -512,13 +512,13 @@
         {%- endif -%}
         <div class="popup-subscription__image{% if settings.subscription_popup_image_mobile != blank %} d-none d-md-block{% endif %}">
             <{% if settings.subscription_popup_link != blank %}a href="{{ settings.subscription_popup_link }}"{% else %}div{% endif %} class="d-block">
-                {% render 'rimage' with image: settings.subscription_popup_image size: settings.subscription_popup_image_width format: image_format %}
+                {% render 'rimage' with image, image: settings.subscription_popup_image, size: settings.subscription_popup_image_width, format: image_format %}
             </{% if settings.subscription_popup_link != blank %}a{% else %}div{% endif %}>
         </div>
         {%- if settings.subscription_popup_image_mobile != blank -%}
             <div class="popup-subscription__image d-md-none">
                 <{% if settings.subscription_popup_link != blank %}a href="{{ settings.subscription_popup_link }}"{% else %}div{% endif %} class="d-block">
-                    {% render 'rimage' with image: settings.subscription_popup_image_mobile size: settings.subscription_popup_image_width format: image_format %}
+                    {% render 'rimage' with image, image: settings.subscription_popup_image_mobile, size: settings.subscription_popup_image_width, format: image_format %}
                 </{% if settings.subscription_popup_link != blank %}a{% else %}div{% endif %}>
             </div>
         {%- endif -%}
@@ -592,7 +592,7 @@
                 {%- else -%}
                     {%- assign image_format = null -%}
                 {%- endif -%}
-                {% render 'rimage' with image: settings.subscription_popup_insert_image size: settings.subscription_popup_insert_image_width format: image_format %}
+                {% render 'rimage' with image, image: settings.subscription_popup_insert_image, size: settings.subscription_popup_insert_image_width, format: image_format %}
             </div>
         {%- endif -%}
         {%- if settings.subscription_popup_text_line_01 != blank -%}
@@ -642,4 +642,47 @@
     theme.AssetsLoader.onUserAction(function() {
         theme.AssetsLoader.require('scripts', 'popup_subscription');
     });
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'css-style-button' with class: 'form .btn' type: popup_subscription_form_btn_type
+    %}"
+  to: "{% render 'css-style-button' with class, class: 'form .btn', type: popup_subscription_form_btn_type
+    %}"
+  position: 14148..14250
+- from: "{% render 'css-style-button' with class: '.popup-subscription__btn.btn' type:
+    popup_subscription_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.popup-subscription__btn.btn',
+    type: popup_subscription_btn_type %}"
+  position: 14318..14434
+- from: "{% render 'rimage' with image: settings.subscription_popup_image size: settings.subscription_popup_image_width
+    format: image_format stretch_size: 'cover' %}"
+  to: "{% render 'rimage' with image, image: settings.subscription_popup_image, size:
+    settings.subscription_popup_image_width, format: image_format, stretch_size: 'cover'
+    %}"
+  position: 19008..19174
+- from: "{% render 'rimage' with image: settings.subscription_popup_image size: settings.subscription_popup_image_width
+    format: image_format stretch_size: 'cover' %}"
+  to: "{% render 'rimage' with image, image: settings.subscription_popup_image, size:
+    settings.subscription_popup_image_width, format: image_format, stretch_size: 'cover'
+    %}"
+  position: 24448..24614
+- from: "{% render 'rimage' with image: settings.subscription_popup_image size: settings.subscription_popup_image_width
+    format: image_format %}"
+  to: "{% render 'rimage' with image, image: settings.subscription_popup_image, size:
+    settings.subscription_popup_image_width, format: image_format %}"
+  position: 29753..29896
+- from: "{% render 'rimage' with image: settings.subscription_popup_image_mobile size:
+    settings.subscription_popup_image_width format: image_format %}"
+  to: "{% render 'rimage' with image, image: settings.subscription_popup_image_mobile,
+    size: settings.subscription_popup_image_width, format: image_format %}"
+  position: 30316..30466
+- from: "{% render 'rimage' with image: settings.subscription_popup_insert_image size:
+    settings.subscription_popup_insert_image_width format: image_format %}"
+  to: "{% render 'rimage' with image, image: settings.subscription_popup_insert_image,
+    size: settings.subscription_popup_insert_image_width, format: image_format %}"
+  position: 36605..36762
+{%- endcomment -%}

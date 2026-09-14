@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             <div class="cart-item-image">
               {% if item.image != blank %}
-                {% render 'rimage' with image: item.image size:'200x' format:image_format image_class:'w-100' %}
+                {% render 'rimage' with image, image: item.image, size: '200x', format: image_format, image_class: 'w-100' %}
               {% endif %}
             </div>
 
@@ -380,7 +380,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
           <div class="cart-item-bottom">
             <div class="cart-price">
-              {% include 'product-get-price' with price: item.price compare_at_price: item.original_price current_variant: item available: true %}
+              {% include 'product-get-price' with price, price: item.price, compare_at_price: item.original_price, current_variant: item, available: true %}
             </div>
 
             <div class="qty-wrapper">
@@ -390,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function(){
             </div>
 
             <div class="cart-total">
-              {% include 'product-get-price' with price: item.line_price compare_at_price: null current_variant: item available: true %}
+              {% include 'product-get-price' with price, price: item.line_price, compare_at_price: nil, current_variant: item, available: true %}
             </div>
           </div>
 
@@ -529,4 +529,25 @@ document.addEventListener("DOMContentLoaded", function(){
   </div>
 {%- endif -%}
 
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: item.image size:'200x' format:image_format
+    image_class:'w-100' %}"
+  to: "{% render 'rimage' with image, image: item.image, size: '200x', format: image_format,
+    image_class: 'w-100' %}"
+  position: 7013..7122
+- from: "{% include 'product-get-price' with price: item.price compare_at_price: item.original_price
+    current_variant: item available: true %}"
+  to: "{% include 'product-get-price' with price, price: item.price, compare_at_price:
+    item.original_price, current_variant: item, available: true %}"
+  position: 7626..7768
+- from: "{% include 'product-get-price' with price: item.line_price compare_at_price:
+    null current_variant: item available: true %}"
+  to: "{% include 'product-get-price' with price, price: item.line_price, compare_at_price:
+    nil, current_variant: item, available: true %}"
+  position: 8204..8335
+{%- endcomment -%}

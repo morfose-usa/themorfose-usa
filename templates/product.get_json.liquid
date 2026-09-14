@@ -1,3 +1,13 @@
 {% layout none %}
 {%- assign image_size = image_size | default: '600x' -%}
-{% include 'product-get-attributes' with build_variant: 'json' %}
+{% include 'product-get-attributes' with build_variant, build_variant: 'json' %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-get-attributes' with build_variant: 'json' %}"
+  to: "{% include 'product-get-attributes' with build_variant, build_variant: 'json'
+    %}"
+  position: 77..157
+{%- endcomment -%}

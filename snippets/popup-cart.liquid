@@ -98,7 +98,7 @@
               {{ item.product.title | replace: '🥛', '' | replace: '🍼', '' | replace: '🍶', '' }}
             </div>
 
-            {% include 'product-cart' with disable_lazyload: disable_lazyload %}
+            {% include 'product-cart' with disable_lazyload, disable_lazyload: disable_lazyload %}
           </div>
         {%- endfor -%}
       </div>
@@ -129,7 +129,7 @@
         >
           <span>Subtotal</span>
           <span class="ml-auto">
-            {% include 'product-get-price' with price: cart.total_price %}
+            {% include 'product-get-price' with price, price: cart.total_price %}
           </span>
         </div>
 
@@ -155,7 +155,7 @@
               <span>{{ discount_application.title | upcase }}</span>
               <span class="ml-auto"
                 >-
-                {% include 'product-get-price' with price: discount_application.total_allocated_amount %}
+                {% include 'product-get-price' with price, price: discount_application.total_allocated_amount %}
               </span>
             </div>
           {%- endfor -%}
@@ -268,3 +268,22 @@
       color:#000 !important;
   }
 </style>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-cart' with disable_lazyload: disable_lazyload %}"
+  to: "{% include 'product-cart' with disable_lazyload, disable_lazyload: disable_lazyload
+    %}"
+  position: 2885..2971
+- from: "{% include 'product-get-price' with price: cart.total_price %}"
+  to: "{% include 'product-get-price' with price, price: cart.total_price %}"
+  position: 3764..3833
+- from: "{% include 'product-get-price' with price: discount_application.total_allocated_amount
+    %}"
+  to: "{% include 'product-get-price' with price, price: discount_application.total_allocated_amount
+    %}"
+  position: 4609..4705
+{% endcomment %}

@@ -192,7 +192,7 @@
                                 {%- unless is_quick_view -%}
                                     {%- assign quantity_connect = 'footbar' -%}
                                 {%- endunless -%}
-                                {% render 'product-get-quantity' with quantity_show_title: false quantity_type: 4 quantity_connect: quantity_connect %}
+                                {% render 'product-get-quantity' with quantity_show_title, quantity_show_title: false, quantity_type: 4, quantity_connect: quantity_connect %}
                             </div>
                         {%- endif -%}
                     </div>
@@ -300,4 +300,15 @@
             {%- endif -%}
         {%- endif -%}
     </div>
-{%- endif -%}
+{%- endif -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-quantity' with quantity_show_title: false quantity_type:
+    4 quantity_connect: quantity_connect %}"
+  to: "{% render 'product-get-quantity' with quantity_show_title, quantity_show_title:
+    false, quantity_type: 4, quantity_connect: quantity_connect %}"
+  position: 16738..16880
+{%- endcomment -%}

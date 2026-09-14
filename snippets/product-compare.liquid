@@ -18,7 +18,7 @@
             <div class="product-compare__remove btn-link mb-15 js-store-lists-remove-compare">{{ 'products.product.remove' | t }}</div>
         {%- endif -%}
         <div class="product-compare__image product-image product-image--hover-{{ settings.product_hover_animation_type }} position-relative w-100 js-product-images-navigation js-product-images-hovered-end">
-            {% render 'product-get-images' with url: url image: image image_size: image_size title: title %}
+            {% render 'product-get-images' with url, url: url, image: image, image_size: image_size, title: title %}
             {%- if show_label_in_stock or show_label_pre_order or show_label_out_stock or show_label_sale or show_label_new or show_label_hot -%}
                 {%- assign label_present = true -%}
             {%- else -%}
@@ -51,7 +51,7 @@
                     {%- endif -%}
                     {%- if show_button_quick_view -%}
                         <div class="product-image__overlay-top-right product-compare__button-quick-view position-lg-relative d-none d-lg-flex mb-lg-10 ml-lg-auto">
-                            {% render 'product-get-button-quick-view' with product_enable_tooltips: product_enable_tooltips %}
+                            {% render 'product-get-button-quick-view' with product_enable_tooltips, product_enable_tooltips: product_enable_tooltips %}
                         </div>
                     {%- endif -%}
                 </div>
@@ -73,7 +73,7 @@
             <div class="d-flex flex-column">
                 {%- if show_button_add_to_cart -%}
                     <div class="product-compare__variants d-none">
-                        {% render 'product-get-variants' with product: product current_variant: current_variant show_options: show_options show_custom_options: show_custom_options %}
+                        {% render 'product-get-variants' with product, product: product, current_variant: current_variant, show_options: show_options, show_custom_options: show_custom_options %}
                     </div>
                 {%- endif -%}
                 {%- if show_button_add_to_cart or show_button_quick_view -%}
@@ -86,7 +86,7 @@
                         {%- if show_button_quick_view -%}
                             <div class="product-collection__buttons-section d-flex d-lg-none px-lg-10">
                                 <div class="product-compare__button-quick-view-mobile mb-10">
-                                    {% render 'product-get-button-quick-view' with type: 'btn-text' product_enable_tooltips: product_enable_tooltips %}
+                                    {% render 'product-get-button-quick-view' with type, type: 'btn-text', product_enable_tooltips: product_enable_tooltips %}
                                 </div>
                             </div>
                         {%- endif -%}
@@ -95,4 +95,31 @@
             </div>
         </div>
     {% endform %}
-</product-item>
+</product-item>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-images' with url: url image: image image_size: image_size
+    title: title %}"
+  to: "{% render 'product-get-images' with url, url: url, image: image, image_size:
+    image_size, title: title %}"
+  position: 2119..2223
+- from: "{% render 'product-get-button-quick-view' with product_enable_tooltips: product_enable_tooltips
+    %}"
+  to: "{% render 'product-get-button-quick-view' with product_enable_tooltips, product_enable_tooltips:
+    product_enable_tooltips %}"
+  position: 4373..4496
+- from: "{% render 'product-get-variants' with product: product current_variant: current_variant
+    show_options: show_options show_custom_options: show_custom_options %}"
+  to: "{% render 'product-get-variants' with product, product: product, current_variant:
+    current_variant, show_options: show_options, show_custom_options: show_custom_options
+    %}"
+  position: 5385..5555
+- from: "{% render 'product-get-button-quick-view' with type: 'btn-text' product_enable_tooltips:
+    product_enable_tooltips %}"
+  to: "{% render 'product-get-button-quick-view' with type, type: 'btn-text', product_enable_tooltips:
+    product_enable_tooltips %}"
+  position: 6410..6532
+{%- endcomment -%}

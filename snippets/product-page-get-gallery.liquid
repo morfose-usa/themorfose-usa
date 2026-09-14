@@ -114,11 +114,11 @@
                             {%- assign hold_lazyload = true -%}
                             {%- assign donothide = false -%}
                         {%- endif -%}
-                        {% render 'rimage' with image: media size: main_image_size disable_lazyload: false format: image_format hold_lazyload: hold_lazyload donothide: donothide alt: title %}
+                        {% render 'rimage' with image, image: media, size: main_image_size, disable_lazyload: false, format: image_format, hold_lazyload: hold_lazyload, donothide: donothide, alt: title %}
                     {% when 'video' %}
                         {%- assign gallery_has_video = true -%}
                         {%- assign video = media.sources | where: 'format', 'mp4' | first -%}
-                        {% render 'rvideo' with video: video aspect_ratio: media.aspect_ratio poster: media.preview_image.src poster_size: main_image_size autoplay: main_video_autoplay controls: true lazyload: video_lazyload %}
+                        {% render 'rvideo' with video, video: video, aspect_ratio: media.aspect_ratio, poster: media.preview_image.src, poster_size: main_image_size, autoplay: main_video_autoplay, controls: true, lazyload: video_lazyload %}
                     {% when 'external_video' %}
                         {%- assign gallery_has_video = true -%}
                         {% render 'video-external' video_url: media.external_id autoplay: main_video_autoplay controls: true enablejsapi: true lazyload: video_lazyload %}
@@ -224,10 +224,10 @@
     <div class="product-gallery__main_spacer">
         {%- if first_load_group == blank and current_image.media_type == 'image' -%}
             <div class="product-gallery__main_spacer_inner product-gallery__main_spacer_inner--img d-none d-md-block">
-                {% render 'rimage' with custom_src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=' size: main_image_size height_procent: desktop_spacer_height_percent stretch_size: gallery_stretch_size disable_lazyload: false format: image_format alt: title %}
+                {% render 'rimage' with custom_src, custom_src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=', size: main_image_size, height_procent: desktop_spacer_height_percent, stretch_size: gallery_stretch_size, disable_lazyload: false, format: image_format, alt: title %}
             </div>
             <div class="product-gallery__main_spacer_inner product-gallery__main_spacer_inner--img d-md-none">
-                {% render 'rimage' with custom_src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=' size: main_image_size height_procent: mobile_spacer_height_percent stretch_size: gallery_stretch_size disable_lazyload: false format: image_format alt: title %}
+                {% render 'rimage' with custom_src, custom_src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=', size: main_image_size, height_procent: mobile_spacer_height_percent, stretch_size: gallery_stretch_size, disable_lazyload: false, format: image_format, alt: title %}
             </div>
         {%- else -%}
             <div class="product-gallery__main_spacer_inner d-none d-md-block" style="padding-top: {{ desktop_spacer_height_percent }}%;"></div>
@@ -271,10 +271,10 @@
                     <div class="product-gallery__sheet_item_inner">
                         {%- case media.media_type -%}
                             {% when 'image' %}
-                                {% render 'rimage' with image: media size: main_image_size disable_lazyload: false format: image_format alt: title %}
+                                {% render 'rimage' with image, image: media, size: main_image_size, disable_lazyload: false, format: image_format, alt: title %}
                             {% when 'video' %}
                                 {%- assign video = media.sources | where: 'format', 'mp4' | first -%}
-                                {% render 'rvideo' with video: video aspect_ratio: media.aspect_ratio poster: media.preview_image.src poster_size: main_image_size controls: true autoplay: sheet_video_autoplay %}
+                                {% render 'rvideo' with video, video: video, aspect_ratio: media.aspect_ratio, poster: media.preview_image.src, poster_size: main_image_size, controls: true, autoplay: sheet_video_autoplay %}
                             {% when 'external_video' %}
                                 {% render 'video-external' video_url: media.external_id enablejsapi: enablejsapi_enable controls: true autoplay: sheet_video_autoplay %}
                             {% when 'model' %}
@@ -403,7 +403,7 @@
                 {{ thumbnail_mobile_html }}
                 <div class="product-gallery__thumbnail product-gallery__thumbnail--collage d-none d-md-block" data-js-product-gallery-collage>
                     <div class="row">
-                        {% include 'product-page-get-gallery-thumbnails' with thumbnails_type: 'collage' %}
+                        {% include 'product-page-get-gallery-thumbnails' with thumbnails_type, thumbnails_type: 'collage' %}
                     </div>
                 </div>
             </div>
@@ -612,3 +612,57 @@
     {%- endif -%}
 </product-gallery>
 <div class="ot-related-videos"></div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: media size: main_image_size disable_lazyload:
+    false format: image_format hold_lazyload: hold_lazyload donothide: donothide alt:
+    title %}"
+  to: "{% render 'rimage' with image, image: media, size: main_image_size, disable_lazyload:
+    false, format: image_format, hold_lazyload: hold_lazyload, donothide: donothide,
+    alt: title %}"
+  position: 6586..6766
+- from: "{% render 'rvideo' with video: video aspect_ratio: media.aspect_ratio poster:
+    media.preview_image.src poster_size: main_image_size autoplay: main_video_autoplay
+    controls: true lazyload: video_lazyload %}"
+  to: "{% render 'rvideo' with video, video: video, aspect_ratio: media.aspect_ratio,
+    poster: media.preview_image.src, poster_size: main_image_size, autoplay: main_video_autoplay,
+    controls: true, lazyload: video_lazyload %}"
+  position: 6988..7204
+- from: "{% render 'rimage' with custom_src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs='
+    size: main_image_size height_procent: desktop_spacer_height_percent stretch_size:
+    gallery_stretch_size disable_lazyload: false format: image_format alt: title %}"
+  to: "{% render 'rimage' with custom_src, custom_src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=',
+    size: main_image_size, height_procent: desktop_spacer_height_percent, stretch_size:
+    gallery_stretch_size, disable_lazyload: false, format: image_format, alt: title
+    %}"
+  position: 14148..14436
+- from: "{% render 'rimage' with custom_src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs='
+    size: main_image_size height_procent: mobile_spacer_height_percent stretch_size:
+    gallery_stretch_size disable_lazyload: false format: image_format alt: title %}"
+  to: "{% render 'rimage' with custom_src, custom_src: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=',
+    size: main_image_size, height_procent: mobile_spacer_height_percent, stretch_size:
+    gallery_stretch_size, disable_lazyload: false, format: image_format, alt: title
+    %}"
+  position: 14583..14870
+- from: "{% render 'rimage' with image: media size: main_image_size disable_lazyload:
+    false format: image_format alt: title %}"
+  to: "{% render 'rimage' with image, image: media, size: main_image_size, disable_lazyload:
+    false, format: image_format, alt: title %}"
+  position: 17826..17954
+- from: "{% render 'rvideo' with video: video aspect_ratio: media.aspect_ratio poster:
+    media.preview_image.src poster_size: main_image_size controls: true autoplay:
+    sheet_video_autoplay %}"
+  to: "{% render 'rvideo' with video, video: video, aspect_ratio: media.aspect_ratio,
+    poster: media.preview_image.src, poster_size: main_image_size, controls: true,
+    autoplay: sheet_video_autoplay %}"
+  position: 18136..18327
+- from: "{% include 'product-page-get-gallery-thumbnails' with thumbnails_type: 'collage'
+    %}"
+  to: "{% include 'product-page-get-gallery-thumbnails' with thumbnails_type, thumbnails_type:
+    'collage' %}"
+  position: 26417..26517
+{% endcomment %}

@@ -9,5 +9,18 @@
 {%- endif -%}
 <a href="{{ url }}" class="d-block cursor-default" data-js-product-image>
     {%- capture image_id -%} data-image-id="{{ image.id }}"{%- endcapture -%}
-    {% render 'rimage' with image: image size: image_size format: image_format height_procent: height_procent stretch_size: stretch_size alt: title attr: image_id disable_lazyload: disable_lazyload %}
-</a>
+    {% render 'rimage' with image, image: image, size: image_size, format: image_format, height_procent: height_procent, stretch_size: stretch_size, alt: title, attr: image_id, disable_lazyload: disable_lazyload %}
+</a>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: image size: image_size format: image_format
+    height_procent: height_procent stretch_size: stretch_size alt: title attr: image_id
+    disable_lazyload: disable_lazyload %}"
+  to: "{% render 'rimage' with image, image: image, size: image_size, format: image_format,
+    height_procent: height_procent, stretch_size: stretch_size, alt: title, attr:
+    image_id, disable_lazyload: disable_lazyload %}"
+  position: 546..756
+{%- endcomment -%}

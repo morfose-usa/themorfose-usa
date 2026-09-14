@@ -187,7 +187,7 @@
                                                                 id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
                                                                 {% if value.active %}checked{% endif %}
                                                                 {% if disable_checkbox %}disabled{% endif %}>
-                                                                <span class="position-relative {% if make_as_rounded %}d-flex border{% else %}d-block{% endif %}{% if make_as_color %}{% if settings_block.settings.layout contains 'col' %} mr-8{% endif %} rounded-circle standard-color-default standard-color-{% render 'product-get-options-strip-symbols' with value: value.label %}{% else %} mr-8 border{% endif %}"{% if make_as_color %} data-value="{% render 'product-get-options-strip-symbols' with value: value.label %}"{% endif %}>
+                                                                <span class="position-relative {% if make_as_rounded %}d-flex border{% else %}d-block{% endif %}{% if make_as_color %}{% if settings_block.settings.layout contains 'col' %} mr-8{% endif %} rounded-circle standard-color-default standard-color-{% render 'product-get-options-strip-symbols' with value, value: value.label %}{% else %} mr-8 border{% endif %}"{% if make_as_color %} data-value="{% render 'product-get-options-strip-symbols' with value, value: value.label %}"{% endif %}>
                                                                     {% if make_as_rounded %}
                                                                         <span class="position-absolute d-block border"></span>
                                                                     {% else %}
@@ -378,7 +378,7 @@
                                                         {%- if make_as_color -%}
                                                             {%- assign tag_standart_color = tag_url | split: '/' | last | split: '?' | first | downcase -%}
                                                         {%- endif -%}
-                                                        <span class="{% unless block.settings.show_checkbox %}d-none-important {% endunless %}position-relative d-block{% if make_as_color %}{% if block.settings.layout contains 'col' %} mr-8{% endif %} rounded-circle standard-color-default standard-color-{% render 'product-get-options-strip-symbols' with value: tag_standart_color %}{% else %} mr-8 border{% endif %}"{% if make_as_color %} data-value="{% render 'product-get-options-strip-symbols' with value: tag_standart_color %}"{% endif %}>
+                                                        <span class="{% unless block.settings.show_checkbox %}d-none-important {% endunless %}position-relative d-block{% if make_as_color %}{% if block.settings.layout contains 'col' %} mr-8{% endif %} rounded-circle standard-color-default standard-color-{% render 'product-get-options-strip-symbols' with value, value: tag_standart_color %}{% else %} mr-8 border{% endif %}"{% if make_as_color %} data-value="{% render 'product-get-options-strip-symbols' with value, value: tag_standart_color %}"{% endif %}>
                                                             <i class="d-none{% if make_as_color %} standard-color-arrow{% endif %}">{% render 'icon-theme-146' %}</i>
                                                         </span>
                                                         {%- if make_as_color != true or block.settings.layout contains 'col' and block.settings.show_checkbox != false -%}
@@ -436,7 +436,7 @@
                 {%- assign show_border = false -%}
                 {%- capture sidebar_section_content -%}
                     {% capture custom_html %}
-                        {% include 'parse-page-html-content' with default_page: 'include-collections-sidebar' page_content: block.settings.page_content %}
+                        {% include 'parse-page-html-content' with default_page, default_page: 'include-collections-sidebar', page_content: block.settings.page_content %}
                     {% endcapture %}
                     {%- if custom_html != blank -%}
                         <div class="rte">
@@ -449,7 +449,7 @@
                 {%- assign content_type = 'info' -%}
                 {%- assign show_border = false -%}
                 {%- capture sidebar_section_content -%}
-                    {% render 'promobox' with block: block promobox_curtain_opacity: promobox_curtain_opacity promobox_height_preset_1: promobox_height_preset_1 promobox_height_preset_2: promobox_height_preset_2 promobox_height_preset_3: promobox_height_preset_3 promobox_ultra_height_preset_1: promobox_ultra_height_preset_1 promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}
+                    {% render 'promobox' with block, block: block, promobox_curtain_opacity: promobox_curtain_opacity, promobox_height_preset_1: promobox_height_preset_1, promobox_height_preset_2: promobox_height_preset_2, promobox_height_preset_3: promobox_height_preset_3, promobox_ultra_height_preset_1: promobox_ultra_height_preset_1, promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}
                     {%- assign has_content = true -%}
                 {%- endcapture -%}
             {%- when 'subscription' -%}
@@ -483,4 +483,44 @@
             {%- endif -%}
         {%- endfor -%}
     </div>
-</aside>
+</aside>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-options-strip-symbols' with value: value.label %}"
+  to: "{% render 'product-get-options-strip-symbols' with value, value: value.label
+    %}"
+  position: 18158..18237
+- from: "{% render 'product-get-options-strip-symbols' with value: value.label %}"
+  to: "{% render 'product-get-options-strip-symbols' with value, value: value.label
+    %}"
+  position: 18306..18385
+- from: "{% render 'product-get-options-strip-symbols' with value: tag_standart_color
+    %}"
+  to: "{% render 'product-get-options-strip-symbols' with value, value: tag_standart_color
+    %}"
+  position: 37430..37516
+- from: "{% render 'product-get-options-strip-symbols' with value: tag_standart_color
+    %}"
+  to: "{% render 'product-get-options-strip-symbols' with value, value: tag_standart_color
+    %}"
+  position: 37585..37671
+- from: "{% include 'parse-page-html-content' with default_page: 'include-collections-sidebar'
+    page_content: block.settings.page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-collections-sidebar',
+    page_content: block.settings.page_content %}"
+  position: 41270..41415
+- from: "{% render 'promobox' with block: block promobox_curtain_opacity: promobox_curtain_opacity
+    promobox_height_preset_1: promobox_height_preset_1 promobox_height_preset_2: promobox_height_preset_2
+    promobox_height_preset_3: promobox_height_preset_3 promobox_ultra_height_preset_1:
+    promobox_ultra_height_preset_1 promobox_ultra_height_preset_3: promobox_ultra_height_preset_3
+    %}"
+  to: "{% render 'promobox' with block, block: block, promobox_curtain_opacity: promobox_curtain_opacity,
+    promobox_height_preset_1: promobox_height_preset_1, promobox_height_preset_2:
+    promobox_height_preset_2, promobox_height_preset_3: promobox_height_preset_3,
+    promobox_ultra_height_preset_1: promobox_ultra_height_preset_1, promobox_ultra_height_preset_3:
+    promobox_ultra_height_preset_3 %}"
+  position: 41980..42364
+{%- endcomment -%}

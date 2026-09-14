@@ -26,7 +26,7 @@
                                 <{% if link != blank %}a href="{{ link }}"{% else %}div{% endif %} class="carousel__item promobox position-relative d-flex align-items-center justify-content-center">
                                     <div class="w-100"{% if section.settings.image_max_width > 0 %} style="max-width: {{ section.settings.image_max_width }}px;"{% endif %}>
                                         <div class="overflow-hidden"{% if section.settings.border_radius != blank %} style="border-radius: {{ section.settings.border_radius }}"{% endif %}>
-                                            {% render 'rimage' with image: block.settings.image size: '400x' image_class: 'w-100' disable_lazyload: carousel_brands_image_lazyload_disable scale: 2 %}
+                                            {% render 'rimage' with image, image: block.settings.image, size: '400x', image_class: 'w-100', disable_lazyload: carousel_brands_image_lazyload_disable, scale: 2 %}
                                         </div>
                                     </div>
                                     {%- if section.settings.bordered_links and link != blank -%}
@@ -52,7 +52,7 @@
                             {%- assign link = block.settings.link -%}
                             <{% if link != blank %}a href="{{ link }}"{% else %}div{% endif %} class="promobox w-100 position-relative">
                                 <div class="overflow-hidden"{% if section.settings.border_radius != blank %} style="border-radius: {{ section.settings.border_radius }}"{% endif %}>
-                                    {% render 'rimage' with image: block.settings.image size: '400x' image_class: 'w-100' disable_lazyload: carousel_brands_image_lazyload_disable scale: 2 %}
+                                    {% render 'rimage' with image, image: block.settings.image, size: '400x', image_class: 'w-100', disable_lazyload: carousel_brands_image_lazyload_disable, scale: 2 %}
                                 </div>
                                 {%- if section.settings.bordered_links and link != blank -%}
                                     <div class="promobox__border promobox__border--only-hover absolute-stretch"{% if section.settings.border_radius != blank %} style="border-radius: {{ section.settings.border_radius }}"{% endif %}></div>
@@ -234,4 +234,20 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: block.settings.image size: '400x' image_class:
+    'w-100' disable_lazyload: carousel_brands_image_lazyload_disable scale: 2 %}"
+  to: "{% render 'rimage' with image, image: block.settings.image, size: '400x', image_class:
+    'w-100', disable_lazyload: carousel_brands_image_lazyload_disable, scale: 2 %}"
+  position: 2474..2639
+- from: "{% render 'rimage' with image: block.settings.image size: '400x' image_class:
+    'w-100' disable_lazyload: carousel_brands_image_lazyload_disable scale: 2 %}"
+  to: "{% render 'rimage' with image, image: block.settings.image, size: '400x', image_class:
+    'w-100', disable_lazyload: carousel_brands_image_lazyload_disable, scale: 2 %}"
+  position: 4627..4792
+{%- endcomment -%}
