@@ -5,8 +5,19 @@
             {%- if product.metafields.sizeguide.html and product.metafields.sizeguide.html != 'hide' -%}
                 {{ product.metafields.sizeguide.html }}
             {%- else -%}
-                {% include 'parse-page-html-content' with default_page: 'include-popup-size-guide' page_content: settings.product_info_size_guide_page_content %}
+                {% include 'parse-page-html-content' with default_page, default_page: 'include-popup-size-guide', page_content: settings.product_info_size_guide_page_content %}
             {%- endif -%}
         </div>
     </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'parse-page-html-content' with default_page: 'include-popup-size-guide'
+    page_content: settings.product_info_size_guide_page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-popup-size-guide',
+    page_content: settings.product_info_size_guide_page_content %}"
+  position: 523..683
+{%- endcomment -%}

@@ -21,7 +21,7 @@
                                 {%- assign first_collection = collections[block.settings.collection] -%}
                             {%- endif -%}
                         {%- elsif forloop.index0 == 0 -%}
-                            {% render 'no-blocks' with message: 'homepage.onboarding.no_content_message.sorting_collections' %}
+                            {% render 'no-blocks' with message, message: 'homepage.onboarding.no_content_message.sorting_collections' %}
                         {%- endif -%}
                     {%- endfor -%}
                 </div>
@@ -34,7 +34,7 @@
                                 {%- for product in products limit: section.settings.max_count -%}
                                     <div class="{{ grid }}">
                                         {%- assign disable_lazyload = sorting_collections_image_lazyload_disable -%}
-                                        {% include 'product-collection' with url_without_collection: true product_margin_bottom: offset_collection_page_product_margin_bottom_d %}
+                                        {% include 'product-collection' with url_without_collection, url_without_collection: true, product_margin_bottom: offset_collection_page_product_margin_bottom_d %}
                                     </div>
                                 {%- endfor -%}
                             {%- endif -%}
@@ -126,4 +126,20 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'no-blocks' with message: 'homepage.onboarding.no_content_message.sorting_collections'
+    %}"
+  to: "{% render 'no-blocks' with message, message: 'homepage.onboarding.no_content_message.sorting_collections'
+    %}"
+  position: 1950..2058
+- from: "{% include 'product-collection' with url_without_collection: true product_margin_bottom:
+    offset_collection_page_product_margin_bottom_d %}"
+  to: "{% include 'product-collection' with url_without_collection, url_without_collection:
+    true, product_margin_bottom: offset_collection_page_product_margin_bottom_d %}"
+  position: 3151..3314
+{%- endcomment -%}

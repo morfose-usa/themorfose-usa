@@ -1965,7 +1965,7 @@
       {%- endif -%}
       <a href="{{ routes.root_url }}">
         {%- if settings.logo_types == 'svg' and settings.logo_svg_file != blank -%}
-          {%- render settings.logo_svg_file -%}
+          {%- render settings -%}
         {%- elsif settings.logo_types == 'image' and settings.logo_image != blank -%}
           <img src="{{ settings.logo_image | img_url: '200x' }}" alt="{{ shop.name }}" loading="eager">
         {%- else -%}
@@ -2242,7 +2242,7 @@
         <div class="header-modern__mobile-menu-logo">
           <a href="{{ routes.root_url }}">
             {%- if settings.logo_types == 'svg' and settings.logo_svg_file != blank -%}
-              {%- render settings.logo_svg_file -%}
+              {%- render settings -%}
             {%- elsif settings.logo_types == 'image' and settings.logo_image != blank -%}
               <img src="{{ settings.logo_image | img_url: '200x' }}" alt="{{ shop.name }}" loading="eager" width="150" height="auto">
             {%- else -%}
@@ -3848,3 +3848,16 @@
 }
 {% endschema %}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render settings.logo_svg_file -%}"
+  to: "{%- render settings -%}"
+  position: 44586..44609
+- from: "{%- render settings.logo_svg_file -%}"
+  to: "{%- render settings -%}"
+  position: 60820..60843
+{% endcomment %}

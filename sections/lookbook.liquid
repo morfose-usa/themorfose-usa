@@ -22,7 +22,7 @@
                         <div class="lookbook__item">
                             <div class="position-relative">
                                 {% capture image_size %}{{ section.settings.image_size }}x{% endcapture %}
-                                {% render 'rimage' with image: block.settings.image size: image_size image_class: 'w-100' %}
+                                {% render 'rimage' with image, image: block.settings.image, size: image_size, image_class: 'w-100' %}
                                 {%- assign products_from_index = image_index | plus: 1 -%}
                                 {%- for block in section.blocks offset: products_from_index -%}
                                     {%- if block.type != 'product' -%}
@@ -63,7 +63,7 @@
                                                         <div class="lookbook__product d-none position-absolute bottom-0 left-0" data-lookbook-product>
                                                             <a href="{{ routes.root_url }}{% if routes.root_url != '/' %}/{% endif %}products/{{ block.settings.product }}" class="d-block">
                                                                 {%- capture image_id -%} data-image-id="{{ image.id }}"{%- endcapture -%}
-                                                                {% render 'rimage' with image: image size: '160x' alt: title image_class: 'w-100' disable_lazyload: lookbook_image_lazyload_disable %}
+                                                                {% render 'rimage' with image, image: image, size: '160x', alt: title, image_class: 'w-100', disable_lazyload: lookbook_image_lazyload_disable %}
                                                             </a>
                                                             <div class="position-absolute top-0 right-0 mt-6 mr-4 cursor-pointer" data-lookbook-product-close>
                                                                 <i>{% render 'icon-theme-164' %}</i>
@@ -255,4 +255,20 @@
     }
 ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: block.settings.image size: image_size image_class:
+    'w-100' %}"
+  to: "{% render 'rimage' with image, image: block.settings.image, size: image_size,
+    image_class: 'w-100' %}"
+  position: 1634..1735
+- from: "{% render 'rimage' with image: image size: '160x' alt: title image_class:
+    'w-100' disable_lazyload: lookbook_image_lazyload_disable %}"
+  to: "{% render 'rimage' with image, image: image, size: '160x', alt: title, image_class:
+    'w-100', disable_lazyload: lookbook_image_lazyload_disable %}"
+  position: 5771..5916
+{%- endcomment -%}

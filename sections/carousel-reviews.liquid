@@ -41,7 +41,7 @@
                                                         <div class="mt-25">
                                                             {%- if block.settings.user_image != blank -%}
                                                                 <div class="carousel-reviews__item_image overflow-hidden rounded-circle mx-auto mx-lg-0">
-                                                                    {% render 'rimage' with image: block.settings.user_image size: '164x' %}
+                                                                    {% render 'rimage' with image, image: block.settings.user_image, size: '164x' %}
                                                                 </div>
                                                             {%- endif -%}
                                                             {%- if block.settings.user_text_line_1 != blank or block.settings.user_text_line_2 != blank -%}
@@ -110,7 +110,7 @@
                                                             <div class="mt-25">
                                                                 {%- if block.settings.user_image != blank -%}
                                                                     <div class="carousel-reviews__item_image overflow-hidden rounded-circle mx-auto">
-                                                                        {% render 'rimage' with image: block.settings.user_image size: '164x' %}
+                                                                        {% render 'rimage' with image, image: block.settings.user_image, size: '164x' %}
                                                                     </div>
                                                                 {%- endif -%}
                                                                 {%- if block.settings.user_text_line_1 != blank or block.settings.user_text_line_2 != blank -%}
@@ -312,4 +312,18 @@
 }
 ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: block.settings.user_image size: '164x' %}"
+  to: "{% render 'rimage' with image, image: block.settings.user_image, size: '164x'
+    %}"
+  position: 4042..4122
+- from: "{% render 'rimage' with image: block.settings.user_image size: '164x' %}"
+  to: "{% render 'rimage' with image, image: block.settings.user_image, size: '164x'
+    %}"
+  position: 10248..10328
+{%- endcomment -%}

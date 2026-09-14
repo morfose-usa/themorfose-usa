@@ -15,12 +15,12 @@
         {%- assign popup_account_subscription_btn_type = 'secondary' -%}
     {%- endif -%}
     
-    {% render 'css-style-button' with class: '.popup-account__btn-login' type: popup_account_login_btn_type %}
-    {% render 'css-style-button' with class: '.popup-account__btn-signup' type: popup_account_signup_btn_type %}
-    {% render 'css-style-button' with class: '.popup-account__btn-register' type: popup_account_register_btn_type %}
-    {% render 'css-style-button' with class: '.popup-account__btn-account' type: popup_account_account_btn_type %}
-    {% render 'css-style-button' with class: '.popup-account__btn-checkout' type: popup_account_checkout_btn_type %}
-    {% render 'css-style-button' with class: '.popup-account__btn-subscription' type: popup_account_subscription_btn_type %}
+    {% render 'css-style-button' with class, class: '.popup-account__btn-login', type: popup_account_login_btn_type %}
+    {% render 'css-style-button' with class, class: '.popup-account__btn-signup', type: popup_account_signup_btn_type %}
+    {% render 'css-style-button' with class, class: '.popup-account__btn-register', type: popup_account_register_btn_type %}
+    {% render 'css-style-button' with class, class: '.popup-account__btn-account', type: popup_account_account_btn_type %}
+    {% render 'css-style-button' with class, class: '.popup-account__btn-checkout', type: popup_account_checkout_btn_type %}
+    {% render 'css-style-button' with class, class: '.popup-account__btn-subscription', type: popup_account_subscription_btn_type %}
 {% endcapture %}
 <div class="popup-account py-25 px-20 js-popup-account" data-popup-content>
     {%- if customer -%}
@@ -93,7 +93,7 @@
                 <h5 class="m-0">{{ 'general.popups.account.sign-up.title' | t }}</h5>
             </div>
             <div>
-                {% include 'parse-page-html-content' with default_page: 'include-popup-account' page_content: settings.account_popup_sign_up_info_page_content %}
+                {% include 'parse-page-html-content' with default_page, default_page: 'include-popup-account', page_content: settings.account_popup_sign_up_info_page_content %}
             </div>
             <a href="/account/register" class="popup-account__btn-register btn btn--full mb-20 js-popup-account-show-sign-up" data-js-trigger-id="popup-button-sign-up">{{ 'general.popups.account.sign-up.button' | t }}</a>
         </div>
@@ -127,4 +127,45 @@
             {% endform %}
         </div>
     {%- endif -%}
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'css-style-button' with class: '.popup-account__btn-login' type:
+    popup_account_login_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.popup-account__btn-login',
+    type: popup_account_login_btn_type %}"
+  position: 927..1041
+- from: "{% render 'css-style-button' with class: '.popup-account__btn-signup' type:
+    popup_account_signup_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.popup-account__btn-signup',
+    type: popup_account_signup_btn_type %}"
+  position: 1047..1163
+- from: "{% render 'css-style-button' with class: '.popup-account__btn-register' type:
+    popup_account_register_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.popup-account__btn-register',
+    type: popup_account_register_btn_type %}"
+  position: 1169..1289
+- from: "{% render 'css-style-button' with class: '.popup-account__btn-account' type:
+    popup_account_account_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.popup-account__btn-account',
+    type: popup_account_account_btn_type %}"
+  position: 1295..1413
+- from: "{% render 'css-style-button' with class: '.popup-account__btn-checkout' type:
+    popup_account_checkout_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.popup-account__btn-checkout',
+    type: popup_account_checkout_btn_type %}"
+  position: 1419..1539
+- from: "{% render 'css-style-button' with class: '.popup-account__btn-subscription'
+    type: popup_account_subscription_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.popup-account__btn-subscription',
+    type: popup_account_subscription_btn_type %}"
+  position: 1545..1673
+- from: "{% include 'parse-page-html-content' with default_page: 'include-popup-account'
+    page_content: settings.account_popup_sign_up_info_page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-popup-account',
+    page_content: settings.account_popup_sign_up_info_page_content %}"
+  position: 7515..7675
+{%- endcomment -%}

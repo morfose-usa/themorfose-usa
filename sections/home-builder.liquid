@@ -51,7 +51,7 @@
                             {% include 'builder-instagram' %}
                             {%- assign need_home_builder_script = true -%}
                         {%- when 'promobox' -%}
-                            {% render 'promobox' with block: block block_id: block_id promobox_curtain_opacity: promobox_curtain_opacity promobox_height_preset_1: promobox_height_preset_1 promobox_height_preset_2: promobox_height_preset_2 promobox_height_preset_3: promobox_height_preset_3 promobox_ultra_height_preset_1: promobox_ultra_height_preset_1 promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}
+                            {% render 'promobox' with block, block: block, block_id: block_id, promobox_curtain_opacity: promobox_curtain_opacity, promobox_height_preset_1: promobox_height_preset_1, promobox_height_preset_2: promobox_height_preset_2, promobox_height_preset_3: promobox_height_preset_3, promobox_ultra_height_preset_1: promobox_ultra_height_preset_1, promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}
                             {%- if block.settings.parallax != 'disable' -%}
                                 {%- assign need_home_builder_script = true -%}
                             {%- endif -%}
@@ -73,7 +73,7 @@
                             {%- endif -%}
                         {%- when 'custom_html' -%}
                             <div class="rte">
-                                {% include 'parse-page-html-content' with page_content: block.settings.page_content %}
+                                {% include 'parse-page-html-content' with page_content, page_content: block.settings.page_content %}
                             </div>
                         {%- when 'vertical_menu_spacer' -%}
                             <div class="vertical-menu-spacer"></div>
@@ -90,7 +90,7 @@
     </div>
 {% endcapture %}
 <div{% if section.settings.customization_class != blank %} class="{{ section.settings.customization_class }}"{% endif %}>
-    <builder-section data-section-id="{{ section.id }}" data-section-type="home-builder"{% render 'layout-get-container-class' with custom_class: 'd-block' %}>
+    <builder-section data-section-id="{{ section.id }}" data-section-type="home-builder"{% render 'layout-get-container-class' with custom_class, custom_class: 'd-block' %}>
         {{ content_html }}
     </builder-section>
 </div>
@@ -3115,4 +3115,30 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'promobox' with block: block block_id: block_id promobox_curtain_opacity:
+    promobox_curtain_opacity promobox_height_preset_1: promobox_height_preset_1 promobox_height_preset_2:
+    promobox_height_preset_2 promobox_height_preset_3: promobox_height_preset_3 promobox_ultra_height_preset_1:
+    promobox_ultra_height_preset_1 promobox_ultra_height_preset_3: promobox_ultra_height_preset_3
+    %}"
+  to: "{% render 'promobox' with block, block: block, block_id: block_id, promobox_curtain_opacity:
+    promobox_curtain_opacity, promobox_height_preset_1: promobox_height_preset_1,
+    promobox_height_preset_2: promobox_height_preset_2, promobox_height_preset_3:
+    promobox_height_preset_3, promobox_ultra_height_preset_1: promobox_ultra_height_preset_1,
+    promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}"
+  position: 5253..5657
+- from: "{% include 'parse-page-html-content' with page_content: block.settings.page_content
+    %}"
+  to: "{% include 'parse-page-html-content' with page_content, page_content: block.settings.page_content
+    %}"
+  position: 7144..7244
+- from: "{% render 'layout-get-container-class' with custom_class: 'd-block' %}"
+  to: "{% render 'layout-get-container-class' with custom_class, custom_class: 'd-block'
+    %}"
+  position: 8025..8109
+{%- endcomment -%}

@@ -53,7 +53,7 @@
                     {%- endif -%}
                     {%- if section.settings.show_image -%}
                       <div class="text-center mb-40">
-                        {% render 'rimage' with image: article.image size: '1024x1024' format: 'pjpg' alt: article.title image_class: 'w-100' %}
+                        {% render 'rimage' with image, image: article.image, size: '1024x1024', format: 'pjpg', alt: article.title, image_class: 'w-100' %}
                       </div>
                     {%- endif -%}
                        {%- if section.settings.show_content -%}
@@ -567,3 +567,15 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: article.image size: '1024x1024' format: 'pjpg'
+    alt: article.title image_class: 'w-100' %}"
+  to: "{% render 'rimage' with image, image: article.image, size: '1024x1024', format:
+    'pjpg', alt: article.title, image_class: 'w-100' %}"
+  position: 4052..4183
+{% endcomment %}

@@ -69,7 +69,7 @@
                                             {%- endif -%}
                                             {%- if section.settings.show_image and article.image -%}
                                                 <a href="{{ article.url }}" class="d-block mt-25 overflow-hidden">
-                                                    {% render 'rimage' with image: article.image size: '1024x' format: 'pjpg' alt: article.title image_class: 'w-100' %}
+                                                    {% render 'rimage' with image, image: article.image, size: '1024x', format: 'pjpg', alt: article.title, image_class: 'w-100' %}
                                                 </a>
                                             {%- endif -%}
                                             {%- if section.settings.show_content -%}
@@ -109,7 +109,7 @@
                                                 <div class="post mb-55 text-center">
                                                     {%- if section.settings.show_image and article.image -%}
                                                         <a href="{{ article.url }}" class="d-block mb-15 overflow-hidden">
-                                                            {% render 'rimage' with image: article.image size: '1024x' format: 'pjpg' alt: article.title image_class: 'w-100' %}
+                                                            {% render 'rimage' with image, image: article.image, size: '1024x', format: 'pjpg', alt: article.title, image_class: 'w-100' %}
                                                         </a>
                                                     {%- endif -%}
                                                     <div class="post__hidden-info d-none position-relative">
@@ -464,4 +464,20 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: article.image size: '1024x' format: 'pjpg'
+    alt: article.title image_class: 'w-100' %}"
+  to: "{% render 'rimage' with image, image: article.image, size: '1024x', format:
+    'pjpg', alt: article.title, image_class: 'w-100' %}"
+  position: 5531..5658
+- from: "{% render 'rimage' with image: article.image size: '1024x' format: 'pjpg'
+    alt: article.title image_class: 'w-100' %}"
+  to: "{% render 'rimage' with image, image: article.image, size: '1024x', format:
+    'pjpg', alt: article.title, image_class: 'w-100' %}"
+  position: 9434..9561
+{%- endcomment -%}

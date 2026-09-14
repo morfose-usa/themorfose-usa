@@ -33,7 +33,7 @@
         {%- if settings.product_info_show_collections -%}
             {%- if product.collections.size > 0 -%}
                 <div class="product-page-info__collections mb-3 text-center{% unless centered %} text-md-left{% endunless %}">
-                    {% render 'product-get-collections' with product: product %}
+                    {% render 'product-get-collections' with product, product: product %}
                 </div>
             {%- endif -%}
         {%- endif -%}
@@ -58,7 +58,7 @@
                 <div class="product-page-info__reviews{% if centered %} product-page-info__reviews--center{% endif %} text-center{% unless centered %} text-md-left{% endunless %}">
                     {%- if settings.reviews_type == 'default' -%}
                         <div>
-                            {% render 'product-get-review' with product: product type: 2 centered: centered hide_counter: settings.product_info_hide_reviews_counter hide_mobile_counter: false %}
+                            {% render 'product-get-review' with product, product: product, type: 2, centered: centered, hide_counter: settings.product_info_hide_reviews_counter, hide_mobile_counter: false %}
                         </div>
                     {%- elsif settings.reviews_type == 'growave' and settings.app_growave_enable == true -%}
                         {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-profile' %}{% endcapture %}
@@ -165,7 +165,7 @@
         {%- if settings.product_info_show_countdown and countdown_date -%}
             <div class="product-page-info__countdown mb-15">
                 {% capture countdown_title %}{{ 'products.product.countdown.title' | t }}{% endcapture %}
-                {% render 'product-get-countdown' with countdown_date: countdown_date, countdown_type: 2, countdown_title: countdown_title, centered: centered %}
+                {% render 'product-get-countdown' with countdown_date, countdown_date: countdown_date, countdown_type: 2, countdown_title: countdown_title, centered: centered %}
             </div>
         {%- endif -%}
         {%- if settings.product_info_show_stock_countdown -%}
@@ -207,7 +207,7 @@
         {%- endif -%}
         {% capture variants_select_html %}
             <div data-spark="b2c-only" class="product-page-info__variants mb-15 d-none">
-                {% include 'product-get-variants' with product: product current_variant: current_variant show_custom_options: settings.product_show_custom_options %}
+                {% include 'product-get-variants' with product, product: product, current_variant: current_variant, show_custom_options: settings.product_show_custom_options %}
             </div>
         {% endcapture %}
         {%- if settings.product_info_show_options -%}
@@ -217,7 +217,7 @@
                         {%- unless is_quick_view -%}
                             {%- assign trigger_id = 'footbar' -%}
                         {%- endunless -%}
-                        {% include 'product-get-options' with options_type: 2 centered: centered options_show_title: true change_history: change_history %}
+                        {% include 'product-get-options' with options_type, options_type: 2, centered: centered, options_show_title: true, change_history: change_history %}
                     </div>
                 {%- endunless -%}
                 {{ variants_select_html }}
@@ -267,7 +267,7 @@
                 {%- unless is_quick_view -%}
                     {%- assign quantity_connect = 'footbar' -%}
                 {%- endunless -%}
-                {% render 'product-get-quantity' with quantity_show_title: true quantity_connect: quantity_connect %}
+                {% render 'product-get-quantity' with quantity_show_title, quantity_show_title: true, quantity_connect: quantity_connect %}
             </div>
         {%- endif -%}
         {%- assign has_selling_plan = false -%}
@@ -288,7 +288,7 @@
         {%- if settings.product_info_show_free_shipping -%}
             {%- if settings.cart_show_free_shipping -%}
                 <div data-spark="b2c-only" class="product-page-info__free-shipping mb-40">
-                    {% render 'free-shipping' with mobile_centered: true centered: centered %}
+                    {% render 'free-shipping' with mobile_centered, mobile_centered: true, centered: centered %}
                 </div>
             {%- endif -%}
         {%- endif -%}
@@ -298,7 +298,7 @@
         {%- if settings.product_info_show_payments -%}
             <div data-spark="b2c-only" class="product-page-info__payments product-page-info__field d-flex flex-column align-items-start{% if centered %} align-items-md-center{% endif %} mb-15">
                 <label class="mb-6">{{ 'products.product.payments' | t }}:</label>
-                {% include 'payments' with payments_sequence: settings.payment_sequence_product %}
+                {% include 'payments' with payments_sequence, payments_sequence: settings.payment_sequence_product %}
           
             </div>
         {%- endif -%}
@@ -319,4 +319,49 @@
         {%- endif -%}
     {% endform %}
 </div>
-<div class="essential-banners-default-placement"></div>
+<div class="essential-banners-default-placement"></div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-get-collections' with product: product %}"
+  to: "{% render 'product-get-collections' with product, product: product %}"
+  position: 2173..2242
+- from: "{% render 'product-get-review' with product: product type: 2 centered: centered
+    hide_counter: settings.product_info_hide_reviews_counter hide_mobile_counter:
+    false %}"
+  to: "{% render 'product-get-review' with product, product: product, type: 2, centered:
+    centered, hide_counter: settings.product_info_hide_reviews_counter, hide_mobile_counter:
+    false %}"
+  position: 3353..3532
+- from: "{% render 'product-get-countdown' with countdown_date: countdown_date, countdown_type:
+    2, countdown_title: countdown_title, centered: centered %}"
+  to: "{% render 'product-get-countdown' with countdown_date, countdown_date: countdown_date,
+    countdown_type: 2, countdown_title: countdown_title, centered: centered %}"
+  position: 11340..11501
+- from: "{% include 'product-get-variants' with product: product current_variant:
+    current_variant show_custom_options: settings.product_show_custom_options %}"
+  to: "{% include 'product-get-variants' with product, product: product, current_variant:
+    current_variant, show_custom_options: settings.product_show_custom_options %}"
+  position: 15916..16076
+- from: "{% include 'product-get-options' with options_type: 2 centered: centered
+    options_show_title: true change_history: change_history %}"
+  to: "{% include 'product-get-options' with options_type, options_type: 2, centered:
+    centered, options_show_title: true, change_history: change_history %}"
+  position: 16573..16721
+- from: "{% render 'product-get-quantity' with quantity_show_title: true quantity_connect:
+    quantity_connect %}"
+  to: "{% render 'product-get-quantity' with quantity_show_title, quantity_show_title:
+    true, quantity_connect: quantity_connect %}"
+  position: 20180..20303
+- from: "{% render 'free-shipping' with mobile_centered: true centered: centered %}"
+  to: "{% render 'free-shipping' with mobile_centered, mobile_centered: true, centered:
+    centered %}"
+  position: 21424..21516
+- from: "{% include 'payments' with payments_sequence: settings.payment_sequence_product
+    %}"
+  to: "{% include 'payments' with payments_sequence, payments_sequence: settings.payment_sequence_product
+    %}"
+  position: 22083..22184
+{%- endcomment -%}

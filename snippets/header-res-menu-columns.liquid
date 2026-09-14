@@ -1,6 +1,6 @@
 {% capture column_left_n_right %}
-    {% render 'header-get-menu-column-type' with type: megamenu.column_left_type size: megamenu.column_left_size %}
-    |||{% render 'header-get-menu-column-type' with type: megamenu.column_right_type size: megamenu.column_right_size right_side: true %}
+    {% render 'header-get-menu-column-type' with type, type: megamenu.column_left_type, size: megamenu.column_left_size %}
+    |||{% render 'header-get-menu-column-type' with type, type: megamenu.column_right_type, size: megamenu.column_right_size, right_side: true %}
 {% endcapture %}
 {%- assign content_types = 'megamenu_promobox,megamenu_brands,megamenu_products,megamenu_custom_html,megamenu_subscription' | split: ',' -%}
 {%- assign content_index = 1 -%}
@@ -11,7 +11,7 @@
     {% capture content_html %}
         {%- if block.type == 'megamenu_custom_html' -%}
             <div class="rte">
-                {% include 'parse-page-html-content' with page_content: block.settings.page_content %}
+                {% include 'parse-page-html-content' with page_content, page_content: block.settings.page_content %}
             </div>
         {%- elsif block.type == 'megamenu_products' -%}
             {%- assign title_url = collections[block.settings.collection].url -%}
@@ -27,7 +27,7 @@
                 {%- endif -%}
             </div>
         {%- elsif block.type == 'megamenu_promobox' -%}
-            {% render 'promobox' with block: block %}
+            {% render 'promobox' with block, block: block %}
         {%- elsif block.type == 'megamenu_brands' -%}
             {%- case block.settings.size_of_images -%}
                 {%- when '1' -%}{%- assign grid = 'col-12' -%}
@@ -50,7 +50,7 @@
                     {%- assign brand_image_size = block.settings[prop_image_size_name] -%}
                     {%- assign brand_url = block.settings[prop_url_name] | default: null -%}
                     <div class="{{ grid }} d-none d-lg-block px-lg-5 mb-lg-10">
-                        {% render 'promobox' with type: 'clean-bordered' image: brand_image image_size: brand_image_size url: brand_url %}
+                        {% render 'promobox' with type, type: 'clean-bordered', image: brand_image, image_size: brand_image_size, url: brand_url %}
                     </div>
                 {%- endfor -%}
             </div>
@@ -95,3 +95,33 @@
 {%- assign column_left_n_right = column_left_n_right | split: '|||' -%}
 {%- assign column_left = column_left_n_right[0] -%}
 {%- assign column_right = column_left_n_right[1] -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'header-get-menu-column-type' with type: megamenu.column_left_type
+    size: megamenu.column_left_size %}"
+  to: "{% render 'header-get-menu-column-type' with type, type: megamenu.column_left_type,
+    size: megamenu.column_left_size %}"
+  position: 39..157
+- from: "{% render 'header-get-menu-column-type' with type: megamenu.column_right_type
+    size: megamenu.column_right_size right_side: true %}"
+  to: "{% render 'header-get-menu-column-type' with type, type: megamenu.column_right_type,
+    size: megamenu.column_right_size, right_side: true %}"
+  position: 166..304
+- from: "{% include 'parse-page-html-content' with page_content: block.settings.page_content
+    %}"
+  to: "{% include 'parse-page-html-content' with page_content, page_content: block.settings.page_content
+    %}"
+  position: 796..896
+- from: "{% render 'promobox' with block: block %}"
+  to: "{% render 'promobox' with block, block: block %}"
+  position: 1766..1814
+- from: "{% render 'promobox' with type: 'clean-bordered' image: brand_image image_size:
+    brand_image_size url: brand_url %}"
+  to: "{% render 'promobox' with type, type: 'clean-bordered', image: brand_image,
+    image_size: brand_image_size, url: brand_url %}"
+  position: 3292..3415
+{% endcomment %}

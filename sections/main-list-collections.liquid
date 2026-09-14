@@ -65,7 +65,7 @@
                             {%- endif -%}
                             {%- assign button_1 = matches_block.settings.button_1 -%}
                             <div class="{{ grid }} mb-20 mb-lg-30">
-                                {% render 'promobox' with block: section image: image url: url text_line_1: text_line_1 text_line_2: text_line_2 button_1: button_1 style: section.settings.style %}
+                                {% render 'promobox' with block, block: section, image: image, url: url, text_line_1: text_line_1, text_line_2: text_line_2, button_1: button_1, style: section.settings.style %}
                             </div>
                     {%- endunless -%}
                 {%- endfor -%}
@@ -506,4 +506,17 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'promobox' with block: section image: image url: url text_line_1:
+    text_line_1 text_line_2: text_line_2 button_1: button_1 style: section.settings.style
+    %}"
+  to: "{% render 'promobox' with block, block: section, image: image, url: url, text_line_1:
+    text_line_1, text_line_2: text_line_2, button_1: button_1, style: section.settings.style
+    %}"
+  position: 4880..5057
+{%- endcomment -%}
