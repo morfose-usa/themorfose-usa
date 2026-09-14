@@ -56,7 +56,7 @@
                         {{ title_image_html }}|||{{ block.settings[prop_for_item_name] | handleize }}|||
                         <a href="[link_url]" class="d-none d-lg-block mb-10">
                             {%- capture image_size -%}{{ block.settings[prop_image_size_name] }}x{%- endcapture -%}
-                            {% render 'rimage' with image: block.settings[prop_image_name] size: image_size format: 'pjpg' %}
+                            {% render 'rimage' with image, image: block.settings[prop_image_name], size: image_size, format: 'pjpg' %}
                         </a>
                     {% endcapture %}
                 {%- endfor -%}
@@ -846,7 +846,7 @@
             {%- endfor -%}
         }
 
-        {% render 'css-style-button' with class: '.header__search-form .btn' type: header_search_btn_type %}
+        {% render 'css-style-button' with class, class: '.header__search-form .btn', type: header_search_btn_type %}
 
         @media (min-width: 1025px) {
             .header__line-additional {
@@ -996,7 +996,7 @@
 <script>
     theme.AssetsLoader.loadInlineStyles();
 </script>
-<header-section data-section-id="{{ section.id }}" data-section-type="header"{% render 'layout-get-container-class' with container: header_container custom_class: 'd-block' %}>
+<header-section data-section-id="{{ section.id }}" data-section-type="header"{% render 'layout-get-container-class' with container, container: header_container, custom_class: 'd-block' %}>
     <header id="header" class="header header--type-{{ section.settings.type }} header--style-{{ section.settings.style }}{% if template contains 'index' and section.settings.transparent_bg contains 'transparent' or header_enable_transparent %} header--transparent position-absolute top-0 w-100{% else %} position-lg-relative{% endif %}">
         {%- if section.settings.sticky != 'disable' -%}
             <sticky-header class="header--sticky-type-{{ section.settings.desktop_sticky_type }} d-block" data-sticky-type="{{ section.settings.sticky }}" data-desktop-sticky-sidebar="{% if need_sticky_sidebar %}true{% else %}false{% endif %}" data-hide-when-scroll-down="{{ section.settings.hide_sticky_when_scroll_down }}">
@@ -1025,11 +1025,11 @@
                 <div class="header__line-info header__line-info--style-{{ block.settings.style }} {% if block.settings.show_on_mobile %}d-flex{% else %}d-none d-lg-flex{% endif %} align-items-lg-center px-10 px-lg-0 pt-15 pb-10 py-lg-2">
                     <div class="{% if section.settings.type == '4' %}w-100 px-10 px-lg-20{% else %}container{% endif %} d-flex flex-column flex-lg-row align-items-center">
                         <div class="text-center text-lg-left">
-                            {% include 'parse-page-html-content' with default_page: 'include-header-info-line' page_content: block.settings.page_content %}
+                            {% include 'parse-page-html-content' with default_page, default_page: 'include-header-info-line', page_content: block.settings.page_content %}
                         </div>
                         {%- if block.settings.show_social_media -%}
                             <div class="header__social-media d-flex align-items-center{% if block.settings.page_content != blank %} mt-10 mt-lg-0{% endif %} ml-lg-auto">
-                                {% render 'social-media' with block: block type: 'row' social_enable_tooltip: header_enable_tooltips %}
+                                {% render 'social-media' with block, block: block, type: 'row', social_enable_tooltip: header_enable_tooltips %}
                             </div>
                         {%- endif -%}
                     </div>
@@ -1330,7 +1330,7 @@
                 {%- if section.settings.type != '5' and section.settings.type != '7' -%}
                     {%- assign is_main_menu = true -%}
                 {%- endif -%}
-                {% include 'header-get-menu' with is_main_menu: is_main_menu centered: menu_centered %}
+                {% include 'header-get-menu' with is_main_menu, is_main_menu: is_main_menu, centered: menu_centered %}
             </div>
         {%- endcapture -%}
         {%- capture services_html -%}
@@ -1472,7 +1472,7 @@
                 <div class="header__line-additional position-relative {% if section.settings.additional_line_info_page_content != blank %}d-flex px-10{% else %}d-none d-lg-flex{% endif %} px-lg-0">
                     <div class="container d-lg-flex align-items-lg-center">
                         <div>
-                            {% include 'parse-page-html-content' with default_page: 'include-header-info-line-4' page_content: section.settings.additional_line_info_page_content %}
+                            {% include 'parse-page-html-content' with default_page, default_page: 'include-header-info-line-4', page_content: section.settings.additional_line_info_page_content %}
                         </div>
                         <div class="header__line-additional_sidebar d-none d-lg-flex align-items-center ml-auto">
                             {%- if settings.services_show_header_button or settings.account_show_header_button and shop.customer_accounts_enabled -%}
@@ -1600,7 +1600,7 @@
                 <div class="header__line-additional position-relative {% if section.settings.additional_line_info_page_content != blank %}d-flex px-10{% else %}d-none d-lg-flex{% endif %} px-lg-0">
                     <div class="container d-lg-flex align-items-lg-center">
                         <div>
-                            {% include 'parse-page-html-content' with default_page: 'include-header-info-line-4' page_content: section.settings.additional_line_info_page_content %}
+                            {% include 'parse-page-html-content' with default_page, default_page: 'include-header-info-line-4', page_content: section.settings.additional_line_info_page_content %}
                         </div>
                         <div class="header__line-additional_sidebar d-none d-lg-flex align-items-center ml-auto">
                             {%- if settings.services_show_header_button or settings.account_show_header_button and shop.customer_accounts_enabled -%}
@@ -1714,7 +1714,7 @@
                 <div class="header__line-additional position-relative {% if section.settings.additional_line_info_page_content != blank %}d-flex px-10{% else %}d-none d-lg-flex{% endif %} px-lg-0">
                     <div class="container d-lg-flex align-items-lg-center">
                         <div>
-                            {% include 'parse-page-html-content' with default_page: 'include-header-info-line-4' page_content: section.settings.additional_line_info_page_content %}
+                            {% include 'parse-page-html-content' with default_page, default_page: 'include-header-info-line-4', page_content: section.settings.additional_line_info_page_content %}
                         </div>
                         <div class="header__line-additional_sidebar d-none d-lg-flex align-items-center ml-auto">
                             {%- if settings.services_show_header_button or settings.account_show_header_button and shop.customer_accounts_enabled -%}
@@ -4291,4 +4291,55 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: block.settings[prop_image_name] size: image_size
+    format: 'pjpg' %}"
+  to: "{% render 'rimage' with image, image: block.settings[prop_image_name], size:
+    image_size, format: 'pjpg' %}"
+  position: 4109..4215
+- from: "{% render 'css-style-button' with class: '.header__search-form .btn' type:
+    header_search_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.header__search-form .btn',
+    type: header_search_btn_type %}"
+  position: 53829..53937
+- from: "{% render 'layout-get-container-class' with container: header_container custom_class:
+    'd-block' %}"
+  to: "{% render 'layout-get-container-class' with container, container: header_container,
+    custom_class: 'd-block' %}"
+  position: 61321..61431
+- from: "{% include 'parse-page-html-content' with default_page: 'include-header-info-line'
+    page_content: block.settings.page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-header-info-line',
+    page_content: block.settings.page_content %}"
+  position: 63998..64140
+- from: "{% render 'social-media' with block: block type: 'row' social_enable_tooltip:
+    header_enable_tooltips %}"
+  to: "{% render 'social-media' with block, block: block, type: 'row', social_enable_tooltip:
+    header_enable_tooltips %}"
+  position: 64446..64558
+- from: "{% include 'header-get-menu' with is_main_menu: is_main_menu centered: menu_centered
+    %}"
+  to: "{% include 'header-get-menu' with is_main_menu, is_main_menu: is_main_menu,
+    centered: menu_centered %}"
+  position: 87855..87957
+- from: "{% include 'parse-page-html-content' with default_page: 'include-header-info-line-4'
+    page_content: section.settings.additional_line_info_page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-header-info-line-4',
+    page_content: section.settings.additional_line_info_page_content %}"
+  position: 96072..96239
+- from: "{% include 'parse-page-html-content' with default_page: 'include-header-info-line-4'
+    page_content: section.settings.additional_line_info_page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-header-info-line-4',
+    page_content: section.settings.additional_line_info_page_content %}"
+  position: 108356..108523
+- from: "{% include 'parse-page-html-content' with default_page: 'include-header-info-line-4'
+    page_content: section.settings.additional_line_info_page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-header-info-line-4',
+    page_content: section.settings.additional_line_info_page_content %}"
+  position: 119673..119840
+{%- endcomment -%}

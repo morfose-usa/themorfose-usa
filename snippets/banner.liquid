@@ -515,7 +515,7 @@
             </div>
         {%- elsif block.settings.video_mp4_url != blank -%}
             <div class="banner__video">
-                {% render 'rvideo' with video: block.settings.video_mp4_url autoplay: video_autoplay controls: video_controls lazyload: video_lazyload poster: block.settings.image poster_size: image_size height_custom: media_height_custom_enable height: media_height %}
+                {% render 'rvideo' with video, video: block.settings.video_mp4_url, autoplay: video_autoplay, controls: video_controls, lazyload: video_lazyload, poster: block.settings.image, poster_size: image_size, height_custom: media_height_custom_enable, height: media_height %}
             </div>
         {%- elsif block.settings.image != blank -%}
             {%- assign banner_bg_type = 'image' -%}
@@ -627,4 +627,19 @@
     <script>
         theme.AssetsLoader.require('scripts', 'parallax');
     </script>
-{%- endif -%}
+{%- endif -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rvideo' with video: block.settings.video_mp4_url autoplay: video_autoplay
+    controls: video_controls lazyload: video_lazyload poster: block.settings.image
+    poster_size: image_size height_custom: media_height_custom_enable height: media_height
+    %}"
+  to: "{% render 'rvideo' with video, video: block.settings.video_mp4_url, autoplay:
+    video_autoplay, controls: video_controls, lazyload: video_lazyload, poster: block.settings.image,
+    poster_size: image_size, height_custom: media_height_custom_enable, height: media_height
+    %}"
+  position: 33050..33317
+{%- endcomment -%}

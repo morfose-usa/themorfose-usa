@@ -67,12 +67,12 @@
                     {%- endif -%}
                     <a href="{{ url }}" class="d-block">
                       {%- capture image_id -%} data-image-id="{{ image.id }}"{%- endcapture -%}
-                      {% render 'rimage' with image: section.settings.image size: image_size format: image_format %}
+                      {% render 'rimage' with image, image: section.settings.image, size: image_size, format: image_format %}
                     </a>
                   {%- else -%}
                     {%- assign img_hover_url = hover_image | img_url: '1x1', format: image_format | replace: '_1x1.', image_size_placeholder -%}
                     <div class="product-image product-image--hover-{{ settings.product_hover_animation_type }} position-relative w-100 js-product-images-navigation js-product-images-hovered-end{% if settings.product_replace_images_hover %} js-product-images-hover{% endif %}"{% if settings.product_replace_images_hover and hover_image != blank %} data-js-product-image-hover="{{ img_hover_url }}" data-js-product-image-hover-id="{{ hover_image.id }}"{% endif %}>
-                      {% render 'product-get-images' with url: url image: image image_size: image_size title: title %}
+                      {% render 'product-get-images' with url, url: url, image: image, image_size: image_size, title: title %}
                       {%- if show_arrows and product.images.size > 1 -%}
                         <div class="one-product__image-navigation absolute-stretch d-flex align-items-center z-index-1 pointer-events-none">
                           <div class="product-images-navigation position-absolute left-0 ml-10 pointer-events-all">
@@ -115,12 +115,12 @@
                 {%- if show_countdown -%}
                   <div class="one-product-info__countdown mt-25 mb-15">
                     {% capture countdown_title %}{{ 'products.product.countdown.title' | t }}{% endcapture %}
-                    {% render 'product-get-countdown' with countdown_date: countdown_date, countdown_type: 2, countdown_title: countdown_title, centered: centered mobile_centered: mobile_centered %}
+                    {% render 'product-get-countdown' with countdown_date, countdown_date: countdown_date, countdown_type: 2, countdown_title: countdown_title, centered: centered, mobile_centered: mobile_centered %}
                   </div>
                 {%- endif -%}
                 {%- if show_collections and product.collections.size > 0 -%}
                   <div class="one-product-info__collections mb-3{% if section.settings.layout == '1' %} text-center text-md-left{% endif %}">
-                    {% render 'product-get-collections' with product: product %}
+                    {% render 'product-get-collections' with product, product: product %}
                   </div>
                 {%- endif -%}
                 <div class="one-product-info__title mb-15{% if section.settings.layout == '1' %} text-center text-md-left{% endif %}">
@@ -129,7 +129,7 @@
                 {%- if show_reviews -%}
                   <div class="one-product-info__reviews{% if section.settings.layout == '1' %} text-center text-md-left{% endif %}">
                     {%- if settings.reviews_type == 'default' -%}
-                      {% render 'product-get-review' with product: product type: 2 hide_counter: hide_reviews_counter hide_mobile_counter: hide_reviews_mobile_counter %}
+                      {% render 'product-get-review' with product, product: product, type: 2, hide_counter: hide_reviews_counter, hide_mobile_counter: hide_reviews_mobile_counter %}
                     {%- elsif settings.reviews_type == 'growave' and settings.app_growave_enable == true -%}
                       {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
                       {%- unless the_snippet_review_avg contains 'Liquid error' or product.metafields.ssw['review'].avg == 0 -%}
@@ -209,7 +209,7 @@
                     {%- if show_options and show_custom_options -%}
                       {%- unless product.has_only_default_variant -%}
                         <div class="one-product-info__options mb-15">
-                          {% include 'product-get-options' with options_type: 2 options_show_title: true mobile_start: mobile_start %}
+                          {% include 'product-get-options' with options_type, options_type: 2, options_show_title: true, mobile_start: mobile_start %}
                         </div>
                       {%- endunless -%}
                     {%- else -%}
@@ -220,7 +220,7 @@
                     {%- endif -%}
                     {%- if show_button_add_to_cart or show_options -%}
                       <div class="one-product-info__variants mb-15{% if show_options == false or show_custom_options %} d-none{% endif %}">
-                        {% render 'product-get-variants' with product: product current_variant: current_variant show_options: show_options show_custom_options: show_custom_options %}
+                        {% render 'product-get-variants' with product, product: product, current_variant: current_variant, show_options: show_options, show_custom_options: show_custom_options %}
                       </div>
                     {%- endif -%}
                     {%- if show_size_guide and product.metafields.sizeguide.html != 'hide' or show_delivery_return -%}
@@ -272,7 +272,7 @@
                     {%- if section.settings.button_layout == '1' -%}
                       {%- if show_quantity -%}
                         <div class="one-product-info__field one-product-info__quantity d-flex flex-column{% if section.settings.layout == '1' %} align-items-center align-items-md-start{% endif %} mb-20">
-                          {% render 'product-get-quantity' with quantity_show_title: true quantity_type: 3 %}
+                          {% render 'product-get-quantity' with quantity_show_title, quantity_show_title: true, quantity_type: 3 %}
                         </div>
                       {%- endif -%}
                       {%- if show_button_add_to_cart or show_button_add_to_wishlist or show_button_add_to_compare -%}
@@ -317,12 +317,12 @@
                             <div class="d-flex align-items-end">
                               {%- if show_quantity -%}
                                 <div class="one-product-info__field one-product-info__quantity">
-                                  {% render 'product-get-quantity' with quantity_show_title: true quantity_type: 3 %}
+                                  {% render 'product-get-quantity' with quantity_show_title, quantity_show_title: true, quantity_type: 3 %}
                                 </div>
                               {%- endif -%}
                               {%- if show_button_add_to_cart -%}
                                 <div class="one-product-info__button-add-to-cart">
-                                  {% include 'product-get-button-cart' with button_select_disable: true %}
+                                  {% include 'product-get-button-cart' with button_select_disable, button_select_disable: true %}
                                 </div>
                               {%- endif -%}
                             </div>
@@ -388,7 +388,7 @@
     {%- endif -%}
   </div>
 {%- else -%}
-  {% render 'no-blocks' with message: 'homepage.onboarding.no_content_message.one_product' %}
+  {% render 'no-blocks' with message, message: 'homepage.onboarding.no_content_message.one_product' %}
 {%- endif -%}
 
 
@@ -701,4 +701,65 @@
       }
   ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: section.settings.image size: image_size format:
+    image_format %}"
+  to: "{% render 'rimage' with image, image: section.settings.image, size: image_size,
+    format: image_format %}"
+  position: 5100..5203
+- from: "{% render 'product-get-images' with url: url image: image image_size: image_size
+    title: title %}"
+  to: "{% render 'product-get-images' with url, url: url, image: image, image_size:
+    image_size, title: title %}"
+  position: 5890..5994
+- from: "{% render 'product-get-countdown' with countdown_date: countdown_date, countdown_type:
+    2, countdown_title: countdown_title, centered: centered mobile_centered: mobile_centered
+    %}"
+  to: "{% render 'product-get-countdown' with countdown_date, countdown_date: countdown_date,
+    countdown_type: 2, countdown_title: countdown_title, centered: centered, mobile_centered:
+    mobile_centered %}"
+  position: 8957..9152
+- from: "{% render 'product-get-collections' with product: product %}"
+  to: "{% render 'product-get-collections' with product, product: product %}"
+  position: 9447..9516
+- from: "{% render 'product-get-review' with product: product type: 2 hide_counter:
+    hide_reviews_counter hide_mobile_counter: hide_reviews_mobile_counter %}"
+  to: "{% render 'product-get-review' with product, product: product, type: 2, hide_counter:
+    hide_reviews_counter, hide_mobile_counter: hide_reviews_mobile_counter %}"
+  position: 10060..10219
+- from: "{% include 'product-get-options' with options_type: 2 options_show_title:
+    true mobile_start: mobile_start %}"
+  to: "{% include 'product-get-options' with options_type, options_type: 2, options_show_title:
+    true, mobile_start: mobile_start %}"
+  position: 16039..16163
+- from: "{% render 'product-get-variants' with product: product current_variant: current_variant
+    show_options: show_options show_custom_options: show_custom_options %}"
+  to: "{% render 'product-get-variants' with product, product: product, current_variant:
+    current_variant, show_options: show_options, show_custom_options: show_custom_options
+    %}"
+  position: 16776..16946
+- from: "{% render 'product-get-quantity' with quantity_show_title: true quantity_type:
+    3 %}"
+  to: "{% render 'product-get-quantity' with quantity_show_title, quantity_show_title:
+    true, quantity_type: 3 %}"
+  position: 21307..21412
+- from: "{% render 'product-get-quantity' with quantity_show_title: true quantity_type:
+    3 %}"
+  to: "{% render 'product-get-quantity' with quantity_show_title, quantity_show_title:
+    true, quantity_type: 3 %}"
+  position: 24684..24789
+- from: "{% include 'product-get-button-cart' with button_select_disable: true %}"
+  to: "{% include 'product-get-button-cart' with button_select_disable, button_select_disable:
+    true %}"
+  position: 25055..25150
+- from: "{% render 'no-blocks' with message: 'homepage.onboarding.no_content_message.one_product'
+    %}"
+  to: "{% render 'no-blocks' with message, message: 'homepage.onboarding.no_content_message.one_product'
+    %}"
+  position: 28904..29004
+{%- endcomment -%}

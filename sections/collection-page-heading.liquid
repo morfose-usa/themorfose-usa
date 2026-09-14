@@ -31,7 +31,7 @@
                                             {% include 'parse-for-icons' content: collection.description %}
                                         </div>
                                     {%- elsif is_content -%}
-                                        {% render 'promobox' with block: block block_id: block_id promobox_curtain_opacity: promobox_curtain_opacity promobox_height_preset_1: promobox_height_preset_1 promobox_height_preset_2: promobox_height_preset_2 promobox_height_preset_3: promobox_height_preset_3 promobox_ultra_height_preset_1: promobox_ultra_height_preset_1 promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}
+                                        {% render 'promobox' with block, block: block, block_id: block_id, promobox_curtain_opacity: promobox_curtain_opacity, promobox_height_preset_1: promobox_height_preset_1, promobox_height_preset_2: promobox_height_preset_2, promobox_height_preset_3: promobox_height_preset_3, promobox_ultra_height_preset_1: promobox_ultra_height_preset_1, promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}
                                     {%- elsif is_slider -%}
                                         {% include 'builder-slider-slick' %}
                                     {%- endif -%}
@@ -2067,4 +2067,21 @@
     }
 ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'promobox' with block: block block_id: block_id promobox_curtain_opacity:
+    promobox_curtain_opacity promobox_height_preset_1: promobox_height_preset_1 promobox_height_preset_2:
+    promobox_height_preset_2 promobox_height_preset_3: promobox_height_preset_3 promobox_ultra_height_preset_1:
+    promobox_ultra_height_preset_1 promobox_ultra_height_preset_3: promobox_ultra_height_preset_3
+    %}"
+  to: "{% render 'promobox' with block, block: block, block_id: block_id, promobox_curtain_opacity:
+    promobox_curtain_opacity, promobox_height_preset_1: promobox_height_preset_1,
+    promobox_height_preset_2: promobox_height_preset_2, promobox_height_preset_3:
+    promobox_height_preset_3, promobox_ultra_height_preset_1: promobox_ultra_height_preset_1,
+    promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}"
+  position: 3034..3438
+{%- endcomment -%}

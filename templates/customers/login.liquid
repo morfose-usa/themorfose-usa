@@ -71,7 +71,7 @@
     {%- endif -%}
     <div class="pt-35 mt-35 border-top">
       <h2 class="h3 text-center">{{ 'customer.login.sign_up_title' | t }}</h2>
-      {% include 'parse-page-html-content' with default_page: 'include-account-page' page_content: settings.account_page_sing_up_page_content %}
+      {% include 'parse-page-html-content' with default_page, default_page: 'include-account-page', page_content: settings.account_page_sing_up_page_content %}
       <a href="/account/register" class="btn btn--full">{{ 'customer.login.create_account' | t }}</a>
     </div>
   </div>
@@ -80,3 +80,15 @@
 <script>
   theme.AssetsLoader.require('scripts', 'customers_login');
 </script>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'parse-page-html-content' with default_page: 'include-account-page'
+    page_content: settings.account_page_sing_up_page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-account-page',
+    page_content: settings.account_page_sing_up_page_content %}"
+  position: 3772..3925
+{% endcomment %}

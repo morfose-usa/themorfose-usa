@@ -1,12 +1,12 @@
 <div class="theme-templates">
     <template id="template-popup-search-ajax">
         <div class="col-12 col-lg-2">
-            {% include 'product-search' with product: null %}
+            {% include 'product-search' with product, product: nil %}
         </div>
     </template>
     <template id="template-search-ajax">
         <div class="col-12 mb-10">
-            {% include 'product-search-2' with product: null %}
+            {% include 'product-search-2' with product, product: nil %}
         </div>
     </template>
     {%- assign namespaces = 'wishlist,compare' | split: ',' -%}
@@ -17,4 +17,16 @@
             </div>
         </template>
     {%- endfor -%}
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-search' with product: null %}"
+  to: "{% include 'product-search' with product, product: nil %}"
+  position: 130..187
+- from: "{% include 'product-search-2' with product: null %}"
+  to: "{% include 'product-search-2' with product, product: nil %}"
+  position: 312..371
+{%- endcomment -%}

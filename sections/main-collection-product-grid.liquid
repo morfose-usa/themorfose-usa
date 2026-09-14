@@ -284,7 +284,7 @@
                                             {%- else -%}
                                                 {%- for product in collection.products -%}
                                                     <div class="{{ grid_classes }}">
-                                                    {% include 'product-collection' with url_without_collection: true product_margin_bottom: offset_collection_page_product_margin_bottom_d %}
+                                                    {% include 'product-collection' with url_without_collection, url_without_collection: true, product_margin_bottom: offset_collection_page_product_margin_bottom_d %}
                                                     </div>
                                                 {%- endfor -%}
                                             {%- endif -%}
@@ -2367,3 +2367,15 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-collection' with url_without_collection: true product_margin_bottom:
+    offset_collection_page_product_margin_bottom_d %}"
+  to: "{% include 'product-collection' with url_without_collection, url_without_collection:
+    true, product_margin_bottom: offset_collection_page_product_margin_bottom_d %}"
+  position: 29929..30092
+{% endcomment %}

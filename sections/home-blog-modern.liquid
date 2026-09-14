@@ -25,7 +25,7 @@
             <article class="home-blog-modern__card-inner h-100 d-flex flex-column">
               <a href="{{ article.url }}" class="home-blog-modern__image-wrap d-block overflow-hidden mb-15">
                 {%- if article.image != blank -%}
-                  {% render 'rimage' with image: article.image size: section.settings.image_size | default: '500x' format: 'pjpg' alt: article.title %}
+                  {% render 'rimage' with image, image: article.image, size: section.settings.image_size, default: '500x', format: 'pjpg', alt: article.title %}
                 {%- else -%}
                   <div class="home-blog-modern__placeholder rimage rimage--placeholder" style="padding-top: 56.25%; background: var(--theme5, #eee);"></div>
                 {%- endif -%}
@@ -69,7 +69,7 @@
   <div class="home-blog-modern" data-section-id="{{ section.id }}" data-section-type="home-blog-modern">
     <div{% render 'layout-get-container-class', fullwidth_need_paddings: true %}>
       <div class="row">
-        {% render 'no-blocks' with message: 'homepage.onboarding.no_content_message.carousel_articles' %}
+        {% render 'no-blocks' with message, message: 'homepage.onboarding.no_content_message.carousel_articles' %}
       </div>
     </div>
   </div>
@@ -170,3 +170,20 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: article.image size: section.settings.image_size
+    | default: '500x' format: 'pjpg' alt: article.title %}"
+  to: "{% render 'rimage' with image, image: article.image, size: section.settings.image_size,
+    default: '500x', format: 'pjpg', alt: article.title %}"
+  position: 1631..1773
+- from: "{% render 'no-blocks' with message: 'homepage.onboarding.no_content_message.carousel_articles'
+    %}"
+  to: "{% render 'no-blocks' with message, message: 'homepage.onboarding.no_content_message.carousel_articles'
+    %}"
+  position: 4545..4651
+{% endcomment %}

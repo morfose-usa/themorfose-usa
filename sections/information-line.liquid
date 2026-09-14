@@ -121,7 +121,7 @@
                         <{% if block.settings.url != blank %}a href="{{ block.settings.url }}"{% else %}div{% endif %} class="col-12 col-lg-{{ 12 | divided_by: section.blocks.size }}">
                             {%- if section.settings.type == '1' -%}
                                 <div class="d-flex align-items-center justify-content-start justify-content-lg-start py-10">
-                                    <i class="mr-15">{% include 'load-icon' with name: block.settings.icon %}</i>
+                                    <i class="mr-15">{% include 'load-icon' with name, name: block.settings.icon %}</i>
                                     <div>
                                         {%- if block.settings.title != blank -%}
                                             <h3 class="information-line__title h6 d-inline">{{ block.settings.title }} </h3>
@@ -133,7 +133,7 @@
                                 </div>
                             {%- else -%}
                                 <div class="d-flex align-items-start justify-content-start py-10">
-                                    <i class="mr-15">{% include 'load-icon' with name: block.settings.icon %}</i>
+                                    <i class="mr-15">{% include 'load-icon' with name, name: block.settings.icon %}</i>
                                     <div>
                                         {%- if block.settings.title != blank -%}
                                             <h3 class="information-line__title h6 mb-0">{{ block.settings.title }} </h3>
@@ -290,4 +290,16 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'load-icon' with name: block.settings.icon %}"
+  to: "{% include 'load-icon' with name, name: block.settings.icon %}"
+  position: 7807..7869
+- from: "{% include 'load-icon' with name: block.settings.icon %}"
+  to: "{% include 'load-icon' with name, name: block.settings.icon %}"
+  position: 8701..8763
+{%- endcomment -%}

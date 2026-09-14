@@ -1,4 +1,13 @@
 {% layout none %}
 <div>
-    {% include 'popup-cart' with  disable_lazyload: true %}
-</div>
+    {% include 'popup-cart' with disable_lazyload, disable_lazyload: true %}
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'popup-cart' with  disable_lazyload: true %}"
+  to: "{% include 'popup-cart' with disable_lazyload, disable_lazyload: true %}"
+  position: 30..102
+{%- endcomment -%}

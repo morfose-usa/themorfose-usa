@@ -35,7 +35,7 @@
                     {%- endif -%}
                     {%- assign text_with_value = text | replace: '{value}', random_value -%}
                     <div class="product-fixed-sizebar__line d-flex align-items-center py-9">
-                        <i>{% include 'parse-for-icons' with content: icon %}</i>
+                        <i>{% include 'parse-for-icons' with content, content: icon %}</i>
                         <p class="mb-0">{{ text_with_value }}</p>
                     </div>
                 {%- endfor -%}
@@ -97,3 +97,13 @@
 }
 {% endschema %}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'parse-for-icons' with content: icon %}"
+  to: "{% include 'parse-for-icons' with content, content: icon %}"
+  position: 2384..2443
+{% endcomment %}

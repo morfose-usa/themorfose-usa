@@ -45,14 +45,14 @@
             {%- if item.object_type == 'product' -%}
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     {%- assign product = item -%}
-                    {% include 'product-collection' with show_first_product_image: true %}
+                    {% include 'product-collection' with show_first_product_image, show_first_product_image: true %}
                 </div>
             {%- elsif settings.search_show_only_products != true -%}
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div>
                         {%- if item.image -%}
                             <a href="{{ item.url }}" class="d-block mb-20" title="{{ item.title | escape }}">
-                                {% render 'rimage' with image: item.image alt: item.image.alt %}
+                                {% render 'rimage' with image, image: item.image, alt: item.image.alt %}
                             </a>
                         {%- endif -%}
                     </div>
@@ -76,4 +76,17 @@
   "settings": [
   ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-collection' with show_first_product_image: true %}"
+  to: "{% include 'product-collection' with show_first_product_image, show_first_product_image:
+    true %}"
+  position: 1992..2088
+- from: "{% render 'rimage' with image: item.image alt: item.image.alt %}"
+  to: "{% render 'rimage' with image, image: item.image, alt: item.image.alt %}"
+  position: 2459..2531
+{%- endcomment -%}

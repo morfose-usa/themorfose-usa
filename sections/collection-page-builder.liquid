@@ -27,10 +27,10 @@
                 <div class="{{ block_id }} {% if section.settings.section_type == 'insert' %}mb-30 mb-lg-{{ offset_collection_page_product_margin_bottom_d }}{% else %}{% if block.settings.size_of_column != blank and block.settings.size_of_column != 'auto' %}{{ grid_mobile }} col-md-{{ block.settings.size_of_column }}{% else %}{{ grid }}{% endif %} {{ margins_for_columns }}{% endif %}"{% if section.settings.section_type == 'insert' %} data-js-promobox data-promobox-grid-visible="{% if section.settings.show_grid_1 %}1{% endif %}{% if section.settings.show_grid_2 %}2{% endif %}{% if section.settings.show_grid_3 %}3{% endif %}{% if section.settings.show_grid_4 %}4{% endif %}{% if section.settings.show_grid_6 %}6{% endif %}{% if section.settings.show_list %}list{% endif %}"{% endif %}">
                     {%- case block.type -%}
                     {%- when 'promobox' -%}
-                        {% render 'promobox' with block: block block_id: block_id promobox_curtain_opacity: promobox_curtain_opacity promobox_height_preset_1: promobox_height_preset_1 promobox_height_preset_2: promobox_height_preset_2 promobox_height_preset_3: promobox_height_preset_3 promobox_ultra_height_preset_1: promobox_ultra_height_preset_1 promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}
+                        {% render 'promobox' with block, block: block, block_id: block_id, promobox_curtain_opacity: promobox_curtain_opacity, promobox_height_preset_1: promobox_height_preset_1, promobox_height_preset_2: promobox_height_preset_2, promobox_height_preset_3: promobox_height_preset_3, promobox_ultra_height_preset_1: promobox_ultra_height_preset_1, promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}
                     {%- when 'custom_html' -%}
                         <div class="rte">
-                            {% include 'parse-page-html-content' with page_content: block.settings.page_content %}
+                            {% include 'parse-page-html-content' with page_content, page_content: block.settings.page_content %}
                         </div>
                     {%- endcase -%}
                 </div>
@@ -1262,4 +1262,26 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'promobox' with block: block block_id: block_id promobox_curtain_opacity:
+    promobox_curtain_opacity promobox_height_preset_1: promobox_height_preset_1 promobox_height_preset_2:
+    promobox_height_preset_2 promobox_height_preset_3: promobox_height_preset_3 promobox_ultra_height_preset_1:
+    promobox_ultra_height_preset_1 promobox_ultra_height_preset_3: promobox_ultra_height_preset_3
+    %}"
+  to: "{% render 'promobox' with block, block: block, block_id: block_id, promobox_curtain_opacity:
+    promobox_curtain_opacity, promobox_height_preset_1: promobox_height_preset_1,
+    promobox_height_preset_2: promobox_height_preset_2, promobox_height_preset_3:
+    promobox_height_preset_3, promobox_ultra_height_preset_1: promobox_ultra_height_preset_1,
+    promobox_ultra_height_preset_3: promobox_ultra_height_preset_3 %}"
+  position: 2834..3238
+- from: "{% include 'parse-page-html-content' with page_content: block.settings.page_content
+    %}"
+  to: "{% include 'parse-page-html-content' with page_content, page_content: block.settings.page_content
+    %}"
+  position: 3359..3459
+{%- endcomment -%}

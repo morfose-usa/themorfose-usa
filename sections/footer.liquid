@@ -224,7 +224,7 @@
             {%- endfor -%}
         }
 
-        {% render 'css-style-button' with class: '.footer__subscription .btn' type: footer_subscription_btn_type %}
+        {% render 'css-style-button' with class, class: '.footer__subscription .btn', type: footer_subscription_btn_type %}
     </style>  
 {%- endcapture -%}
 {%- if style_base_html -%}
@@ -346,7 +346,7 @@
                             {%- when '6' %}{% assign custom_html_default_page = 'include-footer-custom-html-3' -%}
                             {%- else %}{% assign custom_html_default_page = 'include-footer-custom-html' -%}
                         {%- endcase -%}
-                        {% include 'parse-page-html-content' with default_page: custom_html_default_page page_content: block.settings.page_content %}
+                        {% include 'parse-page-html-content' with default_page, default_page: custom_html_default_page, page_content: block.settings.page_content %}
                     </div>
                 </div>
             </div>
@@ -362,15 +362,15 @@
                     {%- endif -%}
                 {%- endif -%}
                 {%- if section.settings.type == '1' -%}
-                    {% render 'social-media' with block: block type: 'column' %}
+                    {% render 'social-media' with block, block: block, type: 'column' %}
                 {%- else -%}
-                    {% render 'social-media' with block: block type: 'row' size: footer_social_media_size social_enable_tooltip: footer_social_enable_tooltips %}
+                    {% render 'social-media' with block, block: block, type: 'row', size: footer_social_media_size, social_enable_tooltip: footer_social_enable_tooltips %}
                 {%- endif -%}
             </div>
         {%- endcapture -%}
         {%- capture social_mobile -%}
             <div class="footer__social-media-mobile">
-                {% render 'social-media' with block: block type: 'row' %}
+                {% render 'social-media' with block, block: block, type: 'row' %}
             </div>
         {%- endcapture -%}
     {%- when 'subscription' -%}
@@ -459,7 +459,7 @@
                         {%- when '6' %}{% assign copyright_default_page = 'include-footer-copyright-2' -%}
                         {%- else %}{% assign copyright_default_page = 'include-footer-copyright' -%}
                     {%- endcase -%}
-                    {% capture copyright_page_content %}{% include 'parse-page-html-content' with default_page: copyright_default_page page_content: block.settings.page_content ignore_icons: true %}{% endcapture %}
+                    {% capture copyright_page_content %}{% include 'parse-page-html-content' with default_page, default_page: copyright_default_page, page_content: block.settings.page_content, ignore_icons: true %}{% endcapture %}
                     {%- if copyright_page_content != blank -%}
                         {{ copyright_page_content }}
                     {%- else -%}
@@ -471,7 +471,7 @@
     {%- when 'payments' -%}
         {%- capture payments -%}
             <div class="footer__payments justify-content-center pt-5{% if section.settings.type != '3' and section.settings.type != '7' %} ml-lg-auto{% endif %}">
-                {% include 'payments' with size: 2 payments_sequence: settings.payment_sequence_footer %}
+                {% include 'payments' with size, size: 2, payments_sequence: settings.payment_sequence_footer %}
             </div>
         {%- endcapture -%}
     {%- endcase -%}
@@ -489,7 +489,7 @@
     {%- endcapture -%}
 {%- endif -%}
 {% capture fixed_attr %}{% if section.settings.enable_fixed %} data-js-footer-fixed{% endif %}{% endcapture %}
-<footer-section data-section-id="{{ section.id }}" data-section-type="footer"{% render 'layout-get-container-class' with container: footer_container custom_class: 'd-block' %}>
+<footer-section data-section-id="{{ section.id }}" data-section-type="footer"{% render 'layout-get-container-class' with container, container: footer_container, custom_class: 'd-block' %}>
     {%- case section.settings.type -%}
     {%- when '1' -%}
         <footer id="footer" class="footer footer--style-{{ section.settings.style }}{% if template != 'index' %} {{ footer_other_page_margins }}{% endif %}{% if section.settings.enable_fixed %} pt-1{% endif %} text-center text-lg-left js-footer"{{ fixed_attr }}>
@@ -1171,3 +1171,46 @@
 }
 {% endschema %}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'css-style-button' with class: '.footer__subscription .btn' type:
+    footer_subscription_btn_type %}"
+  to: "{% render 'css-style-button' with class, class: '.footer__subscription .btn',
+    type: footer_subscription_btn_type %}"
+  position: 13602..13717
+- from: "{% include 'parse-page-html-content' with default_page: custom_html_default_page
+    page_content: block.settings.page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: custom_html_default_page,
+    page_content: block.settings.page_content %}"
+  position: 21526..21666
+- from: "{% render 'social-media' with block: block type: 'column' %}"
+  to: "{% render 'social-media' with block, block: block, type: 'column' %}"
+  position: 22649..22717
+- from: "{% render 'social-media' with block: block type: 'row' size: footer_social_media_size
+    social_enable_tooltip: footer_social_enable_tooltips %}"
+  to: "{% render 'social-media' with block, block: block, type: 'row', size: footer_social_media_size,
+    social_enable_tooltip: footer_social_enable_tooltips %}"
+  position: 22769..22920
+- from: "{% render 'social-media' with block: block type: 'row' %}"
+  to: "{% render 'social-media' with block, block: block, type: 'row' %}"
+  position: 23111..23176
+- from: "{% include 'parse-page-html-content' with default_page: copyright_default_page
+    page_content: block.settings.page_content ignore_icons: true %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: copyright_default_page,
+    page_content: block.settings.page_content, ignore_icons: true %}"
+  position: 29970..30128
+- from: "{% include 'payments' with size: 2 payments_sequence: settings.payment_sequence_footer
+    %}"
+  to: "{% include 'payments' with size, size: 2, payments_sequence: settings.payment_sequence_footer
+    %}"
+  position: 30796..30892
+- from: "{% render 'layout-get-container-class' with container: footer_container custom_class:
+    'd-block' %}"
+  to: "{% render 'layout-get-container-class' with container, container: footer_container,
+    custom_class: 'd-block' %}"
+  position: 31739..31849
+{% endcomment %}

@@ -60,12 +60,12 @@
                                                             {%- if carousel_related_products_async_ajax_loading == false or forloop.index0 < limit -%}
                                                                 <div class="carousel__item col-auto">
                                                                     {%- assign disable_lazyload = carousel_related_products_image_lazyload_carousel_disable -%}
-                                                                    {% include 'product-collection' with url_without_collection: true %}
+                                                                    {% include 'product-collection' with url_without_collection, url_without_collection: true %}
                                                                 </div>
                                                             {%- elsif carousel_related_products_async_ajax_loading and forloop.index >= limit and forloop.last == true -%}
                                                                 <div class="carousel__item col-auto">
                                                                     {%- assign disable_lazyload = carousel_related_products_image_lazyload_carousel_disable -%}
-                                                                    {% include 'product-collection' with url_without_collection: true %}
+                                                                    {% include 'product-collection' with url_without_collection, url_without_collection: true %}
                                                                 </div>
                                                             {%- else -%}
                                                                 <div class="carousel__item col-auto" data-handle="{{ product.handle }}"></div>
@@ -154,12 +154,12 @@
                                                 {%- if carousel_related_products_async_ajax_loading == false or forloop.index0 < limit -%}
                                                     <div class="carousel__item col-auto">
                                                         {%- assign disable_lazyload = carousel_related_products_image_lazyload_carousel_disable -%}
-                                                        {% include 'product-collection' with url_without_collection: true %}
+                                                        {% include 'product-collection' with url_without_collection, url_without_collection: true %}
                                                     </div>
                                                 {%- elsif carousel_related_products_async_ajax_loading and forloop.index >= limit and forloop.last == true -%}
                                                     <div class="carousel__item col-auto">
                                                         {%- assign disable_lazyload = carousel_related_products_image_lazyload_carousel_disable -%}
-                                                        {% include 'product-collection' with url_without_collection: true %}
+                                                        {% include 'product-collection' with url_without_collection, url_without_collection: true %}
                                                     </div>
                                                 {%- else -%}
                                                     <div class="carousel__item col-auto" data-handle="{{ product.handle }}"></div>
@@ -207,7 +207,7 @@
                                                     {%- if rec_counter < section.settings.max_count -%}
                                                         <div class="carousel__item col-auto">
                                                             {%- assign disable_lazyload = carousel_related_products_image_lazyload_carousel_disable -%}
-                                                            {% include 'product-collection' with url_without_collection: true %}
+                                                            {% include 'product-collection' with url_without_collection, url_without_collection: true %}
                                                         </div>
                                                         {%- assign rec_counter = rec_counter | plus: 1 -%}
                                                     {%- endif -%}
@@ -333,4 +333,30 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-collection' with url_without_collection: true %}"
+  to: "{% include 'product-collection' with url_without_collection, url_without_collection:
+    true %}"
+  position: 4876..4968
+- from: "{% include 'product-collection' with url_without_collection: true %}"
+  to: "{% include 'product-collection' with url_without_collection, url_without_collection:
+    true %}"
+  position: 5541..5633
+- from: "{% include 'product-collection' with url_without_collection: true %}"
+  to: "{% include 'product-collection' with url_without_collection, url_without_collection:
+    true %}"
+  position: 12265..12357
+- from: "{% include 'product-collection' with url_without_collection: true %}"
+  to: "{% include 'product-collection' with url_without_collection, url_without_collection:
+    true %}"
+  position: 12870..12962
+- from: "{% include 'product-collection' with url_without_collection: true %}"
+  to: "{% include 'product-collection' with url_without_collection, url_without_collection:
+    true %}"
+  position: 17100..17192
+{%- endcomment -%}

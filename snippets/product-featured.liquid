@@ -23,7 +23,7 @@
 <div class="product-featured d-flex flex-row align-items-start mb-20">
     <div class="product-featured__image mr-20 js-product-images-hovered-end{% if settings.product_replace_images_hover %} js-product-images-hover{% endif %}"{% if settings.product_replace_images_hover and hover_image != blank %} data-js-product-image-hover="{{ img_hover_url }}" data-js-product-image-hover-id="{{ hover_image.id }}"{% endif %}>
         <a href="{{ url }}" class="d-block">
-            {% render 'rimage' with image: image size: image_size stretch_size: settings.product_collection_image_size alt: title %}
+            {% render 'rimage' with image, image: image, size: image_size, stretch_size: settings.product_collection_image_size, alt: title %}
         </a>
     </div>
     <div class="product-featured__content d-flex flex-column align-items-start">
@@ -65,7 +65,7 @@
             {% when 'collections' %}
                 {%- if product.collections.size > 0 -%}
                     <div class="product-collection__more-info mb-3">
-                        {% render 'product-get-collections' with product: product %}
+                        {% render 'product-get-collections' with product, product: product %}
                     </div>
                 {%- endif -%}
             {% when 'vendor' %}
@@ -92,7 +92,7 @@
         {%- if show_reviews -%}
             <div class="product-featured__reviews">
                 {%- if settings.reviews_type == 'default' -%}
-                    {% render 'product-get-review' with product: product hide_counter: hide_reviews_counter %}
+                    {% render 'product-get-review' with product, product: product, hide_counter: hide_reviews_counter %}
                 {%- elsif settings.reviews_type == 'growave' and settings.app_growave_enable == true -%}
                     {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
                     {%- unless the_snippet_review_avg contains 'Liquid error' or product.metafields.ssw['review'].avg == 0 -%}
@@ -107,4 +107,23 @@
         {%- endif -%}
     </div>
 </div>
-{% include 'product-res-variables-clear' %}
+{% include 'product-res-variables-clear' %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rimage' with image: image size: image_size stretch_size: settings.product_collection_image_size
+    alt: title %}"
+  to: "{% render 'rimage' with image, image: image, size: image_size, stretch_size:
+    settings.product_collection_image_size, alt: title %}"
+  position: 1890..2020
+- from: "{% render 'product-get-collections' with product: product %}"
+  to: "{% render 'product-get-collections' with product, product: product %}"
+  position: 4063..4132
+- from: "{% render 'product-get-review' with product: product hide_counter: hide_reviews_counter
+    %}"
+  to: "{% render 'product-get-review' with product, product: product, hide_counter:
+    hide_reviews_counter %}"
+  position: 5346..5446
+{%- endcomment -%}

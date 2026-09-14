@@ -10,7 +10,7 @@
                         {%- if section.settings.show_info_column -%}
                             {%- if section.settings.page_content != blank -%}
                                 <div class="rte">
-                                    {% include 'parse-page-html-content' with default_page: 'include-contact-form' page_content: section.settings.page_content %}
+                                    {% include 'parse-page-html-content' with default_page, default_page: 'include-contact-form', page_content: section.settings.page_content %}
                                 </div>
                                 {%- assign has_content = true -%}
                             {%- elsif page.content -%}
@@ -168,4 +168,15 @@
         }
     ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'parse-page-html-content' with default_page: 'include-contact-form'
+    page_content: section.settings.page_content %}"
+  to: "{% include 'parse-page-html-content' with default_page, default_page: 'include-contact-form',
+    page_content: section.settings.page_content %}"
+  position: 739..879
+{%- endcomment -%}
